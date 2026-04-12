@@ -1,0 +1,74 @@
+---
+const businesses = [
+  {
+    name: 'Lumio',
+    tag: 'AIシステム',
+    desc: 'リフォーム業向けAIシステム。見積もり自動化・現場写真AI診断・顧客フォローアップを一括で自動化します。',
+    url: '#',
+    soon: true,
+  },
+  {
+    name: 'LINE自動化',
+    tag: 'LINE Automation',
+    desc: '24時間365日、問い合わせを自動受付・フォローアップ。営業時間外の機会損失をゼロにします。',
+    url: '#',
+    soon: true,
+  },
+  {
+    name: 'Web制作',
+    tag: 'Web Design',
+    desc: 'SEO・GEO・導線設計まで、集客できるサイトをAstro / Next.jsで高速実装。制作後も毎月改善し続けます。',
+    url: 'https://sanei-reform.vercel.app',
+    external: true,
+  },
+  {
+    name: 'SEO / GEO対策',
+    tag: 'Search & AI Optimization',
+    desc: 'GoogleだけでなくChatGPT・Claudeに選ばれるコンテンツ設計。llms.txt・Schema.org・GBP最適化まで対応。',
+    url: '#',
+    soon: true,
+  },
+]
+---
+
+<section id="business" class="py-24 px-6 scroll-mt-16">
+  <div class="max-w-5xl mx-auto">
+
+    <div class="mb-14 reveal">
+      <h2 class="font-sans font-bold text-2xl text-slate-900 mb-2">事業内容</h2>
+      <div class="w-10 h-0.5 bg-slate-300"></div>
+    </div>
+
+    <ul class="flex flex-col gap-8">
+      {businesses.map((b, i) => (
+        <li class="reveal">
+          <div class={`flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center p-8 rounded-xl border border-slate-100 bg-white hover:border-slate-200 hover:shadow-sm transition-all ${b.soon ? 'opacity-80' : ''}`}>
+            <!-- 左：スクショ / サムネ -->
+            <div class="w-full md:w-48 h-28 md:h-24 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg flex-shrink-0 flex items-center justify-center">
+              <span class="font-serif font-light text-slate-400 text-xl">{b.name}</span>
+            </div>
+            <!-- 右：テキスト -->
+            <div class="flex-1">
+              <p class="text-xs tracking-widest uppercase text-slate-400 mb-1">{b.tag}</p>
+              <h3 class="font-sans font-bold text-slate-900 text-lg mb-2">{b.name}</h3>
+              <p class="text-sm text-slate-600 leading-relaxed mb-4">{b.desc}</p>
+              {b.soon ? (
+                <span class="inline-block text-xs text-slate-400 border border-slate-200 rounded px-3 py-1">近日公開</span>
+              ) : (
+                <a
+                  href={b.url}
+                  target={b.external ? '_blank' : undefined}
+                  rel={b.external ? 'noopener noreferrer' : undefined}
+                  class="inline-flex items-center gap-1.5 text-sm font-medium text-slate-800 bg-slate-900 text-white px-5 py-2.5 rounded hover:bg-slate-700 transition"
+                >
+                  サイトを見る →
+                </a>
+              )}
+            </div>
+          </div>
+        </li>
+      ))}
+    </ul>
+
+  </div>
+</section>
