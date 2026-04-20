@@ -1,0 +1,57 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+---
+
+<Layout
+  title="特定商取引法に基づく表記 | AltShift"
+  description="AltShiftの特定商取引法に基づく表記ページです。"
+>
+  <Nav />
+  <main class="min-h-screen pt-28 pb-24 px-6" style="background-color: #F5F6F8;">
+    <div class="max-w-3xl mx-auto">
+
+      <div class="mb-12">
+        <p class="text-xs tracking-[0.2em] uppercase mb-2" style="color: #C8A15A;">Legal</p>
+        <h1 class="font-sans font-bold text-2xl mb-2" style="color: #0F1B2D;">特定商取引法に基づく表記</h1>
+        <div class="w-10 h-0.5" style="background-color: #B85042;"></div>
+      </div>
+
+      <div class="bg-white rounded-xl border overflow-hidden" style="border-color: #E8EAED;">
+        {[
+          { label: '販売事業者', value: '坂口 大輝（屋号：AltShift / オルトシフト）' },
+          { label: '運営責任者', value: '坂口 大輝（通称：ディーチャー）' },
+          { label: '事業形態', value: '個人事業主' },
+          { label: '所在地', value: '福岡県福岡市（詳細は請求があれば遅滞なく開示いたします）' },
+          { label: '連絡先メール', value: 'contact@altshift.jp' },
+          { label: '電話番号', value: '請求があれば遅滞なく開示いたします' },
+          {
+            label: '取扱商品・サービス',
+            value: '外部CAIOサービス / AIシステム開発・導入支援 / Web制作・SEO/GEO対策 / LINE自動化システム',
+          },
+          { label: '販売価格', value: '各サービスごとにお見積もり' },
+          { label: 'お支払い方法', value: '銀行振込' },
+          { label: 'お支払い時期', value: '請求書発行月の翌月末まで' },
+          { label: 'サービス提供時期', value: '契約後、個別に取り決め' },
+          {
+            label: '返品・キャンセル',
+            value: 'サービスの性質上、返品は不可。キャンセルは契約時の条件に従います。',
+          },
+        ].map((row, i, arr) => (
+          <dl class={`flex flex-col sm:flex-row ${i !== arr.length - 1 ? 'border-b' : ''}`} style="border-color: #E8EAED;">
+            <dt class="w-full sm:w-44 px-8 py-5 text-xs font-medium tracking-wide flex-shrink-0"
+                style="color: #5F6B7C; background-color: #F5F6F8;">
+              {row.label}
+            </dt>
+            <dd class="flex-1 px-8 py-5 text-sm leading-relaxed" style="color: #1A1A1A;">
+              {row.value}
+            </dd>
+          </dl>
+        ))}
+      </div>
+
+    </div>
+  </main>
+  <Footer />
+</Layout>

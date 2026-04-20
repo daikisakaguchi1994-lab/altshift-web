@@ -1,0 +1,74 @@
+---
+const cases = [
+  {
+    title: '三栄リフォーム × AltShift',
+    desc: 'Web制作 + SEO/GEO対策。AI時代の検索対応サイトを高速実装。',
+    tags: ['Web制作', 'SEO/GEO'],
+    url: 'https://sanei-reform.vercel.app',
+  },
+  {
+    title: 'BAR Kar\'s × AltShift',
+    desc: 'Web制作 + LINE自動化。営業時間外の問い合わせ対応を自動化。',
+    tags: ['Web制作', 'LINE自動化'],
+    url: '#',
+  },
+]
+---
+
+<section id="case" class="relative bg-gray-50 py-24 px-6 overflow-hidden">
+  <!-- 装飾文字 -->
+  <p class="absolute top-4 left-6 font-bold text-gray-900 select-none pointer-events-none"
+     style="font-size: clamp(60px, 10vw, 120px); opacity: 0.04; line-height: 1; letter-spacing: -0.02em;">
+    CASE
+  </p>
+
+  <div class="relative max-w-6xl mx-auto">
+    <!-- セクション見出し -->
+    <div class="mb-14 reveal">
+      <p class="text-sm font-medium text-blue-600 mb-1">— 実績一覧</p>
+      <h2 class="font-bold text-gray-900 text-3xl">CASE</h2>
+    </div>
+
+    <!-- グリッド -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+      {cases.map(c => (
+        <div class="reveal bg-white rounded-xl border border-gray-200 overflow-hidden hover:shadow-md transition-shadow">
+          <!-- サムネイル -->
+          <div class="w-full h-44 bg-gray-100 flex items-center justify-center">
+            <span class="text-xs text-gray-400 tracking-widest uppercase">Image</span>
+          </div>
+          <div class="p-6">
+            <div class="flex flex-wrap gap-2 mb-3">
+              {c.tags.map(tag => (
+                <span class="text-xs font-medium px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-100">
+                  {tag}
+                </span>
+              ))}
+            </div>
+            <h3 class="font-bold text-gray-900 text-base mb-2">{c.title}</h3>
+            <p class="text-sm text-gray-500 leading-relaxed mb-4">{c.desc}</p>
+            {c.url !== '#' && (
+              <a href={c.url} target="_blank" rel="noopener noreferrer"
+                 class="text-xs font-medium text-blue-600 hover:underline">
+                サイトを見る →
+              </a>
+            )}
+          </div>
+        </div>
+      ))}
+
+      <!-- プレースホルダーカード -->
+      <div class="reveal bg-white rounded-xl border border-dashed border-gray-300 flex flex-col items-center justify-center p-8 min-h-[300px]">
+        <p class="text-xs font-medium text-gray-400 tracking-widest uppercase mb-2">Coming Soon</p>
+        <p class="text-sm text-gray-400">近日公開</p>
+      </div>
+    </div>
+
+    <div class="mt-10 text-center reveal">
+      <a href="/case"
+         class="inline-flex items-center gap-2 text-sm font-medium px-6 py-3 rounded border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+        実績一覧を見る →
+      </a>
+    </div>
+  </div>
+</section>

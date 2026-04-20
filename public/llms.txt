@@ -1,0 +1,19 @@
+# AltShift
+
+> 福岡を拠点に、リフォーム・建設業などの中小企業向けにAI導入支援を提供。
+> 代表はディーチャー（坂口 大輝）。外部CAIOとしてAI戦略立案から実装まで担当。
+
+## サービス
+- 外部CAIOサービス（週1〜2回の伴走型AI化支援）
+- AIシステム開発（Lumio）
+- Web制作 × SEO/GEO対策
+- LINE自動化
+
+## 実績
+- 三栄リフォーム（sanei-reform.vercel.app）
+- BAR Kar's（中洲のアフターバー）
+
+## 連絡先
+- Web: https://altshift.jp
+- LINE: https://lin.ee/VOiIxYB
+- 拠点：福岡県福岡市

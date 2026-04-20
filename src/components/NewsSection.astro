@@ -1,0 +1,65 @@
+---
+const articles = [
+  {
+    date: '2026/4/15',
+    category: 'お知らせ',
+    categoryColor: 'blue',
+    title: 'AltShift公式サイトをオープンしました',
+    body: 'AIという道具を、中小企業の味方に。AltShiftの公式サイトが本日オープンいたしました。',
+  },
+  {
+    date: '2026/4/10',
+    category: 'サービス',
+    categoryColor: 'green',
+    title: '外部CAIOサービスの提供を開始しました',
+    body: '週1〜2回の伴走型AI化支援サービスを正式に開始いたしました。',
+  },
+  {
+    date: '2026/3/30',
+    category: '実績',
+    categoryColor: 'purple',
+    title: '三栄リフォーム様のWeb制作・LINE自動化が完了しました',
+    body: '福岡市内のリフォーム会社様のデジタル化を支援いたしました。',
+  },
+]
+
+const badgeClass: Record<string, string> = {
+  blue:   'bg-blue-50 text-blue-700 border-blue-100',
+  green:  'bg-green-50 text-green-700 border-green-100',
+  purple: 'bg-purple-50 text-purple-700 border-purple-100',
+}
+---
+
+<section class="relative bg-white py-24 px-6 overflow-hidden border-t border-gray-100">
+  <p class="absolute top-4 left-6 font-bold text-gray-900 select-none pointer-events-none"
+     style="font-size: clamp(60px, 10vw, 120px); opacity: 0.04; line-height: 1;">NEWS</p>
+
+  <div class="relative max-w-6xl mx-auto">
+    <div class="mb-12 reveal">
+      <p class="text-sm font-medium text-blue-600 mb-1">— お知らせ</p>
+      <h2 class="font-bold text-gray-900 text-3xl">NEWS</h2>
+    </div>
+
+    <div class="max-w-3xl flex flex-col mb-10">
+      {articles.map((a) => (
+        <article class="reveal py-6 border-b border-gray-100 last:border-b-0">
+          <div class="flex flex-wrap items-center gap-3 mb-2">
+            <time class="text-xs text-gray-400">{a.date}</time>
+            <span class={`inline-block text-xs font-medium px-3 py-1 rounded-full border ${badgeClass[a.categoryColor]}`}>
+              {a.category}
+            </span>
+          </div>
+          <p class="font-medium text-gray-900 text-sm mb-1">{a.title}</p>
+          <p class="text-xs text-gray-500 leading-relaxed">{a.body}</p>
+        </article>
+      ))}
+    </div>
+
+    <div class="reveal">
+      <a href="/news"
+         class="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
+        すべてのお知らせを見る →
+      </a>
+    </div>
+  </div>
+</section>

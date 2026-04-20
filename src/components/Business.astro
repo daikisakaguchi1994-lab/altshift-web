@@ -1,74 +1,98 @@
 ---
-const businesses = [
-  {
-    name: 'Lumio',
-    tag: 'AIシステム',
-    desc: 'リフォーム業向けAIシステム。見積もり自動化・現場写真AI診断・顧客フォローアップを一括で自動化します。',
-    url: '#',
-    soon: true,
-  },
-  {
-    name: 'LINE自動化',
-    tag: 'LINE Automation',
-    desc: '24時間365日、問い合わせを自動受付・フォローアップ。営業時間外の機会損失をゼロにします。',
-    url: '#',
-    soon: true,
-  },
-  {
-    name: 'Web制作',
-    tag: 'Web Design',
-    desc: 'SEO・GEO・導線設計まで、集客できるサイトをAstro / Next.jsで高速実装。制作後も毎月改善し続けます。',
-    url: 'https://sanei-reform.vercel.app',
-    external: true,
-  },
-  {
-    name: 'SEO / GEO対策',
-    tag: 'Search & AI Optimization',
-    desc: 'GoogleだけでなくChatGPT・Claudeに選ばれるコンテンツ設計。llms.txt・Schema.org・GBP最適化まで対応。',
-    url: '#',
-    soon: true,
-  },
-]
 ---
 
-<section id="business" class="py-24 px-6 scroll-mt-16">
-  <div class="max-w-5xl mx-auto">
+<section id="service" class="relative bg-white py-24 px-6 overflow-hidden">
+  <p class="absolute top-4 left-6 font-bold text-gray-900 select-none pointer-events-none"
+     style="font-size: clamp(60px, 10vw, 120px); opacity: 0.04; line-height: 1;">SERVICE</p>
 
+  <div class="relative max-w-6xl mx-auto">
     <div class="mb-14 reveal">
-      <h2 class="font-sans font-bold text-2xl text-slate-900 mb-2">事業内容</h2>
-      <div class="w-10 h-0.5 bg-slate-300"></div>
+      <p class="text-sm font-medium text-blue-600 mb-1">— 事業内容</p>
+      <h2 class="font-bold text-gray-900 text-3xl">SERVICE</h2>
     </div>
 
-    <ul class="flex flex-col gap-8">
-      {businesses.map((b, i) => (
-        <li class="reveal">
-          <div class={`flex flex-col md:flex-row gap-6 md:gap-12 items-start md:items-center p-8 rounded-xl border border-slate-100 bg-white hover:border-slate-200 hover:shadow-sm transition-all ${b.soon ? 'opacity-80' : ''}`}>
-            <!-- 左：スクショ / サムネ -->
-            <div class="w-full md:w-48 h-28 md:h-24 bg-gradient-to-br from-slate-100 to-slate-200 rounded-lg flex-shrink-0 flex items-center justify-center">
-              <span class="font-serif font-light text-slate-400 text-xl">{b.name}</span>
-            </div>
-            <!-- 右：テキスト -->
-            <div class="flex-1">
-              <p class="text-xs tracking-widest uppercase text-slate-400 mb-1">{b.tag}</p>
-              <h3 class="font-sans font-bold text-slate-900 text-lg mb-2">{b.name}</h3>
-              <p class="text-sm text-slate-600 leading-relaxed mb-4">{b.desc}</p>
-              {b.soon ? (
-                <span class="inline-block text-xs text-slate-400 border border-slate-200 rounded px-3 py-1">近日公開</span>
-              ) : (
-                <a
-                  href={b.url}
-                  target={b.external ? '_blank' : undefined}
-                  rel={b.external ? 'noopener noreferrer' : undefined}
-                  class="inline-flex items-center gap-1.5 text-sm font-medium text-slate-800 bg-slate-900 text-white px-5 py-2.5 rounded hover:bg-slate-700 transition"
-                >
-                  サイトを見る →
-                </a>
-              )}
-            </div>
-          </div>
-        </li>
-      ))}
-    </ul>
+    <div class="flex flex-col gap-6">
 
+      <!-- カード1：外部CAIOサービス -->
+      <div class="reveal border border-gray-200 rounded-xl p-8 hover:shadow-md transition-shadow">
+        <div class="flex flex-col md:flex-row md:items-start gap-8">
+          <div class="flex-1">
+            <p class="text-xs font-medium text-blue-600 tracking-widest uppercase mb-2">Main Service</p>
+            <h3 class="font-bold text-gray-900 text-xl mb-3">外部CAIOサービス</h3>
+            <p class="text-sm text-gray-500 leading-relaxed mb-6">
+              週1〜2回、企業に入り込んでAI化を伴走します。AI戦略の策定から実装まで、伴走型で支援。
+              世界的に広がるCAIO（最高AI責任者）の中小企業向けローカル版として、
+              福岡の企業と共にAI活用の土台をつくります。
+            </p>
+            <a href="/contact"
+               class="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded bg-blue-600 text-white hover:bg-blue-700 transition-colors">
+              お問い合わせはこちら →
+            </a>
+          </div>
+          <div class="flex flex-wrap md:flex-col gap-2 md:w-48 md:flex-shrink-0">
+            {['週1〜2回訪問', 'AI戦略策定', '実装まで対応', '伴走型支援'].map(tag => (
+              <span class="inline-block text-sm font-medium px-3 py-1 rounded-full border"
+                    style="background:#EFF6FF; color:#2563EB; border-color:#BFDBFE;">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- カード2：伴走型コンサルティング -->
+      <div class="reveal border border-gray-200 rounded-xl p-8 hover:shadow-md transition-shadow">
+        <div class="flex flex-col md:flex-row md:items-start gap-8">
+          <div class="flex-1">
+            <p class="text-xs font-medium text-gray-400 tracking-widest uppercase mb-2">Consulting</p>
+            <h3 class="font-bold text-gray-900 text-xl mb-3">伴走型コンサルティング</h3>
+            <p class="text-sm text-gray-500 leading-relaxed mb-6">
+              AI導入支援・業務自動化・LINE自動化・SEO/GEO対策など、
+              CAIOとして入り込んだ先で必要に応じて実装まで担います。
+              協力会社ネットワークで幅広く対応します。
+            </p>
+            <a href="/contact"
+               class="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded bg-gray-900 text-white hover:bg-gray-700 transition-colors">
+              お問い合わせはこちら →
+            </a>
+          </div>
+          <div class="flex flex-wrap md:flex-col gap-2 md:w-48 md:flex-shrink-0">
+            {['AI導入支援', '業務自動化', 'LINE自動化', 'SEO/GEO'].map(tag => (
+              <span class="inline-block text-sm font-medium px-3 py-1 rounded-full border"
+                    style="background:#EFF6FF; color:#2563EB; border-color:#BFDBFE;">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      <!-- カード3：AIシステム開発 / Lumio -->
+      <div class="reveal border border-gray-200 rounded-xl p-8 hover:shadow-md transition-shadow">
+        <div class="flex flex-col md:flex-row md:items-start gap-8">
+          <div class="flex-1">
+            <p class="text-xs font-medium text-gray-400 tracking-widest uppercase mb-2">AI System</p>
+            <h3 class="font-bold text-gray-900 text-xl mb-3">AIシステム開発 / Lumio</h3>
+            <p class="text-sm text-gray-500 leading-relaxed mb-6">
+              リフォーム業向けAIシステム。見積もり自動化・顧客フォローアップを一括で自動化します。
+              Astro / Next.js で高速実装。AI時代の検索対応Webサイト制作も対応。
+            </p>
+            <a href="/service"
+               class="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded bg-gray-900 text-white hover:bg-gray-700 transition-colors">
+              詳細を見る →
+            </a>
+          </div>
+          <div class="flex flex-wrap md:flex-col gap-2 md:w-48 md:flex-shrink-0">
+            {['リフォーム業向け', '見積もり自動化', 'Astro/Next.js'].map(tag => (
+              <span class="inline-block text-sm font-medium px-3 py-1 rounded-full border"
+                    style="background:#EFF6FF; color:#2563EB; border-color:#BFDBFE;">
+                {tag}
+              </span>
+            ))}
+          </div>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>

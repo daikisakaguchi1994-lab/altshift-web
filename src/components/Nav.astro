@@ -1,59 +1,93 @@
 ---
 ---
 
-<header id="nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-  <div class="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-    <a href="/" class="font-serif text-lg font-light" id="nav-logo">
-      AltShift<span id="nav-dot" class="text-blue-500">.</span>
-    </a>
-    <nav class="hidden md:flex items-center gap-8">
-      <a href="#business" class="nav-link text-sm transition">事業内容</a>
-      <a href="#about" class="nav-link text-sm transition">会社概要</a>
-      <a href="#contact" class="nav-link text-sm transition">お問い合わせ</a>
-    </nav>
-    <button id="menu-btn" class="md:hidden" aria-label="メニュー">
-      <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-        <line x1="3" y1="6" x2="21" y2="6"/>
-        <line x1="3" y1="12" x2="21" y2="12"/>
-        <line x1="3" y1="18" x2="21" y2="18"/>
-      </svg>
-    </button>
+<header id="site-nav" class="sticky top-0 z-50 bg-white transition-shadow duration-300">
+  <div class="border-b border-gray-100">
+    <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+
+      <!-- ロゴ -->
+      <a href="/" class="flex items-center gap-3">
+        <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="logoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#1B5EBE"/>
+              <stop offset="100%" style="stop-color:#4A90D9"/>
+            </linearGradient>
+            <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#C8A15A"/>
+              <stop offset="100%" style="stop-color:#E8C97A"/>
+            </linearGradient>
+          </defs>
+          <rect width="38" height="38" rx="10" fill="url(#logoGrad)"/>
+          <path d="M19 8 L28 30 H25 L22.5 23 H15.5 L13 30 H10 L19 8Z M16.5 20.5 H21.5 L19 13.5 L16.5 20.5Z" fill="white"/>
+          <rect x="8" y="33" width="22" height="2" rx="1" fill="url(#goldGrad)"/>
+        </svg>
+        <span style="font-family: 'Inter', sans-serif; font-weight: 800; font-size: 18px; letter-spacing: -0.03em; color: #1A1A1A;">
+          Alt<span style="background: linear-gradient(135deg, #1B5EBE, #4A90D9); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Shift</span><span style="color: #C8A15A;">.</span>
+        </span>
+      </a>
+
+      <!-- 中央ナビ -->
+      <nav class="hidden md:flex items-center gap-8">
+        <a href="/service"  style="font-family:'Inter','Noto Sans JP',sans-serif; font-weight:500; font-size:14px; letter-spacing:0.02em; color:#1A1A1A;" class="hover:opacity-60 transition-opacity">事業内容</a>
+        <a href="/case"     style="font-family:'Inter','Noto Sans JP',sans-serif; font-weight:500; font-size:14px; letter-spacing:0.02em; color:#1A1A1A;" class="hover:opacity-60 transition-opacity">実績一覧</a>
+        <a href="/news"     style="font-family:'Inter','Noto Sans JP',sans-serif; font-weight:500; font-size:14px; letter-spacing:0.02em; color:#1A1A1A;" class="hover:opacity-60 transition-opacity">お知らせ</a>
+        <a href="/company"  style="font-family:'Inter','Noto Sans JP',sans-serif; font-weight:500; font-size:14px; letter-spacing:0.02em; color:#1A1A1A;" class="hover:opacity-60 transition-opacity">会社情報</a>
+      </nav>
+
+      <!-- 右：2ボタン -->
+      <div class="hidden md:flex items-center gap-3">
+        <a href="/download"
+           class="inline-flex items-center gap-1.5 text-sm text-white transition-opacity hover:opacity-90"
+           style="background-color:#1B5EBE; font-weight:600; letter-spacing:0.05em; padding:10px 18px; border-radius:4px;">
+          📥 資料ダウンロード
+        </a>
+        <a href="https://lin.ee/VOiIxYB"
+           target="_blank" rel="noopener noreferrer"
+           class="inline-flex items-center gap-1.5 text-sm text-white transition-opacity hover:opacity-90"
+           style="background-color:#06C755; font-weight:600; letter-spacing:0.05em; padding:10px 18px; border-radius:4px;">
+          <svg width="14" height="14" viewBox="0 0 48 48" fill="white">
+            <path d="M24 4C12.95 4 4 11.86 4 21.5c0 5.5 2.87 10.4 7.36 13.6L9 40l6.5-2.8A22.4 22.4 0 0024 39c11.05 0 20-7.86 20-17.5S35.05 4 24 4z"/>
+          </svg>
+          LINEで無料相談
+        </a>
+      </div>
+
+      <!-- ハンバーガー -->
+      <button id="menu-btn" class="md:hidden p-2 text-gray-700" aria-label="メニュー">
+        <svg width="22" height="22" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <line x1="3" y1="12" x2="21" y2="12"/>
+          <line x1="3" y1="18" x2="21" y2="18"/>
+        </svg>
+      </button>
+    </div>
   </div>
-  <div id="mobile-menu" class="hidden md:hidden border-t px-6 pb-5 pt-4" id="mobile-nav-bg">
-    <nav class="flex flex-col gap-4">
-      <a href="#business" class="text-sm">事業内容</a>
-      <a href="#about" class="text-sm">会社概要</a>
-      <a href="#contact" class="text-sm">お問い合わせ</a>
+
+  <!-- モバイルメニュー -->
+  <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-gray-100 px-6 py-5">
+    <nav class="flex flex-col gap-4 mb-5">
+      <a href="/service"  class="text-sm text-gray-700" style="font-weight:500;">事業内容</a>
+      <a href="/case"     class="text-sm text-gray-700" style="font-weight:500;">実績一覧</a>
+      <a href="/news"     class="text-sm text-gray-700" style="font-weight:500;">お知らせ</a>
+      <a href="/company"  class="text-sm text-gray-700" style="font-weight:500;">会社情報</a>
+      <a href="/download" class="text-sm text-gray-700" style="font-weight:500;">資料ダウンロード</a>
     </nav>
+    <a href="https://lin.ee/VOiIxYB"
+       target="_blank" rel="noopener noreferrer"
+       class="flex items-center justify-center gap-2 text-sm font-semibold py-3 text-white"
+       style="background-color:#06C755; border-radius:4px; letter-spacing:0.05em;">
+      💬 LINEで無料相談
+    </a>
   </div>
 </header>
 
 <script>
-  const nav = document.getElementById('nav')!
-  const logo = document.getElementById('nav-logo')!
-  const links = document.querySelectorAll<HTMLElement>('.nav-link')
-  const mobileMenu = document.getElementById('mobile-menu')!
-
-  const setScrolled = (scrolled: boolean) => {
-    if (scrolled) {
-      nav.classList.add('bg-white/96', 'backdrop-blur-md', 'border-b', 'border-slate-100')
-      logo.classList.remove('text-white')
-      logo.classList.add('text-slate-900')
-      links.forEach(l => { l.classList.remove('text-white/70'); l.classList.add('text-slate-600', 'hover:text-slate-900') })
-      mobileMenu.classList.add('bg-white', 'border-slate-100')
-    } else {
-      nav.classList.remove('bg-white/96', 'backdrop-blur-md', 'border-b', 'border-slate-100')
-      logo.classList.add('text-white')
-      logo.classList.remove('text-slate-900')
-      links.forEach(l => { l.classList.add('text-white/70'); l.classList.remove('text-slate-600', 'hover:text-slate-900') })
-      mobileMenu.classList.remove('bg-white', 'border-slate-100')
-    }
-  }
-
-  setScrolled(false)
-  window.addEventListener('scroll', () => setScrolled(window.scrollY > 50))
-
   document.getElementById('menu-btn')!.addEventListener('click', () => {
-    mobileMenu.classList.toggle('hidden')
+    document.getElementById('mobile-menu')!.classList.toggle('hidden')
+  })
+  const nav = document.getElementById('site-nav')!
+  window.addEventListener('scroll', () => {
+    nav.classList.toggle('shadow-sm', window.scrollY > 10)
   })
 </script>

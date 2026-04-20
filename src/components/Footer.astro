@@ -1,16 +1,110 @@
 ---
 ---
 
-<footer class="border-t border-slate-100 py-10 px-6">
-  <div class="max-w-5xl mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
-    <p class="font-serif text-slate-800">
-      AltShift<span class="text-blue-500">.</span>
-    </p>
-    <nav class="flex gap-6">
-      <a href="#business" class="text-xs text-slate-400 hover:text-slate-700 transition">事業内容</a>
-      <a href="#about" class="text-xs text-slate-400 hover:text-slate-700 transition">会社概要</a>
-      <a href="#contact" class="text-xs text-slate-400 hover:text-slate-700 transition">お問い合わせ</a>
-    </nav>
-    <p class="text-xs text-slate-400">© 2026 AltShift. All rights reserved.</p>
+<footer style="background-color: #1A1A1A; color: #FFFFFF;" class="pb-20 md:pb-0">
+  <div class="max-w-6xl mx-auto px-6 pt-16 pb-10">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+
+      <!-- 左：ブランド -->
+      <div class="md:col-span-1">
+        <div class="flex items-center gap-3 mb-4">
+          <svg width="32" height="32" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#1B5EBE"/>
+                <stop offset="100%" style="stop-color:#4A90D9"/>
+              </linearGradient>
+              <linearGradient id="footerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" style="stop-color:#C8A15A"/>
+                <stop offset="100%" style="stop-color:#E8C97A"/>
+              </linearGradient>
+            </defs>
+            <rect width="38" height="38" rx="10" fill="url(#footerLogoGrad)"/>
+            <path d="M19 8 L28 30 H25 L22.5 23 H15.5 L13 30 H10 L19 8Z M16.5 20.5 H21.5 L19 13.5 L16.5 20.5Z" fill="white"/>
+            <rect x="8" y="33" width="22" height="2" rx="1" fill="url(#footerGoldGrad)"/>
+          </svg>
+          <span style="font-family:'Inter',sans-serif; font-weight:800; font-size:18px; letter-spacing:-0.03em; color:#FFFFFF;">
+            AltShift<span style="color:#C8A15A;">.</span>
+          </span>
+        </div>
+        <p class="text-sm text-gray-400 mb-1">福岡県福岡市</p>
+        <a href="mailto:contact@altshift.jp"
+           class="text-sm text-gray-400 hover:text-white transition-colors block mb-4">
+          contact@altshift.jp
+        </a>
+        <p class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.5);">
+          AIという道具を、<br />中小企業の味方に。
+        </p>
+      </div>
+
+      <!-- 事業内容 -->
+      <div>
+        <p class="text-xs font-medium text-gray-500 tracking-widest uppercase mb-5">事業内容</p>
+        <ul class="flex flex-col gap-3">
+          {['外部CAIOサービス','AIシステム開発','Web制作 × SEO/GEO','LINE自動化'].map(item => (
+            <li class="text-sm text-gray-400">— {item}</li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- リンク -->
+      <div>
+        <p class="text-xs font-medium text-gray-500 tracking-widest uppercase mb-5">リンク</p>
+        <ul class="flex flex-col gap-3">
+          <li><a href="/company"  class="text-sm text-gray-400 hover:text-white transition-colors">会社情報</a></li>
+          <li><a href="/case"     class="text-sm text-gray-400 hover:text-white transition-colors">実績一覧</a></li>
+          <li><a href="/news"     class="text-sm text-gray-400 hover:text-white transition-colors">お知らせ</a></li>
+          <li><a href="/law"      class="text-sm text-gray-400 hover:text-white transition-colors">特定商取引法</a></li>
+          <li><a href="/contact"  class="text-sm text-gray-400 hover:text-white transition-colors">お問い合わせ</a></li>
+        </ul>
+      </div>
+
+      <!-- SNS -->
+      <div>
+        <p class="text-xs font-medium text-gray-500 tracking-widest uppercase mb-5">SNS</p>
+        <ul class="flex flex-col gap-3">
+          <li>
+            <a href="https://lin.ee/VOiIxYB" target="_blank" rel="noopener noreferrer"
+               class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
+              <span class="w-5 h-5 rounded flex items-center justify-center flex-shrink-0"
+                    style="background:#06C755;">
+                <svg width="12" height="12" viewBox="0 0 48 48" fill="white">
+                  <path d="M24 4C12.95 4 4 11.86 4 21.5c0 5.5 2.87 10.4 7.36 13.6L9 40l6.5-2.8A22.4 22.4 0 0024 39c11.05 0 20-7.86 20-17.5S35.05 4 24 4z"/>
+                </svg>
+              </span>
+              LINE
+            </a>
+          </li>
+          <li>
+            <a href="#" class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
+              <span class="w-5 h-5 rounded flex items-center justify-center flex-shrink-0 bg-gray-700">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="white">
+                  <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                </svg>
+              </span>
+              X (Twitter)
+            </a>
+          </li>
+          <li>
+            <a href="#" class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
+              <span class="w-5 h-5 rounded flex items-center justify-center flex-shrink-0"
+                    style="background: linear-gradient(45deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="white">
+                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/>
+                </svg>
+              </span>
+              Instagram
+            </a>
+          </li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="border-t border-gray-800">
+    <div class="max-w-6xl mx-auto px-6 py-5">
+      <p class="text-xs text-gray-600 text-center">© 2025 AltShift. All rights reserved.</p>
+    </div>
   </div>
 </footer>

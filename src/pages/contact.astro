@@ -1,0 +1,103 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+
+const gradLabel = "font-family:'Inter',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; background:linear-gradient(135deg,#1B5EBE,#4A90D9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;"
+const gradDeco  = "font-family:'Inter',sans-serif; font-weight:900; font-size:clamp(60px,10vw,120px); letter-spacing:-0.05em; opacity:0.04; background:linear-gradient(135deg,#1B5EBE,#4A90D9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; pointer-events:none; user-select:none;"
+---
+
+<Layout title="お問い合わせ | AltShift" description="AltShiftへのお問い合わせ。ご相談・ご質問はお気軽にどうぞ。">
+  <Nav />
+  <main>
+    <section class="relative overflow-hidden" style="background:#FFFFFF; padding:96px 24px;">
+      <p class="absolute top-4 left-6 select-none pointer-events-none" style={gradDeco}>CONTACT</p>
+
+      <div class="relative max-w-6xl mx-auto">
+        <div class="mb-14 reveal">
+          <p style={gradLabel} class="mb-2">— お問い合わせ</p>
+          <h1 style="font-size:clamp(28px,4vw,40px); color:#1A1A1A;">CONTACT</h1>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-12">
+
+          <div class="md:col-span-3 reveal">
+            <p style="font-size:15px; color:#6B6B6B; line-height:1.9; font-weight:300; margin-bottom:32px;">
+              ご質問・ご相談はお気軽にどうぞ。通常2営業日以内にご返信します。
+            </p>
+            <form name="contact" method="POST" action="#" class="flex flex-col gap-5">
+              {[
+                { id: 'name', label: 'お名前', type: 'text', required: true, placeholder: '山田 太郎' },
+                { id: 'company', label: '会社名', type: 'text', required: false, placeholder: '株式会社〇〇' },
+                { id: 'email', label: 'メールアドレス', type: 'email', required: true, placeholder: 'example@mail.com' },
+                { id: 'tel', label: '電話番号', type: 'tel', required: false, placeholder: '090-0000-0000' },
+              ].map(f => (
+                <div>
+                  <label style="display:block; font-size:12px; font-weight:500; color:#6B6B6B; margin-bottom:6px;" for={f.id}>
+                    {f.label} {f.required ? <span style="color:#EF4444;">*</span> : <span style="color:#9CA3AF; font-weight:300;">（任意）</span>}
+                  </label>
+                  <input type={f.type} id={f.id} name={f.id} required={f.required}
+                         style="width:100%; border:1px solid #E5E5E5; border-radius:4px; padding:12px 16px; font-size:14px; color:#1A1A1A; outline:none; transition:border-color 0.2s;"
+                         placeholder={f.placeholder} />
+                </div>
+              ))}
+              <div>
+                <label style="display:block; font-size:12px; font-weight:500; color:#6B6B6B; margin-bottom:6px;" for="message">
+                  お問い合わせ内容 <span style="color:#EF4444;">*</span>
+                </label>
+                <textarea id="message" name="message" required rows="5"
+                          style="width:100%; border:1px solid #E5E5E5; border-radius:4px; padding:12px 16px; font-size:14px; color:#1A1A1A; outline:none; resize:none; transition:border-color 0.2s;"
+                          placeholder="お気軽にご相談ください。"></textarea>
+              </div>
+              <div>
+                <button type="submit"
+                        class="inline-flex items-center gap-2 text-sm text-white transition-opacity hover:opacity-90"
+                        style="background:#1B5EBE; font-weight:600; letter-spacing:0.05em; padding:12px 24px; border-radius:4px;">
+                  送信する →
+                </button>
+              </div>
+            </form>
+          </div>
+
+          <div class="md:col-span-2 reveal flex flex-col gap-6">
+            <div style="border:1px solid #E5E5E5; border-radius:8px; padding:24px;">
+              <p style="font-size:11px; font-weight:600; color:#6B6B6B; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:20px;">Contact Info</p>
+              <div class="flex flex-col gap-5">
+                <div>
+                  <p style="font-size:12px; color:#9CA3AF; margin-bottom:4px;">メール</p>
+                  <a href="mailto:contact@altshift.jp"
+                     style="font-size:14px; font-weight:600; color:#1B5EBE; text-decoration:none;" class="hover:underline">contact@altshift.jp</a>
+                </div>
+                <div>
+                  <p style="font-size:12px; color:#9CA3AF; margin-bottom:4px;">拠点</p>
+                  <p style="font-size:14px; color:#1A1A1A;">福岡市</p>
+                </div>
+                <div>
+                  <p style="font-size:12px; color:#9CA3AF; margin-bottom:4px;">対応時間</p>
+                  <p style="font-size:14px; color:#1A1A1A;">平日 10:00〜18:00</p>
+                </div>
+              </div>
+            </div>
+
+            <div style="background:#1B5EBE; border-radius:8px; padding:24px; color:#FFFFFF;">
+              <p style="font-size:11px; font-weight:600; letter-spacing:0.15em; text-transform:uppercase; color:rgba(255,255,255,0.7); margin-bottom:12px;">お急ぎの場合</p>
+              <p style="font-size:14px; line-height:1.8; color:rgba(255,255,255,0.85); font-weight:300; margin-bottom:16px;">
+                メールにて直接ご連絡いただけます。通常24時間以内にご返信いたします。
+              </p>
+              <a href="mailto:contact@altshift.jp"
+                 class="inline-flex items-center gap-2 text-sm text-white transition-colors hover:bg-white/10"
+                 style="border:1px solid rgba(255,255,255,0.4); padding:8px 16px; border-radius:4px; font-weight:600;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/>
+                </svg>
+                メールを送る
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

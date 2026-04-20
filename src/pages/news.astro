@@ -1,0 +1,48 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+
+const gradLabel = "font-family:'Inter',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; background:linear-gradient(135deg,#1B5EBE,#4A90D9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;"
+const gradDeco  = "font-family:'Inter',sans-serif; font-weight:900; font-size:clamp(60px,10vw,120px); letter-spacing:-0.05em; opacity:0.04; background:linear-gradient(135deg,#1B5EBE,#4A90D9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; pointer-events:none; user-select:none;"
+
+const articles = [
+  { date: '2026/4/15', category: 'お知らせ', title: 'AltShift公式サイトをオープンしました', body: 'AIという道具を、中小企業の味方に。AltShiftの公式サイトが本日オープンいたしました。' },
+  { date: '2026/4/10', category: 'サービス', title: '外部CAIOサービスの提供を開始しました', body: '週1〜2回の伴走型AI化支援サービスを正式に開始いたしました。' },
+  { date: '2026/3/30', category: '実績',     title: '三栄リフォーム様のWeb制作・LINE自動化が完了しました', body: '福岡市内のリフォーム会社様のデジタル化を支援いたしました。' },
+  { date: '2026/3/20', category: 'お知らせ', title: 'ディーチャーがAI活用セミナーに登壇しました', body: '代表のディーチャーが福岡市内のセミナーで中小企業のAI活用について講演いたしました。' },
+  { date: '2026/3/10', category: '実績',     title: "BAR Kar'sのデジタルメニュー・LINE自動化が完了しました", body: '中洲のアフターバー様のデジタル化を支援いたしました。' },
+]
+---
+
+<Layout title="お知らせ | AltShift" description="AltShiftからのお知らせ・ニュース。">
+  <Nav />
+  <main>
+    <section class="relative overflow-hidden" style="background:#FFFFFF; padding:96px 24px;">
+      <p class="absolute top-4 left-6 select-none pointer-events-none" style={gradDeco}>NEWS</p>
+
+      <div class="relative max-w-6xl mx-auto">
+        <div class="mb-14 reveal">
+          <p style={gradLabel} class="mb-2">— お知らせ</p>
+          <h1 style="font-size:clamp(28px,4vw,40px); color:#1A1A1A;">NEWS</h1>
+        </div>
+
+        <div class="max-w-3xl flex flex-col">
+          {articles.map(a => (
+            <article class="reveal py-7" style="border-bottom:1px solid #E5E5E5;">
+              <div class="flex flex-wrap items-center gap-3 mb-2">
+                <time style="font-size:12px; color:#9CA3AF; font-family:'Inter',sans-serif;">{a.date}</time>
+                <span style="font-size:11px; font-weight:500; padding:3px 10px; border:1px solid #E5E5E5; color:#6B6B6B; border-radius:4px;">
+                  {a.category}
+                </span>
+              </div>
+              <p style="font-weight:600; color:#1A1A1A; font-size:15px; margin-bottom:8px; letter-spacing:-0.01em;">{a.title}</p>
+              <p style="font-size:14px; color:#6B6B6B; line-height:1.8; font-weight:300;">{a.body}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

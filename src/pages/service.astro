@@ -1,0 +1,89 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+
+const gradLabel = "font-family:'Inter',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; background:linear-gradient(135deg,#1B5EBE,#4A90D9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;"
+const gradDeco  = "font-family:'Inter',sans-serif; font-weight:900; font-size:clamp(60px,10vw,120px); letter-spacing:-0.05em; opacity:0.04; background:linear-gradient(135deg,#1B5EBE,#4A90D9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; pointer-events:none; user-select:none;"
+
+const services = [
+  {
+    label: 'Main Service',
+    title: '外部CAIOサービス',
+    desc: '週1〜2回、企業に入り込んでAI化を伴走するサービスです。単なるツール導入ではなく、ビジネスプロセス全体をAI化の視点から見直し、継続的に改善していきます。',
+    checks: ['業務プロセスの分析・最適化', 'AI導入計画の策定', '運用支援・トレーニング', '継続的な改善提案'],
+    imageRight: true,
+  },
+  {
+    label: 'AI System',
+    title: 'AIシステム開発',
+    desc: 'Lumioを活用した最適なAIシステムの開発。貴社の業務に特化したカスタムAIソリューションを構築し、業務効率化と新事業創出を実現します。',
+    checks: ['Lumioを活用した開発', 'カスタムAIモデルの構築', 'データ分析・可視化', '保守・運用サポート'],
+    imageRight: false,
+  },
+  {
+    label: 'Web & SEO/GEO',
+    title: 'Web制作 × SEO/GEO対策',
+    desc: '単なるWebサイト制作ではなく、SEO・GEO対策を含めた総合的なデジタルマーケティングをサポート。検索エンジンに強く、顧客を呼び込むサイトを構築します。',
+    checks: ['レスポンシブWebデザイン', 'SEO最適化', 'ローカルSEO（GEO対策）', '継続的な改善・分析'],
+    imageRight: true,
+  },
+  {
+    label: 'LINE Automation',
+    title: 'LINE自動化',
+    desc: 'LINEを活用した顧客対応の自動化。チャットボット、自動配信、顧客管理などで、LINE公式アカウントの運用を効率化し、顧客満足度を向上させます。',
+    checks: ['LINEチャットボット構築', '自動配信・セグメント配信', '顧客管理システム連携', '分析・最適化'],
+    imageRight: false,
+  },
+]
+---
+
+<Layout title="事業内容 | AltShift" description="AltShiftの事業内容。外部CAIOサービス・AIシステム開発・Web制作・LINE自動化。">
+  <Nav />
+  <main>
+    <section class="relative overflow-hidden" style="background:#FFFFFF; padding:96px 24px;">
+      <p class="absolute top-4 left-6 select-none pointer-events-none" style={gradDeco}>SERVICE</p>
+
+      <div class="relative max-w-6xl mx-auto">
+        <div class="mb-16 reveal">
+          <p style={gradLabel} class="mb-2">— 事業内容</p>
+          <h1 style="font-size:clamp(28px,4vw,40px); color:#1A1A1A;">SERVICE</h1>
+        </div>
+
+        <div class="flex flex-col gap-20">
+          {services.map((s) => (
+            <div class={`reveal grid grid-cols-1 md:grid-cols-2 gap-10 items-center ${!s.imageRight ? 'md:[&>*:first-child]:order-2 md:[&>*:last-child]:order-1' : ''}`}>
+              <div>
+                <p style={gradLabel} class="mb-3">{s.label}</p>
+                <h2 style="font-size:24px; color:#1A1A1A; margin-bottom:16px;">{s.title}</h2>
+                <p style="font-size:14px; color:#6B6B6B; line-height:1.9; font-weight:300; margin-bottom:24px;">{s.desc}</p>
+                <ul class="flex flex-col gap-2 mb-8">
+                  {s.checks.map(item => (
+                    <li class="flex items-center gap-2" style="font-size:14px; color:#1A1A1A;">
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" class="flex-shrink-0" style="color:#1B5EBE;">
+                        <circle cx="8" cy="8" r="7.5" stroke="currentColor" stroke-opacity="0.3"/>
+                        <path d="M4.5 8l2.5 2.5 4.5-4.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+                <a href="https://lin.ee/VOiIxYB"
+                   target="_blank" rel="noopener noreferrer"
+                   class="inline-flex items-center gap-2 text-sm text-white transition-opacity hover:opacity-90"
+                   style="background:#1B5EBE; font-weight:600; letter-spacing:0.05em; padding:10px 20px; border-radius:4px;">
+                  お問い合わせ →
+                </a>
+              </div>
+              <div class="h-72 md:h-80 flex items-center justify-center"
+                   style="background:#F4F4F4; border:1px solid #E5E5E5; border-radius:8px;">
+                <span style="font-size:12px; color:#6B6B6B; letter-spacing:0.1em; text-transform:uppercase;">Service Image</span>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
