@@ -1,0 +1,15 @@
+[    1235ms] [INFO] Banner not shown: beforeinstallpromptevent.preventDefault() called. The page must call beforeinstallpromptevent.prompt() to show the banner. @ https://www.instagram.com/epi_lounge_gotanda/:0
+[    1382ms] [LOG] 
+%cSTOP！ font-family:helvetica; font-size:20px; font-size:50px; font-weight:bold; color:red; -webkit-text-stroke:1px black; @ https://static.cdninstagram.com/rsrc.php/v4/yn/r/1Rk4BX8YPYQ.js:242
+[    1383ms] [LOG] 
+%cこれは開発者向けのブラウザー機能です。Instagram機能を有効にするためまたは誰かのアカウントをハッキングするために、ここに何かをコピー・貼り付けするように言われた場合、それは第三者があなたのInstagramアカウントへのアクセスを得るための詐欺・不正行為です。 font-family:helvetica; font-size:20px;  @ https://static.cdninstagram.com/rsrc.php/v4/yn/r/1Rk4BX8YPYQ.js:242
+[    1383ms] [LOG] 
+%c詳しくは https://www.facebook.com/selfxss をご覧ください。 font-family:helvetica; font-size:20px;  @ https://static.cdninstagram.com/rsrc.php/v4/yn/r/1Rk4BX8YPYQ.js:242
+[    1383ms] [LOG] 
+%c  @ https://static.cdninstagram.com/rsrc.php/v4/yn/r/1Rk4BX8YPYQ.js:242
+[    3543ms] [ERROR] Failed to load resource: the server responded with a status of 400 () @ https://www.instagram.com/graphql/query/?doc_id=18113378221181848&variables=%7B%22include_chaining%22%3Afalse%2C%22include_highlight_reels%22%3Atrue%2C%22include_live_status%22%3Afalse%2C%22include_logged_out_extras%22%3Atrue%2C%22include_reel%22%3Afalse%2C%22include_suggested_users%22%3Afalse%2C%22user_id%22%3A%2245205810627%22%7D:0
+[    3553ms] [ERROR] ErrorUtils caught an error:
+
+invalid request [Caught in: unexpected]
+
+Subsequent non-fatal errors won't be logged; see https://fburl.com/debugjs. {clientTime: 1776699880, extra: Object, guardList: Array(0), hash: gmo0pk, isNormalizedError: true} @ https://static.cdninstagram.com/rsrc.php/v4/yn/r/1Rk4BX8YPYQ.js:78

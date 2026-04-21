@@ -1,0 +1,188 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "AltShift." [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e5]:
+        - link "事業内容" [ref=e6] [cursor=pointer]:
+          - /url: /service
+        - link "実績一覧" [ref=e7] [cursor=pointer]:
+          - /url: /case
+        - link "お知らせ" [ref=e8] [cursor=pointer]:
+          - /url: /news
+        - link "会社情報" [ref=e9] [cursor=pointer]:
+          - /url: /company
+      - generic [ref=e10]:
+        - link "資料ダウンロード" [ref=e11] [cursor=pointer]:
+          - /url: /download
+          - img [ref=e12]
+          - text: 資料ダウンロード
+        - link "お問い合わせ" [ref=e15] [cursor=pointer]:
+          - /url: /contact
+          - img [ref=e16]
+          - text: お問い合わせ
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - paragraph: HERO
+      - generic [ref=e22]:
+        - paragraph [ref=e23]: 外部CAIOサービス · 福岡
+        - heading "AIのことなら、 お任せください。" [level=1] [ref=e24]:
+          - text: AIのことなら、
+          - text: お任せください。
+        - paragraph [ref=e25]:
+          - text: 外部CAIOという働き方で、企業に入り込んでAI化を伴走します。
+          - text: 福岡の中小企業のAI活用を、現場から支えます。
+        - generic [ref=e26]:
+          - link "資料ダウンロード →" [ref=e27] [cursor=pointer]:
+            - /url: /download
+          - link "お問い合わせ →" [ref=e28] [cursor=pointer]:
+            - /url: /contact
+    - generic [ref=e29]:
+      - paragraph: SERVICE
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - paragraph [ref=e32]: — 事業内容
+          - heading "SERVICE" [level=2] [ref=e33]
+        - generic [ref=e34]:
+          - generic [ref=e36]:
+            - generic [ref=e37]:
+              - paragraph [ref=e38]: Main Service
+              - heading "外部CAIOサービス" [level=3] [ref=e39]
+              - paragraph [ref=e40]: 週1〜2回、企業に入り込んでAI化を伴走します。AI戦略の策定から実装まで、伴走型で支援。 世界的に広がるCAIO（最高AI責任者）の中小企業向けローカル版として、 福岡の企業と共にAI活用の土台をつくります。
+              - link "お問い合わせはこちら →" [ref=e41] [cursor=pointer]:
+                - /url: /contact
+            - generic [ref=e42]:
+              - generic [ref=e43]: 週1〜2回訪問
+              - generic [ref=e44]: AI戦略策定
+              - generic [ref=e45]: 実装まで対応
+              - generic [ref=e46]: 伴走型支援
+          - generic [ref=e48]:
+            - generic [ref=e49]:
+              - paragraph [ref=e50]: Consulting
+              - heading "伴走型コンサルティング" [level=3] [ref=e51]
+              - paragraph [ref=e52]: AI導入支援・業務自動化・LINE自動化・SEO/GEO対策など、 CAIOとして入り込んだ先で必要に応じて実装まで担います。 協力会社ネットワークで幅広く対応します。
+              - link "お問い合わせはこちら →" [ref=e53] [cursor=pointer]:
+                - /url: /contact
+            - generic [ref=e54]:
+              - generic [ref=e55]: AI導入支援
+              - generic [ref=e56]: 業務自動化
+              - generic [ref=e57]: LINE自動化
+              - generic [ref=e58]: SEO/GEO
+          - generic [ref=e60]:
+            - generic [ref=e61]:
+              - paragraph [ref=e62]: AI System
+              - heading "AIシステム開発 / Lumio" [level=3] [ref=e63]
+              - paragraph [ref=e64]: リフォーム業向けAIシステム。見積もり自動化・顧客フォローアップを一括で自動化します。 Astro / Next.js で高速実装。AI時代の検索対応Webサイト制作も対応。
+              - link "詳細を見る →" [ref=e65] [cursor=pointer]:
+                - /url: /service
+            - generic [ref=e66]:
+              - generic [ref=e67]: リフォーム業向け
+              - generic [ref=e68]: 見積もり自動化
+              - generic [ref=e69]: Astro/Next.js
+    - generic [ref=e70]:
+      - paragraph: CASE
+      - generic [ref=e71]:
+        - generic [ref=e72]:
+          - paragraph [ref=e73]: — 実績一覧
+          - heading "CASE" [level=2] [ref=e74]
+        - generic [ref=e75]:
+          - generic [ref=e76]:
+            - generic [ref=e78]: Image
+            - generic [ref=e79]:
+              - generic [ref=e80]:
+                - generic [ref=e81]: Web制作
+                - generic [ref=e82]: SEO/GEO
+              - heading "三栄リフォーム × AltShift" [level=3] [ref=e83]
+              - paragraph [ref=e84]: Web制作 + SEO/GEO対策。AI時代の検索対応サイトを高速実装。
+              - link "サイトを見る →" [ref=e85] [cursor=pointer]:
+                - /url: https://sanei-reform.vercel.app
+          - generic [ref=e86]:
+            - generic [ref=e88]: Image
+            - generic [ref=e89]:
+              - generic [ref=e90]:
+                - generic [ref=e91]: Web制作
+                - generic [ref=e92]: LINE自動化
+              - heading "BAR Kar's × AltShift" [level=3] [ref=e93]
+              - paragraph [ref=e94]: Web制作 + LINE自動化。営業時間外の問い合わせ対応を自動化。
+          - generic [ref=e95]:
+            - paragraph [ref=e96]: Coming Soon
+            - paragraph [ref=e97]: 近日公開
+        - link "実績一覧を見る →" [ref=e99] [cursor=pointer]:
+          - /url: /case
+    - generic [ref=e101]:
+      - link "DOWNLOAD 資料ダウンロード AltShiftのサービス概要・料金プランをまとめた資料をご用意しています。 ダウンロードする" [ref=e102] [cursor=pointer]:
+        - /url: /download
+        - generic [ref=e103]:
+          - paragraph [ref=e104]: DOWNLOAD
+          - heading "資料ダウンロード" [level=3] [ref=e105]
+          - paragraph [ref=e106]: AltShiftのサービス概要・料金プランをまとめた資料をご用意しています。
+        - generic [ref=e108]:
+          - img [ref=e109]
+          - text: ダウンロードする
+      - link "CONTACT お問い合わせ ご相談・ご質問はお気軽にどうぞ。通常2営業日以内にご返信します。 問い合わせる" [ref=e112] [cursor=pointer]:
+        - /url: /contact
+        - generic [ref=e113]:
+          - paragraph [ref=e114]: CONTACT
+          - heading "お問い合わせ" [level=3] [ref=e115]
+          - paragraph [ref=e116]: ご相談・ご質問はお気軽にどうぞ。通常2営業日以内にご返信します。
+        - generic [ref=e118]:
+          - img [ref=e119]
+          - text: 問い合わせる
+  - contentinfo [ref=e122]:
+    - generic [ref=e124]:
+      - generic [ref=e125]:
+        - paragraph [ref=e126]: AltShift.
+        - paragraph [ref=e127]: 福岡県福岡市
+        - link "contact@altshift.jp" [ref=e128] [cursor=pointer]:
+          - /url: mailto:contact@altshift.jp
+        - paragraph [ref=e129]:
+          - text: 外部CAIOという働き方で、
+          - text: 福岡の中小企業のAI化を伴走します。
+      - generic [ref=e130]:
+        - paragraph [ref=e131]: 事業内容
+        - list [ref=e132]:
+          - listitem [ref=e133]: — 外部CAIOサービス
+          - listitem [ref=e134]: — AIシステム開発
+          - listitem [ref=e135]: — Web制作
+          - listitem [ref=e136]: — LINE自動化
+          - listitem [ref=e137]: — SEO / GEO対策
+      - generic [ref=e138]:
+        - paragraph [ref=e139]: リンク
+        - list [ref=e140]:
+          - listitem [ref=e141]:
+            - link "会社情報" [ref=e142] [cursor=pointer]:
+              - /url: /company
+          - listitem [ref=e143]:
+            - link "実績一覧" [ref=e144] [cursor=pointer]:
+              - /url: /case
+          - listitem [ref=e145]:
+            - link "お知らせ" [ref=e146] [cursor=pointer]:
+              - /url: /news
+          - listitem [ref=e147]:
+            - link "お問い合わせ" [ref=e148] [cursor=pointer]:
+              - /url: /contact
+          - listitem [ref=e149]:
+            - link "資料ダウンロード" [ref=e150] [cursor=pointer]:
+              - /url: /download
+    - generic [ref=e152]:
+      - paragraph [ref=e153]: © 2025 AltShift. All rights reserved.
+      - generic [ref=e154]:
+        - link "プライバシーポリシー" [ref=e155] [cursor=pointer]:
+          - /url: "#"
+        - link "特定商取引法に基づく表記" [ref=e156] [cursor=pointer]:
+          - /url: /law
+  - generic [ref=e159]:
+    - button "Menu" [ref=e160]:
+      - img [ref=e162]
+      - generic: Menu
+    - button "Inspect" [ref=e166]:
+      - img [ref=e168]
+      - generic: Inspect
+    - button "Audit" [ref=e170]:
+      - generic [ref=e171]:
+        - img [ref=e172]
+        - img [ref=e175]
+      - generic: Audit
+    - button "Settings" [ref=e178]:
+      - img [ref=e180]
+      - generic: Settings

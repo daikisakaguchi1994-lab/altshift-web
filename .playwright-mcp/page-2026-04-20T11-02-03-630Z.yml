@@ -1,0 +1,183 @@
+- generic [ref=e2]:
+  - region "Notifications alt+T"
+  - generic [ref=e3]:
+    - banner [ref=e4]:
+      - generic [ref=e5]:
+        - generic [ref=e6]:
+          - generic [ref=e8]: A
+          - generic [ref=e9]: AltShift
+        - navigation [ref=e10]:
+          - link "事業内容" [ref=e11] [cursor=pointer]:
+            - /url: /service
+          - link "実績一覧" [ref=e12] [cursor=pointer]:
+            - /url: /works
+          - link "お知らせ" [ref=e13] [cursor=pointer]:
+            - /url: /news
+          - link "会社情報" [ref=e14] [cursor=pointer]:
+            - /url: /company
+        - generic [ref=e15]:
+          - link "📥 資料ダウンロード" [ref=e16] [cursor=pointer]:
+            - /url: /download
+          - link "📧 お問い合わせ" [ref=e17] [cursor=pointer]:
+            - /url: /contact
+    - generic [ref=e19]:
+      - paragraph [ref=e20]: SERVICE
+      - heading "事業内容" [level=1] [ref=e21]
+      - paragraph [ref=e22]: 生成AIのことなら何でも相談可能。導入支援から運用まで、トータルでサポートします。
+    - generic [ref=e24]:
+      - generic [ref=e25]:
+        - generic [ref=e26]:
+          - heading "外部CAIOサービス" [level=2] [ref=e27]
+          - paragraph [ref=e28]: 週1〜2回、貴社に入り込んでAI化を伴走するサービスです。単なるツール導入ではなく、ビジネスプロセス全体をAI化の視点から見直し、継続的に改善していきます。
+          - list [ref=e29]:
+            - listitem [ref=e30]:
+              - generic [ref=e31]: ✓
+              - generic [ref=e32]: 業務プロセスの分析・最適化
+            - listitem [ref=e33]:
+              - generic [ref=e34]: ✓
+              - generic [ref=e35]: AI導入計画の策定
+            - listitem [ref=e36]:
+              - generic [ref=e37]: ✓
+              - generic [ref=e38]: 運用支援・トレーニング
+            - listitem [ref=e39]:
+              - generic [ref=e40]: ✓
+              - generic [ref=e41]: 継続的な改善提案
+          - link "お問い合わせ" [ref=e42] [cursor=pointer]:
+            - /url: /contact
+            - text: お問い合わせ
+            - img [ref=e43]
+        - generic [ref=e46]:
+          - generic [ref=e47]: 🤝
+          - paragraph [ref=e48]: サービス画像（後で差し替え）
+      - generic [ref=e49]:
+        - generic [ref=e51]:
+          - generic [ref=e52]: ⚙️
+          - paragraph [ref=e53]: サービス画像（後で差し替え）
+        - generic [ref=e54]:
+          - heading "AIシステム開発" [level=2] [ref=e55]
+          - paragraph [ref=e56]: Lumioを活用した高度なAIシステムの開発。貴社の業務に特化したカスタムAIソリューションを構築し、業務効率化と新規事業創出を実現します。
+          - list [ref=e57]:
+            - listitem [ref=e58]:
+              - generic [ref=e59]: ✓
+              - generic [ref=e60]: Lumioを活用した開発
+            - listitem [ref=e61]:
+              - generic [ref=e62]: ✓
+              - generic [ref=e63]: カスタムAIモデルの構築
+            - listitem [ref=e64]:
+              - generic [ref=e65]: ✓
+              - generic [ref=e66]: データ分析・可視化
+            - listitem [ref=e67]:
+              - generic [ref=e68]: ✓
+              - generic [ref=e69]: 保守・運用サポート
+          - link "お問い合わせ" [ref=e70] [cursor=pointer]:
+            - /url: /contact
+            - text: お問い合わせ
+            - img [ref=e71]
+      - generic [ref=e73]:
+        - generic [ref=e74]:
+          - heading "Web制作 × SEO/GEO対策" [level=2] [ref=e75]
+          - paragraph [ref=e76]: 単なるWebサイト制作ではなく、SEO・GEO対策を含めた総合的なデジタルマーケティングをサポート。検索エンジンに強く、顧客を呼び込むサイトを構築します。
+          - list [ref=e77]:
+            - listitem [ref=e78]:
+              - generic [ref=e79]: ✓
+              - generic [ref=e80]: レスポンシブWebデザイン
+            - listitem [ref=e81]:
+              - generic [ref=e82]: ✓
+              - generic [ref=e83]: SEO最適化
+            - listitem [ref=e84]:
+              - generic [ref=e85]: ✓
+              - generic [ref=e86]: ローカルSEO（GEO対策）
+            - listitem [ref=e87]:
+              - generic [ref=e88]: ✓
+              - generic [ref=e89]: 継続的な改善・分析
+          - link "お問い合わせ" [ref=e90] [cursor=pointer]:
+            - /url: /contact
+            - text: お問い合わせ
+            - img [ref=e91]
+        - generic [ref=e94]:
+          - generic [ref=e95]: 🌐
+          - paragraph [ref=e96]: サービス画像（後で差し替え）
+      - generic [ref=e97]:
+        - generic [ref=e99]:
+          - generic [ref=e100]: 💬
+          - paragraph [ref=e101]: サービス画像（後で差し替え）
+        - generic [ref=e102]:
+          - heading "LINE自動化" [level=2] [ref=e103]
+          - paragraph [ref=e104]: LINEを活用した顧客対応の自動化。チャットボット、自動配信、顧客管理など、LINE公式アカウントの運用を効率化し、顧客満足度を向上させます。
+          - list [ref=e105]:
+            - listitem [ref=e106]:
+              - generic [ref=e107]: ✓
+              - generic [ref=e108]: LINEチャットボット構築
+            - listitem [ref=e109]:
+              - generic [ref=e110]: ✓
+              - generic [ref=e111]: 自動配信・セグメント配信
+            - listitem [ref=e112]:
+              - generic [ref=e113]: ✓
+              - generic [ref=e114]: 顧客管理システム連携
+            - listitem [ref=e115]:
+              - generic [ref=e116]: ✓
+              - generic [ref=e117]: 分析・最適化
+          - link "お問い合わせ" [ref=e118] [cursor=pointer]:
+            - /url: /contact
+            - text: お問い合わせ
+            - img [ref=e119]
+    - contentinfo [ref=e121]:
+      - generic [ref=e124]:
+        - generic [ref=e125]:
+          - generic [ref=e126]:
+            - heading "サービス資料をダウンロード" [level=3] [ref=e127]
+            - paragraph [ref=e128]: AltShiftのサービス内容や実績について、詳しくご覧いただけます。
+          - link "📥 ダウンロードする" [ref=e129] [cursor=pointer]:
+            - /url: /download
+        - generic [ref=e130]:
+          - generic [ref=e131]:
+            - heading "お問い合わせ" [level=3] [ref=e132]
+            - paragraph [ref=e133]: ご質問やご相談がございましたら、お気軽にお問い合わせください。
+          - link "📧 お問い合わせ" [ref=e134] [cursor=pointer]:
+            - /url: /contact
+      - generic [ref=e135]:
+        - generic [ref=e136]:
+          - generic [ref=e137]:
+            - generic [ref=e138]:
+              - generic [ref=e140]: A
+              - generic [ref=e141]: AltShift
+            - paragraph [ref=e142]: AIという道具を、中小企業の味方に。
+          - generic [ref=e143]:
+            - heading "サービス" [level=4] [ref=e144]
+            - list [ref=e145]:
+              - listitem [ref=e146]:
+                - link "事業内容" [ref=e147] [cursor=pointer]:
+                  - /url: /service
+              - listitem [ref=e148]:
+                - link "実績一覧" [ref=e149] [cursor=pointer]:
+                  - /url: /works
+              - listitem [ref=e150]:
+                - link "お知らせ" [ref=e151] [cursor=pointer]:
+                  - /url: /news
+          - generic [ref=e152]:
+            - heading "会社" [level=4] [ref=e153]
+            - list [ref=e154]:
+              - listitem [ref=e155]:
+                - link "会社情報" [ref=e156] [cursor=pointer]:
+                  - /url: /company
+              - listitem [ref=e157]:
+                - link "資料ダウンロード" [ref=e158] [cursor=pointer]:
+                  - /url: /download
+              - listitem [ref=e159]:
+                - link "お問い合わせ" [ref=e160] [cursor=pointer]:
+                  - /url: /contact
+          - generic [ref=e161]:
+            - heading "お問い合わせ" [level=4] [ref=e162]
+            - list [ref=e163]:
+              - listitem [ref=e164]:
+                - link "contact@altshift.jp" [ref=e165] [cursor=pointer]:
+                  - /url: mailto:contact@altshift.jp
+              - listitem [ref=e166]: 福岡市
+              - listitem [ref=e167]: "設立: 2025年"
+        - generic [ref=e168]:
+          - paragraph [ref=e169]: © 2026 AltShift. All rights reserved.
+          - generic [ref=e170]:
+            - link "プライバシーポリシー" [ref=e171] [cursor=pointer]:
+              - /url: "#"
+            - link "利用規約" [ref=e172] [cursor=pointer]:
+              - /url: "#"

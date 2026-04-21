@@ -1,0 +1,91 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - generic [ref=e3]:
+      - link "AltShift." [ref=e4] [cursor=pointer]:
+        - /url: /
+      - navigation [ref=e5]:
+        - link "事業内容" [ref=e6] [cursor=pointer]:
+          - /url: /service
+        - link "実績一覧" [ref=e7] [cursor=pointer]:
+          - /url: /case
+        - link "お知らせ" [ref=e8] [cursor=pointer]:
+          - /url: /news
+        - link "会社情報" [ref=e9] [cursor=pointer]:
+          - /url: /company
+      - generic [ref=e10]:
+        - link "資料ダウンロード" [ref=e11] [cursor=pointer]:
+          - /url: /download
+          - img [ref=e12]
+          - text: 資料ダウンロード
+        - link "お問い合わせ" [ref=e15] [cursor=pointer]:
+          - /url: /contact
+          - img [ref=e16]
+          - text: お問い合わせ
+  - main [ref=e19]:
+    - generic [ref=e20]:
+      - paragraph: SERVICE
+      - generic [ref=e21]:
+        - generic [ref=e22]:
+          - paragraph [ref=e23]: — 事業内容
+          - heading "SERVICE" [level=1] [ref=e24]
+        - generic [ref=e25]:
+          - paragraph [ref=e26]: 外部CAIOという働き方で、企業に入り込んでAI化を伴走します。 AI戦略の策定から実装まで、必要なことを必要なだけ対応します。
+          - paragraph [ref=e27]: 詳細コンテンツは準備中です。お問い合わせよりご相談ください。
+  - contentinfo [ref=e28]:
+    - generic [ref=e30]:
+      - generic [ref=e31]:
+        - paragraph [ref=e32]: AltShift.
+        - paragraph [ref=e33]: 福岡県福岡市
+        - link "contact@altshift.jp" [ref=e34] [cursor=pointer]:
+          - /url: mailto:contact@altshift.jp
+        - paragraph [ref=e35]:
+          - text: 外部CAIOという働き方で、
+          - text: 福岡の中小企業のAI化を伴走します。
+      - generic [ref=e36]:
+        - paragraph [ref=e37]: 事業内容
+        - list [ref=e38]:
+          - listitem [ref=e39]: — 外部CAIOサービス
+          - listitem [ref=e40]: — AIシステム開発
+          - listitem [ref=e41]: — Web制作
+          - listitem [ref=e42]: — LINE自動化
+          - listitem [ref=e43]: — SEO / GEO対策
+      - generic [ref=e44]:
+        - paragraph [ref=e45]: リンク
+        - list [ref=e46]:
+          - listitem [ref=e47]:
+            - link "会社情報" [ref=e48] [cursor=pointer]:
+              - /url: /company
+          - listitem [ref=e49]:
+            - link "実績一覧" [ref=e50] [cursor=pointer]:
+              - /url: /case
+          - listitem [ref=e51]:
+            - link "お知らせ" [ref=e52] [cursor=pointer]:
+              - /url: /news
+          - listitem [ref=e53]:
+            - link "お問い合わせ" [ref=e54] [cursor=pointer]:
+              - /url: /contact
+          - listitem [ref=e55]:
+            - link "資料ダウンロード" [ref=e56] [cursor=pointer]:
+              - /url: /download
+    - generic [ref=e58]:
+      - paragraph [ref=e59]: © 2025 AltShift. All rights reserved.
+      - generic [ref=e60]:
+        - link "プライバシーポリシー" [ref=e61] [cursor=pointer]:
+          - /url: "#"
+        - link "特定商取引法に基づく表記" [ref=e62] [cursor=pointer]:
+          - /url: /law
+  - generic [ref=e65]:
+    - button "Menu" [ref=e66]:
+      - img [ref=e68]
+      - generic: Menu
+    - button "Inspect" [ref=e72]:
+      - img [ref=e74]
+      - generic: Inspect
+    - button "Audit" [ref=e76]:
+      - generic [ref=e77]:
+        - img [ref=e78]
+        - img [ref=e81]
+      - generic: Audit
+    - button "Settings" [ref=e84]:
+      - img [ref=e86]
+      - generic: Settings

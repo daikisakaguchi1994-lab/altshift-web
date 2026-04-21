@@ -1,0 +1,2 @@
+[    8804ms] TypeError: Cannot read properties of null (reading 'addEventListener')
+    at https://epi-lounge.com/js/modal.js:5:6

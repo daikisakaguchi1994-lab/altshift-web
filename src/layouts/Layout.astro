@@ -4,12 +4,16 @@ import '../styles/global.css'
 export interface Props {
   title?: string
   description?: string
+  schemaData?: object
 }
 
 const {
   title = 'AltShift | 福岡の中小企業向けAI導入支援・外部CAIOサービス',
   description = '福岡を拠点に、リフォーム・建設業などの中小企業向けにAI導入支援を提供。外部CAIOとして週1〜2回企業に入り込み、AI戦略の策定から実装まで一貫してサポートします。',
+  schemaData,
 } = Astro.props
+
+const canonicalURL = new URL(Astro.url.pathname, 'https://altshift.jp').href
 ---
 
 <!doctype html>
@@ -17,13 +21,13 @@ const {
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="福岡を拠点に、中小企業のAI導入を支援。外部CAIOとして週1〜2回企業に入り込み、AI戦略から実装まで伴走します。" />
+    <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://altshift.jp/" />
+    <link rel="canonical" href={canonicalURL} />
     <meta property="og:type" content="website" />
-    <meta property="og:title" content="AltShift｜福岡の中小企業にAIという選択肢を" />
-    <meta property="og:description" content="外部CAIOサービス・AIシステム開発・Web制作・LINE自動化。福岡発のAI導入支援会社。" />
-    <meta property="og:url" content="https://altshift.jp" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonicalURL} />
     <meta property="og:locale" content="ja_JP" />
     <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -35,31 +39,23 @@ const {
       rel="stylesheet"
     />
 
-    <!-- FAQPage Schema -->
-    <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": [
-        {"@type": "Question", "name": "AltShiftはどんなサービスですか？", "acceptedAnswer": {"@type": "Answer", "text": "福岡を拠点に、リフォーム・建設業などの中小企業向けにAI導入支援を提供しています。外部CAIOとして週1〜2回企業に入り込み、AI戦略の策定から実装まで一貫してサポートします。"}},
-        {"@type": "Question", "name": "料金はいくらですか？", "acceptedAnswer": {"@type": "Answer", "text": "月額3万円〜8万円の3層パッケージ（初期費用別途）。まずはLINEでヒアリングし、最適なプランをご提案します。"}},
-        {"@type": "Question", "name": "福岡以外でも対応できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。オンライン対応可能で、全国対応しています。"}},
-        {"@type": "Question", "name": "どのくらいで成果が出ますか？", "acceptedAnswer": {"@type": "Answer", "text": "SEO効果は3〜6ヶ月、LINE自動化は導入翌月から問い合わせの変化が出始めるケースが多いです。"}},
-        {"@type": "Question", "name": "AIを使ったことがない会社でも導入できますか？", "acceptedAnswer": {"@type": "Answer", "text": "はい。AI未経験の企業向けに、設定から運用まで一貫してサポートします。"}}
-      ]
-    }
-    </script>
+    {schemaData && (
+      <Fragment set:html={`<script type="application/ld+json">${JSON.stringify(schemaData)}</script>`} />
+    )}
 
     <!-- LocalBusiness Schema -->
-    <script type="application/ld+json">
+    <script type="application/ld+json" is:inline>
     {
       "@context": "https://schema.org",
       "@type": "LocalBusiness",
       "name": "AltShift",
       "description": "福岡拠点の中小企業向けAI導入支援・外部CAIOサービス",
       "url": "https://altshift.jp",
+      "email": "contact@altshift.jp",
       "address": {"@type": "PostalAddress", "addressLocality": "福岡市", "addressRegion": "福岡県", "addressCountry": "JP"},
-      "founder": {"@type": "Person", "name": "ディーチャー", "jobTitle": "代表 / CAIO"}
+      "founder": {"@type": "Person", "name": "ディーチャー（坂口 大輝）", "jobTitle": "代表 / External CAIO"},
+      "priceRange": "¥¥",
+      "openingHours": "Mo-Fr 10:00-18:00"
     }
     </script>
   </head>
@@ -72,11 +68,13 @@ const {
        rel="noopener noreferrer"
        class="md:hidden fixed bottom-0 left-0 right-0 z-50 flex items-center justify-center gap-2 py-4 text-white font-medium text-sm"
        style="background-color: #1B5EBE;">
-      💬 LINEで無料相談（無料）
+      <svg width="16" height="16" viewBox="0 0 48 48" fill="white">
+        <path d="M24 4C12.95 4 4 11.86 4 21.5c0 5.5 2.87 10.4 7.36 13.6L9 40l6.5-2.8A22.4 22.4 0 0024 39c11.05 0 20-7.86 20-17.5S35.05 4 24 4z"/>
+      </svg>
+      LINEで無料相談（無料）
     </a>
 
     <script>
-      // スクロールフェードアップ
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
@@ -85,7 +83,6 @@ const {
           }
         });
       }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
-
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
     </script>
   </body>
