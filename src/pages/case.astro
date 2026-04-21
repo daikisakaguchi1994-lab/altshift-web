@@ -3,28 +3,61 @@ import Layout from '../layouts/Layout.astro'
 import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
 
-const gradLabel = "font-family:'Inter',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; background:linear-gradient(135deg,#1B5EBE,#4A90D9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;"
+const gradLabel = "font-family:'Inter',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; background:linear-gradient(135deg,#1B5EBE,#4A90D9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;"
 const gradDeco  = "font-family:'Inter',sans-serif; font-weight:900; font-size:clamp(60px,10vw,120px); letter-spacing:-0.05em; opacity:0.04; background:linear-gradient(135deg,#1B5EBE,#4A90D9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; pointer-events:none; user-select:none;"
 
 const cases = [
   {
+    company: '三栄リフォーム',
     title: '三栄リフォーム × AltShift',
+    category: 'Web制作 / SEO・GEO対策',
+    tags: ['Web制作', 'SEO/GEO', 'LINE自動化'],
     desc: 'リフォーム会社向けにAI時代の検索対応Webサイトを高速実装。SEO/GEO対策により、ChatGPTやGoogleでの露出を強化。',
-    tags: ['Web制作', 'SEO/GEO'],
+    result: 'AI検索・Googleマップ双方で上位露出',
+    image: '/images/cases/sanei-reform.jpg',
     url: 'https://sanei-reform.vercel.app',
     period: '2026年3月',
   },
   {
+    company: "BAR Kar's",
     title: "BAR Kar's × AltShift",
+    category: 'Web制作 / LINE自動化',
+    tags: ['Web制作', 'LINE自動化', 'デジタルメニュー'],
     desc: '中洲のアフターバー。デジタルメニューとLINE自動応答を導入し、営業時間外の問い合わせ対応を自動化。',
-    tags: ['Web制作', 'LINE自動化'],
+    result: '営業時間外の問い合わせ対応を完全自動化',
+    image: '/images/cases/bar-kars.jpg',
     url: null,
     period: '2026年3月',
+  },
+  {
+    company: '株式会社伸明',
+    title: '株式会社伸明 × AltShift',
+    category: 'Web制作 / SEO・GEO最適化',
+    tags: ['GEO最適化', 'SEO対策', 'HP制作'],
+    desc: '地域密着型企業向けのホームページ制作に加え、Googleマップへの上位表示（GEO最適化）およびSEO対策を一貫支援。検索・地図双方からの集客基盤を構築。',
+    result: 'Googleマップ上位表示・オーガニック流入増加',
+    image: '/images/cases/shinmei.jpg',
+    url: null,
+    period: '2026年4月',
+  },
+  {
+    company: '株式会社BEGINS',
+    title: '株式会社BEGINS × AltShift',
+    category: '業務自動化 / HR-Tech',
+    tags: ['コールセンター自動化', '応募者管理', '自動面接設定'],
+    desc: 'コールセンター業務の集計自動化・求人応募者管理システムの構築・面接日程の自動設定など、採用〜オペレーション領域の業務フローをAIと自動化で効率化。',
+    result: '採用業務工数50%削減・集計作業完全自動化',
+    image: '/images/cases/begins.jpg',
+    url: null,
+    period: '2026年4月',
   },
 ]
 ---
 
-<Layout title="実績一覧 | AltShift" description="AltShiftの実績一覧。Web制作・AI導入支援の事例をご紹介します。">
+<Layout
+  title="実績一覧 | AltShift"
+  description="AltShiftの導入実績。三栄リフォーム・BAR Kar's・株式会社伸明・株式会社BEGINSなど、Web制作・AI導入支援・LINE自動化の事例をご紹介します。"
+>
   <Nav />
   <main>
     <section class="relative overflow-hidden" style="background:#FFFFFF; padding:96px 24px;">
@@ -33,46 +66,70 @@ const cases = [
       <div class="relative max-w-6xl mx-auto">
         <div class="mb-14 reveal">
           <p style={gradLabel} class="mb-2">— 実績一覧</p>
-          <h1 style="font-size:clamp(28px,4vw,40px); color:#1A1A1A;">CASE</h1>
+          <h1 style="font-size:clamp(28px,4vw,40px); color:#1A1A1A;">導入実績</h1>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           {cases.map(c => (
             <div class="reveal bg-white overflow-hidden hover:shadow-md transition-shadow"
-                 style="border-top:3px solid #1B5EBE; border-left:1px solid #E5E5E5; border-right:1px solid #E5E5E5; border-bottom:1px solid #E5E5E5; border-radius:8px;">
-              <div class="w-full h-44 flex items-center justify-center"
-                   style="background:#F4F4F4; border-bottom:1px solid #E5E5E5;">
-                <span style="font-size:12px; color:#6B6B6B; letter-spacing:0.1em; text-transform:uppercase;">Image</span>
-              </div>
-              <div class="p-6">
-                <div class="flex flex-wrap gap-2 mb-3">
-                  {c.tags.map(tag => (
-                    <span style="font-size:11px; font-weight:500; padding:4px 10px; border:1px solid rgba(27,94,190,0.2); color:#1B5EBE; background:rgba(27,94,190,0.06); border-radius:4px;">
-                      {tag}
-                    </span>
-                  ))}
+                 style="border:1px solid #E5E5E5; border-radius:12px;">
+
+              <!-- 画像エリア -->
+              <div class="relative overflow-hidden" style="aspect-ratio:16/9;">
+                <img
+                  src={c.image}
+                  alt={c.company}
+                  loading="lazy"
+                  style="width:100%; height:100%; object-fit:cover; transition:transform 0.4s ease;"
+                  onmouseover="this.style.transform='scale(1.04)'"
+                  onmouseout="this.style.transform='scale(1)'"
+                />
+                <!-- カテゴリバッジ -->
+                <div style="position:absolute; top:12px; left:12px;">
+                  <span style="font-size:11px; font-weight:600; padding:4px 10px; background:rgba(27,94,190,0.85); color:white; border-radius:4px; letter-spacing:0.03em; backdrop-filter:blur(4px);">
+                    {c.category}
+                  </span>
                 </div>
-                <p style="font-size:12px; color:#6B6B6B; margin-bottom:4px;">{c.period}</p>
-                <h3 style="font-size:15px; font-weight:700; color:#1A1A1A; margin-bottom:8px; letter-spacing:-0.01em;">{c.title}</h3>
-                <p style="font-size:14px; color:#6B6B6B; line-height:1.8; font-weight:300; margin-bottom:16px;">{c.desc}</p>
+              </div>
+
+              <!-- テキストエリア -->
+              <div class="p-6">
+                <div class="flex items-center justify-between mb-3">
+                  <div class="flex flex-wrap gap-2">
+                    {c.tags.map(tag => (
+                      <span style="font-size:11px; font-weight:500; padding:3px 9px; border:1px solid rgba(27,94,190,0.2); color:#1B5EBE; background:rgba(27,94,190,0.06); border-radius:4px;">
+                        {tag}
+                      </span>
+                    ))}
+                  </div>
+                  <p style="font-size:12px; color:#9CA3AF; flex-shrink:0; margin-left:8px;">{c.period}</p>
+                </div>
+
+                <h3 style="font-size:16px; font-weight:700; color:#1A1A1A; margin-bottom:8px; letter-spacing:-0.01em;">{c.title}</h3>
+                <p style="font-size:14px; color:#6B6B6B; line-height:1.8; font-weight:300; margin-bottom:12px;">{c.desc}</p>
+
+                <!-- 成果 -->
+                <div class="flex items-start gap-2 mb-16px" style="margin-bottom:16px;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#C8A15A" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:2px;">
+                    <polyline points="20 6 9 17 4 12"/>
+                  </svg>
+                  <p style="font-size:13px; color:#6B6B6B; font-weight:400;">{c.result}</p>
+                </div>
+
                 {c.url && (
                   <a href={c.url} target="_blank" rel="noopener noreferrer"
-                     style="font-size:13px; font-weight:600; color:#1B5EBE; text-decoration:none;" class="hover:underline">
+                     style="font-size:13px; font-weight:600; color:#1B5EBE; text-decoration:none;"
+                     class="hover:underline">
                     サイトを見る →
                   </a>
                 )}
               </div>
             </div>
           ))}
-
-          <div class="reveal bg-white flex flex-col items-center justify-center p-8"
-               style="border:1px dashed #E5E5E5; border-radius:8px; min-height:300px;">
-            <p style="font-size:12px; font-weight:600; color:#6B6B6B; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:8px;">Coming Soon</p>
-            <p style="font-size:14px; color:#6B6B6B; font-weight:300;">近日公開</p>
-          </div>
         </div>
 
-        <div class="mt-14 reveal bg-white flex flex-col md:flex-row items-center justify-between gap-6 p-8"
+        <!-- CTA -->
+        <div class="mt-16 reveal bg-white flex flex-col md:flex-row items-center justify-between gap-6 p-8"
              style="border:1px solid #E5E5E5; border-radius:8px;">
           <div>
             <p style={gradLabel} class="mb-1">ご相談はお気軽に</p>
@@ -82,8 +139,11 @@ const cases = [
           <a href="https://lin.ee/VOiIxYB"
              target="_blank" rel="noopener noreferrer"
              class="inline-flex items-center gap-2 text-sm text-white transition-opacity hover:opacity-90 whitespace-nowrap flex-shrink-0"
-             style="background:#1B5EBE; font-weight:600; letter-spacing:0.01em; padding:12px 24px; border-radius:6px;">
-            お問い合わせ →
+             style="background:#06C755; font-weight:600; letter-spacing:0.01em; padding:12px 24px; border-radius:6px;">
+            <svg width="14" height="14" viewBox="0 0 48 48" fill="white">
+              <path d="M24 4C12.95 4 4 11.86 4 21.5c0 5.5 2.87 10.4 7.36 13.6L9 40l6.5-2.8A22.4 22.4 0 0024 39c11.05 0 20-7.86 20-17.5S35.05 4 24 4z"/>
+            </svg>
+            LINEで無料相談
           </a>
         </div>
       </div>

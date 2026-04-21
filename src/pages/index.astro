@@ -235,30 +235,45 @@ const faqSchema = {
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           {[
-            { name: '三栄リフォーム', tags: ['Web制作','SEO/GEO','LINE自動化'], title: '三栄リフォーム × AltShift', desc: 'AI時代の検索対応Webサイトを実装。SEO/GEO対策でGoogleとAIに選ばれるコンテンツを構築。', url: 'https://sanei-reform.vercel.app' },
-            { name: "BAR Kar's",     tags: ['Web制作','LINE自動化','デジタルメニュー'], title: "BAR Kar's × AltShift", desc: '中洲のアフターバー。デジタルメニューとLINE自動応答を導入し、営業時間外の問い合わせを自動化。', url: null },
+            { title: '三栄リフォーム × AltShift',   tags: ['Web制作','SEO/GEO','LINE自動化'],        image: '/images/cases/sanei-reform.jpg', desc: 'AI時代の検索対応Webサイトを実装。SEO/GEO対策でGoogleとAIに選ばれるコンテンツを構築。', url: 'https://sanei-reform.vercel.app' },
+            { title: "BAR Kar's × AltShift",         tags: ['Web制作','LINE自動化','デジタルメニュー'], image: '/images/cases/bar-kars.jpg',    desc: '中洲のアフターバー。デジタルメニューとLINE自動応答を導入し、営業時間外の問い合わせを自動化。', url: null },
+            { title: '株式会社伸明 × AltShift',      tags: ['GEO最適化','SEO対策','HP制作'],           image: '/images/cases/shinmei.jpg',     desc: '地域密着型企業のHP制作とGEO最適化。Googleマップへの上位表示と検索双方からの集客基盤を構築。', url: null },
+            { title: '株式会社BEGINS × AltShift',    tags: ['コールセンター自動化','応募者管理','自動面接設定'], image: '/images/cases/begins.jpg', desc: '採用〜コールセンター業務をAIと自動化で刷新。採用業務工数50%削減・集計作業の完全自動化を実現。', url: null },
           ].map(c => (
             <div class="reveal overflow-hidden hover:shadow-md transition-shadow bg-white"
-                 style="border-top:3px solid #1B5EBE; border-left:1px solid #E5E5E5; border-right:1px solid #E5E5E5; border-bottom:1px solid #E5E5E5; border-radius:8px;">
-              <div class="h-48 flex items-center justify-center"
-                   style="background:#F4F4F4; border-bottom:1px solid #E5E5E5;">
-                <p style="font-size:13px; font-weight:600; color:#1B5EBE; letter-spacing:0.05em;">{c.name}</p>
+                 style="border:1px solid #E5E5E5; border-radius:12px;">
+              <!-- 画像 -->
+              <div class="relative overflow-hidden" style="aspect-ratio:16/9;">
+                <img
+                  src={c.image}
+                  alt={c.title}
+                  loading="lazy"
+                  style="width:100%; height:100%; object-fit:cover; transition:transform 0.4s ease;"
+                  onmouseover="this.style.transform='scale(1.04)'"
+                  onmouseout="this.style.transform='scale(1)'"
+                />
               </div>
               <div class="p-6">
                 <div class="flex flex-wrap gap-2 mb-3">
                   {c.tags.map(t => (
-                    <span style="font-size:11px; font-weight:500; padding:4px 10px; border:1px solid rgba(27,94,190,0.2); color:#1B5EBE; background:rgba(27,94,190,0.06); border-radius:4px;">{t}</span>
+                    <span style="font-size:11px; font-weight:500; padding:3px 9px; border:1px solid rgba(27,94,190,0.2); color:#1B5EBE; background:rgba(27,94,190,0.06); border-radius:4px;">{t}</span>
                   ))}
                 </div>
                 <h3 style="font-size:15px; font-weight:700; margin-bottom:8px; color:#1A1A1A;">{c.title}</h3>
-                <p style="font-size:14px; color:#6B6B6B; line-height:1.8; font-weight:300; margin-bottom:16px;">{c.desc}</p>
+                <p style="font-size:14px; color:#6B6B6B; line-height:1.8; font-weight:300; margin-bottom:12px;">{c.desc}</p>
                 {c.url
                   ? <a href={c.url} target="_blank" rel="noopener noreferrer" style="font-size:13px; font-weight:600; color:#1B5EBE; text-decoration:none;" class="hover:underline">サイトを見る</a>
-                  : <span style="font-size:12px; color:#6B6B6B;">※ URL準備中</span>
+                  : <span style="font-size:12px; color:#9CA3AF;">URL準備中</span>
                 }
               </div>
             </div>
           ))}
+        </div>
+
+        <div class="mt-10 text-center reveal">
+          <a href="/case" style="font-size:14px; font-weight:600; color:#1B5EBE; text-decoration:none; border-bottom:1px solid #C8A15A; padding-bottom:2px;">
+            実績一覧をすべて見る
+          </a>
         </div>
       </div>
     </section>
