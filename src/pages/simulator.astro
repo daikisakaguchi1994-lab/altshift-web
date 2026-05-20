@@ -1,0 +1,352 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: '補助金活用シミュレーター',
+  description: '中小企業のAI導入における補助金適用額と実質負担額を30秒で試算できる無料シミュレーター。',
+  url: 'https://altshift.jp/simulator',
+  applicationCategory: 'BusinessApplication',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'JPY' },
+  provider: { '@type': 'Organization', name: 'AltShift', url: 'https://altshift.jp' },
+}
+---
+
+<Layout
+  title="補助金活用シミュレーター | AI導入の実質負担額を30秒で診断 | AltShift"
+  description="従業員数と導入規模を選ぶだけで、AI導入に活用できる補助金と実質負担額を無料で試算。中小企業のAI導入を最大2/3補助で実現。"
+  schemaData={schemaData}
+>
+  <Nav />
+  <main>
+    <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+
+        <!-- Page Hero -->
+        <div class="mb-12 reveal text-center">
+          <div class="accent-line mb-6 mx-auto"></div>
+          <h1 class="heading-hero" style="font-size:clamp(24px,3.5vw,40px);">補助金活用シミュレーター</h1>
+          <p class="body-lg mt-4">あなたの会社のAI導入、実質いくらで実現できるか<br class="hidden md:inline" />30秒で診断</p>
+        </div>
+
+        <!-- Q1: 従業員数 -->
+        <div class="reveal t-card p-8 mb-6">
+          <h2 class="heading-md mb-2">Q1. 従業員数</h2>
+          <p class="text-xs mb-5" style="color:var(--color-ink-dim);">会社全体のおおよその人数を選んでください</p>
+          <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="q1-options">
+            <button class="sim-option" data-group="q1" data-value="small">
+              <span class="sim-option-label">5名以下</span>
+              <span class="sim-option-sub">小規模事業者</span>
+            </button>
+            <button class="sim-option" data-group="q1" data-value="medium_s">
+              <span class="sim-option-label">6〜20名</span>
+              <span class="sim-option-sub">&nbsp;</span>
+            </button>
+            <button class="sim-option" data-group="q1" data-value="medium">
+              <span class="sim-option-label">21〜100名</span>
+              <span class="sim-option-sub">&nbsp;</span>
+            </button>
+            <button class="sim-option" data-group="q1" data-value="large">
+              <span class="sim-option-label">101名以上</span>
+              <span class="sim-option-sub">&nbsp;</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Q2: 導入規模 -->
+        <div class="reveal t-card p-8 mb-6">
+          <h2 class="heading-md mb-2">Q2. 希望する導入規模</h2>
+          <p class="text-xs mb-5" style="color:var(--color-ink-dim);">現時点でのイメージで構いません</p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-3" id="q2-options">
+            <button class="sim-option" data-group="q2" data-value="diagnostic_only">
+              <span class="sim-option-label">診断のみ</span>
+              <span class="sim-option-sub">戦略・ロードマップ策定</span>
+            </button>
+            <button class="sim-option" data-group="q2" data-value="partial_implementation">
+              <span class="sim-option-label">部分実装</span>
+              <span class="sim-option-sub">特定業務のAI化</span>
+            </button>
+            <button class="sim-option" data-group="q2" data-value="full_deployment">
+              <span class="sim-option-label">全社展開</span>
+              <span class="sim-option-sub">複数業務の統合AI化</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Q3: 対象業務 -->
+        <div class="reveal t-card p-8 mb-6">
+          <h2 class="heading-md mb-2">Q3. 主な対象業務<span class="text-xs font-normal ml-2" style="color:var(--color-ink-dim);">（複数選択可・任意）</span></h2>
+          <p class="text-xs mb-5" style="color:var(--color-ink-dim);">AI化したい業務を選んでください</p>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3" id="q3-options">
+            <button class="sim-option sim-multi" data-group="q3" data-value="customer_support">
+              <span class="sim-option-label">顧客対応・問い合わせ自動化</span>
+            </button>
+            <button class="sim-option sim-multi" data-group="q3" data-value="logistics">
+              <span class="sim-option-label">受発注・配車・物流管理</span>
+            </button>
+            <button class="sim-option sim-multi" data-group="q3" data-value="credit">
+              <span class="sim-option-label">与信判断・契約処理</span>
+            </button>
+            <button class="sim-option sim-multi" data-group="q3" data-value="reporting">
+              <span class="sim-option-label">データ集計・レポート自動化</span>
+            </button>
+          </div>
+          <div class="mt-3">
+            <input type="text" id="q3-other" placeholder="その他（自由記述）" class="sim-input w-full" />
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div id="sim-results" class="reveal t-card p-8 mb-6" style="border-color:rgba(216,255,0,0.2); background:rgba(216,255,0,0.03); display:none;">
+          <h2 class="heading-md mb-6 text-center">シミュレーション結果</h2>
+
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+            <!-- 見積価格 -->
+            <div class="py-4 px-5" style="background:rgba(255,255,255,0.03); border-radius:12px;">
+              <p class="text-xs font-semibold mb-1" style="color:var(--color-ink-dim);">概算費用</p>
+              <p id="res-price" class="text-2xl font-bold" style="color:var(--color-ink);">—</p>
+            </div>
+            <!-- 実質負担 -->
+            <div class="py-4 px-5" style="background:rgba(216,255,0,0.06); border-radius:12px; border:1px solid rgba(216,255,0,0.15);">
+              <p class="text-xs font-semibold mb-1" style="color:var(--color-neon);">補助金活用後の実質負担額</p>
+              <p id="res-actual" class="text-2xl font-bold" style="color:var(--color-neon);">—</p>
+            </div>
+          </div>
+
+          <div class="flex flex-col gap-4 mb-6">
+            <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
+              <p class="text-sm font-semibold" style="color:var(--color-ink);">適用可能な補助金</p>
+              <p id="res-subsidy" class="text-sm font-bold text-right" style="color:var(--color-neon);">—</p>
+            </div>
+            <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
+              <p class="text-sm font-semibold" style="color:var(--color-ink);">補助率</p>
+              <p id="res-rate" class="text-sm font-bold" style="color:var(--color-neon);">—</p>
+            </div>
+            <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
+              <p class="text-sm font-semibold" style="color:var(--color-ink);">想定実装期間</p>
+              <p id="res-duration" class="text-sm font-bold" style="color:var(--color-neon);">—</p>
+            </div>
+          </div>
+
+          <!-- CTA -->
+          <div class="text-center">
+            <a id="sim-cta" href="/contact" class="btn-neon inline-flex items-center gap-2" style="font-size:14px; padding:14px 28px;">
+              この内容で無料相談する
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <p class="text-xs text-center mt-6 mb-8" style="color:var(--color-ink-dim);">
+          ※本シミュレーションは概算です。実際の補助金採択・補助率は申請内容と審査により決定します。詳細は無料相談にてご案内します。
+        </p>
+
+        <!-- Related links -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 stagger">
+          <a href="/service/ai-automation" class="reveal t-card p-5 block" style="text-decoration:none; color:inherit; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(216,255,0,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+            <p class="text-xs font-semibold mb-1" style="color:var(--color-neon);">サービス詳細</p>
+            <p class="heading-sm">AI業務自動化</p>
+            <p class="text-xs mt-1" style="color:var(--color-ink-dim);">補助金活用で実質負担1/2〜2/3 →</p>
+          </a>
+          <a href="/cases/tyd-logistics" class="reveal t-card p-5 block" style="text-decoration:none; color:inherit; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(216,255,0,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+            <p class="text-xs font-semibold mb-1" style="color:var(--color-neon);">導入事例</p>
+            <p class="heading-sm">物流企業のAI業務自動化</p>
+            <p class="text-xs mt-1" style="color:var(--color-ink-dim);">LINE Bot＋配車システム →</p>
+          </a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .sim-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 16px 12px;
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    background: rgba(255,255,255,0.02);
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+  }
+  .sim-option:hover {
+    border-color: rgba(216,255,0,0.4);
+    background: rgba(216,255,0,0.04);
+  }
+  .sim-option.active {
+    border-color: var(--color-neon);
+    background: rgba(216,255,0,0.08);
+    box-shadow: 0 0 12px rgba(216,255,0,0.15);
+  }
+  .sim-option-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-ink);
+  }
+  .sim-option.active .sim-option-label {
+    color: var(--color-neon);
+  }
+  .sim-option-sub {
+    font-size: 11px;
+    color: var(--color-ink-dim);
+    margin-top: 2px;
+  }
+  .sim-input {
+    padding: 12px 16px;
+    border-radius: 10px;
+    border: 1px solid var(--color-border);
+    background: rgba(255,255,255,0.02);
+    color: var(--color-ink);
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  .sim-input:focus {
+    border-color: rgba(216,255,0,0.5);
+  }
+  .sim-input::placeholder {
+    color: var(--color-ink-dim);
+  }
+
+  #sim-results {
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  #sim-results.show {
+    display: block;
+    animation: sim-fade-in 0.5s ease forwards;
+  }
+  @keyframes sim-fade-in {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<script>
+  const subsidyData: Record<string, { price_min: number; price_max: number; subsidy: string; rate_default: number; rate_small: number; duration: string }> = {
+    diagnostic_only: {
+      price_min: 30,
+      price_max: 50,
+      subsidy: '対象外',
+      rate_default: 0,
+      rate_small: 0,
+      duration: '2週間',
+    },
+    partial_implementation: {
+      price_min: 150,
+      price_max: 450,
+      subsidy: 'デジタル化・AI導入補助金2026',
+      rate_default: 0.5,
+      rate_small: 0.667,
+      duration: '8〜12週間',
+    },
+    full_deployment: {
+      price_min: 300,
+      price_max: 1500,
+      subsidy: '省力化投資補助金〈一般型〉',
+      rate_default: 0.5,
+      rate_small: 0.667,
+      duration: '12〜24週間',
+    },
+  }
+
+  let selected: { q1: string | null; q2: string | null; q3: string[] } = {
+    q1: null,
+    q2: null,
+    q3: [],
+  }
+
+  // Q1, Q2: single select
+  document.querySelectorAll<HTMLButtonElement>('.sim-option:not(.sim-multi)').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const group = btn.dataset.group as 'q1' | 'q2'
+      const value = btn.dataset.value!
+      // Deselect siblings
+      document.querySelectorAll<HTMLButtonElement>(`.sim-option[data-group="${group}"]`).forEach(b => b.classList.remove('active'))
+      btn.classList.add('active')
+      selected[group] = value
+      calculate()
+    })
+  })
+
+  // Q3: multi select
+  document.querySelectorAll<HTMLButtonElement>('.sim-multi').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const value = btn.dataset.value!
+      btn.classList.toggle('active')
+      if (btn.classList.contains('active')) {
+        if (!selected.q3.includes(value)) selected.q3.push(value)
+      } else {
+        selected.q3 = selected.q3.filter(v => v !== value)
+      }
+    })
+  })
+
+  function fmt(n: number): string {
+    return Math.round(n).toLocaleString('ja-JP')
+  }
+
+  function calculate() {
+    if (!selected.q1 || !selected.q2) return
+
+    const plan = subsidyData[selected.q2]
+    if (!plan) return
+
+    const isSmall = selected.q1 === 'small'
+    const rate = isSmall ? plan.rate_small : plan.rate_default
+
+    const priceMin = plan.price_min
+    const priceMax = plan.price_max
+    const actualMin = Math.round(priceMin * (1 - rate))
+    const actualMax = Math.round(priceMax * (1 - rate))
+
+    // Show results
+    const results = document.getElementById('sim-results')!
+    results.style.display = 'block'
+    results.classList.add('show')
+
+    document.getElementById('res-price')!.textContent = `${fmt(priceMin)}万円〜${fmt(priceMax)}万円`
+
+    if (rate > 0) {
+      document.getElementById('res-actual')!.textContent = `${fmt(actualMin)}万円〜${fmt(actualMax)}万円`
+    } else {
+      document.getElementById('res-actual')!.textContent = `${fmt(priceMin)}万円〜${fmt(priceMax)}万円（補助金対象外）`
+    }
+
+    document.getElementById('res-subsidy')!.textContent = plan.subsidy
+
+    if (rate > 0) {
+      const rateLabel = isSmall ? '2/3（小規模事業者優遇）' : '1/2'
+      document.getElementById('res-rate')!.textContent = rateLabel
+    } else {
+      document.getElementById('res-rate')!.textContent = '—'
+    }
+
+    document.getElementById('res-duration')!.textContent = plan.duration
+
+    // Update CTA link with query params
+    const params = new URLSearchParams()
+    params.set('employees', selected.q1)
+    params.set('scale', selected.q2)
+    if (selected.q3.length > 0) params.set('tasks', selected.q3.join(','))
+    const other = (document.getElementById('q3-other') as HTMLInputElement).value.trim()
+    if (other) params.set('other', other)
+    params.set('price', `${priceMin}-${priceMax}`)
+    params.set('subsidy', plan.subsidy)
+    document.getElementById('sim-cta')!.setAttribute('href', `/contact?${params.toString()}`)
+
+    // Scroll to results
+    results.scrollIntoView({ behavior: 'smooth', block: 'nearest' })
+  }
+</script>
