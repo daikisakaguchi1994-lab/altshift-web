@@ -1,0 +1,103 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+---
+
+<Layout
+  title="株式会社BEGINS × AltShift | 採用業務工数50%削減事例 | 福岡"
+  description="福岡の人材派遣会社BEGINSの業務自動化事例。コールセンター集計の完全自動化・採用業務工数50%削減をAIで実現。"
+>
+  <Nav />
+  <main>
+    <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <a href="/case" class="text-xs font-semibold mb-6 inline-block reveal" style="color:var(--color-blue);">← 事例一覧</a>
+
+        <div class="mb-12 reveal">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="tag">コールセンター自動化</span><span class="tag">応募者管理</span><span class="tag">HR-Tech</span>
+          </div>
+          <h1 class="heading-hero" style="font-size:clamp(24px,3.5vw,40px);">株式会社BEGINS × AltShift</h1>
+          <p class="body-lg mt-4">コールセンター集計の完全自動化と採用業務のAI化で、業務工数50%削減を実現。</p>
+        </div>
+
+        <div class="reveal media-slot mb-12" style="aspect-ratio:16/9;">
+          <img src="/images/cases/begins.jpg" alt="株式会社BEGINS" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 reveal">
+          {[
+            { label: 'クライアント', value: '株式会社BEGINS' },
+            { label: '所在地', value: '福岡県' },
+            { label: '業種', value: '人材派遣・コールセンター' },
+            { label: '導入時期', value: '2026年4月' },
+          ].map(item => (
+            <div>
+              <p class="text-xs mb-1" style="color:var(--color-ink-dim);">{item.label}</p>
+              <p class="text-sm font-semibold" style="color:var(--color-ink);">{item.value}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">課題</h2>
+          <p class="body-md mb-4">株式会社BEGINSは福岡で人材派遣・コールセンター事業を展開。急成長に伴い、手作業の業務が増大し、スタッフの負担が限界に達していました。</p>
+          <ul class="flex flex-col gap-3">
+            {['コールセンターの日次集計を毎日手作業で2時間かけて作成', '求人応募者の管理がExcelで限界に', '面接日程の調整が電話・メールの往復で非効率', '採用担当者が本来の面接・育成業務に時間を割けない'].map(item => (
+              <li class="flex items-start gap-3 body-sm">
+                <span style="color:rgba(255,59,48,0.8); flex-shrink:0;">✕</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">アプローチ</h2>
+          <div class="flex flex-col gap-4">
+            {[
+              { title: 'コールセンター集計の完全自動化', desc: 'Google Apps Script + AIを活用し、日次・週次レポートを自動生成。手作業での集計を完全に排除しました。' },
+              { title: '応募者管理システムの構築', desc: 'LINE経由の求人応募を自動でスプレッドシートに記録。応募者の状態管理（新規・面接済・採用）をリアルタイムで可視化。' },
+              { title: '面接日程の自動調整', desc: '候補者とのやり取りをAIが自動化。空き日程の提案から確認メッセージの送信まで、人手を介さずに完了。' },
+            ].map(s => (
+              <div class="t-card p-5">
+                <h3 class="heading-sm mb-2">{s.title}</h3>
+                <p class="body-sm">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div class="mb-16 reveal">
+          <h2 class="heading-lg mb-6">成果</h2>
+          <div class="t-card p-8" style="border-color:rgba(216,255,0,0.15); background:rgba(216,255,0,0.03);">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+              <div>
+                <p class="number-value" style="color:var(--color-neon); font-size:40px;" data-count="50" data-suffix="%">50%</p>
+                <p class="text-sm mt-1" style="color:var(--color-ink-sub);">採用業務工数削減</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold" style="color:var(--color-neon);">完全自動化</p>
+                <p class="text-sm mt-1" style="color:var(--color-ink-sub);">コールセンター集計</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold" style="color:var(--color-neon);">即日対応</p>
+                <p class="text-sm mt-1" style="color:var(--color-ink-sub);">面接日程の自動調整</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="reveal t-card flex flex-col md:flex-row items-center justify-between gap-6 p-8">
+          <div>
+            <h3 class="heading-md mb-2">業務自動化のご相談は無料です</h3>
+            <p class="body-sm">御社の業務フローを分析し、AI化の優先度を診断します。</p>
+          </div>
+          <a href="/contact" class="btn-neon whitespace-nowrap flex-shrink-0">無料で相談する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

@@ -1,0 +1,120 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+---
+
+<Layout
+  title="三栄リフォーム × AltShift | AI検索対応Web制作事例 | 福岡"
+  description="福岡市の住宅リフォーム会社 三栄リフォームのAI検索対応Webサイト制作事例。SEO/GEO対策でGoogleとAI検索双方からの集客基盤を構築。"
+>
+  <Nav />
+  <main>
+    <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <a href="/case" class="text-xs font-semibold mb-6 inline-block reveal" style="color:var(--color-blue);">← 事例一覧</a>
+
+        <!-- Header -->
+        <div class="mb-12 reveal">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="tag">Web制作</span><span class="tag">SEO/GEO</span><span class="tag">LINE自動化</span>
+          </div>
+          <h1 class="heading-hero" style="font-size:clamp(24px,3.5vw,40px);">三栄リフォーム × AltShift</h1>
+          <p class="body-lg mt-4">AI検索時代に対応したWebサイト制作で、Google・AI検索双方からの集客基盤を構築。</p>
+        </div>
+
+        <!-- Image -->
+        <div class="reveal media-slot mb-12" style="aspect-ratio:16/9;">
+          <img src="/images/cases/sanei-reform.jpg" alt="三栄リフォーム Webサイト" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+
+        <!-- Overview -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 reveal">
+          {[
+            { label: 'クライアント', value: '三栄リフォーム' },
+            { label: '所在地', value: '福岡市' },
+            { label: '業種', value: '住宅リフォーム' },
+            { label: '導入時期', value: '2026年3月' },
+          ].map(item => (
+            <div>
+              <p class="text-xs mb-1" style="color:var(--color-ink-dim);">{item.label}</p>
+              <p class="text-sm font-semibold" style="color:var(--color-ink);">{item.value}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Challenge -->
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">課題</h2>
+          <p class="body-md mb-4">三栄リフォームは福岡市で住宅リフォーム事業を展開する企業です。長年の実績がありながら、Webからの集客が弱く、紹介・口コミに依存している状態でした。</p>
+          <ul class="flex flex-col gap-3">
+            {['既存Webサイトが古く、スマートフォン対応していなかった', 'Google検索で競合に埋もれている', 'ChatGPTやPerplexityなどAI検索に全く表示されない', 'Googleマップの情報が不十分で上位表示されない'].map(item => (
+              <li class="flex items-start gap-3 body-sm">
+                <span style="color:rgba(255,59,48,0.8); flex-shrink:0;">✕</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- Solution -->
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">アプローチ</h2>
+          <p class="body-md mb-6">AltShift 3-Layerメソッドに基づき、「見つけてもらう」仕組みを構築しました。</p>
+          <div class="flex flex-col gap-4">
+            {[
+              { title: 'AI検索対応Webサイト制作', desc: 'Astro + Tailwind CSSで高速なWebサイトを構築。構造化データ（JSON-LD）を全ページに実装し、Google・AI検索エンジン双方が情報を抽出しやすい設計に。' },
+              { title: 'SEO/GEO対策', desc: 'キーワード戦略の策定、メタタグ最適化、llms.txt設置、質問形式のコンテンツ構造でAI検索での引用を促進。' },
+              { title: 'Googleビジネスプロフィール最適化', desc: '写真追加、サービス情報の充実、レビュー管理でGoogleマップでの露出を強化。' },
+              { title: 'LINE公式アカウント導入', desc: '問い合わせ対応の自動化とリッチメニュー設計で顧客接点を拡大。' },
+            ].map(s => (
+              <div class="t-card p-5">
+                <h3 class="heading-sm mb-2">{s.title}</h3>
+                <p class="body-sm">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Results -->
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">成果</h2>
+          <div class="t-card p-8" style="border-color:rgba(216,255,0,0.15); background:rgba(216,255,0,0.03);">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+              <div>
+                <p class="text-2xl font-bold" style="color:var(--color-neon);">上位表示</p>
+                <p class="text-sm mt-1" style="color:var(--color-ink-sub);">AI検索・Google双方</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold" style="color:var(--color-neon);">モバイル対応</p>
+                <p class="text-sm mt-1" style="color:var(--color-ink-sub);">完全レスポンシブ</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold" style="color:var(--color-neon);">24時間対応</p>
+                <p class="text-sm mt-1" style="color:var(--color-ink-sub);">LINE自動応答</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Link -->
+        <div class="mb-16 reveal">
+          <a href="https://sanei-reform.vercel.app" target="_blank" rel="noopener noreferrer" class="neon-link">
+            制作サイトを見る
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        </div>
+
+        <!-- CTA -->
+        <div class="reveal t-card flex flex-col md:flex-row items-center justify-between gap-6 p-8">
+          <div>
+            <h3 class="heading-md mb-2">同じような課題をお持ちですか？</h3>
+            <p class="body-sm">御社に最適なプランを無料でご提案します。</p>
+          </div>
+          <a href="/contact" class="btn-neon whitespace-nowrap flex-shrink-0">無料で相談する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

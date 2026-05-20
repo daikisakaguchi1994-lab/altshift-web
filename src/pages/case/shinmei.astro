@@ -1,0 +1,82 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+---
+
+<Layout
+  title="株式会社伸明 × AltShift | Googleマップ上位表示・SEO対策事例 | 福岡"
+  description="福岡市の株式会社伸明のGEO最適化・SEO対策事例。Googleマップ上位表示とオーガニック流入増加を実現。"
+>
+  <Nav />
+  <main>
+    <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <a href="/case" class="text-xs font-semibold mb-6 inline-block reveal" style="color:var(--color-blue);">← 事例一覧</a>
+        <div class="mb-12 reveal">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="tag">GEO最適化</span><span class="tag">SEO対策</span><span class="tag">HP制作</span>
+          </div>
+          <h1 class="heading-hero" style="font-size:clamp(24px,3.5vw,40px);">株式会社伸明 × AltShift</h1>
+          <p class="body-lg mt-4">Googleマップ上位表示とSEO対策の一貫支援で、検索・地図双方からの集客基盤を構築。</p>
+        </div>
+        <div class="reveal media-slot mb-12" style="aspect-ratio:16/9;">
+          <img src="/images/cases/shinmei.jpg" alt="株式会社伸明" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 reveal">
+          {[
+            { label: 'クライアント', value: '株式会社伸明' },
+            { label: '所在地', value: '福岡市' },
+            { label: '導入サービス', value: 'GEO/SEO/HP制作' },
+            { label: '導入時期', value: '2026年4月' },
+          ].map(item => (
+            <div>
+              <p class="text-xs mb-1" style="color:var(--color-ink-dim);">{item.label}</p>
+              <p class="text-sm font-semibold" style="color:var(--color-ink);">{item.value}</p>
+            </div>
+          ))}
+        </div>
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">課題</h2>
+          <ul class="flex flex-col gap-3">
+            {['Googleマップで競合に埋もれて表示されない', '既存Webサイトのコンテンツが薄くSEO効果が低い', 'AI検索（ChatGPT等）に一切表示されていない'].map(item => (
+              <li class="flex items-start gap-3 body-sm"><span style="color:rgba(255,59,48,0.8); flex-shrink:0;">✕</span>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">アプローチ</h2>
+          <div class="flex flex-col gap-4">
+            {[
+              { title: 'Googleビジネスプロフィール最適化', desc: '写真追加、サービスカテゴリの整理、定期投稿の仕組み化でGoogleマップでの露出を強化。' },
+              { title: 'SEO対応Webサイト制作', desc: '構造化データ、キーワード最適化、内部リンク設計を施した新規Webサイトを構築。' },
+              { title: 'GEO対策', desc: 'llms.txt設置、質問形式のコンテンツ構造化でAI検索への対応を実施。' },
+            ].map(s => (
+              <div class="t-card p-5"><h3 class="heading-sm mb-2">{s.title}</h3><p class="body-sm">{s.desc}</p></div>
+            ))}
+          </div>
+        </div>
+        <div class="mb-16 reveal">
+          <h2 class="heading-lg mb-6">成果</h2>
+          <div class="t-card p-8" style="border-color:rgba(216,255,0,0.15); background:rgba(216,255,0,0.03);">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 text-center">
+              <div>
+                <p class="text-2xl font-bold" style="color:var(--color-neon);">上位表示達成</p>
+                <p class="text-sm mt-1" style="color:var(--color-ink-sub);">Googleマップ</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold" style="color:var(--color-neon);">流入増加</p>
+                <p class="text-sm mt-1" style="color:var(--color-ink-sub);">オーガニック検索</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal t-card flex flex-col md:flex-row items-center justify-between gap-6 p-8">
+          <div><h3 class="heading-md mb-2">Googleマップ対策のご相談</h3><p class="body-sm">御社のGoogleマップ・SEO状況を無料で診断します。</p></div>
+          <a href="/contact" class="btn-neon whitespace-nowrap flex-shrink-0">無料で相談する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

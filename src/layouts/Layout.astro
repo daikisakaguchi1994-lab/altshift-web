@@ -68,6 +68,21 @@ const ogImageURL = new URL(ogImage, 'https://altshift.jp').href
     <script type="application/ld+json" is:inline>
     {
       "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "AltShift",
+      "alternateName": "オルトシフト",
+      "url": "https://altshift.jp",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://altshift.jp/blog?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
+    <script type="application/ld+json" is:inline>
+    {
+      "@context": "https://schema.org",
       "@type": ["LocalBusiness", "ProfessionalService"],
       "name": "AltShift（オルトシフト）",
       "alternateName": "AltShift",

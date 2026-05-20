@@ -1,0 +1,221 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+
+const plans = [
+  {
+    name: 'Web制作 × SEO/GEO',
+    desc: 'AI検索時代に対応したWebサイト制作。Google・ChatGPT双方からの集客基盤を構築。',
+    initial: '15万円〜',
+    monthly: '3万円',
+    features: ['レスポンシブWebサイト制作', 'SEO内部対策・構造化データ', 'GEO対策（llms.txt・AI検索最適化）', 'Googleビジネスプロフィール最適化', '月次レポート・改善提案'],
+    popular: false,
+  },
+  {
+    name: 'LINE自動化',
+    desc: '24時間365日の自動応答で機会損失をゼロに。顧客接点の拡大とリピーター育成。',
+    initial: '10万円〜',
+    monthly: '3万円',
+    features: ['LINE公式アカウント構築', 'AIチャットボット設定', 'リッチメニュー・自動応答設計', 'ウェルカムメッセージ自動配信', '月次レポート・シナリオ改善'],
+    popular: false,
+  },
+  {
+    name: 'AI業務自動化',
+    desc: '手作業の業務をAIで自動化。コスト削減と生産性向上を同時に実現。',
+    initial: '20万円〜',
+    monthly: '5万円',
+    features: ['業務フロー分析・AI化設計', 'カスタム自動化システム構築', 'Google Apps Script / API連携', 'データ集計・レポート自動生成', '運用サポート・機能追加'],
+    popular: true,
+  },
+  {
+    name: 'AIコンサルティング顧問',
+    desc: 'AI活用の戦略策定から実行支援まで。経営課題に合わせた最適なAI導入をサポート。',
+    initial: null,
+    monthly: '8万円',
+    features: ['月2回のオンライン相談', 'AI導入ロードマップ策定', '業務改善提案・優先度診断', 'AI活用レクチャー・社内研修', 'Slack/LINEでの随時相談'],
+    popular: false,
+  },
+]
+
+const bundlePlan = {
+  name: 'まるごとAIパッケージ',
+  desc: 'Web制作・LINE自動化・AI業務自動化・コンサルティングをすべて含むオールインワンプラン。個別導入より最大30%お得。',
+  initial: '30万円〜',
+  monthly: '12万円',
+  features: ['上記すべてのサービスを包括', 'AI導入ロードマップ策定', '優先サポート・専任担当', '月次戦略ミーティング', '追加開発の優先対応'],
+}
+
+const faqs = [
+  { q: '契約期間の縛りはありますか？', a: '最低契約期間は3ヶ月です。初期構築に1〜2ヶ月、効果測定に1ヶ月を想定しています。4ヶ月目以降はいつでも解約可能です。' },
+  { q: '初期費用の分割払いは可能ですか？', a: 'はい、最大3回までの分割払いに対応しています。お気軽にご相談ください。' },
+  { q: '途中でプランの変更はできますか？', a: 'はい、月単位でプランのアップグレード・ダウングレードが可能です。ビジネスの成長に合わせて柔軟に対応します。' },
+  { q: '補助金は使えますか？', a: 'IT導入補助金やデジタル化・AI導入補助金2026の活用が可能なケースがあります。申請サポートも無料で行っています。' },
+  { q: '無料相談では何ができますか？', a: '現在の業務課題のヒアリング、AI導入の方向性提案、概算見積もりの提示を行います。30分〜1時間程度で、オンラインまたは対面で実施します。' },
+]
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: '料金プラン | AltShift',
+  description: '福岡の中小企業向けAIコンサルティング・AI導入支援の料金プラン。月額3万円〜。Web制作、LINE自動化、AI業務自動化、コンサルティング顧問。',
+  mainEntity: {
+    '@type': 'OfferCatalog',
+    name: 'AltShift サービス料金',
+    itemListElement: plans.map((p, i) => ({
+      '@type': 'Offer',
+      position: i + 1,
+      name: p.name,
+      description: p.desc,
+      price: p.monthly.replace('万円', '0000'),
+      priceCurrency: 'JPY',
+      priceSpecification: { '@type': 'UnitPriceSpecification', price: p.monthly.replace('万円', '0000'), priceCurrency: 'JPY', unitText: 'MONTH' },
+    })),
+  },
+}
+---
+
+<Layout
+  title="料金プラン | 福岡の中小企業向けAI導入支援 AltShift"
+  description="福岡の中小企業向けAIコンサルティングの料金プラン。Web制作×SEO/GEO 月額3万円〜、LINE自動化 月額3万円〜、AI業務自動化 月額5万円〜。無料相談受付中。"
+  schemaData={schemaData}
+>
+  <Nav />
+  <main>
+    <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="mb-14 reveal text-center">
+          <div class="accent-line mb-6 mx-auto"></div>
+          <h1 class="heading-hero" style="font-size:clamp(28px,4vw,48px);">料金プラン</h1>
+          <p class="body-lg mt-4 max-w-2xl mx-auto">中小企業に最適化された、シンプルで透明な料金体系。<br />初期費用＋月額サポートで、導入から運用まで一貫支援します。</p>
+        </div>
+
+        <!-- Plans Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 stagger">
+          {plans.map(plan => (
+            <div class={`reveal t-card p-6 flex flex-col relative ${plan.popular ? 'ring-2' : ''}`} style={plan.popular ? 'border-color:var(--color-neon);' : ''}>
+              {plan.popular && (
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 text-xs font-bold rounded-full" style="background:var(--color-neon); color:#031B27;">
+                  人気
+                </div>
+              )}
+              <h3 class="heading-sm mb-2">{plan.name}</h3>
+              <p class="body-sm mb-6" style="min-height:48px;">{plan.desc}</p>
+              <div class="mb-6">
+                {plan.initial && (
+                  <p class="text-xs mb-1" style="color:var(--color-ink-dim);">初期費用 <span class="font-semibold" style="color:var(--color-ink);">{plan.initial}</span></p>
+                )}
+                <div class="flex items-end gap-1">
+                  <span class="text-3xl font-bold" style="color:var(--color-neon); letter-spacing:-0.03em;">月額{plan.monthly}</span>
+                  <span class="text-xs mb-1" style="color:var(--color-ink-dim);">〜（税別）</span>
+                </div>
+              </div>
+              <ul class="flex flex-col gap-2 mb-8 flex-1">
+                {plan.features.map(f => (
+                  <li class="flex items-start gap-2 text-sm" style="color:var(--color-ink-sub);">
+                    <svg class="flex-shrink-0 mt-0.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-neon)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
+              <a href="/contact" class={plan.popular ? 'btn-neon w-full justify-center' : 'btn-outline w-full justify-center'}>
+                無料で相談する
+              </a>
+            </div>
+          ))}
+        </div>
+
+        <!-- Bundle Plan -->
+        <div class="reveal t-card p-8 mb-16" style="border-color:rgba(216,255,0,0.2); background:rgba(216,255,0,0.03);">
+          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+            <div>
+              <div class="inline-block px-3 py-1 text-xs font-bold rounded-full mb-4" style="background:var(--color-neon); color:#031B27;">
+                最大30%お得
+              </div>
+              <h2 class="heading-lg mb-3">{bundlePlan.name}</h2>
+              <p class="body-sm mb-4">{bundlePlan.desc}</p>
+              <div class="flex items-center gap-4 mb-6">
+                <div>
+                  <p class="text-xs" style="color:var(--color-ink-dim);">初期費用</p>
+                  <p class="text-lg font-bold" style="color:var(--color-ink);">{bundlePlan.initial}</p>
+                </div>
+                <div style="width:1px; height:32px; background:var(--color-border);"></div>
+                <div>
+                  <p class="text-xs" style="color:var(--color-ink-dim);">月額</p>
+                  <p class="text-2xl font-bold" style="color:var(--color-neon); letter-spacing:-0.03em;">{bundlePlan.monthly}〜<span class="text-xs font-normal" style="color:var(--color-ink-dim);">（税別）</span></p>
+                </div>
+              </div>
+              <a href="/contact" class="btn-neon">まるごとパッケージを相談する</a>
+            </div>
+            <ul class="flex flex-col gap-3">
+              {bundlePlan.features.map(f => (
+                <li class="flex items-start gap-3 body-sm">
+                  <svg class="flex-shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-neon)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                  {f}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Subsidy Note -->
+        <div class="reveal t-card p-6 mb-16 flex flex-col md:flex-row items-start gap-4">
+          <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" style="background:rgba(20,86,251,0.1);">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          </div>
+          <div>
+            <h3 class="heading-sm mb-2">補助金の活用で費用を最大2/3削減</h3>
+            <p class="body-sm">IT導入補助金やデジタル化・AI導入補助金2026との組み合わせで、導入費用の1/2〜2/3が補助対象になるケースがあります。申請サポートも無料で行っています。</p>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="max-w-3xl mx-auto mb-16">
+          <h2 class="heading-lg mb-8 text-center reveal">よくある質問</h2>
+          <div class="flex flex-col gap-4 stagger">
+            {faqs.map(faq => (
+              <details class="reveal t-card p-5 group">
+                <summary class="heading-sm cursor-pointer flex items-center justify-between" style="list-style:none;">
+                  {faq.q}
+                  <svg class="flex-shrink-0 ml-4 transition-transform group-open:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </summary>
+                <p class="body-sm mt-3 pt-3" style="border-top:1px solid var(--color-border);">{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="reveal t-card flex flex-col md:flex-row items-center justify-between gap-6 p-8">
+          <div>
+            <h3 class="heading-md mb-2">まずは無料で相談しませんか？</h3>
+            <p class="body-sm">御社の課題をヒアリングし、最適なプランと概算をご提示します。</p>
+          </div>
+          <a href="/contact" class="btn-neon whitespace-nowrap flex-shrink-0">無料で相談する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 12px 24px;
+    border: 1px solid var(--color-border-card);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-ink);
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .btn-outline:hover {
+    border-color: var(--color-neon);
+    color: var(--color-neon);
+  }
+  details summary::-webkit-details-marker { display: none; }
+</style>

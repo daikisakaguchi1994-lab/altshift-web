@@ -1,0 +1,86 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+---
+
+<Layout
+  title="BAR Kar's × AltShift | LINE自動化・デジタルメニュー事例 | 福岡中洲"
+  description="福岡市中洲のアフターバー BAR Kar'sのLINE自動化・デジタルメニュー導入事例。営業時間外の問い合わせ対応を完全自動化。"
+>
+  <Nav />
+  <main>
+    <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <a href="/case" class="text-xs font-semibold mb-6 inline-block reveal" style="color:var(--color-blue);">← 事例一覧</a>
+        <div class="mb-12 reveal">
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="tag">Web制作</span><span class="tag">LINE自動化</span><span class="tag">デジタルメニュー</span>
+          </div>
+          <h1 class="heading-hero" style="font-size:clamp(24px,3.5vw,40px);">BAR Kar's × AltShift</h1>
+          <p class="body-lg mt-4">福岡・中洲のアフターバー。LINE自動応答とデジタルメニューで、深夜営業でも24時間顧客対応を実現。</p>
+        </div>
+        <div class="reveal media-slot mb-12" style="aspect-ratio:16/9;">
+          <img src="/images/cases/bar-kars.jpg" alt="BAR Kar's" loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mb-16 reveal">
+          {[
+            { label: 'クライアント', value: "BAR Kar's" },
+            { label: '所在地', value: '福岡市中洲' },
+            { label: '業種', value: '飲食（バー）' },
+            { label: '導入時期', value: '2026年3月' },
+          ].map(item => (
+            <div>
+              <p class="text-xs mb-1" style="color:var(--color-ink-dim);">{item.label}</p>
+              <p class="text-sm font-semibold" style="color:var(--color-ink);">{item.value}</p>
+            </div>
+          ))}
+        </div>
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">課題</h2>
+          <ul class="flex flex-col gap-3">
+            {['営業時間（22時〜翌5時）以外の問い合わせに対応できない', 'メニューや料金の問い合わせが電話に集中', '紙のメニューしかなくSNSでの拡散が難しい', '顧客リストがなくリピーター施策が打てない'].map(item => (
+              <li class="flex items-start gap-3 body-sm"><span style="color:rgba(255,59,48,0.8); flex-shrink:0;">✕</span>{item}</li>
+            ))}
+          </ul>
+        </div>
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">アプローチ</h2>
+          <div class="flex flex-col gap-4">
+            {[
+              { title: 'LINE AIチャットボット導入', desc: '営業時間・メニュー・アクセス・予約に関する質問にAIが24時間自動で回答。複雑な質問はスタッフに自動エスカレーション。' },
+              { title: 'デジタルメニュー制作', desc: 'LINE上で閲覧可能なデジタルメニューを制作。写真付きで料金も明確に。QRコードでSNS拡散も容易に。' },
+              { title: 'ウェルカムメッセージ自動配信', desc: '友だち追加時に自動で店舗紹介・クーポンを配信。初回来店のハードルを下げる仕組み。' },
+            ].map(s => (
+              <div class="t-card p-5"><h3 class="heading-sm mb-2">{s.title}</h3><p class="body-sm">{s.desc}</p></div>
+            ))}
+          </div>
+        </div>
+        <div class="mb-16 reveal">
+          <h2 class="heading-lg mb-6">成果</h2>
+          <div class="t-card p-8" style="border-color:rgba(216,255,0,0.15); background:rgba(216,255,0,0.03);">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 text-center">
+              <div>
+                <p class="text-2xl font-bold" style="color:var(--color-neon);">完全自動化</p>
+                <p class="text-sm mt-1" style="color:var(--color-ink-sub);">営業時間外の対応</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold" style="color:var(--color-neon);">電話減少</p>
+                <p class="text-sm mt-1" style="color:var(--color-ink-sub);">営業中の業務負荷軽減</p>
+              </div>
+              <div>
+                <p class="text-2xl font-bold" style="color:var(--color-neon);">友だち増加</p>
+                <p class="text-sm mt-1" style="color:var(--color-ink-sub);">LINE経由の来店率向上</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="reveal t-card flex flex-col md:flex-row items-center justify-between gap-6 p-8">
+          <div><h3 class="heading-md mb-2">飲食店のLINE自動化にご興味はありますか？</h3><p class="body-sm">御社に合った自動化プランを無料でご提案します。</p></div>
+          <a href="/contact" class="btn-neon whitespace-nowrap flex-shrink-0">無料で相談する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
