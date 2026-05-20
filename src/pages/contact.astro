@@ -4,7 +4,7 @@ import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
 ---
 
-<Layout title="お問い合わせ | AltShift" description="AltShiftへのお問い合わせ・無料相談・資料請求。">
+<Layout title="お問い合わせ | 福岡のAIコンサルティング AltShift" description="AltShiftへのお問い合わせ・無料AI導入相談。福岡を拠点に全国対応。最短翌営業日にご連絡します。">
   <Nav />
   <main>
     <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
@@ -12,14 +12,14 @@ import Footer from '../components/Footer.astro'
         <div class="mb-14 reveal">
           <div class="accent-line mb-6"></div>
           <h1 class="heading-hero" style="font-size:clamp(28px,4vw,48px);">お問い合わせ</h1>
-          <p class="body-lg mt-4">AI導入に関するご相談は無料です。お気軽にどうぞ。</p>
+          <p class="body-lg mt-4">AI導入に関するご相談は無料です。最短翌営業日にご連絡します。</p>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-5 gap-12">
 
           <!-- Form -->
           <div class="lg:col-span-3 reveal">
-            <form name="contact" method="POST" action="#" class="flex flex-col gap-5">
+            <form id="contact-form" class="flex flex-col gap-5">
               {[
                 { id: 'name', label: 'お名前', type: 'text', required: true, placeholder: '山田 太郎' },
                 { id: 'company', label: '会社名', type: 'text', required: false, placeholder: '株式会社〇〇' },
@@ -44,15 +44,39 @@ import Footer from '../components/Footer.astro'
                           style="width:100%; border:1px solid var(--color-border-card); border-radius:8px; padding:12px 16px; font-size:14px; background:var(--color-bg-card); color:var(--color-ink); resize:none; transition:all 0.2s;"
                           placeholder="お気軽にご相談ください。"></textarea>
               </div>
+
+              <!-- Honeypot -->
+              <div style="position:absolute; left:-9999px;">
+                <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" />
+              </div>
+
               <div>
-                <button type="submit" class="btn-neon" style="padding:14px 32px;">
-                  送信する
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <button type="submit" id="submit-btn" class="btn-neon" style="padding:14px 32px;">
+                  <span id="btn-text">送信する</span>
+                  <span id="btn-loading" style="display:none;">送信中...</span>
+                  <svg id="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                     <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
                   </svg>
                 </button>
               </div>
+
+              <!-- Error message -->
+              <div id="form-error" style="display:none; padding:12px 16px; border-radius:8px; background:rgba(255,59,48,0.1); border:1px solid rgba(255,59,48,0.2); color:#FF3B30; font-size:14px;">
+                送信に失敗しました。お手数ですが <a href="mailto:contact@altshift.jp" style="color:#1456FB; text-decoration:underline;">contact@altshift.jp</a> まで直接ご連絡ください。
+              </div>
             </form>
+
+            <!-- Success message -->
+            <div id="form-success" style="display:none;" class="t-card p-8 text-center">
+              <div style="width:64px; height:64px; border-radius:50%; background:rgba(216,255,0,0.15); display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D8FF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="20 6 9 17 4 12"/>
+                </svg>
+              </div>
+              <h3 class="heading-md mb-3">お問い合わせありがとうございます</h3>
+              <p class="body-md mb-2">内容を確認の上、最短翌営業日にご連絡いたします。</p>
+              <p class="body-sm" style="color:var(--color-ink-dim);">確認メールをお送りしました。届かない場合は迷惑メールフォルダをご確認ください。</p>
+            </div>
           </div>
 
           <!-- Sidebar -->
@@ -66,16 +90,20 @@ import Footer from '../components/Footer.astro'
                 </div>
                 <div>
                   <p class="text-xs mb-1" style="color:var(--color-ink-dim);">拠点</p>
-                  <p class="text-sm" style="color:var(--color-ink);">福岡市</p>
+                  <p class="text-sm" style="color:var(--color-ink);">福岡市（全国オンライン対応）</p>
                 </div>
                 <div>
                   <p class="text-xs mb-1" style="color:var(--color-ink-dim);">対応時間</p>
                   <p class="text-sm" style="color:var(--color-ink);">平日 10:00〜18:00</p>
                 </div>
+                <div>
+                  <p class="text-xs mb-1" style="color:var(--color-ink-dim);">返信目安</p>
+                  <p class="text-sm" style="color:var(--color-ink);">最短翌営業日</p>
+                </div>
               </div>
             </div>
 
-            <div class="t-card p-6" style="border-color:rgba(204,255,0,0.15); background:rgba(204,255,0,0.03);">
+            <div class="t-card p-6" style="border-color:rgba(216,255,0,0.15); background:rgba(216,255,0,0.03);">
               <p class="text-xs font-semibold mb-3" style="color:var(--color-neon); letter-spacing:0.1em; text-transform:uppercase;">LINE</p>
               <p class="body-sm mb-4">LINEでもご相談を受け付けています。</p>
               <a href="https://lin.ee/VOiIxYB" target="_blank" rel="noopener noreferrer" class="btn-line" style="width:100%; justify-content:center; font-size:14px; padding:12px 20px;">
@@ -85,6 +113,25 @@ import Footer from '../components/Footer.astro'
                 LINEで相談する
               </a>
             </div>
+
+            <!-- Social proof on contact page -->
+            <div class="t-card p-6">
+              <p class="text-xs font-semibold mb-4" style="color:var(--color-ink-muted); letter-spacing:0.1em; text-transform:uppercase;">実績</p>
+              <div class="flex flex-col gap-3">
+                <div class="flex items-center gap-3">
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-neon); flex-shrink:0;"></div>
+                  <p class="text-sm" style="color:var(--color-ink);">導入実績 4社</p>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-neon); flex-shrink:0;"></div>
+                  <p class="text-sm" style="color:var(--color-ink);">採用業務工数 50%削減</p>
+                </div>
+                <div class="flex items-center gap-3">
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-neon); flex-shrink:0;"></div>
+                  <p class="text-sm" style="color:var(--color-ink);">最短2週間で戦略策定</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -92,3 +139,56 @@ import Footer from '../components/Footer.astro'
   </main>
   <Footer />
 </Layout>
+
+<script>
+  const form = document.getElementById('contact-form') as HTMLFormElement
+  const successDiv = document.getElementById('form-success')!
+  const errorDiv = document.getElementById('form-error')!
+  const submitBtn = document.getElementById('submit-btn') as HTMLButtonElement
+  const btnText = document.getElementById('btn-text')!
+  const btnLoading = document.getElementById('btn-loading')!
+  const btnArrow = document.getElementById('btn-arrow')!
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault()
+    errorDiv.style.display = 'none'
+    submitBtn.disabled = true
+    btnText.style.display = 'none'
+    btnLoading.style.display = 'inline'
+    btnArrow.style.display = 'none'
+
+    const formData = new FormData(form)
+    const data = Object.fromEntries(formData.entries())
+
+    // Skip if honeypot is filled
+    if (data._gotcha) return
+
+    try {
+      const res = await fetch('https://formsubmit.co/ajax/contact@altshift.jp', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        body: JSON.stringify({
+          name: data.name,
+          company: data.company || '未記入',
+          email: data.email,
+          tel: data.tel || '未記入',
+          message: data.message,
+          _subject: `【AltShift】${data.company || data.name}様からのお問い合わせ`,
+        }),
+      })
+
+      if (res.ok) {
+        form.style.display = 'none'
+        successDiv.style.display = 'block'
+      } else {
+        throw new Error('送信失敗')
+      }
+    } catch {
+      errorDiv.style.display = 'block'
+      submitBtn.disabled = false
+      btnText.style.display = 'inline'
+      btnLoading.style.display = 'none'
+      btnArrow.style.display = 'inline'
+    }
+  })
+</script>

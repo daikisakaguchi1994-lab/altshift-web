@@ -1,0 +1,12 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1200" height="630" fill="#031B27"/>
+  <circle cx="200" cy="300" r="300" fill="rgba(216,255,0,0.04)" filter="url(#blur)"/>
+  <circle cx="900" cy="200" r="250" fill="rgba(20,86,251,0.05)" filter="url(#blur)"/>
+  <defs>
+    <filter id="blur"><feGaussianBlur stdDeviation="60"/></filter>
+  </defs>
+  <rect x="100" y="260" width="40" height="4" rx="2" fill="#1456FB"/>
+  <text x="100" y="320" font-family="Inter,sans-serif" font-weight="800" font-size="52" fill="#FFFFFF" letter-spacing="-1">altshift<tspan fill="#D8FF00">.ai</tspan></text>
+  <text x="100" y="370" font-family="Noto Sans JP,sans-serif" font-weight="400" font-size="24" fill="rgba(255,255,255,0.6)">福岡発、中小企業のためのAIコンサルティング</text>
+  <text x="100" y="420" font-family="Inter,sans-serif" font-weight="600" font-size="18" fill="#D8FF00">月額3万円〜 ｜ 最短2週間で戦略策定 ｜ 無料相談受付中</text>
+</svg>
