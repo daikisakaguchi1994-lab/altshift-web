@@ -1,0 +1,151 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'AltShift — リフォーム業界向けAI導入支援',
+  description: '福岡のリフォーム会社向けAI導入支援。Googleマップ上位表示、AI検索対応、LINE自動応答で問い合わせ数を増加。',
+  url: 'https://altshift.jp/industry/reform',
+  areaServed: { '@type': 'City', name: '福岡市' },
+  serviceType: 'リフォーム業界向けAIコンサルティング',
+}
+---
+
+<Layout
+  title="リフォーム会社のAI導入・集客支援 | 福岡 | AltShift"
+  description="福岡のリフォーム会社向けAI導入支援。Googleマップ上位表示、AI検索対応Webサイト、LINE自動応答で24時間問い合わせ対応。三栄リフォーム様の導入事例あり。"
+  schemaData={schemaData}
+>
+  <Nav />
+  <main>
+    <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="mb-12 reveal">
+          <span class="tag mb-4 inline-block">リフォーム業界特化</span>
+          <h1 class="heading-hero" style="font-size:clamp(24px,3.5vw,40px);">リフォーム会社の集客を<br />AIでまるごと変える</h1>
+          <p class="body-lg mt-4">「Googleマップで見つけてもらえない」「電話対応が追いつかない」「AI検索に出てこない」——リフォーム業界の集客課題を、AIテクノロジーで根本から解決します。</p>
+        </div>
+
+        <!-- Industry Challenges -->
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">リフォーム会社が抱える3つの課題</h2>
+          <div class="flex flex-col gap-4">
+            {[
+              { title: 'Googleマップで競合に埋もれている', desc: '「福岡 リフォーム」で検索しても上位に表示されず、大手ポータルサイトに頼り続けるしかない。紹介料・広告費が利益を圧迫。' },
+              { title: 'ChatGPT・AI検索に全く表示されない', desc: '2026年現在、住宅リフォームの情報収集にAI検索を使うユーザーが急増。従来のSEOだけでは、AI検索結果に引用されない。' },
+              { title: '営業時間外の問い合わせに対応できない', desc: 'リフォームの問い合わせは夜間・休日に集中。電話対応できず、見込み客を競合に奪われている。' },
+            ].map(item => (
+              <div class="t-card p-5">
+                <h3 class="heading-sm mb-2">{item.title}</h3>
+                <p class="body-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Solution -->
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">AltShiftのリフォーム業界向けソリューション</h2>
+          <div class="flex flex-col gap-4">
+            {[
+              { title: 'AI検索対応Webサイト制作', desc: 'Googleだけでなく、ChatGPTやPerplexityにも引用されるWebサイトを構築。構造化データ・llms.txt・質問形式コンテンツで、あらゆる検索エンジンからの流入を確保します。', icon: '🌐' },
+              { title: 'Googleマップ上位表示（MEO対策）', desc: 'Googleビジネスプロフィールの最適化、施工写真の定期投稿、レビュー管理を一貫支援。「福岡 リフォーム」で地図検索上位を狙います。', icon: '📍' },
+              { title: 'LINE自動応答で24時間対応', desc: '営業時間外でもAIチャットボットが見積もり依頼・施工事例・対応エリアの質問に自動回答。見込み客を逃しません。', icon: '💬' },
+              { title: 'AI活用の業務効率化', desc: '見積書の自動作成、施工写真の自動整理、顧客管理の効率化。AIで事務作業を削減し、現場に集中できる環境を作ります。', icon: '⚡' },
+            ].map(s => (
+              <div class="t-card p-5">
+                <div class="flex items-start gap-3">
+                  <span class="text-xl flex-shrink-0">{s.icon}</span>
+                  <div>
+                    <h3 class="heading-sm mb-2">{s.title}</h3>
+                    <p class="body-sm">{s.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Case Study -->
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">導入事例：三栄リフォーム様</h2>
+          <div class="t-card p-8" style="border-color:rgba(216,255,0,0.15); background:rgba(216,255,0,0.03);">
+            <p class="body-sm mb-4">福岡市の住宅リフォーム会社。既存Webサイトが古くスマホ非対応、Google検索やAI検索に全く表示されない状態でした。</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+              <div class="text-center">
+                <p class="text-xl font-bold" style="color:var(--color-neon);">上位表示</p>
+                <p class="text-xs" style="color:var(--color-ink-sub);">AI検索・Google双方</p>
+              </div>
+              <div class="text-center">
+                <p class="text-xl font-bold" style="color:var(--color-neon);">モバイル対応</p>
+                <p class="text-xs" style="color:var(--color-ink-sub);">完全レスポンシブ</p>
+              </div>
+              <div class="text-center">
+                <p class="text-xl font-bold" style="color:var(--color-neon);">24時間対応</p>
+                <p class="text-xs" style="color:var(--color-ink-sub);">LINE自動応答</p>
+              </div>
+            </div>
+            <a href="/case/sanei-reform" class="neon-link" style="font-size:13px;">詳しく見る <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Pricing -->
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">リフォーム会社向け料金</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="t-card p-6">
+              <h3 class="heading-sm mb-2">Web集客パッケージ</h3>
+              <p class="text-xs mb-3" style="color:var(--color-ink-dim);">Web制作 + SEO/GEO + MEO対策</p>
+              <p class="text-2xl font-bold mb-1" style="color:var(--color-neon);">月額3万円〜</p>
+              <p class="text-xs" style="color:var(--color-ink-dim);">初期費用 15万円〜（税別）</p>
+            </div>
+            <div class="t-card p-6" style="border-color:var(--color-neon);">
+              <h3 class="heading-sm mb-2">まるごとAIパッケージ</h3>
+              <p class="text-xs mb-3" style="color:var(--color-ink-dim);">Web + LINE自動化 + AI業務効率化</p>
+              <p class="text-2xl font-bold mb-1" style="color:var(--color-neon);">月額12万円〜</p>
+              <p class="text-xs" style="color:var(--color-ink-dim);">初期費用 30万円〜（税別）</p>
+            </div>
+          </div>
+          <p class="text-xs mt-4" style="color:var(--color-ink-dim);">※ IT導入補助金・デジタル化補助金の活用で費用の最大2/3を削減可能。申請サポート無料。</p>
+        </div>
+
+        <!-- FAQ -->
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">よくある質問</h2>
+          <div class="flex flex-col gap-3">
+            {[
+              { q: 'リフォーム会社にAIは本当に必要ですか？', a: '2026年現在、住宅リフォームの情報収集はGoogle検索だけでなくAI検索（ChatGPT、Perplexity等）に広がっています。AI検索に対応していない会社は、今後ますます見つけてもらえなくなるリスクがあります。' },
+              { q: 'パソコンが苦手でも導入できますか？', a: 'はい。AltShiftがすべての構築・設定・運用を代行します。お客様はLINEでの確認・承認だけで進められます。' },
+              { q: 'どれくらいで効果が出ますか？', a: 'LINE自動応答は導入直後から効果を発揮します。SEO/MEOは3〜6ヶ月で上位表示が見込めます。三栄リフォーム様の場合、導入後すぐにAI検索での表示を確認しています。' },
+            ].map(faq => (
+              <details class="t-card p-4 group">
+                <summary class="text-sm font-semibold cursor-pointer flex items-center justify-between" style="color:var(--color-ink); list-style:none;">
+                  {faq.q}
+                  <svg class="flex-shrink-0 ml-4 transition-transform group-open:rotate-180" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </summary>
+                <p class="body-sm mt-3 pt-3" style="border-top:1px solid var(--color-border);">{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="reveal t-card flex flex-col md:flex-row items-center justify-between gap-6 p-8">
+          <div>
+            <h3 class="heading-md mb-2">リフォーム会社の集客改善を無料診断</h3>
+            <p class="body-sm">現在のWeb・検索状況を分析し、具体的な改善プランをご提案します。</p>
+          </div>
+          <a href="/contact" class="btn-neon whitespace-nowrap flex-shrink-0">無料で相談する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  details summary::-webkit-details-marker { display: none; }
+</style>

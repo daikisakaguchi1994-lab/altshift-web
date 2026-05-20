@@ -1,0 +1,211 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': 'WebApplication',
+  name: 'AI導入効果シミュレーター',
+  description: '月間問い合わせ数・手作業時間・人件費を入力するだけで、AI導入によるコスト削減額と売上増加見込みを無料で試算できます。',
+  url: 'https://altshift.jp/roi',
+  applicationCategory: 'BusinessApplication',
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'JPY' },
+  provider: { '@type': 'Organization', name: 'AltShift', url: 'https://altshift.jp' },
+}
+---
+
+<Layout
+  title="AI導入効果シミュレーター | 無料ROI計算 | AltShift"
+  description="AI導入で業務コストをいくら削減できる？月間問い合わせ数・手作業時間を入力するだけで、削減効果と売上増加見込みを無料で試算。福岡の中小企業向け。"
+  schemaData={schemaData}
+>
+  <Nav />
+  <main>
+    <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="mb-12 reveal text-center">
+          <div class="accent-line mb-6 mx-auto"></div>
+          <h1 class="heading-hero" style="font-size:clamp(24px,3.5vw,40px);">AI導入効果シミュレーター</h1>
+          <p class="body-lg mt-4">3つの数字を入力するだけで、AI導入による<br class="hidden md:inline" />コスト削減効果と売上増加の見込みを無料で試算できます。</p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <!-- Input Panel -->
+          <div class="reveal t-card p-8">
+            <h2 class="heading-md mb-6">現在の状況を入力</h2>
+            <div class="flex flex-col gap-6">
+              <div>
+                <label for="inquiries" class="block text-sm font-semibold mb-2" style="color:var(--color-ink);">月間の問い合わせ・電話件数</label>
+                <div class="flex items-center gap-3">
+                  <input type="range" id="inquiries" min="10" max="500" value="50" class="roi-range flex-1" />
+                  <span id="inquiries-val" class="text-lg font-bold" style="color:var(--color-neon); min-width:60px; text-align:right;">50件</span>
+                </div>
+              </div>
+              <div>
+                <label for="manual-hours" class="block text-sm font-semibold mb-2" style="color:var(--color-ink);">手作業にかかる時間（1日あたり）</label>
+                <div class="flex items-center gap-3">
+                  <input type="range" id="manual-hours" min="0.5" max="8" value="2" step="0.5" class="roi-range flex-1" />
+                  <span id="hours-val" class="text-lg font-bold" style="color:var(--color-neon); min-width:60px; text-align:right;">2時間</span>
+                </div>
+              </div>
+              <div>
+                <label for="hourly-cost" class="block text-sm font-semibold mb-2" style="color:var(--color-ink);">スタッフの時給（平均）</label>
+                <div class="flex items-center gap-3">
+                  <input type="range" id="hourly-cost" min="1000" max="5000" value="1500" step="100" class="roi-range flex-1" />
+                  <span id="cost-val" class="text-lg font-bold" style="color:var(--color-neon); min-width:80px; text-align:right;">1,500円</span>
+                </div>
+              </div>
+              <div>
+                <label for="avg-revenue" class="block text-sm font-semibold mb-2" style="color:var(--color-ink);">顧客1件あたりの平均売上</label>
+                <div class="flex items-center gap-3">
+                  <input type="range" id="avg-revenue" min="5000" max="500000" value="30000" step="5000" class="roi-range flex-1" />
+                  <span id="revenue-val" class="text-lg font-bold" style="color:var(--color-neon); min-width:100px; text-align:right;">30,000円</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Results Panel -->
+          <div class="reveal t-card p-8" style="border-color:rgba(216,255,0,0.2); background:rgba(216,255,0,0.03);">
+            <h2 class="heading-md mb-6">AI導入後の効果予測</h2>
+            <div class="flex flex-col gap-5">
+              <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
+                <div>
+                  <p class="text-sm font-semibold" style="color:var(--color-ink);">月間コスト削減額</p>
+                  <p class="text-xs" style="color:var(--color-ink-dim);">手作業の70%をAIが代替</p>
+                </div>
+                <p id="result-cost" class="text-2xl font-bold" style="color:var(--color-neon);">—</p>
+              </div>
+              <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
+                <div>
+                  <p class="text-sm font-semibold" style="color:var(--color-ink);">月間の時間削減</p>
+                  <p class="text-xs" style="color:var(--color-ink-dim);">スタッフが本来業務に集中</p>
+                </div>
+                <p id="result-hours" class="text-2xl font-bold" style="color:var(--color-neon);">—</p>
+              </div>
+              <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
+                <div>
+                  <p class="text-sm font-semibold" style="color:var(--color-ink);">売上増加の見込み</p>
+                  <p class="text-xs" style="color:var(--color-ink-dim);">24時間対応による機会損失削減</p>
+                </div>
+                <p id="result-revenue" class="text-2xl font-bold" style="color:var(--color-neon);">—</p>
+              </div>
+              <div class="flex items-center justify-between py-4 mt-2" style="border-top:2px solid var(--color-neon);">
+                <div>
+                  <p class="text-sm font-bold" style="color:var(--color-ink);">年間の経済効果</p>
+                  <p class="text-xs" style="color:var(--color-ink-dim);">コスト削減＋売上増加</p>
+                </div>
+                <p id="result-annual" class="text-3xl font-bold" style="color:var(--color-neon);">—</p>
+              </div>
+            </div>
+            <p class="text-xs mt-4" style="color:var(--color-ink-dim);">※ 試算値は一般的なAI導入効果に基づく概算です。実際の効果は業種・業務内容により異なります。</p>
+          </div>
+        </div>
+
+        <!-- ROI Summary -->
+        <div class="reveal t-card p-6 mt-8 text-center" id="roi-summary" style="display:none;">
+          <p class="body-sm">AltShiftの月額プラン（<span class="font-bold" style="color:var(--color-neon);">月額3万円〜</span>）で、<span id="roi-multiple" class="font-bold" style="color:var(--color-neon);"></span>のリターンが期待できます。</p>
+        </div>
+
+        <!-- CTA -->
+        <div class="reveal t-card flex flex-col md:flex-row items-center justify-between gap-6 p-8 mt-8">
+          <div>
+            <h3 class="heading-md mb-2">より正確な試算をご希望ですか？</h3>
+            <p class="body-sm">御社の業務フローを分析し、具体的なAI導入プランと費用対効果をご提示します。</p>
+          </div>
+          <a href="/contact" class="btn-neon whitespace-nowrap flex-shrink-0">無料で診断する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  .roi-range {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 6px;
+    border-radius: 3px;
+    background: var(--color-border);
+    outline: none;
+  }
+  .roi-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-neon);
+    cursor: pointer;
+    border: 2px solid var(--color-bg);
+    box-shadow: 0 0 6px rgba(216,255,0,0.4);
+  }
+  .roi-range::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--color-neon);
+    cursor: pointer;
+    border: 2px solid var(--color-bg);
+    box-shadow: 0 0 6px rgba(216,255,0,0.4);
+  }
+</style>
+
+<script>
+  const inquiries = document.getElementById('inquiries') as HTMLInputElement
+  const manualHours = document.getElementById('manual-hours') as HTMLInputElement
+  const hourlyCost = document.getElementById('hourly-cost') as HTMLInputElement
+  const avgRevenue = document.getElementById('avg-revenue') as HTMLInputElement
+
+  function fmt(n: number): string {
+    return Math.round(n).toLocaleString('ja-JP')
+  }
+
+  function calculate() {
+    const inq = parseFloat(inquiries.value)
+    const hours = parseFloat(manualHours.value)
+    const cost = parseFloat(hourlyCost.value)
+    const rev = parseFloat(avgRevenue.value)
+
+    document.getElementById('inquiries-val')!.textContent = `${fmt(inq)}件`
+    document.getElementById('hours-val')!.textContent = `${hours}時間`
+    document.getElementById('cost-val')!.textContent = `${fmt(cost)}円`
+    document.getElementById('revenue-val')!.textContent = `${fmt(rev)}円`
+
+    // Cost savings: 70% of manual hours automated
+    const monthlySavedHours = hours * 0.7 * 22 // 22 working days
+    const monthlyCostSaving = monthlySavedHours * cost
+
+    // Revenue increase: 15% more conversions from 24h response
+    const monthlyRevenueIncrease = inq * 0.15 * rev
+
+    // Annual total
+    const annualEffect = (monthlyCostSaving + monthlyRevenueIncrease) * 12
+
+    document.getElementById('result-cost')!.textContent = `¥${fmt(monthlyCostSaving)}`
+    document.getElementById('result-hours')!.textContent = `${fmt(monthlySavedHours)}h/月`
+    document.getElementById('result-revenue')!.textContent = `¥${fmt(monthlyRevenueIncrease)}`
+    document.getElementById('result-annual')!.textContent = `¥${fmt(annualEffect)}`
+
+    // ROI multiple
+    const monthlyPlan = 30000
+    const monthlyTotal = monthlyCostSaving + monthlyRevenueIncrease
+    const multiple = monthlyTotal / monthlyPlan
+    const summary = document.getElementById('roi-summary') as HTMLElement
+    if (multiple >= 1) {
+      summary.style.display = 'block'
+      document.getElementById('roi-multiple')!.textContent = `投資対効果 ${multiple.toFixed(1)}倍`
+    } else {
+      summary.style.display = 'none'
+    }
+  }
+
+  inquiries.addEventListener('input', calculate)
+  manualHours.addEventListener('input', calculate)
+  hourlyCost.addEventListener('input', calculate)
+  avgRevenue.addEventListener('input', calculate)
+
+  calculate()
+</script>

@@ -1,0 +1,150 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'AltShift — 物流・運送業向けAI導入支援',
+  description: '福岡の物流・運送会社向けAI導入支援。配車最適化、求人応募者管理、コールセンター自動化で業務工数を大幅削減。',
+  url: 'https://altshift.jp/industry/logistics',
+  areaServed: { '@type': 'City', name: '福岡市' },
+  serviceType: '物流業界向けAIコンサルティング',
+}
+---
+
+<Layout
+  title="物流・運送会社のAI導入・業務自動化 | 福岡 | AltShift"
+  description="福岡の物流・運送会社向けAI導入支援。コールセンター集計自動化、求人応募者管理、面接日程調整の自動化で業務工数50%削減。株式会社BEGINS様の導入事例あり。"
+  schemaData={schemaData}
+>
+  <Nav />
+  <main>
+    <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="mb-12 reveal">
+          <span class="tag mb-4 inline-block">物流・運送業特化</span>
+          <h1 class="heading-hero" style="font-size:clamp(24px,3.5vw,40px);">物流・運送会社の業務を<br />AIで効率化する</h1>
+          <p class="body-lg mt-4">「日報・集計に毎日2時間かかる」「求人応募者の管理が追いつかない」「ドライバー不足で採用が急務」——物流業界特有の課題を、AI自動化で解決します。</p>
+        </div>
+
+        <!-- Challenges -->
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">物流・運送業が直面する課題</h2>
+          <div class="flex flex-col gap-4">
+            {[
+              { title: '日報・集計作業に膨大な時間', desc: 'コールセンターの日次集計、配送実績の集約、ドライバーの稼働管理。毎日2〜3時間の手作業が管理者の負担に。' },
+              { title: '慢性的な人材不足と採用の非効率', desc: 'ドライバー・倉庫スタッフの採用が困難。Excelでの応募者管理は限界、面接日程調整は電話の往復で非効率。' },
+              { title: '問い合わせ対応の属人化', desc: '配送状況の問い合わせ、集荷依頼、見積もり依頼が特定のスタッフに集中。不在時に対応が止まる。' },
+            ].map(item => (
+              <div class="t-card p-5">
+                <h3 class="heading-sm mb-2">{item.title}</h3>
+                <p class="body-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Solutions -->
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">物流業界向けAIソリューション</h2>
+          <div class="flex flex-col gap-4">
+            {[
+              { title: 'レポート・集計の完全自動化', desc: 'Google Apps Script + AIで日次・週次レポートを自動生成。コールセンター集計、配送実績、稼働データをリアルタイムでダッシュボード化。', icon: '📊' },
+              { title: 'AI採用管理システム', desc: 'LINE経由の求人応募を自動記録。応募者のステータス管理（新規→面接→採用）をリアルタイム可視化。面接日程もAIが自動調整。', icon: '👥' },
+              { title: 'LINE自動応答（BtoB/BtoC）', desc: '集荷依頼・配送状況確認・見積もり依頼にAIが24時間自動回答。営業時間外の問い合わせも逃さない。', icon: '💬' },
+              { title: 'Web集客・求人ページ制作', desc: 'SEO/GEO対応の企業サイト・求人特設ページを制作。「福岡 ドライバー 求人」「福岡 物流 見積もり」で検索上位を目指す。', icon: '🌐' },
+            ].map(s => (
+              <div class="t-card p-5">
+                <div class="flex items-start gap-3">
+                  <span class="text-xl flex-shrink-0">{s.icon}</span>
+                  <div>
+                    <h3 class="heading-sm mb-2">{s.title}</h3>
+                    <p class="body-sm">{s.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Case Study -->
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">導入事例：株式会社BEGINS様</h2>
+          <div class="t-card p-8" style="border-color:rgba(216,255,0,0.15); background:rgba(216,255,0,0.03);">
+            <p class="body-sm mb-4">福岡の人材派遣・コールセンター事業会社。急成長に伴い手作業が増大し、スタッフの負担が限界に達していました。</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+              <div class="text-center">
+                <p class="text-xl font-bold" style="color:var(--color-neon);">50%削減</p>
+                <p class="text-xs" style="color:var(--color-ink-sub);">採用業務工数</p>
+              </div>
+              <div class="text-center">
+                <p class="text-xl font-bold" style="color:var(--color-neon);">完全自動化</p>
+                <p class="text-xs" style="color:var(--color-ink-sub);">コールセンター集計</p>
+              </div>
+              <div class="text-center">
+                <p class="text-xl font-bold" style="color:var(--color-neon);">即日対応</p>
+                <p class="text-xs" style="color:var(--color-ink-sub);">面接日程の自動調整</p>
+              </div>
+            </div>
+            <a href="/case/begins" class="neon-link" style="font-size:13px;">詳しく見る <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Pricing -->
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">物流・運送業向け料金</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="t-card p-6">
+              <h3 class="heading-sm mb-2">AI業務自動化パッケージ</h3>
+              <p class="text-xs mb-3" style="color:var(--color-ink-dim);">集計自動化 + 採用管理 + LINE</p>
+              <p class="text-2xl font-bold mb-1" style="color:var(--color-neon);">月額5万円〜</p>
+              <p class="text-xs" style="color:var(--color-ink-dim);">初期費用 20万円〜（税別）</p>
+            </div>
+            <div class="t-card p-6" style="border-color:var(--color-neon);">
+              <h3 class="heading-sm mb-2">まるごとAIパッケージ</h3>
+              <p class="text-xs mb-3" style="color:var(--color-ink-dim);">業務自動化 + Web集客 + 求人ページ</p>
+              <p class="text-2xl font-bold mb-1" style="color:var(--color-neon);">月額12万円〜</p>
+              <p class="text-xs" style="color:var(--color-ink-dim);">初期費用 30万円〜（税別）</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">よくある質問</h2>
+          <div class="flex flex-col gap-3">
+            {[
+              { q: '既存のExcel管理から移行できますか？', a: 'はい。現在のExcel・スプレッドシートのデータをそのまま活用し、AI自動化の仕組みを上乗せします。データ移行もサポートします。' },
+              { q: '2024年問題（ドライバー労働時間規制）への対策になりますか？', a: '直接的な配車最適化は別途ですが、管理業務の自動化により管理者の負担を大幅削減。ドライバーの採用効率化も人手不足対策に直結します。' },
+              { q: '複数拠点でも対応可能ですか？', a: 'はい。クラウドベースのシステムなので、複数拠点のデータを一元管理できます。拠点ごとのレポート自動生成も可能です。' },
+            ].map(faq => (
+              <details class="t-card p-4 group">
+                <summary class="text-sm font-semibold cursor-pointer flex items-center justify-between" style="color:var(--color-ink); list-style:none;">
+                  {faq.q}
+                  <svg class="flex-shrink-0 ml-4 transition-transform group-open:rotate-180" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </summary>
+                <p class="body-sm mt-3 pt-3" style="border-top:1px solid var(--color-border);">{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="reveal t-card flex flex-col md:flex-row items-center justify-between gap-6 p-8">
+          <div>
+            <h3 class="heading-md mb-2">物流業務の効率化を無料診断</h3>
+            <p class="body-sm">現在の業務フローを分析し、AI化の優先度と削減効果を無料で診断します。</p>
+          </div>
+          <a href="/contact" class="btn-neon whitespace-nowrap flex-shrink-0">無料で相談する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  details summary::-webkit-details-marker { display: none; }
+</style>

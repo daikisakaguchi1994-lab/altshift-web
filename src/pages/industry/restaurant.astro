@@ -1,0 +1,150 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'AltShift — 飲食店向けAI導入支援',
+  description: '福岡の飲食店向けAI導入支援。LINE自動応答、デジタルメニュー、Googleマップ対策で集客と業務効率化を実現。',
+  url: 'https://altshift.jp/industry/restaurant',
+  areaServed: { '@type': 'City', name: '福岡市' },
+  serviceType: '飲食業界向けAIコンサルティング',
+}
+---
+
+<Layout
+  title="飲食店のAI導入・LINE自動化・集客支援 | 福岡 | AltShift"
+  description="福岡の飲食店向けAI導入支援。LINE自動応答で24時間予約対応、デジタルメニューでSNS拡散、Googleマップ上位表示で新規集客。BAR Kar's様の導入事例あり。"
+  schemaData={schemaData}
+>
+  <Nav />
+  <main>
+    <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <div class="mb-12 reveal">
+          <span class="tag mb-4 inline-block">飲食業界特化</span>
+          <h1 class="heading-hero" style="font-size:clamp(24px,3.5vw,40px);">飲食店の集客と接客を<br />AIでアップデート</h1>
+          <p class="body-lg mt-4">「営業時間外に予約が取れない」「Googleマップの順位が低い」「SNSでの拡散が弱い」——飲食店の課題を、LINE自動化とAI集客で一括解決します。</p>
+        </div>
+
+        <!-- Challenges -->
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">飲食店が抱える集客の課題</h2>
+          <div class="flex flex-col gap-4">
+            {[
+              { title: '営業時間外の予約・問い合わせ取りこぼし', desc: 'バーや居酒屋は深夜営業。日中の問い合わせに対応できず、予約の機会を逃している。電話対応が忙しい営業時間中も同様。' },
+              { title: 'Googleマップで競合に負けている', desc: '「福岡 バー」「中洲 居酒屋」で検索しても上位に表示されない。口コミが少ない、写真が古い、情報が不十分。' },
+              { title: '紙メニューではSNS拡散されない', desc: '料理やドリンクの写真がInstagramやLINEで共有されにくい。新規顧客の獲得チャネルが限られている。' },
+            ].map(item => (
+              <div class="t-card p-5">
+                <h3 class="heading-sm mb-2">{item.title}</h3>
+                <p class="body-sm">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Solutions -->
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">飲食店向けAIソリューション</h2>
+          <div class="flex flex-col gap-4">
+            {[
+              { title: 'LINE AIチャットボット', desc: '営業時間・メニュー・予約に関する質問にAIが24時間自動回答。複雑な質問はスタッフに自動エスカレーション。友だち追加でクーポン自動配信も。', icon: '💬' },
+              { title: 'デジタルメニュー', desc: 'LINE上で閲覧可能な写真付きデジタルメニュー。QRコードで店内・SNS両方で活用。メニュー変更もリアルタイム反映。', icon: '📱' },
+              { title: 'Googleマップ上位表示', desc: '写真追加、カテゴリ最適化、レビュー管理、定期投稿の仕組み化でGoogleマップでの露出を強化。', icon: '📍' },
+              { title: 'リピーター育成', desc: 'LINE友だちリストを活用した再来店促進。誕生日クーポン、新メニュー告知、イベント案内を自動配信。', icon: '🔄' },
+            ].map(s => (
+              <div class="t-card p-5">
+                <div class="flex items-start gap-3">
+                  <span class="text-xl flex-shrink-0">{s.icon}</span>
+                  <div>
+                    <h3 class="heading-sm mb-2">{s.title}</h3>
+                    <p class="body-sm">{s.desc}</p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Case Study -->
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">導入事例：BAR Kar's様</h2>
+          <div class="t-card p-8" style="border-color:rgba(216,255,0,0.15); background:rgba(216,255,0,0.03);">
+            <p class="body-sm mb-4">福岡市中洲のアフターバー。営業時間（22時〜翌5時）以外の問い合わせに対応できず、紙メニューのみでSNS拡散も困難な状態でした。</p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+              <div class="text-center">
+                <p class="text-xl font-bold" style="color:var(--color-neon);">完全自動化</p>
+                <p class="text-xs" style="color:var(--color-ink-sub);">営業時間外の対応</p>
+              </div>
+              <div class="text-center">
+                <p class="text-xl font-bold" style="color:var(--color-neon);">電話減少</p>
+                <p class="text-xs" style="color:var(--color-ink-sub);">営業中の業務負荷軽減</p>
+              </div>
+              <div class="text-center">
+                <p class="text-xl font-bold" style="color:var(--color-neon);">友だち増加</p>
+                <p class="text-xs" style="color:var(--color-ink-sub);">LINE経由の来店率向上</p>
+              </div>
+            </div>
+            <a href="/case/bar-kars" class="neon-link" style="font-size:13px;">詳しく見る <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+
+        <!-- Pricing -->
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">飲食店向け料金</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="t-card p-6">
+              <h3 class="heading-sm mb-2">LINE自動化パッケージ</h3>
+              <p class="text-xs mb-3" style="color:var(--color-ink-dim);">AIチャットボット + デジタルメニュー</p>
+              <p class="text-2xl font-bold mb-1" style="color:var(--color-neon);">月額3万円〜</p>
+              <p class="text-xs" style="color:var(--color-ink-dim);">初期費用 10万円〜（税別）</p>
+            </div>
+            <div class="t-card p-6" style="border-color:var(--color-neon);">
+              <h3 class="heading-sm mb-2">集客まるごとパッケージ</h3>
+              <p class="text-xs mb-3" style="color:var(--color-ink-dim);">LINE + Googleマップ + Web制作</p>
+              <p class="text-2xl font-bold mb-1" style="color:var(--color-neon);">月額12万円〜</p>
+              <p class="text-xs" style="color:var(--color-ink-dim);">初期費用 30万円〜（税別）</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="mb-12 reveal">
+          <h2 class="heading-lg mb-6">よくある質問</h2>
+          <div class="flex flex-col gap-3">
+            {[
+              { q: 'LINEの設定は自分でやる必要がありますか？', a: 'いいえ。LINE公式アカウントの開設からチャットボットの設定、デジタルメニューの制作まですべてAltShiftが代行します。' },
+              { q: 'メニューの変更はどうすればいい？', a: 'LINEやメールでメニュー変更をお知らせいただくだけで、デジタルメニューをリアルタイムに更新します。季節メニューの入れ替えも対応。' },
+              { q: '個人経営の小さな店でも導入できますか？', a: 'はい。むしろ個人経営の店舗こそ、少ない人手でも24時間対応できるAI自動化の恩恵が大きいです。月額3万円から始められます。' },
+            ].map(faq => (
+              <details class="t-card p-4 group">
+                <summary class="text-sm font-semibold cursor-pointer flex items-center justify-between" style="color:var(--color-ink); list-style:none;">
+                  {faq.q}
+                  <svg class="flex-shrink-0 ml-4 transition-transform group-open:rotate-180" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+                </summary>
+                <p class="body-sm mt-3 pt-3" style="border-top:1px solid var(--color-border);">{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="reveal t-card flex flex-col md:flex-row items-center justify-between gap-6 p-8">
+          <div>
+            <h3 class="heading-md mb-2">飲食店のAI活用を無料診断</h3>
+            <p class="body-sm">現在のLINE・Googleマップの状況を分析し、集客改善プランをご提案します。</p>
+          </div>
+          <a href="/contact" class="btn-neon whitespace-nowrap flex-shrink-0">無料で相談する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<style>
+  details summary::-webkit-details-marker { display: none; }
+</style>
