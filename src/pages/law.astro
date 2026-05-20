@@ -9,16 +9,16 @@ import Footer from '../components/Footer.astro'
   description="AltShiftの特定商取引法に基づく表記ページです。"
 >
   <Nav />
-  <main class="min-h-screen pt-28 pb-24 px-6" style="background-color: #F5F6F8;">
+  <main class="min-h-screen pt-28 pb-24 px-6" style="background-color: var(--color-bg-sub);">
     <div class="max-w-3xl mx-auto">
 
       <div class="mb-12">
         <p class="text-xs tracking-[0.2em] uppercase mb-2" style="color: #C8A15A;">Legal</p>
-        <h1 class="font-sans font-bold text-2xl mb-2" style="color: #0F1B2D;">特定商取引法に基づく表記</h1>
+        <h1 class="font-sans font-bold text-2xl mb-2" style="color: var(--color-ink);">特定商取引法に基づく表記</h1>
         <div class="w-10 h-0.5" style="background-color: #B85042;"></div>
       </div>
 
-      <div class="bg-white rounded-xl border overflow-hidden" style="border-color: #E8EAED;">
+      <div class="bg-white rounded-xl border overflow-hidden" style="border-color: var(--color-border);">
         {[
           { label: '販売事業者', value: '坂口 大輝（屋号：AltShift / オルトシフト）' },
           { label: '運営責任者', value: '坂口 大輝（通称：ディーチャー）' },
@@ -39,12 +39,12 @@ import Footer from '../components/Footer.astro'
             value: 'サービスの性質上、返品は不可。キャンセルは契約時の条件に従います。',
           },
         ].map((row, i, arr) => (
-          <dl class={`flex flex-col sm:flex-row ${i !== arr.length - 1 ? 'border-b' : ''}`} style="border-color: #E8EAED;">
+          <dl class={`flex flex-col sm:flex-row ${i !== arr.length - 1 ? 'border-b' : ''}`} style="border-color: var(--color-border);">
             <dt class="w-full sm:w-44 px-8 py-5 text-xs font-medium tracking-wide flex-shrink-0"
-                style="color: #5F6B7C; background-color: #F5F6F8;">
+                style="color: var(--color-ink-muted); background-color: var(--color-bg-sub);">
               {row.label}
             </dt>
-            <dd class="flex-1 px-8 py-5 text-sm leading-relaxed" style="color: #1A1A1A;">
+            <dd class="flex-1 px-8 py-5 text-sm leading-relaxed" style="color: var(--color-ink);">
               {row.value}
             </dd>
           </dl>

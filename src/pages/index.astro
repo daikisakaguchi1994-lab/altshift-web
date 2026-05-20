@@ -3,30 +3,12 @@ import Layout from '../layouts/Layout.astro'
 import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
 
-const gradLabel = 'font-family:\'Inter\',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.15em; text-transform:uppercase; background:linear-gradient(135deg,#1B5EBE,#4A90D9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;'
-const gradDeco  = 'font-family:\'Inter\',sans-serif; font-weight:900; font-size:clamp(60px,10vw,120px); letter-spacing:-0.05em; opacity:0.04; background:linear-gradient(135deg,#1B5EBE,#4A90D9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; pointer-events:none; user-select:none;'
-
 const faqItems = [
-  {
-    q: 'AltShiftはどんなサービスですか？',
-    a: '福岡を拠点に、リフォーム・建設業などの中小企業向けにAI導入支援を提供しています。外部CAIO（Chief AI Officer）として週1〜2回企業に入り込み、AI戦略の策定から現場への実装、スタッフへのトレーニングまで一貫してサポートします。ツールを購入するだけで終わらせず、実際に現場で使いこなせる状態まで伴走するのがAltShiftの特徴です。',
-  },
-  {
-    q: '料金はいくらですか？',
-    a: '月額3万円〜8万円の3層パッケージをご用意しています（初期費用別途）。スタートプランは課題整理とAI導入計画の策定、スタンダードプランは実装と運用定着支援、プレミアムプランはフル伴走対応です。まずはLINEで無料ヒアリングを行い、御社の規模・課題に合った最適なプランをご提案します。',
-  },
-  {
-    q: '福岡以外でも対応できますか？',
-    a: 'はい。ZoomなどのオンラインツールでもAI導入支援が可能で、全国対応しています。ただし、業務現場を直接確認しながら支援したい場合は福岡市内・近郊エリアへの訪問対応も行っています。まずはオンラインで無料相談からお気軽にどうぞ。',
-  },
-  {
-    q: 'どのくらいで成果が出ますか？',
-    a: '施策によって異なります。LINE自動化は導入翌月から問い合わせ対応の変化が出始めるケースが多く、Web制作・SEO対策は検索順位への反映まで通常3〜6ヶ月かかります。AIツール導入による業務効率化は、トレーニング完了後1〜2ヶ月で体感されることが多いです。成果が出やすい施策から優先して着手し、早期に効果を実感いただけるよう進めます。',
-  },
-  {
-    q: 'AIを使ったことがない会社でも導入できますか？',
-    a: 'はい、むしろAI未経験の企業様こそ成果が出やすいパターンです。ゼロからの設計・設定・研修まで一貫してサポートします。難しい専門知識は一切不要で、現在ご利用のLINEやExcel・Wordなどのツールと組み合わせながら、スタッフが無理なく使いこなせる仕組みを一緒に作ります。',
-  },
+  { q: 'AltShiftはどんなサービスですか？', a: '中小企業向けにAI導入を戦略から実装・運用まで一貫支援しています。ツール導入で終わらせず、現場で使いこなせる状態まで伴走します。' },
+  { q: '料金はいくらですか？', a: '月額3万円〜8万円の3プランをご用意しています（初期費用別途）。まずは無料ヒアリングで最適なプランをご提案します。' },
+  { q: 'AIを使ったことがない会社でも大丈夫ですか？', a: 'はい。ゼロからの設計・設定・研修まで一貫サポート。むしろAI未経験の企業様こそ成果が出やすいパターンです。' },
+  { q: 'どのくらいで成果が出ますか？', a: 'LINE自動化は翌月から、SEOは通常3〜6ヶ月。成果が出やすい施策から優先着手します。' },
+  { q: '福岡以外でも対応できますか？', a: 'はい。オンラインで全国対応。福岡市内・近郊は訪問対応も可能です。' },
 ]
 
 const faqSchema = {
@@ -41,337 +23,307 @@ const faqSchema = {
 ---
 
 <Layout
-  title="AltShift｜福岡の中小企業にAIという選択肢を"
-  description="福岡を拠点に中小企業のAI導入を支援。外部CAIOとして週1〜2回企業に入り込み、AI戦略の策定から実装まで伴走します。"
+  title="AltShift｜AIを、経営の武器に。"
+  description="中小企業のAI導入を戦略から実装・運用まで一貫支援。業務効率化・集客・自動化を実現するAIパートナー。"
   schemaData={faqSchema}
 >
   <Nav />
   <main>
 
     <!-- ========== HERO ========== -->
-    <section id="hero" class="relative overflow-hidden" style="min-height:100vh; display:flex; align-items:center;">
+    <section class="relative overflow-hidden" style="min-height:100vh; display:flex; align-items:center;">
 
-      <!-- 背景画像 -->
-      <div style="position:absolute; inset:0; z-index:0;">
-        <img
-          src="/images/hero_fukuoka.jpg"
-          alt="福岡天神×AIネットワーク"
-          fetchpriority="high"
-          loading="eager"
-          style="width:100%; height:100%; object-fit:cover; object-position:center center; animation:kenBurns 2.5s ease forwards;"
-        />
-        <!-- 左→右グラデーションオーバーレイ -->
-        <div style="position:absolute; inset:0; background:linear-gradient(to right, rgba(255,255,255,1.0) 0%, rgba(255,255,255,0.97) 25%, rgba(255,255,255,0.85) 40%, rgba(255,255,255,0.5) 55%, rgba(255,255,255,0.15) 70%, rgba(255,255,255,0.0) 100%);"></div>
-        <!-- 上下フェード -->
-        <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.0) 20%, rgba(255,255,255,0.0) 80%, rgba(255,255,255,0.4) 100%);"></div>
+      <!-- Animated background -->
+      <div class="hero-bg">
+        <div class="orb orb-neon"></div>
+        <div class="orb orb-blue"></div>
+        <div class="orb orb-teal"></div>
+        <div class="hero-grid"></div>
       </div>
 
-      <!-- テキストコンテンツ -->
-      <div style="position:relative; z-index:10; max-width:1100px; margin:0 auto; padding:120px 48px 80px; width:100%;">
-        <div style="max-width:560px;">
+      <!-- VIDEO SLOT: Uncomment to replace gradient with video
+      <div class="hero-media-slot">
+        <video autoplay muted loop playsinline poster="/images/hero-poster.jpg">
+          <source src="/videos/hero-1080.mp4" type="video/mp4" />
+        </video>
+      </div>
+      -->
 
-          <!-- バッジ -->
-          <div style="display:flex; gap:8px; margin-bottom:24px; flex-wrap:wrap;">
-            {['福岡発', 'AI導入支援', '中小企業特化'].map(t => (
-              <span style="border:1px solid #1B5EBE; color:#1B5EBE; font-size:12px; padding:4px 12px; border-radius:6px; letter-spacing:0.03em;">
-                {t}
-              </span>
-            ))}
+      <!-- Content -->
+      <div style="position:relative; z-index:10; max-width:1200px; margin:0 auto; padding:160px 48px 100px; width:100%;">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end">
+
+          <!-- Left: Heading -->
+          <div>
+            <div class="accent-line mb-8"></div>
+            <h1 class="heading-hero">
+              構築する<br/>
+              AI時代の<br/>
+              経営基盤
+            </h1>
           </div>
 
-          <!-- H1 -->
-          <h1 style="font-family:'Inter','Noto Sans JP',sans-serif; font-weight:900; font-size:clamp(36px,5vw,64px); line-height:1.15; letter-spacing:-0.02em; color:#1A1A1A; margin-bottom:20px;">
-            福岡の中小企業に、<br/>
-            <span style="background:linear-gradient(135deg,#1B5EBE 0%,#4A90D9 60%,#C8A15A 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">AIという選択肢を。</span>
-          </h1>
-
-          <!-- サブコピー -->
-          <p style="font-size:17px; color:#4A4A4A; line-height:1.8; margin-bottom:36px; font-weight:400;">
-            福岡発。AIで、選ばれる会社をつくる。<br/>
-            週1〜2回、企業に入り込んでAI化を伴走します。
-          </p>
-
-          <!-- CTAボタン -->
-          <div style="display:flex; gap:16px; flex-wrap:wrap;">
-            <a href="https://lin.ee/VOiIxYB" target="_blank" rel="noopener noreferrer"
-               style="display:inline-flex; align-items:center; gap:8px; background:#06C755; color:white; font-weight:600; font-size:15px; padding:14px 28px; border-radius:6px; text-decoration:none; transition:opacity 0.2s;"
-               onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
-              <svg width="16" height="16" viewBox="0 0 48 48" fill="white">
-                <path d="M24 4C12.95 4 4 11.86 4 21.5c0 5.5 2.87 10.4 7.36 13.6L9 40l6.5-2.8A22.4 22.4 0 0024 39c11.05 0 20-7.86 20-17.5S35.05 4 24 4z"/>
+          <!-- Right: Description + link -->
+          <div style="padding-bottom:8px;">
+            <p class="body-lg mb-6" style="max-width:420px;">
+              中小企業のAI導入を、戦略から実装・運用まで一貫して支援します。
+            </p>
+            <a href="/company" class="neon-link">
+              AltShiftについて
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
               </svg>
-              LINEで無料相談する
-            </a>
-            <a href="#service"
-               style="display:inline-flex; align-items:center; gap:8px; background:transparent; color:#1A1A1A; font-weight:600; font-size:15px; padding:14px 28px; border-radius:6px; border:1.5px solid #1A1A1A; text-decoration:none; transition:all 0.2s;"
-               onmouseover="this.style.borderColor='#1B5EBE';this.style.color='#1B5EBE'"
-               onmouseout="this.style.borderColor='#1A1A1A';this.style.color='#1A1A1A'">
-              事業内容を見る
             </a>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ========== 課題提起 ========== -->
-    <section style="background:#F4F4F4; padding:96px 24px;">
-      <div class="max-w-6xl mx-auto text-center">
-        <h2 class="mb-14 reveal" style="font-size:clamp(28px,4vw,40px);">
-          こんなお悩みはありませんか？
-        </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+    <!-- ========== HERO VIDEO / IMAGE SECTION ========== -->
+    <section class="relative overflow-hidden" style="background:var(--color-bg);">
+      <!-- FULL-WIDTH MEDIA SLOT: Replace with hero video or image -->
+      <div style="position:relative; width:100%; aspect-ratio:16/7; background:var(--color-bg-card); overflow:hidden;">
+        <!-- Placeholder: gradient animation simulating AI visuals -->
+        <div style="position:absolute; inset:0; background: linear-gradient(135deg, #031B27 0%, #0A2535 30%, #071F2B 60%, #031B27 100%); display:flex; align-items:center; justify-content:center;">
+          <!-- Neon glow center (like the eye in Tomoro) -->
+          <div style="width:280px; height:280px; border-radius:50%; background:radial-gradient(circle, rgba(204,255,0,0.2) 0%, rgba(204,255,0,0.05) 40%, transparent 70%); filter:blur(40px); animation: orbMove1 8s ease-in-out infinite alternate;"></div>
+          <p style="position:absolute; font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px,4vw,52px); color:rgba(255,255,255,0.9); letter-spacing:-0.02em; text-align:center; line-height:1.3;">
+            Beyond the<br/>ordinary
+          </p>
+        </div>
+        <!-- Replace above with: <video autoplay muted loop playsinline style="width:100%;height:100%;object-fit:cover;"><source src="/videos/hero-visual.mp4" type="video/mp4" /></video> -->
+      </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section class="section-padding" style="background:var(--color-bg);">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start reveal">
+
+          <!-- Left: Statement -->
+          <div>
+            <h2 class="heading-lg" style="font-size:clamp(24px,3.5vw,36px); line-height:1.4;">
+              私たちは、企業の課題を、<br/>
+              実用化可能なAIへと<br/>
+              迅速に変換します。
+            </h2>
+          </div>
+
+          <!-- Right: Description + partners -->
+          <div>
+            <p class="body-md mb-8" style="max-width:480px;">
+              AltShiftは、中小企業に特化したAIコンサルティング&エンジニアリング企業です。
+              お客様の競争優位性の中心となるAIソリューションの設計、構築、運用を行っています。
+            </p>
+            <!-- PARTNER LOGO SLOT -->
+            <div class="flex items-center gap-8 flex-wrap">
+              <!-- Replace with actual partner logos -->
+              <span style="font-family:'Inter',sans-serif; font-weight:800; font-size:18px; color:var(--color-ink); letter-spacing:-0.02em;">Anthropic</span>
+              <span style="color:var(--color-border-card);">|</span>
+              <span style="font-family:'Inter',sans-serif; font-weight:800; font-size:18px; color:var(--color-ink); letter-spacing:-0.02em;">altshift<span style="color:var(--color-blue);">.ai</span></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CLIENT LOGOS ========== -->
+    <section class="section-padding-sm" style="background:var(--color-bg);">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
+        <p class="body-md mb-10 reveal" style="color:var(--color-ink-muted);">
+          当社のクライアントには以下のような企業が含まれます
+        </p>
+        <div class="flex items-center justify-center gap-12 flex-wrap reveal">
+          <!-- CLIENT LOGO SLOTS: Replace with <img class="client-logo" src="..." alt="..." /> -->
+          {['三栄リフォーム', "BAR Kar's", '株式会社伸明', '株式会社BEGINS'].map(name => (
+            <span style="font-family:'Inter','Noto Sans JP',sans-serif; font-weight:700; font-size:16px; color:var(--color-ink); opacity:0.4; letter-spacing:0.02em;">
+              {name}
+            </span>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider max-w-7xl mx-auto"></div>
+
+    <!-- ========== SERVICES (01-04 Cards) ========== -->
+    <section class="section-padding" style="background:var(--color-bg);">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <h2 class="heading-lg text-center mb-16 reveal">当社のサービス</h2>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 stagger">
           {[
-            { icon: 'M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01', circle: true,  text: 'AIを使いたいけど、何から始めればいいかわからない', delay: '0s' },
-            { icon: 'M18 20v-10M12 20v-16M6 20v-6',                    circle: false, text: '集客・問い合わせが思うように増えない',             delay: '0.15s' },
-            { icon: 'M12 12m-3 0a3 3 0 1 0 6 0a3 3 0 1 0-6 0M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14', circle: false, text: 'ITが苦手なスタッフでも使える仕組みが欲しい', delay: '0.3s' },
-          ].map(c => (
-            <div class="reveal p-8 text-left bg-white"
-                 style={`border-top:3px solid #1B5EBE; border-left:1px solid #E5E5E5; border-right:1px solid #E5E5E5; border-bottom:1px solid #E5E5E5; border-radius:8px; transition-delay:${c.delay};`}>
-              <div class="w-12 h-12 flex items-center justify-center mb-5"
-                   style="background:rgba(27,94,190,0.08); border-radius:8px;">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#1B5EBE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  {c.circle && <circle cx="12" cy="12" r="10"/>}
-                  <path d={c.icon}/>
-                </svg>
-              </div>
-              <p style="font-weight:500; color:#1A1A1A; line-height:1.8; font-size:15px;">{c.text}</p>
+            { num: '01', title: 'AI導入戦略', desc: '経営課題の分析、AI教育、ROIモデル、そして貴社の課題と目標に合致したAIロードマップを、最短2週間で提供します。' },
+            { num: '02', title: 'カスタムAIソリューション', desc: '競争優位性を高め、コストを削減し、新たなビジネスチャンスを創出するために構築されたAIシステム。通常12週間以内に本番稼働を実現します。' },
+            { num: '03', title: 'Web制作 × SEO/GEO', desc: 'Google・ChatGPT・Claudeに選ばれるWebサイト。AI時代の検索対応設計で、検索・地図双方からの集客基盤を構築します。' },
+            { num: '04', title: 'LINE自動化 × 業務効率化', desc: '24時間365日の自動応答で機会損失をゼロに。チャットボット構築・自動配信・顧客管理で組織全体の業務を効率化します。' },
+          ].map(s => (
+            <div class="reveal t-card p-7 flex flex-col" style="min-height:280px;">
+              <p class="service-num mb-4">{s.num}</p>
+              <h3 class="heading-md mb-4">{s.title}</h3>
+              <p class="body-sm flex-1">{s.desc}</p>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- ========== SERVICE（Bento） ========== -->
-    <section id="service" class="relative overflow-hidden" style="background:#FFFFFF; padding:96px 24px;">
-      <p class="absolute top-0 left-4 select-none pointer-events-none leading-none" aria-hidden="true" style={gradDeco}>SERVICE</p>
-
-      <div class="relative max-w-6xl mx-auto">
-        <div class="mb-12 reveal">
-          <p style={gradLabel} class="mb-2">— 事業内容</p>
-          <h2 style="font-size:clamp(28px,4vw,40px);">事業内容</h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-
-          <div class="reveal md:col-span-2 p-8 border hover:shadow-md transition-shadow"
-               style="background:#FFFFFF; border-color:#E5E5E5; border-radius:8px;">
-            <p style={gradLabel} class="mb-3">Main Service</p>
-            <h3 style="font-size:22px; margin-bottom:12px;">外部CAIOサービス</h3>
-            <p style="font-size:14px; color:#6B6B6B; line-height:1.9; font-weight:300; margin-bottom:20px;">
-              週1〜2回、企業に入り込んでAI化を伴走。AI戦略の策定から実装まで、伴走型で支援します。
-              世界的に広がるCAIO（最高AI責任者）の中小企業向けローカル版として機能します。
-            </p>
-            <div class="flex flex-wrap gap-2 mb-6">
-              {['週1〜2回訪問', 'AI戦略策定', '実装まで対応', '伴走型支援'].map(t => (
-                <span style="font-size:12px; font-weight:500; letter-spacing:0.02em; padding:5px 12px; border:1px solid #1B5EBE; color:#1B5EBE; background:rgba(27,94,190,0.06); border-radius:4px;">
-                  {t}
-                </span>
-              ))}
-            </div>
-            <a href="/service"
-               class="inline-flex items-center gap-2 text-sm text-white transition-opacity hover:opacity-90"
-               style="background:#1B5EBE; font-weight:600; letter-spacing:0.01em; padding:10px 20px; border-radius:6px;">
-              詳しく見る
-            </a>
-          </div>
-
-          <div class="reveal p-7 border hover:shadow-md transition-shadow"
-               style="background:#FFFFFF; border-color:#E5E5E5; border-radius:8px;">
-            <div class="w-10 h-10 flex items-center justify-center mb-4"
-                 style="background:rgba(27,94,190,0.08); border-radius:8px;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B5EBE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
-              </svg>
-            </div>
-            <h3 style="font-size:17px; margin-bottom:8px;">AIシステム開発</h3>
-            <p style="font-size:12px; color:#1B5EBE; margin-bottom:6px; font-weight:500;">Lumio</p>
-            <p style="font-size:14px; color:#6B6B6B; line-height:1.8; font-weight:300;">
-              リフォーム業向けAIシステム。見積もり自動化・顧客フォローアップを一括自動化。
-            </p>
-          </div>
-
-          <div class="reveal p-7 border hover:shadow-md transition-shadow"
-               style="background:#FFFFFF; border-color:#E5E5E5; border-radius:8px;">
-            <div class="w-10 h-10 flex items-center justify-center mb-4"
-                 style="background:rgba(27,94,190,0.08); border-radius:8px;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B5EBE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-              </svg>
-            </div>
-            <h3 style="font-size:17px; margin-bottom:8px;">Web制作 × SEO/GEO</h3>
-            <p style="font-size:14px; color:#6B6B6B; line-height:1.8; font-weight:300;">
-              AI時代の検索対応サイト。ChatGPT・Claudeにも選ばれるコンテンツ設計。
-            </p>
-          </div>
-
-          <div class="reveal md:col-span-2 p-7 border hover:shadow-md transition-shadow flex flex-col md:flex-row items-start gap-6"
-               style="background:#FFFFFF; border-color:#E5E5E5; border-radius:8px;">
-            <div class="w-10 h-10 flex items-center justify-center flex-shrink-0"
-                 style="background:rgba(27,94,190,0.08); border-radius:8px;">
-              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1B5EBE" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-              </svg>
-            </div>
-            <div>
-              <h3 style="font-size:17px; margin-bottom:8px;">LINE自動化</h3>
-              <p style="font-size:14px; color:#6B6B6B; line-height:1.8; font-weight:300;">
-                24時間365日の自動応答・フォローアップ。営業時間外の機会損失をゼロにします。チャットボット構築・自動配信・セグメント配信に対応。
-              </p>
-            </div>
-          </div>
-
+    <!-- ========== PARTNERS ========== -->
+    <section style="background:var(--color-bg-elevated);">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 section-padding text-center">
+        <h2 class="heading-lg mb-6 reveal">当社のパートナー</h2>
+        <p class="body-md mb-12 reveal" style="max-width:600px; margin-left:auto; margin-right:auto;">
+          私たちは、世界最高水準のAIモデル開発のパイオニアたちと緊密に連携しています。
+          早期アクセスと高度なシステム統合により、お客様は常に時代の最先端を走り続けることができます。
+        </p>
+        <!-- PARTNER LOGO SLOTS -->
+        <div class="flex items-center justify-center gap-16 flex-wrap reveal">
+          <span style="font-family:'Inter',sans-serif; font-weight:800; font-size:24px; color:var(--color-ink); letter-spacing:-0.02em;">Anthropic</span>
+          <span style="font-family:'Inter',sans-serif; font-weight:800; font-size:24px; color:var(--color-ink); letter-spacing:-0.02em;">OpenAI</span>
         </div>
       </div>
     </section>
 
-    <!-- ========== CASE ========== -->
-    <section class="relative overflow-hidden" style="background:#F4F4F4; padding:96px 24px;">
-      <p class="absolute top-0 left-4 select-none pointer-events-none leading-none" aria-hidden="true" style={gradDeco}>CASE</p>
+    <!-- ========== CTA BANNER (Background image slot) ========== -->
+    <section class="relative overflow-hidden" style="min-height:400px; display:flex;">
+      <!-- BACKGROUND IMAGE/VIDEO SLOT -->
+      <div style="position:absolute; inset:0; background:var(--color-bg-card);">
+        <!-- Placeholder: Replace with background image like Tomoro's walking woman photo -->
+        <div style="position:absolute; inset:0; background:linear-gradient(135deg, rgba(3,27,39,0.95), rgba(10,37,53,0.9));"></div>
+        <!-- Neon glow spot (like Tomoro's yellow circle on ground) -->
+        <div style="position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:300px; height:150px; background:radial-gradient(ellipse, rgba(204,255,0,0.15) 0%, transparent 70%); filter:blur(30px);"></div>
+      </div>
 
-      <div class="relative max-w-6xl mx-auto">
-        <div class="mb-12 reveal">
-          <p style={gradLabel} class="mb-2">— 導入実績</p>
-          <h2 style="font-size:clamp(28px,4vw,40px);">導入実績</h2>
+      <div style="position:relative; z-index:10; max-width:1200px; margin:0 auto; padding:80px 48px; width:100%;">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+          <div class="reveal">
+            <h2 class="heading-lg mb-4">AIを競争優位性に変えよう。</h2>
+            <a href="/contact" class="neon-link">
+              お問い合わせ
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+          <div class="reveal">
+            <h2 class="heading-lg mb-4">AIの最前線で仕事をする。</h2>
+            <a href="/company" class="neon-link">
+              AltShiftについて
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CASE STUDIES ========== -->
+    <section class="section-padding" style="background:var(--color-bg);">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-12 reveal">
+          <h2 class="heading-lg">導入事例</h2>
+          <a href="/case" class="neon-link">
+            すべて表示
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 stagger">
           {[
-            { title: '三栄リフォーム × AltShift',   tags: ['Web制作','SEO/GEO','LINE自動化'],        image: '/images/cases/sanei-reform.jpg', desc: 'AI時代の検索対応Webサイトを実装。SEO/GEO対策でGoogleとAIに選ばれるコンテンツを構築。', url: 'https://sanei-reform.vercel.app' },
-            { title: "BAR Kar's × AltShift",         tags: ['Web制作','LINE自動化','デジタルメニュー'], image: '/images/cases/bar-kars.jpg',    desc: '中洲のアフターバー。デジタルメニューとLINE自動応答を導入し、営業時間外の問い合わせを自動化。', url: null },
-            { title: '株式会社伸明 × AltShift',      tags: ['GEO最適化','SEO対策','HP制作'],           image: '/images/cases/shinmei.jpg',     desc: '地域密着型企業のHP制作とGEO最適化。Googleマップへの上位表示と検索双方からの集客基盤を構築。', url: null },
-            { title: '株式会社BEGINS × AltShift',    tags: ['コールセンター自動化','応募者管理','自動面接設定'], image: '/images/cases/begins.jpg', desc: '採用〜コールセンター業務をAIと自動化で刷新。採用業務工数50%削減・集計作業の完全自動化を実現。', url: null },
+            { title: '三栄リフォーム × AltShift', tags: ['Web制作','SEO/GEO'], image: '/images/cases/sanei-reform.jpg', desc: 'AI時代の検索対応Webサイト。SEO/GEO対策でGoogleとAIに選ばれるコンテンツを構築。', url: 'https://sanei-reform.vercel.app' },
+            { title: '株式会社BEGINS × AltShift', tags: ['業務自動化','HR-Tech'], image: '/images/cases/begins.jpg', desc: 'コールセンター集計の完全自動化。採用業務工数50%削減を実現。', url: null },
           ].map(c => (
-            <div class="reveal overflow-hidden hover:shadow-md transition-shadow bg-white"
-                 style="border:1px solid #E5E5E5; border-radius:12px;">
-              <!-- 画像 -->
-              <div class="relative overflow-hidden" style="aspect-ratio:16/9;">
-                <img
-                  src={c.image}
-                  alt={c.title}
-                  loading="lazy"
-                  style="width:100%; height:100%; object-fit:cover; transition:transform 0.4s ease;"
-                  onmouseover="this.style.transform='scale(1.04)'"
-                  onmouseout="this.style.transform='scale(1)'"
-                />
+            <div class="reveal t-card overflow-hidden">
+              <!-- IMAGE SLOT -->
+              <div class="media-slot" style="aspect-ratio:16/9; position:relative;">
+                <img src={c.image} alt={c.title} loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+                <!-- Neon glow overlay (Tomoro photo style) -->
+                <div class="neon-glow-circle" style="bottom:20%; left:30%;"></div>
               </div>
               <div class="p-6">
                 <div class="flex flex-wrap gap-2 mb-3">
-                  {c.tags.map(t => (
-                    <span style="font-size:11px; font-weight:500; padding:3px 9px; border:1px solid rgba(27,94,190,0.2); color:#1B5EBE; background:rgba(27,94,190,0.06); border-radius:4px;">{t}</span>
-                  ))}
+                  {c.tags.map(t => <span class="tag">{t}</span>)}
                 </div>
-                <h3 style="font-size:15px; font-weight:700; margin-bottom:8px; color:#1A1A1A;">{c.title}</h3>
-                <p style="font-size:14px; color:#6B6B6B; line-height:1.8; font-weight:300; margin-bottom:12px;">{c.desc}</p>
+                <h3 class="heading-sm mb-2">{c.title}</h3>
+                <p class="body-sm mb-4">{c.desc}</p>
                 {c.url
-                  ? <a href={c.url} target="_blank" rel="noopener noreferrer" style="font-size:13px; font-weight:600; color:#1B5EBE; text-decoration:none;" class="hover:underline">サイトを見る</a>
-                  : <span style="font-size:12px; color:#9CA3AF;">URL準備中</span>
+                  ? <a href={c.url} target="_blank" rel="noopener noreferrer" class="blue-link">サイトを見る <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                  : <span class="text-xs" style="color:var(--color-ink-dim);">Coming Soon</span>
                 }
               </div>
             </div>
           ))}
         </div>
+      </div>
+    </section>
 
-        <div class="mt-10 text-center reveal">
-          <a href="/case" style="font-size:14px; font-weight:600; color:#1B5EBE; text-decoration:none; border-bottom:1px solid #C8A15A; padding-bottom:2px;">
-            実績一覧をすべて見る
+    <!-- ========== INSIGHTS (Cream background — Tomoro style) ========== -->
+    <section class="section-padding footer-cream">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="flex items-center justify-between mb-12 reveal">
+          <h2 style="font-weight:800; font-size:clamp(26px,3.5vw,40px); letter-spacing:-0.02em; color:#031B27;">インサイト</h2>
+          <a href="#" class="neon-link" style="color:#031B27;">
+            すべて表示
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
           </a>
         </div>
-      </div>
-    </section>
 
-    <!-- ========== 代表紹介 ========== -->
-    <section style="background:#FFFFFF; padding:96px 0;">
-      <div style="max-width:900px; margin:0 auto; padding:0 24px;">
-        <div class="grid grid-cols-1 md:grid-cols-2 reveal" style="gap:64px; align-items:center;">
-
-          <div style="border-radius:8px; height:400px; overflow:hidden;">
-            <img
-              src="/images/daiki_profile.jpg"
-              alt="ディーチャー（坂口 大輝）AltShift代表"
-              loading="lazy"
-              style="width:100%; height:100%; object-fit:cover; object-position:center top; border-radius:8px;"
-            />
-          </div>
-
-          <div>
-            <p style={gradLabel} class="mb-4">— 代表について</p>
-            <div style="height:3px; background:#C8A15A; border-radius:2px; margin-bottom:24px; animation:lineGrow 0.8s ease forwards;"></div>
-            <h2 style="font-size:32px; font-weight:800; color:#1A1A1A; margin-bottom:8px; letter-spacing:-0.03em;">ディーチャー</h2>
-            <p style="color:#6B6B6B; font-size:14px; font-weight:300; margin-bottom:32px;">坂口 大輝 / AltShift 代表 / External CAIO</p>
-
-            <div style="border-left:3px solid #C8A15A; padding-left:20px; margin-bottom:32px;">
-              <p style="font-family:'Inter','Noto Sans JP',sans-serif; font-weight:900; font-size:22px; line-height:1.5; background:linear-gradient(135deg,#1B5EBE 0%,#4A90D9 70%,#C8A15A 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">
-                AIで、福岡をアジアのリーダーへ。
-              </p>
-            </div>
-
-            <p style="color:#1A1A1A; line-height:1.9; font-size:15px; margin-bottom:16px; font-weight:400;">
-              AIという道具は、仕事を奪うのではなく、人に新しい役割を与える。
-              企業に生まれた「余白」は、人材育成の時間となり、新事業の種となり、地域経済の活力へと変わっていく。
-            </p>
-            <p style="color:#1A1A1A; line-height:1.9; font-size:15px; margin-bottom:16px; font-weight:400;">
-              一社一社の変革が積み重なったとき、福岡はアジアのAI先進都市になる。
-              その確信を持って、最先端の知識と実装力で、福岡の企業の最前線に立ち続けます。
-            </p>
-            <p style="color:#1B5EBE; font-weight:700; font-size:15px; margin-bottom:32px;">
-              ただ伴走するのではなく、一緒に未来をつくる。共に、進化し続けましょう。
-            </p>
-            <a href="/company" style="color:#1B5EBE; font-size:14px; font-weight:600; text-decoration:none; border-bottom:1px solid #C8A15A; padding-bottom:2px;">
-              もっと詳しく
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== FAQ ========== -->
-    <section style="background:#FFFFFF; padding:96px 24px;">
-      <div class="max-w-3xl mx-auto">
-        <div class="mb-12 text-center reveal">
-          <p style={gradLabel} class="mb-2">— FAQ</p>
-          <h2 style="font-size:clamp(28px,4vw,40px);">よくある質問</h2>
-        </div>
-
-        <div class="flex flex-col gap-3" id="faq-list">
-          {faqItems.map((item, i) => (
-            <div class="reveal faq-item border bg-white" style="border-color:#E5E5E5; border-radius:8px; overflow:hidden;">
-              <button
-                class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between gap-4 hover:bg-gray-50 transition-colors"
-                aria-expanded="false"
-                aria-controls={`faq-answer-${i}`}
-              >
-                <span style="font-weight:500; color:#1A1A1A; font-size:15px;">{item.q}</span>
-                <svg class="faq-icon flex-shrink-0 transition-transform duration-200" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#6B6B6B" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </button>
-              <div class="faq-answer hidden px-6 pb-5" id={`faq-answer-${i}`}>
-                <p style="font-size:14px; color:#6B6B6B; line-height:1.9; font-weight:300;">{item.a}</p>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger">
+          {[
+            { date: '2026年5月20日', title: 'AI導入で中小企業が得られる3つの競争優位性', image: null },
+            { date: '2026年5月15日', title: 'SEO/GEO対策：AI検索時代に選ばれるWebサイトの条件', image: null },
+            { date: '2026年5月10日', title: 'LINE自動化で売上を伸ばす：導入事例と成果レポート', image: null },
+          ].map(a => (
+            <div class="reveal">
+              <!-- ARTICLE IMAGE SLOT -->
+              <div style="aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:#E8E2D6; margin-bottom:16px; position:relative;">
+                {a.image
+                  ? <img src={a.image} alt={a.title} loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+                  : <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
+                      <!-- Neon circle placeholder (Tomoro article style) -->
+                      <div style="width:120px;height:120px;border-radius:50%;background:rgba(204,255,0,0.4);filter:blur(20px);"></div>
+                    </div>
+                }
+                <span class="tag" style="position:absolute; top:12px; left:12px;">記事</span>
               </div>
+              <p style="font-size:13px; font-weight:600; color:var(--color-blue); margin-bottom:8px;">{a.date}</p>
+              <h3 style="font-weight:700; font-size:17px; color:#031B27; line-height:1.5;">{a.title}</h3>
             </div>
           ))}
         </div>
       </div>
     </section>
 
-    <!-- ========== 最終CTA ========== -->
-    <section class="text-white text-center" style="background:#1B5EBE; padding:96px 24px;">
-      <div class="max-w-2xl mx-auto">
-        <h2 class="mb-5 leading-snug reveal" style="font-size:clamp(28px,4vw,40px); letter-spacing:-0.03em;">
-          まずは、LINEで気軽に<br />話しかけてください。
-        </h2>
-        <p class="mb-8 reveal" style="font-size:15px; color:rgba(255,255,255,0.75); font-weight:300; line-height:1.9;">
-          返信は通常24時間以内。無料でご相談いただけます。
-        </p>
-        <div class="reveal">
-          <a href="https://lin.ee/VOiIxYB"
-             target="_blank" rel="noopener noreferrer"
-             class="inline-flex items-center gap-2 text-white transition-opacity hover:opacity-90"
-             style="background:#06C755; font-weight:600; font-size:16px; letter-spacing:0.01em; padding:16px 32px; border-radius:6px;">
-            <svg width="18" height="18" viewBox="0 0 48 48" fill="white">
-              <path d="M24 4C12.95 4 4 11.86 4 21.5c0 5.5 2.87 10.4 7.36 13.6L9 40l6.5-2.8A22.4 22.4 0 0024 39c11.05 0 20-7.86 20-17.5S35.05 4 24 4z"/>
-            </svg>
-            LINEで無料相談する
-          </a>
+    <!-- ========== FAQ ========== -->
+    <section class="section-padding" style="background:var(--color-bg);">
+      <div class="max-w-3xl mx-auto">
+        <div class="mb-12 text-center reveal">
+          <h2 class="heading-lg">よくある質問</h2>
+        </div>
+
+        <div class="flex flex-col gap-3" id="faq-list">
+          {faqItems.map((item, i) => (
+            <div class="reveal faq-item">
+              <button
+                class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between gap-4"
+                aria-expanded="false"
+                aria-controls={`faq-answer-${i}`}
+              >
+                <span style="font-weight:500; color:var(--color-ink);">{item.q}</span>
+                <svg class="faq-icon flex-shrink-0 transition-transform duration-200" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--color-ink-muted);">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </button>
+              <div class="faq-answer hidden px-6 pb-5" id={`faq-answer-${i}`}>
+                <p class="body-sm">{item.a}</p>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>

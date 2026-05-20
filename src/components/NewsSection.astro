@@ -23,42 +23,40 @@ const articles = [
   },
 ]
 
-const badgeClass: Record<string, string> = {
-  blue:   'bg-blue-50 text-blue-700 border-blue-100',
-  green:  'bg-green-50 text-green-700 border-green-100',
-  purple: 'bg-purple-50 text-purple-700 border-purple-100',
+const badgeStyles: Record<string, string> = {
+  blue:   `background:rgba(27,94,190,0.06); color:var(--color-primary); border:1px solid rgba(27,94,190,0.2);`,
+  green:  `background:rgba(6,199,85,0.06); color:#059669; border:1px solid rgba(6,199,85,0.2);`,
+  purple: `background:rgba(139,92,246,0.06); color:#7C3AED; border:1px solid rgba(139,92,246,0.2);`,
 }
 ---
 
-<section class="relative bg-white py-24 px-6 overflow-hidden border-t border-gray-100">
-  <p class="absolute top-4 left-6 font-bold text-gray-900 select-none pointer-events-none"
-     style="font-size: clamp(60px, 10vw, 120px); opacity: 0.04; line-height: 1;">NEWS</p>
+<section class="relative overflow-hidden section-padding" style="background:var(--color-bg); border-top:1px solid var(--color-border);">
+  <p class="absolute top-0 left-4 ghost-text" aria-hidden="true">NEWS</p>
 
   <div class="relative max-w-6xl mx-auto">
     <div class="mb-12 reveal">
-      <p class="text-sm font-medium text-blue-600 mb-1">— お知らせ</p>
-      <h2 class="font-bold text-gray-900 text-3xl">NEWS</h2>
+      <p class="section-label mb-2">— お知らせ</p>
+      <h2 class="heading-lg">NEWS</h2>
     </div>
 
     <div class="max-w-3xl flex flex-col mb-10">
       {articles.map((a) => (
-        <article class="reveal py-6 border-b border-gray-100 last:border-b-0">
+        <article class="reveal py-6" style="border-bottom:1px solid var(--color-border);">
           <div class="flex flex-wrap items-center gap-3 mb-2">
-            <time class="text-xs text-gray-400">{a.date}</time>
-            <span class={`inline-block text-xs font-medium px-3 py-1 rounded-full border ${badgeClass[a.categoryColor]}`}>
+            <time class="text-xs" style="color:var(--color-ink-muted);">{a.date}</time>
+            <span class="text-xs font-medium px-3 py-1 rounded" style={badgeStyles[a.categoryColor]}>
               {a.category}
             </span>
           </div>
-          <p class="font-medium text-gray-900 text-sm mb-1">{a.title}</p>
-          <p class="text-xs text-gray-500 leading-relaxed">{a.body}</p>
+          <p class="font-medium text-sm mb-1" style="color:var(--color-ink);">{a.title}</p>
+          <p class="text-xs leading-relaxed" style="color:var(--color-ink-muted);">{a.body}</p>
         </article>
       ))}
     </div>
 
     <div class="reveal">
-      <a href="/news"
-         class="inline-flex items-center gap-2 text-sm font-medium px-5 py-2.5 rounded border border-gray-300 text-gray-700 hover:bg-gray-50 transition-colors">
-        すべてのお知らせを見る →
+      <a href="/news" class="btn-outline">
+        すべてのお知らせを見る
       </a>
     </div>
   </div>

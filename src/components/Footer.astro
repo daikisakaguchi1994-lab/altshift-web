@@ -1,89 +1,70 @@
 ---
 ---
 
-<footer style="background-color: #1A1A1A; color: #FFFFFF;" class="pb-20 md:pb-0">
-  <div class="max-w-6xl mx-auto px-6 pt-16 pb-10">
-    <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+<!-- Cream section (Tomoro-style insights/footer) -->
+<footer>
+  <!-- Dark footer -->
+  <div class="footer-dark">
+    <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-10">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
 
-      <!-- 左：ブランド -->
-      <div class="md:col-span-1">
-        <div class="flex items-center gap-3 mb-4">
-          <svg width="32" height="32" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <defs>
-              <linearGradient id="footerLogoGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#1B5EBE"/>
-                <stop offset="100%" style="stop-color:#4A90D9"/>
-              </linearGradient>
-              <linearGradient id="footerGoldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" style="stop-color:#C8A15A"/>
-                <stop offset="100%" style="stop-color:#E8C97A"/>
-              </linearGradient>
-            </defs>
-            <rect width="38" height="38" rx="10" fill="url(#footerLogoGrad)"/>
-            <path d="M19 8 L28 30 H25 L22.5 23 H15.5 L13 30 H10 L19 8Z M16.5 20.5 H21.5 L19 13.5 L16.5 20.5Z" fill="white"/>
-            <rect x="8" y="33" width="22" height="2" rx="1" fill="url(#footerGoldGrad)"/>
-          </svg>
-          <span style="font-family:'Inter',sans-serif; font-weight:800; font-size:18px; letter-spacing:-0.03em; color:#FFFFFF;">
-            Alt<span style="color:#C8A15A;">Shift</span><span style="color:#C8A15A;">.</span>
-          </span>
+        <!-- Brand -->
+        <div class="md:col-span-1">
+          <p style="font-family:'Inter',sans-serif; font-weight:800; font-size:22px; letter-spacing:-0.03em; color:#FFFFFF; margin-bottom:16px;">
+            altshift<span style="color:#D8FF00;">.ai</span>
+          </p>
+          <p class="footer-muted mb-1">福岡県福岡市</p>
+          <a href="mailto:contact@altshift.jp" class="footer-muted block mb-4">contact@altshift.jp</a>
+          <p class="text-xs" style="color:var(--color-ink-dim);">
+            AIを、経営の武器に。
+          </p>
         </div>
-        <p class="text-sm text-gray-400 mb-1">福岡県福岡市</p>
-        <a href="mailto:contact@altshift.jp"
-           class="text-sm text-gray-400 hover:text-white transition-colors block mb-4">
-          contact@altshift.jp
-        </a>
-        <p class="text-xs leading-relaxed" style="color:rgba(255,255,255,0.5);">
-          AIという道具を、<br />中小企業の味方に。
-        </p>
-      </div>
 
-      <!-- 事業内容 -->
-      <div>
-        <p class="text-xs font-medium text-gray-500 tracking-widest uppercase mb-5">事業内容</p>
-        <ul class="flex flex-col gap-3">
-          {['外部CAIOサービス','AIシステム開発','Web制作 × SEO/GEO','LINE自動化'].map(item => (
-            <li class="text-sm text-gray-400">— {item}</li>
-          ))}
-        </ul>
-      </div>
+        <!-- Services -->
+        <div>
+          <p class="text-xs font-semibold mb-5" style="color:var(--color-ink-muted); letter-spacing:0.1em; text-transform:uppercase;">サービス</p>
+          <ul class="flex flex-col gap-3">
+            {['AI導入コンサルティング','AIシステム開発','Web制作 × SEO/GEO','LINE自動化'].map(item => (
+              <li><a href="/service" class="footer-muted">{item}</a></li>
+            ))}
+          </ul>
+        </div>
 
-      <!-- リンク -->
-      <div>
-        <p class="text-xs font-medium text-gray-500 tracking-widest uppercase mb-5">リンク</p>
-        <ul class="flex flex-col gap-3">
-          <li><a href="/company"  class="text-sm text-gray-400 hover:text-white transition-colors">会社情報</a></li>
-          <li><a href="/case"     class="text-sm text-gray-400 hover:text-white transition-colors">実績一覧</a></li>
-          <li><a href="/news"     class="text-sm text-gray-400 hover:text-white transition-colors">お知らせ</a></li>
-          <li><a href="/law"      class="text-sm text-gray-400 hover:text-white transition-colors">特定商取引法</a></li>
-          <li><a href="/contact"  class="text-sm text-gray-400 hover:text-white transition-colors">お問い合わせ</a></li>
-        </ul>
-      </div>
+        <!-- Links -->
+        <div>
+          <p class="text-xs font-semibold mb-5" style="color:var(--color-ink-muted); letter-spacing:0.1em; text-transform:uppercase;">リンク</p>
+          <ul class="flex flex-col gap-3">
+            <li><a href="/case" class="footer-muted">導入事例</a></li>
+            <li><a href="/company" class="footer-muted">会社情報</a></li>
+            <li><a href="/contact" class="footer-muted">お問い合わせ</a></li>
+          </ul>
+        </div>
 
-      <!-- SNS -->
-      <div>
-        <p class="text-xs font-medium text-gray-500 tracking-widest uppercase mb-5">SNS</p>
-        <ul class="flex flex-col gap-3">
-          <li>
-            <a href="https://lin.ee/VOiIxYB" target="_blank" rel="noopener noreferrer"
-               class="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors">
-              <span class="w-5 h-5 rounded flex items-center justify-center flex-shrink-0"
-                    style="background:#06C755;">
-                <svg width="12" height="12" viewBox="0 0 48 48" fill="white">
-                  <path d="M24 4C12.95 4 4 11.86 4 21.5c0 5.5 2.87 10.4 7.36 13.6L9 40l6.5-2.8A22.4 22.4 0 0024 39c11.05 0 20-7.86 20-17.5S35.05 4 24 4z"/>
-                </svg>
-              </span>
-              LINE公式アカウント
+        <!-- Contact -->
+        <div>
+          <p class="text-xs font-semibold mb-5" style="color:var(--color-ink-muted); letter-spacing:0.1em; text-transform:uppercase;">お問い合わせ</p>
+          <div class="flex flex-col gap-3">
+            <a href="/contact" class="btn-neon justify-center" style="font-size:13px; padding:10px 20px;">
+              お問い合わせ
             </a>
-          </li>
-        </ul>
+            <a href="https://lin.ee/VOiIxYB" target="_blank" rel="noopener noreferrer" class="btn-line justify-center" style="font-size:13px; padding:10px 20px;">
+              <svg width="14" height="14" viewBox="0 0 48 48" fill="white">
+                <path d="M24 4C12.95 4 4 11.86 4 21.5c0 5.5 2.87 10.4 7.36 13.6L9 40l6.5-2.8A22.4 22.4 0 0024 39c11.05 0 20-7.86 20-17.5S35.05 4 24 4z"/>
+              </svg>
+              LINE
+            </a>
+          </div>
+        </div>
       </div>
-
     </div>
-  </div>
 
-  <div class="border-t border-gray-800">
-    <div class="max-w-6xl mx-auto px-6 py-5">
-      <p class="text-xs text-gray-600 text-center">© 2026 AltShift. All rights reserved.</p>
+    <div style="border-top:1px solid rgba(255,255,255,0.06);">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex items-center justify-between flex-wrap gap-4">
+        <p class="text-xs" style="color:var(--color-ink-dim);">&copy; 2026 AltShift. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="/company#legal" class="text-xs footer-muted">特定商取引法</a>
+        </div>
+      </div>
     </div>
   </div>
 </footer>

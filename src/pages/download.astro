@@ -16,29 +16,29 @@ const docs = [
 <Layout title="資料ダウンロード | AltShift" description="AltShiftのサービス概要・事例資料をご請求いただけます。">
   <Nav />
   <main>
-    <section class="relative overflow-hidden" style="background:#FFFFFF; padding:96px 24px;">
+    <section class="relative overflow-hidden" style="background:var(--color-bg); padding:96px 24px;">
       <p class="absolute top-4 left-6 select-none pointer-events-none" aria-hidden="true" style={gradDeco}>DOWNLOAD</p>
 
       <div class="relative max-w-6xl mx-auto">
         <div class="mb-14 reveal">
           <p style={gradLabel} class="mb-2">— 資料ダウンロード</p>
-          <h1 style="font-size:clamp(28px,4vw,40px); color:#1A1A1A;">DOWNLOAD</h1>
+          <h1 style="font-size:clamp(28px,4vw,40px); color:var(--color-ink);">DOWNLOAD</h1>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-10">
           {docs.map(doc => (
             <div class="reveal border flex flex-col p-7 hover:shadow-md transition-shadow"
-                 style="border-color:#E5E5E5; border-radius:8px; background:#FFFFFF;">
+                 style="border-color:var(--color-border); border-radius:8px; background:var(--color-bg);">
               <div class="mb-5">
                 <span style="font-size:11px; font-weight:600; padding:4px 10px; border:1px solid #FECACA; color:#DC2626; background:#FEF2F2; border-radius:4px;">
                   PDF予定
                 </span>
               </div>
-              <h3 style="font-weight:700; color:#1A1A1A; font-size:15px; margin-bottom:12px; letter-spacing:-0.01em;">{doc.title}</h3>
-              <p style="font-size:14px; color:#6B6B6B; line-height:1.8; font-weight:300; flex:1; margin-bottom:24px;">{doc.desc}</p>
+              <h3 style="font-weight:700; color:var(--color-ink); font-size:15px; margin-bottom:12px; letter-spacing:-0.01em;">{doc.title}</h3>
+              <p style="font-size:14px; color:var(--color-ink-muted); line-height:1.8; font-weight:300; flex:1; margin-bottom:24px;">{doc.desc}</p>
               <a href="/contact"
                  class="inline-flex items-center gap-2 text-sm text-white transition-opacity hover:opacity-90"
-                 style="background:#1B5EBE; font-weight:600; letter-spacing:0.01em; padding:10px 20px; border-radius:6px;">
+                 style="background:var(--color-primary); font-weight:600; letter-spacing:0.01em; padding:10px 20px; border-radius:6px;">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
                 </svg>
@@ -48,8 +48,8 @@ const docs = [
           ))}
         </div>
 
-        <div class="reveal p-6 max-w-2xl" style="border:1px solid #E5E5E5; border-radius:8px; background:#F4F4F4;">
-          <p style="font-size:14px; color:#6B6B6B; line-height:1.8; font-weight:300;">
+        <div class="reveal p-6 max-w-2xl" style="border:1px solid var(--color-border); border-radius:8px; background:var(--color-bg-sub);">
+          <p style="font-size:14px; color:var(--color-ink-muted); line-height:1.8; font-weight:300;">
             資料のご請求はお問い合わせフォームよりお願いいたします。折り返しメールにてお送りいたします。
           </p>
         </div>

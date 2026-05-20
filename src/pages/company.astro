@@ -3,92 +3,107 @@ import Layout from '../layouts/Layout.astro'
 import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
 
-const gradLabel = "font-family:'Inter',sans-serif; font-weight:700; font-size:12px; letter-spacing:0.2em; text-transform:uppercase; background:linear-gradient(135deg,#1B5EBE,#4A90D9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;"
-const gradDeco  = "font-family:'Inter',sans-serif; font-weight:900; font-size:clamp(60px,10vw,120px); letter-spacing:-0.05em; opacity:0.04; background:linear-gradient(135deg,#1B5EBE,#4A90D9); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; pointer-events:none; user-select:none;"
-
 const info = [
-  { label: '屋号',     value: 'AltShift（オルトシフト）' },
-  { label: '代表者',   value: 'ディーチャー（本名：坂口 大輝 / Daiki Sakaguchi）' },
+  { label: '屋号', value: 'AltShift（オルトシフト）' },
+  { label: '代表者', value: '坂口 大輝（Daiki Sakaguchi）' },
   { label: '事業形態', value: '個人事業主' },
-  { label: '所在地',   value: '福岡県福岡市（詳細は請求があれば開示）' },
-  { label: '設立',     value: '2025年' },
-  { label: '事業内容', value: '外部CAIOサービス・AIシステム開発・Web制作・SEO/GEO対策・LINE自動化' },
-  { label: 'メール',   value: 'contact@altshift.jp' },
+  { label: '所在地', value: '福岡県福岡市（詳細は請求があれば開示）' },
+  { label: '設立', value: '2025年' },
+  { label: '事業内容', value: 'AI導入コンサルティング・AIシステム開発・Web制作・SEO/GEO対策・LINE自動化' },
+  { label: 'メール', value: 'contact@altshift.jp' },
+]
+
+const law = [
+  { label: '販売事業者', value: '坂口 大輝（屋号：AltShift）' },
+  { label: '運営責任者', value: '坂口 大輝' },
+  { label: '所在地', value: '福岡県福岡市（詳細は請求があれば遅滞なく開示）' },
+  { label: '連絡先メール', value: 'contact@altshift.jp' },
+  { label: '電話番号', value: '請求があれば遅滞なく開示' },
+  { label: '取扱商品', value: 'AI導入コンサルティング / AIシステム開発 / Web制作 / LINE自動化' },
+  { label: '販売価格', value: '各サービスごとにお見積もり' },
+  { label: '支払方法', value: '銀行振込' },
+  { label: '支払時期', value: '請求書発行月の翌月末まで' },
+  { label: '提供時期', value: '契約後、個別に取り決め' },
+  { label: '返品・キャンセル', value: 'サービスの性質上、返品は不可。キャンセルは契約時の条件に従います。' },
 ]
 ---
 
 <Layout title="会社情報 | AltShift" description="AltShiftの会社情報・代表者プロフィール。">
   <Nav />
   <main>
-    <section class="relative overflow-hidden" style="background:#FFFFFF; padding:96px 24px;">
-      <p class="absolute top-4 left-6 select-none pointer-events-none" aria-hidden="true" style={gradDeco}>COMPANY</p>
+    <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
 
-      <div class="relative max-w-6xl mx-auto">
-        <div class="mb-14 reveal">
-          <p style={gradLabel} class="mb-2">— 会社情報</p>
-          <h1 style="font-size:clamp(28px,4vw,40px); color:#1A1A1A;">COMPANY</h1>
+        <!-- Header -->
+        <div class="mb-16 reveal">
+          <div class="accent-line mb-6"></div>
+          <h1 class="heading-hero" style="font-size:clamp(28px,4vw,48px);">会社情報</h1>
         </div>
 
-        <!-- AltShiftについて（ミッション） -->
-        <div class="reveal mb-16 max-w-3xl">
-          <h2 style="font-size:28px; font-weight:800; color:#1A1A1A; margin-bottom:8px; letter-spacing:-0.03em;">AltShiftについて</h2>
-          <div style="height:3px; background:#C8A15A; border-radius:2px; margin-bottom:32px; animation:lineGrow 0.8s ease forwards;"></div>
-
-          <div style="border-left:3px solid #C8A15A; padding-left:20px; margin-bottom:28px;">
-            <p style="font-family:'Inter','Noto Sans JP',sans-serif; font-weight:900; font-size:20px; line-height:1.5; background:linear-gradient(135deg,#1B5EBE 0%,#4A90D9 70%,#C8A15A 100%); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;">
-              AIで、福岡をアジアのリーダーへ。
+        <!-- Mission -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-20 reveal">
+          <div>
+            <h2 class="heading-lg" style="line-height:1.4;">
+              私たちは、企業の課題を<br/>
+              AIの力で解決します。
+            </h2>
+          </div>
+          <div>
+            <p class="body-md mb-4">
+              AIは仕事を奪うのではなく、人に新しい役割を与える。
+              企業に生まれた「余白」は、人材育成の時間となり、新事業の種となる。
+            </p>
+            <p class="body-md" style="color:var(--color-neon); font-weight:600;">
+              ただ伴走するのではなく、一緒に未来をつくる。
             </p>
           </div>
-
-          <p style="color:#1A1A1A; line-height:1.9; font-size:16px; margin-bottom:16px; font-weight:400;">
-            AIという道具は、仕事を奪うのではなく、人に新しい役割を与える。
-            企業に生まれた「余白」は、人材育成の時間となり、新事業の種となり、地域経済の活力へと変わっていく。
-          </p>
-          <p style="color:#1A1A1A; line-height:1.9; font-size:16px; margin-bottom:16px; font-weight:400;">
-            一社一社の変革が積み重なったとき、福岡はアジアのAI先進都市になる。
-            その確信を持って、私たちは最先端の知識と実装力で、福岡の企業の最前線に立ち続けます。
-          </p>
-          <p style="color:#1B5EBE; font-weight:700; font-size:16px;">
-            ただ伴走するのではなく、一緒に未来をつくる。共に、進化し続けましょう。
-          </p>
         </div>
 
-        <!-- 会社概要テーブル -->
-        <div class="reveal mb-16">
-          <p style="font-size:11px; font-weight:600; color:#6B6B6B; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:24px;">Company Info</p>
-          <div style="border:1px solid #E5E5E5; border-radius:8px; overflow:hidden; max-width:640px;">
+        <!-- Founder -->
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-20 reveal">
+          <!-- PHOTO SLOT -->
+          <div class="lg:col-span-1">
+            <div class="media-slot" style="aspect-ratio:3/4;">
+              <img src="/images/daiki_profile.jpg" alt="坂口 大輝" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+            </div>
+          </div>
+          <div class="lg:col-span-2 flex flex-col justify-center">
+            <p class="text-xs font-semibold mb-3" style="color:var(--color-neon); letter-spacing:0.1em; text-transform:uppercase;">Founder</p>
+            <h2 class="heading-lg mb-2">坂口 大輝</h2>
+            <p class="body-sm mb-6">AltShift 代表 / AI Consultant</p>
+            <p class="body-md mb-4">
+              AI活用のスペシャリスト。中小企業のデジタル変革を支援し、AIを誰もが使いこなせる世界を目指しています。
+            </p>
+            <p class="body-md">
+              外部AI顧問として企業に入り込み、AI戦略の策定から実装まで伴走。経営者の視点でAIを使いこなすことが強みです。
+            </p>
+          </div>
+        </div>
+
+        <!-- Company Info -->
+        <div class="mb-20 reveal">
+          <h3 class="heading-md mb-8">会社概要</h3>
+          <div class="t-card overflow-hidden" style="max-width:640px;">
             {info.map((row, i) => (
-              <dl class="flex flex-col sm:flex-row" style={i !== info.length - 1 ? 'border-bottom:1px solid #E5E5E5;' : ''}>
-                <dt style="width:140px; padding:14px 24px; font-size:12px; font-weight:600; color:#6B6B6B; background:#F4F4F4; flex-shrink:0;">{row.label}</dt>
-                <dd style="flex:1; padding:14px 24px; font-size:14px; color:#1A1A1A;">{row.value}</dd>
+              <dl class="flex flex-col sm:flex-row" style={i !== info.length - 1 ? `border-bottom:1px solid var(--color-border);` : ''}>
+                <dt class="text-xs font-semibold flex-shrink-0 sm:w-[140px]" style="padding:12px 16px; color:var(--color-ink-muted); background:var(--color-bg-card);">{row.label}</dt>
+                <dd class="text-sm flex-1" style="padding:12px 16px; color:var(--color-ink);">{row.value}</dd>
               </dl>
             ))}
           </div>
         </div>
 
-        <!-- 代表プロフィール -->
-        <div class="reveal">
-          <p style="font-size:11px; font-weight:600; color:#6B6B6B; letter-spacing:0.15em; text-transform:uppercase; margin-bottom:32px;">Representative</p>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-10 items-start max-w-3xl">
-            <div class="md:col-span-1">
-              <div class="w-full h-64 overflow-hidden" style="border-radius:8px;">
-                <img
-                  src="/images/daiki_profile.jpg"
-                  alt="ディーチャー（坂口 大輝）AltShift代表"
-                  style="width:100%; height:100%; object-fit:cover; object-position:center top; border-radius:8px;"
-                />
-              </div>
-            </div>
-            <div class="md:col-span-2 pt-2">
-              <p style="font-weight:800; color:#1A1A1A; font-size:18px; margin-bottom:4px; letter-spacing:-0.02em;">ディーチャー（坂口 大輝）</p>
-              <p style="font-size:12px; color:#9CA3AF; font-weight:300; margin-bottom:20px;">AltShift 代表 / External CAIO</p>
-              <p style="font-size:15px; color:#1A1A1A; line-height:1.9; font-weight:400; margin-bottom:16px;">
-                AI活用のスペシャリスト。中小企業のデジタル変革を支援し、AIという道具を誰もが使いこなせる世界を目指しています。
-              </p>
-              <p style="font-size:15px; color:#1A1A1A; line-height:1.9; font-weight:400;">
-                外部CAIOという働き方で、週1〜2回企業に入り込み、AI戦略の策定から実装まで伴走します。プログラマーではなく経営者の視点でAIを使いこなすことが、私の強みです。
-              </p>
-            </div>
+        <!-- Legal -->
+        <div class="reveal" id="legal">
+          <div class="section-divider mb-16"></div>
+          <h3 class="heading-md mb-8">特定商取引法に基づく表記</h3>
+          <div class="t-card overflow-hidden" style="max-width:720px;">
+            {law.map((row, i) => (
+              <dl class="flex flex-col sm:flex-row" style={i !== law.length - 1 ? `border-bottom:1px solid var(--color-border);` : ''}>
+                <dt class="text-xs font-medium flex-shrink-0 sm:w-[140px]" style="padding:12px 16px; color:var(--color-ink-muted); background:var(--color-bg-card);">{row.label}</dt>
+                <dd class="text-sm flex-1 leading-relaxed" style="padding:12px 16px; color:var(--color-ink);">{row.value}</dd>
+              </dl>
+            ))}
           </div>
         </div>
 
