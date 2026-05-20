@@ -509,3 +509,81 @@ input:focus, textarea:focus, select:focus {
   width: auto;
 }
 .client-logo:hover { opacity: 0.8; }
+
+/* ===== Technology Marquee ===== */
+.tech-marquee-wrapper {
+  width: 100%;
+  overflow: hidden;
+  mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+  padding: 0 0 64px;
+}
+.tech-marquee-track {
+  display: flex;
+  gap: 12px;
+  width: max-content;
+  animation: marquee-scroll 40s linear infinite;
+}
+.tech-marquee-track:hover {
+  animation-play-state: paused;
+}
+.tech-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 24px;
+  border: 1px solid var(--color-border-card);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.02);
+  backdrop-filter: blur(4px);
+  white-space: nowrap;
+  transition: border-color 0.3s, background 0.3s;
+  flex-shrink: 0;
+}
+.tech-item:hover {
+  border-color: rgba(216,255,0,0.25);
+  background: rgba(216,255,0,0.04);
+}
+.tech-icon {
+  color: var(--color-ink);
+  opacity: 0.7;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+}
+.tech-item:hover .tech-icon {
+  opacity: 1;
+  color: var(--color-neon);
+}
+.tech-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  color: var(--color-ink);
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.tech-sub {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 11px;
+  color: var(--color-ink-dim);
+  letter-spacing: 0.02em;
+}
+
+@keyframes marquee-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+[data-theme="light"] .tech-item {
+  background: rgba(0,0,0,0.02);
+  border-color: rgba(0,0,0,0.08);
+}
+[data-theme="light"] .tech-item:hover {
+  border-color: rgba(20,86,251,0.3);
+  background: rgba(20,86,251,0.04);
+}
+[data-theme="light"] .tech-item:hover .tech-icon {
+  color: var(--color-blue);
+}
