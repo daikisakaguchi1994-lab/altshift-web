@@ -1,0 +1,100 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'LINE自動化 × 業務効率化',
+  provider: { '@type': 'Organization', name: 'AltShift', url: 'https://altshift.jp' },
+  areaServed: [{ '@type': 'City', name: '福岡市' }, { '@type': 'Country', name: '日本' }],
+  description: 'LINE公式アカウントの自動化・チャットボット構築。24時間365日の自動応答で機会損失ゼロに。',
+  serviceType: 'LINE自動化',
+}
+---
+
+<Layout
+  title="LINE自動化 × 業務効率化 | チャットボット構築 | AltShift 福岡"
+  description="LINE公式アカウントの自動化・チャットボット構築。24時間365日の自動応答、自動配信、顧客管理を一括導入。営業時間外の問い合わせ対応を完全自動化。福岡発。"
+  schemaData={schemaData}
+>
+  <Nav />
+  <main>
+    <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div class="mb-16 reveal">
+          <a href="/service" class="text-xs font-semibold mb-4 inline-block" style="color:var(--color-blue); letter-spacing:0.05em;">← サービス一覧</a>
+          <p class="service-num mb-4">04</p>
+          <h1 class="heading-hero" style="font-size:clamp(28px,4vw,48px);">LINE自動化 ×<br/>業務効率化</h1>
+          <p class="body-lg mt-4" style="max-width:640px;">
+            日本のユーザーの86%が使うLINEを、営業・カスタマーサポート・予約管理の自動化チャネルに変えます。24時間365日、機会損失ゼロ。
+          </p>
+        </div>
+
+        <!-- Features -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24 stagger">
+          {[
+            { title: 'AIチャットボット', desc: 'よくある質問に24時間自動応答。AIが文脈を理解し、自然な会話で顧客対応。複雑な質問は有人に自動エスカレーション。' },
+            { title: '自動配信・セグメント配信', desc: '新規登録時の挨拶、定期リマインド、キャンペーン通知を自動配信。顧客属性に応じたセグメント配信で開封率UP。' },
+            { title: '予約管理・リマインド', desc: 'LINE上で予約受付〜確認〜リマインドまで自動化。無断キャンセル率を大幅削減。Googleカレンダー連携対応。' },
+            { title: '顧客管理（CRM連携）', desc: 'LINEの友だち情報をスプレッドシートやCRMに自動記録。顧客の行動履歴を一元管理。営業活動を効率化。' },
+            { title: 'リッチメニュー・クーポン', desc: 'ブランドに合わせたリッチメニューを設計。クーポン配布、ポイントカード、アンケートを LINE内で完結。' },
+            { title: '分析・レポート', desc: '友だち数推移、メッセージ開封率、ボット応答率を可視化。データに基づいた改善を継続的に実施。' },
+          ].map(f => (
+            <div class="reveal t-card p-6">
+              <h3 class="heading-sm mb-3">{f.title}</h3>
+              <p class="body-sm">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Before/After -->
+        <div class="reveal mb-24">
+          <h2 class="heading-lg text-center mb-12">導入前後の変化</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="t-card p-6" style="border-color:rgba(255,255,255,0.05);">
+              <p class="text-xs font-semibold mb-4" style="color:var(--color-ink-dim); text-transform:uppercase; letter-spacing:0.1em;">Before</p>
+              <ul class="flex flex-col gap-3">
+                {['営業時間外の問い合わせは翌日対応', '手動でのメッセージ配信に毎週2時間', '顧客情報がバラバラで管理できない', '予約の無断キャンセルが月5件以上'].map(item => (
+                  <li class="flex items-start gap-2 text-sm" style="color:var(--color-ink-sub);">
+                    <span style="color:rgba(255,59,48,0.8); flex-shrink:0;">✕</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div class="t-card p-6" style="border-color:rgba(216,255,0,0.15);">
+              <p class="text-xs font-semibold mb-4" style="color:var(--color-neon); text-transform:uppercase; letter-spacing:0.1em;">After</p>
+              <ul class="flex flex-col gap-3">
+                {['24時間365日自動応答で機会損失ゼロ', 'メッセージ配信は設定1回で自動運用', '顧客情報を一元管理、セグメント配信可能', '自動リマインドで無断キャンセル80%減'].map(item => (
+                  <li class="flex items-start gap-2 text-sm" style="color:var(--color-ink);">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D8FF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="reveal t-card flex flex-col md:flex-row items-center justify-between gap-6 p-8">
+          <div>
+            <h3 class="heading-md mb-2">LINE自動化で業務を変える</h3>
+            <p class="body-sm">御社のLINE活用状況をヒアリングし、最適な自動化プランをご提案します。</p>
+          </div>
+          <div class="flex gap-3 flex-shrink-0">
+            <a href="/contact" class="btn-neon whitespace-nowrap">無料で相談する</a>
+            <a href="https://lin.ee/VOiIxYB" target="_blank" rel="noopener noreferrer" class="btn-line whitespace-nowrap">
+              <svg width="14" height="14" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.86 4 21.5c0 5.5 2.87 10.4 7.36 13.6L9 40l6.5-2.8A22.4 22.4 0 0024 39c11.05 0 20-7.86 20-17.5S35.05 4 24 4z"/></svg>
+              LINE
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

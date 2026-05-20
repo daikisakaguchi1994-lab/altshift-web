@@ -1,0 +1,176 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+
+const steps = [
+  { num: '01', title: 'ヒアリング・現状分析', desc: '経営課題・業務フロー・既存システムを徹底的にヒアリング。AI導入の可能性と優先度を可視化します。', duration: '1〜3日' },
+  { num: '02', title: 'AI戦略・ロードマップ策定', desc: 'ROIモデルに基づいたAI導入計画を策定。短期で成果が出る施策と中長期の成長戦略を設計します。', duration: '1〜2週間' },
+  { num: '03', title: '実装・導入支援', desc: '戦略に基づき、AIツールの選定・設定・カスタマイズを実施。現場スタッフへの研修も行います。', duration: '2〜4週間' },
+  { num: '04', title: '運用・改善サイクル', desc: '月次レポートと改善提案を継続提供。KPIを追跡し、AIの活用度を段階的に引き上げます。', duration: '継続' },
+]
+
+const faqItems = [
+  { q: 'AIの知識がゼロでも依頼できますか？', a: 'はい。むしろAI未経験の企業様が最も多いです。専門用語を使わず、経営者の言葉でご説明します。' },
+  { q: 'コンサルティングだけで終わりませんか？', a: 'AltShiftは戦略策定だけでなく、実装・運用まで一貫して支援します。「提案書を渡して終わり」ではありません。' },
+  { q: '最短でどのくらいで始められますか？', a: '初回ヒアリングから最短2週間でAI戦略・ロードマップをお渡しします。実装は内容により4〜12週間です。' },
+  { q: '月額費用以外にかかる費用はありますか？', a: '初期費用（ヒアリング・戦略策定）は別途お見積もりとなります。月額プラン内で対応できる範囲を事前に明確にします。' },
+]
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'AI導入コンサルティング',
+  provider: { '@type': 'Organization', name: 'AltShift', url: 'https://altshift.jp' },
+  areaServed: [{ '@type': 'City', name: '福岡市' }, { '@type': 'Country', name: '日本' }],
+  description: '中小企業向けAI導入コンサルティング。経営課題の分析からAIロードマップ策定、実装、運用まで一貫支援。最短2週間で戦略策定。',
+  serviceType: 'AIコンサルティング',
+}
+---
+
+<Layout
+  title="AI導入コンサルティング | 中小企業向け | AltShift 福岡"
+  description="中小企業向けAI導入コンサルティング。経営課題の分析からAIロードマップ策定、実装支援、運用改善まで一貫対応。最短2週間で戦略策定。月額3万円〜。福岡発、全国対応。"
+  schemaData={schemaData}
+>
+  <Nav />
+  <main>
+    <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <!-- Header -->
+        <div class="mb-16 reveal">
+          <a href="/service" class="text-xs font-semibold mb-4 inline-block" style="color:var(--color-blue); letter-spacing:0.05em;">← サービス一覧</a>
+          <p class="service-num mb-4">01</p>
+          <h1 class="heading-hero" style="font-size:clamp(28px,4vw,48px);">AI導入コンサルティング</h1>
+          <p class="body-lg mt-4" style="max-width:640px;">
+            「AIで何ができるか分からない」を、「具体的な行動計画」に変える。経営課題を分析し、最短2週間でAI導入ロードマップを策定します。
+          </p>
+        </div>
+
+        <!-- What we do -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24 reveal">
+          <div>
+            <h2 class="heading-lg mb-6">こんな課題を解決します</h2>
+            <ul class="flex flex-col gap-4">
+              {[
+                'AIを導入したいが、何から始めればいいか分からない',
+                '社内にAIの知識を持つ人材がいない',
+                '過去にAIツールを導入したが、現場で使われていない',
+                '競合がAIを活用し始めていて焦りを感じている',
+                'AI導入の費用対効果が見えない',
+              ].map(item => (
+                <li class="flex items-start gap-3 body-md">
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-neon); flex-shrink:0; margin-top:10px;"></div>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div>
+            <h2 class="heading-lg mb-6">提供内容</h2>
+            <ul class="flex flex-col gap-4">
+              {[
+                '業務プロセスの分析・AI適用可能性の評価',
+                'AI導入計画（ロードマップ）の策定',
+                'ROIモデルの構築と投資対効果の予測',
+                '経営層・現場スタッフ向けAI研修',
+                'AIツールの選定・初期設定サポート',
+                '月次レポートと継続的な改善提案',
+              ].map(item => (
+                <li class="flex items-start gap-3 body-md">
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#D8FF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><polyline points="20 6 9 17 4 12"/></svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Process -->
+        <div class="mb-24">
+          <h2 class="heading-lg text-center mb-16 reveal">導入プロセス</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 stagger">
+            {steps.map(s => (
+              <div class="reveal t-card p-6">
+                <p class="service-num mb-3" style="font-size:32px;">{s.num}</p>
+                <h3 class="heading-sm mb-2">{s.title}</h3>
+                <p class="body-sm mb-3">{s.desc}</p>
+                <p class="text-xs" style="color:var(--color-neon); font-weight:600;">目安：{s.duration}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Pricing hint -->
+        <div class="reveal t-card p-8 mb-24" style="border-color:rgba(216,255,0,0.15); background:rgba(216,255,0,0.03);">
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div>
+              <p class="text-xs font-semibold mb-2" style="color:var(--color-neon); text-transform:uppercase; letter-spacing:0.1em;">月額費用</p>
+              <p class="heading-md">3万円〜8万円</p>
+              <p class="body-sm mt-1">初期費用別途</p>
+            </div>
+            <div>
+              <p class="text-xs font-semibold mb-2" style="color:var(--color-neon); text-transform:uppercase; letter-spacing:0.1em;">戦略策定</p>
+              <p class="heading-md">最短2週間</p>
+              <p class="body-sm mt-1">ヒアリングから</p>
+            </div>
+            <div>
+              <p class="text-xs font-semibold mb-2" style="color:var(--color-neon); text-transform:uppercase; letter-spacing:0.1em;">対応範囲</p>
+              <p class="heading-md">全国対応</p>
+              <p class="body-sm mt-1">オンライン + 福岡訪問</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ -->
+        <div class="mb-16">
+          <h2 class="heading-lg text-center mb-12 reveal">よくある質問</h2>
+          <div class="max-w-3xl mx-auto flex flex-col gap-3" id="faq-list">
+            {faqItems.map((item, i) => (
+              <div class="reveal faq-item">
+                <button class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between gap-4" aria-expanded="false" aria-controls={`faq-a-${i}`}>
+                  <span style="font-weight:500; color:var(--color-ink);">{item.q}</span>
+                  <svg class="faq-icon flex-shrink-0 transition-transform duration-200" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--color-ink-muted);"><polyline points="6 9 12 15 18 9"/></svg>
+                </button>
+                <div class="faq-answer hidden px-6 pb-5" id={`faq-a-${i}`}>
+                  <p class="body-sm">{item.a}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="reveal t-card flex flex-col md:flex-row items-center justify-between gap-6 p-8">
+          <div>
+            <h3 class="heading-md mb-2">まずは無料相談から</h3>
+            <p class="body-sm">AI導入の可能性を一緒に探りましょう。</p>
+          </div>
+          <a href="/contact" class="btn-neon whitespace-nowrap flex-shrink-0">無料で相談する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>
+
+<script>
+  document.querySelectorAll('.faq-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const answer = btn.nextElementSibling as HTMLElement
+      const icon = btn.querySelector('.faq-icon') as HTMLElement
+      const isOpen = btn.getAttribute('aria-expanded') === 'true'
+      document.querySelectorAll('.faq-btn').forEach(b => {
+        b.setAttribute('aria-expanded', 'false')
+        ;(b.nextElementSibling as HTMLElement).classList.add('hidden')
+        ;(b.querySelector('.faq-icon') as HTMLElement).style.transform = 'rotate(0deg)'
+      })
+      if (!isOpen) {
+        btn.setAttribute('aria-expanded', 'true')
+        answer.classList.remove('hidden')
+        icon.style.transform = 'rotate(180deg)'
+      }
+    })
+  })
+</script>

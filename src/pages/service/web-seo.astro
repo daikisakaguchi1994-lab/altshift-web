@@ -1,0 +1,113 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'Web制作 × SEO/GEO対策',
+  provider: { '@type': 'Organization', name: 'AltShift', url: 'https://altshift.jp' },
+  areaServed: [{ '@type': 'City', name: '福岡市' }, { '@type': 'Country', name: '日本' }],
+  description: 'AI時代の検索に対応したWebサイト制作。Google・ChatGPT・Perplexityに選ばれるSEO/GEO対策。',
+  serviceType: 'Web制作・SEO対策',
+}
+---
+
+<Layout
+  title="Web制作 × SEO/GEO対策 | AI検索時代のホームページ | AltShift 福岡"
+  description="Google・ChatGPT・Perplexityに選ばれるWebサイト制作。AI検索時代のSEO/GEO対策で検索・地図双方から集客。構造化データ・コンテンツ戦略・ローカルSEO対応。福岡発。"
+  schemaData={schemaData}
+>
+  <Nav />
+  <main>
+    <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div class="mb-16 reveal">
+          <a href="/service" class="text-xs font-semibold mb-4 inline-block" style="color:var(--color-blue); letter-spacing:0.05em;">← サービス一覧</a>
+          <p class="service-num mb-4">03</p>
+          <h1 class="heading-hero" style="font-size:clamp(28px,4vw,48px);">Web制作 ×<br/>SEO/GEO対策</h1>
+          <p class="body-lg mt-4" style="max-width:640px;">
+            Google検索だけでなく、ChatGPTやPerplexityなどのAI検索にも選ばれるWebサイトを制作。2026年の検索環境に完全対応します。
+          </p>
+        </div>
+
+        <!-- SEO vs GEO explanation -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-24">
+          <div class="reveal t-card p-8">
+            <p class="text-xs font-semibold mb-4" style="color:var(--color-blue); letter-spacing:0.1em; text-transform:uppercase;">SEO対策</p>
+            <h3 class="heading-md mb-4">Google検索で上位表示</h3>
+            <p class="body-sm mb-6">キーワード最適化、構造化データ、内部リンク設計、コンテンツ戦略でGoogleの検索結果上位を獲得します。</p>
+            <ul class="flex flex-col gap-3">
+              {['キーワード戦略・コンテンツ設計', 'JSON-LD構造化データ実装', 'Google ビジネスプロフィール最適化', 'Core Web Vitals最適化', 'ローカルSEO（地域検索対策）'].map(item => (
+                <li class="flex items-start gap-2 text-sm" style="color:var(--color-ink);">
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-blue); flex-shrink:0; margin-top:6px;"></div>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="reveal t-card p-8" style="border-color:rgba(216,255,0,0.15);">
+            <p class="text-xs font-semibold mb-4" style="color:var(--color-neon); letter-spacing:0.1em; text-transform:uppercase;">GEO対策</p>
+            <h3 class="heading-md mb-4">AI検索に引用される</h3>
+            <p class="body-sm mb-6">ChatGPT、Perplexity、Google AI OverviewがあなたのWebサイトを引用・推薦するように最適化します。</p>
+            <ul class="flex flex-col gap-3">
+              {['AI抽出しやすいコンテンツ構造', '質問形式の見出し + 直接的な回答', 'エンティティ最適化（ナレッジグラフ対応）', 'llms.txt / robots.txt設定', '複数プラットフォームでの情報一貫性'].map(item => (
+                <li class="flex items-start gap-2 text-sm" style="color:var(--color-ink);">
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-neon); flex-shrink:0; margin-top:6px;"></div>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Why it matters -->
+        <div class="reveal mb-24">
+          <h2 class="heading-lg text-center mb-6">なぜ今、GEO対策が必要なのか</h2>
+          <p class="body-md text-center mb-12" style="max-width:640px; margin:0 auto;">
+            2026年現在、Google検索の48%にAI Overviewが表示されています。AI検索経由のユーザーはコンバージョン率が4.4倍。従来のSEOだけでは不十分な時代です。
+          </p>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger">
+            {[
+              { num: '48%', label: 'Google検索にAI Overview表示', sub: '2026年現在' },
+              { num: '4.4x', label: 'AI経由のコンバージョン率', sub: '従来検索比' },
+              { num: '38%', label: 'AI引用はSEO上位10位外', sub: 'コンテンツ質が重要' },
+            ].map(s => (
+              <div class="reveal t-card p-6 text-center">
+                <p class="number-value" style="font-size:clamp(32px,5vw,48px); color:var(--color-neon);">{s.num}</p>
+                <p class="text-sm font-semibold mt-2" style="color:var(--color-ink);">{s.label}</p>
+                <p class="text-xs mt-1" style="color:var(--color-ink-dim);">{s.sub}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Case reference -->
+        <div class="reveal t-card p-8 mb-24" style="border-color:rgba(20,86,251,0.2); background:rgba(20,86,251,0.03);">
+          <p class="text-xs font-semibold mb-4" style="color:var(--color-blue); letter-spacing:0.1em; text-transform:uppercase;">実績</p>
+          <h3 class="heading-md mb-3">三栄リフォーム × AltShift</h3>
+          <p class="body-md mb-4">AI時代の検索対応Webサイトを実装。SEO/GEO対策により、GoogleとAI検索双方での露出を強化。</p>
+          <div class="flex flex-wrap gap-6">
+            <div class="flex items-center gap-2">
+              <div style="width:6px; height:6px; border-radius:50%; background:var(--color-neon);"></div>
+              <span class="text-sm" style="color:var(--color-ink);">AI検索・Googleマップ双方で上位露出</span>
+            </div>
+            <a href="/case" class="neon-link" style="font-size:13px;">事例を詳しく見る <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="reveal t-card flex flex-col md:flex-row items-center justify-between gap-6 p-8">
+          <div>
+            <h3 class="heading-md mb-2">御社のWebサイト、AI検索に対応していますか？</h3>
+            <p class="body-sm">無料でサイト診断を行います。</p>
+          </div>
+          <a href="/contact" class="btn-neon whitespace-nowrap flex-shrink-0">無料で相談する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

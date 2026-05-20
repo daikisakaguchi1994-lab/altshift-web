@@ -172,6 +172,34 @@ const faqSchema = {
 
     <div class="section-divider max-w-7xl mx-auto"></div>
 
+    <!-- ========== ALTSHIFT 3-LAYER METHOD ========== -->
+    <section class="section-padding" style="background:var(--color-bg);">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-16 reveal">
+          <p class="section-label mb-4" style="text-transform:uppercase; letter-spacing:0.1em;">Our Methodology</p>
+          <h2 class="heading-lg mb-4">AltShift 3-Layer メソッド</h2>
+          <p class="body-md" style="max-width:600px; margin:0 auto;">中小企業の集客・業務を3つのレイヤーで最適化。段階的にAIを導入し、持続的な成長基盤を構築します。</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger">
+          {[
+            { layer: 'Layer 1', title: '見つけてもらう', sub: 'Web × SEO × GEO', desc: 'Google検索・AI検索・Googleマップで上位表示。お客様があなたの会社を「見つけられる」状態を作ります。', color: '#1456FB' },
+            { layer: 'Layer 2', title: '逃さない', sub: 'LINE × チャットボット', desc: '24時間自動応答・予約管理・リマインド配信。問い合わせから来店・契約までの取りこぼしをゼロにします。', color: '#D8FF00' },
+            { layer: 'Layer 3', title: '育てる', sub: 'AI分析 × 改善ループ', desc: 'データに基づいた月次改善。KPI追跡・A/Bテスト・コンテンツ更新で、成果を継続的に引き上げます。', color: '#FFFFFF' },
+          ].map(l => (
+            <div class="reveal t-card p-8 flex flex-col" style={`border-top:3px solid ${l.color};`}>
+              <p class="text-xs font-semibold mb-2" style={`color:${l.color}; letter-spacing:0.1em; text-transform:uppercase;`}>{l.layer}</p>
+              <h3 class="heading-md mb-1">{l.title}</h3>
+              <p class="text-xs mb-4" style="color:var(--color-ink-dim);">{l.sub}</p>
+              <p class="body-sm flex-1">{l.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider max-w-7xl mx-auto"></div>
+
     <!-- ========== SERVICES (01-04 Cards) ========== -->
     <section class="section-padding" style="background:var(--color-bg);">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
@@ -179,16 +207,17 @@ const faqSchema = {
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 stagger">
           {[
-            { num: '01', title: 'AI導入戦略', desc: '経営課題の分析、AI教育、ROIモデル、そして貴社の課題と目標に合致したAIロードマップを、最短2週間で提供します。' },
-            { num: '02', title: 'カスタムAIソリューション', desc: '競争優位性を高め、コストを削減し、新たなビジネスチャンスを創出するために構築されたAIシステム。通常12週間以内に本番稼働を実現します。' },
-            { num: '03', title: 'Web制作 × SEO/GEO', desc: 'Google・ChatGPT・Claudeに選ばれるWebサイト。AI時代の検索対応設計で、検索・地図双方からの集客基盤を構築します。' },
-            { num: '04', title: 'LINE自動化 × 業務効率化', desc: '24時間365日の自動応答で機会損失をゼロに。チャットボット構築・自動配信・顧客管理で組織全体の業務を効率化します。' },
+            { num: '01', title: 'AI導入戦略', desc: '経営課題の分析、AI教育、ROIモデル、そして貴社の課題と目標に合致したAIロードマップを、最短2週間で提供します。', href: '/service/ai-consulting' },
+            { num: '02', title: 'カスタムAIソリューション', desc: '競争優位性を高め、コストを削減し、新たなビジネスチャンスを創出するために構築されたAIシステム。通常12週間以内に本番稼働を実現します。', href: '/service/ai-development' },
+            { num: '03', title: 'Web制作 × SEO/GEO', desc: 'Google・ChatGPT・Claudeに選ばれるWebサイト。AI時代の検索対応設計で、検索・地図双方からの集客基盤を構築します。', href: '/service/web-seo' },
+            { num: '04', title: 'LINE自動化 × 業務効率化', desc: '24時間365日の自動応答で機会損失をゼロに。チャットボット構築・自動配信・顧客管理で組織全体の業務を効率化します。', href: '/service/line-automation' },
           ].map(s => (
-            <div class="reveal t-card p-7 flex flex-col" style="min-height:280px;">
+            <a href={s.href} class="reveal t-card p-7 flex flex-col" style="min-height:280px; text-decoration:none;">
               <p class="service-num mb-4">{s.num}</p>
               <h3 class="heading-md mb-4">{s.title}</h3>
               <p class="body-sm flex-1">{s.desc}</p>
-            </div>
+              <span class="neon-link mt-4" style="font-size:13px;">詳しく見る →</span>
+            </a>
           ))}
         </div>
       </div>

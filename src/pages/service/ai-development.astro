@@ -1,0 +1,99 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'カスタムAIシステム開発',
+  provider: { '@type': 'Organization', name: 'AltShift', url: 'https://altshift.jp' },
+  areaServed: [{ '@type': 'City', name: '福岡市' }, { '@type': 'Country', name: '日本' }],
+  description: '中小企業向けカスタムAIシステム開発。業務自動化・データ分析・チャットボット構築。通常12週間以内に本番稼働。',
+  serviceType: 'AIシステム開発',
+}
+---
+
+<Layout
+  title="カスタムAIシステム開発 | 業務自動化・効率化 | AltShift 福岡"
+  description="中小企業向けカスタムAIシステム開発。業務自動化・コールセンター自動化・データ分析を通常12週間以内に本番稼働。採用業務工数50%削減の実績。福岡発、全国対応。"
+  schemaData={schemaData}
+>
+  <Nav />
+  <main>
+    <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+        <div class="mb-16 reveal">
+          <a href="/service" class="text-xs font-semibold mb-4 inline-block" style="color:var(--color-blue); letter-spacing:0.05em;">← サービス一覧</a>
+          <p class="service-num mb-4">02</p>
+          <h1 class="heading-hero" style="font-size:clamp(28px,4vw,48px);">カスタムAI<br/>システム開発</h1>
+          <p class="body-lg mt-4" style="max-width:640px;">
+            汎用ツールでは解決できない課題を、貴社専用のAIシステムで解決します。通常12週間以内に本番稼働を実現。
+          </p>
+        </div>
+
+        <!-- Use cases -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-24 stagger">
+          {[
+            { title: '業務自動化', desc: 'コールセンター集計、請求書処理、データ入力など反復作業をAIで自動化。人的ミスをゼロに、コストを大幅削減。', result: '採用業務工数50%削減（BEGINS社実績）' },
+            { title: 'データ分析・可視化', desc: '散在するExcelやシステムのデータをAIが統合分析。経営判断に必要なインサイトをリアルタイムで提供。', result: '意思決定スピード向上' },
+            { title: 'チャットボット・AI応答', desc: 'FAQ対応、予約受付、商品案内を24時間AIが自動対応。LINEやWebサイトに組み込み可能。', result: '営業時間外の問い合わせ対応を完全自動化' },
+            { title: '文書処理AI', desc: '契約書、報告書、メールの自動生成・要約・分類。ドキュメント業務の時間を最大80%短縮。', result: 'ドキュメント処理時間80%削減' },
+            { title: '画像・動画分析', desc: '製品検品、来客カウント、安全監視など映像データをAIが自動分析。目視作業の負荷を軽減。', result: '検品精度向上・人件費削減' },
+            { title: '既存システム連携', desc: 'お使いのシステム（Google Workspace、kintone、Salesforceなど）にAI機能を追加。現行業務を壊さず強化。', result: '既存投資を最大活用' },
+          ].map(uc => (
+            <div class="reveal t-card p-6 flex flex-col">
+              <h3 class="heading-sm mb-3">{uc.title}</h3>
+              <p class="body-sm flex-1 mb-4">{uc.desc}</p>
+              <div class="flex items-start gap-2">
+                <div style="width:6px; height:6px; border-radius:50%; background:var(--color-neon); flex-shrink:0; margin-top:6px;"></div>
+                <p class="text-xs" style="color:var(--color-neon); font-weight:600;">{uc.result}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <!-- Process -->
+        <div class="mb-24">
+          <h2 class="heading-lg text-center mb-16 reveal">開発プロセス</h2>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-6 stagger">
+            {[
+              { num: '01', title: '要件定義', desc: '業務フローの分析、AIで解決すべき課題の特定、技術選定を行います。', dur: '1〜2週間' },
+              { num: '02', title: 'プロトタイプ開発', desc: '最小限の機能でAIシステムを構築。実データで検証し、精度と実用性を確認。', dur: '3〜4週間' },
+              { num: '03', title: '本番開発・統合', desc: 'プロトタイプをベースに本番環境を構築。既存システムとの連携を実装。', dur: '4〜6週間' },
+              { num: '04', title: '運用・改善', desc: '本番稼働後も継続的にモニタリング。精度向上と機能拡張を行います。', dur: '継続' },
+            ].map(s => (
+              <div class="reveal t-card p-6">
+                <p class="service-num mb-3" style="font-size:32px;">{s.num}</p>
+                <h3 class="heading-sm mb-2">{s.title}</h3>
+                <p class="body-sm mb-3">{s.desc}</p>
+                <p class="text-xs" style="color:var(--color-neon); font-weight:600;">目安：{s.dur}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Tech stack -->
+        <div class="reveal t-card p-8 mb-24 text-center">
+          <p class="text-xs font-semibold mb-6" style="color:var(--color-ink-muted); letter-spacing:0.1em; text-transform:uppercase;">Technology Stack</p>
+          <div class="flex items-center justify-center gap-8 flex-wrap">
+            {['Claude API', 'OpenAI API', 'Python', 'Node.js', 'Google Apps Script', 'LINE Messaging API', 'PostgreSQL', 'Vercel'].map(t => (
+              <span style="font-family:'Inter',sans-serif; font-weight:600; font-size:14px; color:var(--color-ink); opacity:0.6;">{t}</span>
+            ))}
+          </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="reveal t-card flex flex-col md:flex-row items-center justify-between gap-6 p-8">
+          <div>
+            <h3 class="heading-md mb-2">業務自動化の可能性を探る</h3>
+            <p class="body-sm">貴社の業務フローをヒアリングし、AI化の優先度を無料で診断します。</p>
+          </div>
+          <a href="/contact" class="btn-neon whitespace-nowrap flex-shrink-0">無料で相談する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

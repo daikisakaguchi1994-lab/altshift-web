@@ -64,19 +64,47 @@ const law = [
           <!-- PHOTO SLOT -->
           <div class="lg:col-span-1">
             <div class="media-slot" style="aspect-ratio:3/4;">
-              <img src="/images/daiki_profile.jpg" alt="坂口 大輝" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
+              <img src="/images/daiki_profile.jpg" alt="坂口 大輝 - AltShift代表" style="width:100%;height:100%;object-fit:cover;object-position:center top;" />
             </div>
           </div>
           <div class="lg:col-span-2 flex flex-col justify-center">
-            <p class="text-xs font-semibold mb-3" style="color:var(--color-neon); letter-spacing:0.1em; text-transform:uppercase;">Founder</p>
-            <h2 class="heading-lg mb-2">坂口 大輝</h2>
-            <p class="body-sm mb-6">AltShift 代表 / AI Consultant</p>
+            <p class="text-xs font-semibold mb-3" style="color:var(--color-neon); letter-spacing:0.1em; text-transform:uppercase;">Founder & AI Consultant</p>
+            <h2 class="heading-lg mb-2">坂口 大輝<span class="text-sm font-normal ml-3" style="color:var(--color-ink-sub);">Daiki Sakaguchi</span></h2>
+            <p class="body-sm mb-6">AltShift 代表 / 外部CAIO（最高AI責任者）</p>
+
             <p class="body-md mb-4">
-              AI活用のスペシャリスト。中小企業のデジタル変革を支援し、AIを誰もが使いこなせる世界を目指しています。
+              中小企業の「外部CAIO（最高AI責任者）」として、経営者の視点でAI戦略を立案・実行しています。
+              AIツールの導入だけでなく、経営課題の本質を見極め、最適なソリューションを設計から運用まで一貫して伴走します。
             </p>
-            <p class="body-md">
-              外部AI顧問として企業に入り込み、AI戦略の策定から実装まで伴走。経営者の視点でAIを使いこなすことが強みです。
+            <p class="body-md mb-6">
+              「AIは仕事を奪うのではなく、人に新しい役割を与える」という信念のもと、
+              福岡を拠点に中小企業のAI導入を支援。業務自動化による工数50%削減、AI検索対応Webサイト制作など、具体的な成果にこだわっています。
             </p>
+
+            <!-- Expertise tags -->
+            <div class="mb-6">
+              <p class="text-xs font-semibold mb-3" style="color:var(--color-ink-dim); text-transform:uppercase; letter-spacing:0.08em;">専門分野</p>
+              <div class="flex flex-wrap gap-2">
+                {['AI導入戦略', '生成AI活用', '業務自動化', 'SEO/GEO', 'LINE自動化', 'Webマーケティング'].map(tag => (
+                  <span class="tag-outline">{tag}</span>
+                ))}
+              </div>
+            </div>
+
+            <!-- Track record -->
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+              {[
+                { num: '4社', label: '導入実績' },
+                { num: '50%', label: '最大業務工数削減' },
+                { num: '2025年', label: 'AltShift設立' },
+                { num: '福岡市', label: '活動拠点' },
+              ].map(s => (
+                <div>
+                  <p class="text-lg font-bold" style="color:var(--color-neon);">{s.num}</p>
+                  <p class="text-xs" style="color:var(--color-ink-dim);">{s.label}</p>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
