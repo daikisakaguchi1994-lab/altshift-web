@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro'
 
 const faqItems = [
   { q: 'AltShiftはどんなサービスですか？', a: '中小企業向けにAI導入を戦略から実装・運用まで一貫支援しています。ツール導入で終わらせず、現場で使いこなせる状態まで伴走します。' },
-  { q: '料金はいくらですか？', a: '月額3万円〜8万円の3プランをご用意しています（初期費用別途）。まずは無料ヒアリングで最適なプランをご提案します。' },
+  { q: '料金はいくらですか？', a: 'サービスにより異なります。Web制作・LINE自動化は月額3万円〜、AIコンサルティングは月額20万円〜、AI業務自動化は案件規模に応じてお見積もり。補助金活用で実質負担1/2〜2/3に抑えられます。' },
   { q: 'AIを使ったことがない会社でも大丈夫ですか？', a: 'はい。ゼロからの設計・設定・研修まで一貫サポート。むしろAI未経験の企業様こそ成果が出やすいパターンです。' },
   { q: 'どのくらいで成果が出ますか？', a: 'LINE自動化は翌月から、SEOは通常3〜6ヶ月。成果が出やすい施策から優先着手します。' },
   { q: '福岡以外でも対応できますか？', a: 'はい。オンラインで全国対応。福岡市内・近郊は訪問対応も可能です。' },
@@ -161,7 +161,7 @@ const faqSchema = {
         </p>
         <div class="flex items-center justify-center gap-12 flex-wrap reveal">
           <!-- CLIENT LOGO SLOTS: Replace with <img class="client-logo" src="..." alt="..." /> -->
-          {['三栄リフォーム', "BAR Kar's", '株式会社伸明', '株式会社BEGINS'].map(name => (
+          {['TYDロジスティクス株式会社', '三栄リフォーム', '株式会社伸明', '株式会社BEGINS'].map(name => (
             <span style="font-family:'Inter','Noto Sans JP',sans-serif; font-weight:700; font-size:16px; color:var(--color-ink); opacity:0.4; letter-spacing:0.02em;">
               {name}
             </span>
