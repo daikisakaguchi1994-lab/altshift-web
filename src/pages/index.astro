@@ -207,10 +207,10 @@ const faqSchema = {
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 stagger">
           {[
-            { num: '01', title: 'AI導入戦略', desc: '経営課題の分析、AI教育、ROIモデル、そして貴社の課題と目標に合致したAIロードマップを、最短2週間で提供します。', href: '/service/ai-consulting' },
-            { num: '02', title: 'カスタムAIソリューション', desc: '競争優位性を高め、コストを削減し、新たなビジネスチャンスを創出するために構築されたAIシステム。通常12週間以内に本番稼働を実現します。', href: '/service/ai-automation' },
-            { num: '03', title: 'Web制作 × SEO/GEO', desc: 'Google・ChatGPT・Claudeに選ばれるWebサイト。AI時代の検索対応設計で、検索・地図双方からの集客基盤を構築します。', href: '/service/web-seo' },
-            { num: '04', title: 'LINE自動化 × 業務効率化', desc: '24時間365日の自動応答で機会損失をゼロに。チャットボット構築・自動配信・顧客管理で組織全体の業務を効率化します。', href: '/service/line-automation' },
+            { num: '01', title: 'AI導入コンサルティング', desc: '経営課題の分析、AI教育、ROIモデル、そして貴社の課題と目標に合致したAIロードマップを、最短2週間で提供します。', href: '/service/ai-consulting' },
+            { num: '02', title: 'カスタムAIシステム開発', desc: '競争優位性を高め、コストを削減し、新たなビジネスチャンスを創出するために構築されたAIシステム。通常12週間以内に本番稼働を実現します。', href: '/service/ai-development' },
+            { num: '03', title: 'AI時代の集客基盤構築', desc: 'Google・ChatGPT・Claudeに選ばれるWebサイト。AI時代の検索対応設計で、検索・地図双方からの集客基盤を構築します。', href: '/service/web-seo' },
+            { num: '04', title: '顧客接点の自動化', desc: '24時間365日の自動応答で機会損失をゼロに。チャットボット構築・自動配信・顧客管理で組織全体の業務を効率化します。', href: '/service/line-automation' },
           ].map(s => (
             <a href={s.href} class="reveal t-card p-7 flex flex-col" style="min-height:280px; text-decoration:none;">
               <p class="service-num mb-4">{s.num}</p>
