@@ -1,0 +1,300 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'AI業務自動化',
+  provider: { '@type': 'Organization', name: 'AltShift', url: 'https://altshift.jp' },
+  areaServed: [{ '@type': 'City', name: '福岡市' }, { '@type': 'Country', name: '日本' }],
+  description: '中小企業の業務をAIで自動化。8〜12週間で本番投入、補助金活用で実質負担1/2〜2/3。',
+  serviceType: 'AI業務自動化',
+  offers: {
+    '@type': 'AggregateOffer',
+    lowPrice: '1500000',
+    highPrice: '4000000',
+    priceCurrency: 'JPY',
+    offerCount: '1',
+    description: '補助金活用後の実質負担額',
+  },
+}
+
+const faqs = [
+  { q: '補助金は必ず採択されますか？', a: '採択を保証するものではありませんが、過去の申請実績に基づいた計画書作成を伴走支援します。不採択の場合も、再申請や他の補助金制度のご案内が可能です。' },
+  { q: '開発期間中の費用はいつ支払いますか？', a: '補助金活用の場合、採択後に着手金（全体の30%）、中間納品時（30%）、本番稼働時（40%）の3回払いが基本です。補助金の入金タイミングに合わせた調整も可能です。' },
+  { q: '自社にエンジニアがいなくても運用できますか？', a: 'はい。運用は専門知識不要で使える管理画面を提供します。本番稼働後3ヶ月間の運用サポート込みで、その後もオプションで継続サポートが可能です。' },
+  { q: '福岡以外でも対応可能ですか？', a: 'はい。オンラインで全国対応しています。ヒアリング・設計・開発・運用すべてリモートで完結可能です。福岡市内・近郊の企業様には訪問対応も行っています。' },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqs.map(item => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+}
+---
+
+<Layout
+  title="AI業務自動化 | 補助金活用で実質負担1/2〜2/3 | AltShift 福岡"
+  description="手作業の業務をAIで自動化。8〜12週間で本番投入、省力化投資補助金の活用で実質負担150万円〜。物流・受発注・顧客対応・経理など幅広い業務領域に対応。福岡発、全国対応。"
+  schemaData={schemaData}
+>
+  <Nav />
+  <main>
+
+    <!-- ========== HERO ========== -->
+    <section class="relative overflow-hidden" style="min-height:80vh; display:flex; align-items:center;">
+      <div class="hero-bg">
+        <div class="orb orb-neon"></div>
+        <div class="orb orb-blue"></div>
+        <div class="orb orb-teal"></div>
+        <div class="hero-grid"></div>
+      </div>
+
+      <div style="position:relative; z-index:10; max-width:1200px; margin:0 auto; padding:160px 48px 100px; width:100%;">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end">
+          <div>
+            <a href="/service" class="text-xs font-semibold mb-6 inline-block" style="color:var(--color-blue); letter-spacing:0.05em;">← サービス一覧</a>
+            <div class="accent-line mb-8"></div>
+            <h1 class="heading-hero">
+              業務を、<br/>AIで動かす。
+            </h1>
+          </div>
+          <div style="padding-bottom:8px;">
+            <p class="body-lg mb-3" style="max-width:440px;">
+              手作業の業務をAI化。8〜12週間で本番投入、<br class="hidden md:inline" />補助金活用で実質負担1/2〜2/3。
+            </p>
+            <p class="text-xs mb-1" style="color:var(--color-ink-dim);">現場常駐型（Forward Deployed Engineer）で、貴社の業務に入り込みます。</p>
+            <div class="flex flex-wrap gap-4 mt-6">
+              <a href="/contact" class="btn-neon" style="font-size:14px; padding:14px 28px;">
+                無料で相談する
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </a>
+              <a href="/simulator" class="btn-outline" style="font-size:14px; padding:14px 28px;">
+                補助金シミュレーターを試す
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 3 PILLARS ========== -->
+    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid rgba(255,255,255,0.06);">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <h2 class="heading-lg text-center mb-16 reveal">このサービスで実現すること</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger">
+          {[
+            { num: '01', title: '業務工数を最大50%削減', desc: '反復的な手作業をAIが代替。スタッフは本来注力すべきコア業務に集中できます。', icon: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>` },
+            { num: '02', title: '24時間365日の自動処理', desc: '夜間・休日も止まらないAIシステム。人が寝ている間もビジネスが動き続けます。', icon: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>` },
+            { num: '03', title: '補助金活用で実質負担1/2〜2/3', desc: '省力化投資補助金の申請を伴走支援。採択実績に基づく計画書作成で、コスト負担を大幅に軽減。', icon: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>` },
+          ].map(p => (
+            <div class="reveal t-card p-8 text-center">
+              <div style="color:var(--color-neon); margin-bottom:16px; display:inline-block;" set:html={p.icon} />
+              <p class="service-num mb-2" style="font-size:14px;">{p.num}</p>
+              <h3 class="heading-sm mb-3">{p.title}</h3>
+              <p class="body-sm">{p.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CHECKLIST ========== -->
+    <section class="section-padding" style="background:var(--color-bg);">
+      <div class="max-w-3xl mx-auto px-6 lg:px-8">
+        <h2 class="heading-lg text-center mb-12 reveal">含まれる内容</h2>
+        <div class="reveal t-card p-8">
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {[
+              '業務フロー分析・AI化設計',
+              'カスタム自動化システム構築',
+              'Google Apps Script / API連携',
+              'データ集計・レポート自動生成',
+              '運用サポート・機能追加（3ヶ月）',
+              '補助金申請の伴走支援',
+            ].map(item => (
+              <div class="flex items-start gap-3">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0; margin-top:2px;">
+                  <circle cx="12" cy="12" r="10" stroke="var(--color-neon)" stroke-width="1.5"/>
+                  <path d="M8 12l3 3 5-5" stroke="var(--color-neon)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <p class="body-sm">{item}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== PRICING TABLE ========== -->
+    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid rgba(255,255,255,0.06);">
+      <div class="max-w-3xl mx-auto px-6 lg:px-8">
+        <h2 class="heading-lg text-center mb-12 reveal">価格と補助金</h2>
+        <div class="reveal t-card p-8" style="border-color:rgba(216,255,0,0.2); background:rgba(216,255,0,0.03);">
+          <div class="flex flex-col gap-5">
+            <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
+              <p class="text-sm font-semibold" style="color:var(--color-ink);">表示価格</p>
+              <p class="text-lg font-bold" style="color:var(--color-ink);">300万円〜800万円<span class="text-xs font-normal ml-1" style="color:var(--color-ink-dim);">（税別）</span></p>
+            </div>
+            <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
+              <p class="text-sm font-semibold" style="color:var(--color-ink);">想定補助金</p>
+              <p class="text-sm font-bold" style="color:var(--color-neon);">省力化投資補助金〈一般型〉</p>
+            </div>
+            <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
+              <p class="text-sm font-semibold" style="color:var(--color-ink);">補助率</p>
+              <p class="text-sm font-bold" style="color:var(--color-neon);">1/2<span class="text-xs font-normal ml-1" style="color:var(--color-ink-dim);">（小規模事業者・再生事業者は2/3）</span></p>
+            </div>
+            <div class="flex items-center justify-between py-4 mt-2" style="border-top:2px solid var(--color-neon);">
+              <p class="text-sm font-bold" style="color:var(--color-ink);">実質負担額</p>
+              <p class="text-2xl font-bold" style="color:var(--color-neon);">150万円〜400万円</p>
+            </div>
+          </div>
+          <p class="text-xs mt-4" style="color:var(--color-ink-dim);">※申請支援込み。採択保証ではありません。補助金の詳細は<a href="/simulator" style="color:var(--color-neon); text-decoration:underline;">シミュレーター</a>でも確認できます。</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TIMELINE ========== -->
+    <section class="section-padding" style="background:var(--color-bg);">
+      <div class="max-w-4xl mx-auto px-6 lg:px-8">
+        <h2 class="heading-lg text-center mb-16 reveal">導入の流れ</h2>
+        <div class="grid grid-cols-1 md:grid-cols-5 gap-4 stagger">
+          {[
+            { week: 'Week 1-2', title: '業務ヒアリング・診断', desc: '現場の業務フローを分析し、AI化の優先度を診断。' },
+            { week: 'Week 3-4', title: 'システム設計・補助金申請', desc: 'AI化の設計書作成と補助金申請を並行で進行。' },
+            { week: 'Week 5-10', title: '開発・テスト', desc: 'アジャイル開発でプロトタイプを反復改善。実データで検証。' },
+            { week: 'Week 11-12', title: '本番投入・運用引継ぎ', desc: '本番環境にデプロイ。運用マニュアルと研修を提供。' },
+            { week: '以降', title: '月次運用サポート', desc: 'モニタリング・精度改善・機能追加をオプションで継続。' },
+          ].map((s, i) => (
+            <div class="reveal t-card p-5 flex flex-col">
+              <p class="text-xs font-bold mb-2" style={`color:${i < 4 ? 'var(--color-neon)' : 'var(--color-ink-dim)'}; letter-spacing:0.05em;`}>{s.week}</p>
+              <h3 class="text-sm font-bold mb-2" style="color:var(--color-ink);">{s.title}</h3>
+              <p class="text-xs flex-1" style="color:var(--color-ink-dim);">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== BUSINESS AREAS ========== -->
+    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid rgba(255,255,255,0.06);">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <h2 class="heading-lg text-center mb-16 reveal">対応可能な業務領域</h2>
+        <div class="grid grid-cols-2 md:grid-cols-3 gap-5 stagger">
+          {[
+            { title: '物流・配車管理', desc: '配車の最適化、配送ルート自動生成、荷物トラッキングの自動化。', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="3" width="15" height="13"/><polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>` },
+            { title: '受発注・在庫管理', desc: '受注処理の自動化、在庫予測、発注タイミングの最適化。', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>` },
+            { title: '顧客対応・LINE自動化', desc: 'FAQ自動応答、予約管理、問い合わせの自動振り分け。', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>` },
+            { title: '与信判断・契約処理', desc: '与信審査の自動化、契約書の生成・チェック、リスク判定。', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>` },
+            { title: '採用業務効率化', desc: '応募者スクリーニング、面接日程の自動調整、採用レポート自動生成。', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87"/><path d="M16 3.13a4 4 0 010 7.75"/></svg>` },
+            { title: '経理・レポート自動化', desc: '請求書処理、経費精算、月次レポートの自動生成。', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>` },
+          ].map(area => (
+            <div class="reveal t-card p-6 text-center">
+              <div style="color:var(--color-neon); margin-bottom:12px; display:inline-block;" set:html={area.icon} />
+              <h3 class="heading-sm mb-2">{area.title}</h3>
+              <p class="text-xs" style="color:var(--color-ink-dim);">{area.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CASE STUDY ========== -->
+    <section class="section-padding" style="background:var(--color-bg);">
+      <div class="max-w-3xl mx-auto px-6 lg:px-8">
+        <h2 class="heading-lg text-center mb-12 reveal">導入事例</h2>
+        <div class="reveal t-card p-8">
+          <p class="text-xs font-semibold mb-2" style="color:var(--color-neon); letter-spacing:0.05em;">CASE STUDY</p>
+          <h3 class="heading-md mb-3">大手物流企業A社</h3>
+          <p class="body-sm mb-4">配車・受発注業務にAI自動化システムを導入。手作業で行っていた配車スケジューリングとデータ集計をAIが代替し、業務工数を大幅に削減。省力化投資補助金を活用し、実質負担を抑えて導入を実現。</p>
+          <div class="grid grid-cols-3 gap-4 mb-4">
+            <div class="text-center py-3" style="background:rgba(216,255,0,0.04); border-radius:8px;">
+              <p class="text-xs" style="color:var(--color-ink-dim);">業務工数</p>
+              <p class="text-lg font-bold" style="color:var(--color-neon);">50%削減</p>
+            </div>
+            <div class="text-center py-3" style="background:rgba(216,255,0,0.04); border-radius:8px;">
+              <p class="text-xs" style="color:var(--color-ink-dim);">導入期間</p>
+              <p class="text-lg font-bold" style="color:var(--color-neon);">10週間</p>
+            </div>
+            <div class="text-center py-3" style="background:rgba(216,255,0,0.04); border-radius:8px;">
+              <p class="text-xs" style="color:var(--color-ink-dim);">補助金活用</p>
+              <p class="text-lg font-bold" style="color:var(--color-neon);">2/3補助</p>
+            </div>
+          </div>
+          <div class="text-center mt-4">
+            <a href="/cases/tyd-logistics" class="text-sm font-semibold" style="color:var(--color-neon);">事例の詳細を見る →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid rgba(255,255,255,0.06);">
+      <div class="max-w-3xl mx-auto px-6 lg:px-8">
+        <h2 class="heading-lg text-center mb-12 reveal">よくある質問</h2>
+        <div class="flex flex-col gap-4 stagger">
+          {faqs.map(faq => (
+            <details class="reveal t-card group">
+              <summary class="flex items-center justify-between cursor-pointer p-6" style="list-style:none;">
+                <span class="heading-sm pr-4">{faq.q}</span>
+                <svg class="faq-chevron flex-shrink-0" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <polyline points="6 9 12 15 18 9"/>
+                </svg>
+              </summary>
+              <div class="px-6 pb-6">
+                <p class="body-sm">{faq.a}</p>
+              </div>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== BOTTOM CTA ========== -->
+    <section class="section-padding" style="background:var(--color-bg);">
+      <div class="max-w-3xl mx-auto px-6 lg:px-8">
+        <div class="reveal t-card p-10 text-center" style="border-color:rgba(216,255,0,0.2); background:rgba(216,255,0,0.03);">
+          <h2 class="heading-md mb-4">無料相談で、貴社の業務が<br class="hidden md:inline" />AI化可能か診断します。</h2>
+          <p class="body-sm mb-8" style="max-width:480px; margin:0 auto;">現場の業務フローをヒアリングし、AI化の優先度・想定ROI・最適な補助金を無料でご提案します。</p>
+          <div class="flex flex-wrap gap-4 justify-center">
+            <a href="/contact" class="btn-neon" style="font-size:14px; padding:14px 28px;">
+              無料で相談する
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+            <a href="/simulator" class="btn-outline" style="font-size:14px; padding:14px 28px;">
+              補助金シミュレーターを試す
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <Footer />
+</Layout>
+
+<script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+
+<style>
+  .faq-chevron {
+    transition: transform 0.3s ease;
+    color: var(--color-ink-dim);
+  }
+  details[open] .faq-chevron {
+    transform: rotate(180deg);
+    color: var(--color-neon);
+  }
+  details summary::-webkit-details-marker {
+    display: none;
+  }
+</style>

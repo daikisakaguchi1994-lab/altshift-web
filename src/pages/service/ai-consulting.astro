@@ -14,7 +14,7 @@ const faqItems = [
   { q: 'AIの知識がゼロでも依頼できますか？', a: 'はい。むしろAI未経験の企業様が最も多いです。専門用語を使わず、経営者の言葉でご説明します。' },
   { q: 'コンサルティングだけで終わりませんか？', a: 'AltShiftは戦略策定だけでなく、実装・運用まで一貫して支援します。「提案書を渡して終わり」ではありません。' },
   { q: '最短でどのくらいで始められますか？', a: '初回ヒアリングから最短2週間でAI戦略・ロードマップをお渡しします。実装は内容により4〜12週間です。' },
-  { q: '月額費用以外にかかる費用はありますか？', a: '初期費用（ヒアリング・戦略策定）は別途お見積もりとなります。月額プラン内で対応できる範囲を事前に明確にします。' },
+  { q: '費用体系を教えてください。', a: '戦略診断パック（30〜50万円・買い切り）、月額顧問プラン（20〜50万円/月）、Embedded CAIO（50万円〜/月）の3段階です。補助金活用で実質負担を1/2〜2/3に抑えられます。' },
 ]
 
 const schemaData = {
@@ -30,7 +30,7 @@ const schemaData = {
 
 <Layout
   title="AI導入コンサルティング | 中小企業向け | AltShift 福岡"
-  description="中小企業向けAI導入コンサルティング。経営課題の分析からAIロードマップ策定、実装支援、運用改善まで一貫対応。最短2週間で戦略策定。月額3万円〜。福岡発、全国対応。"
+  description="中小企業向けAI導入コンサルティング。経営課題の分析からAIロードマップ策定、実装支援、運用改善まで一貫対応。最短2週間で戦略策定。戦略診断30万円〜、月額顧問20万円〜。福岡発、全国対応。"
   schemaData={schemaData}
 >
   <Nav />
@@ -102,25 +102,64 @@ const schemaData = {
           </div>
         </div>
 
-        <!-- Pricing hint -->
-        <div class="reveal t-card p-8 mb-24" style="border-color:rgba(216,255,0,0.15); background:rgba(216,255,0,0.03);">
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-            <div>
-              <p class="text-xs font-semibold mb-2" style="color:var(--color-neon); text-transform:uppercase; letter-spacing:0.1em;">月額費用</p>
-              <p class="heading-md">3万円〜8万円</p>
-              <p class="body-sm mt-1">初期費用別途</p>
+        <!-- Pricing -->
+        <div class="mb-8">
+          <h2 class="heading-lg text-center mb-12 reveal">料金プラン</h2>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger">
+            <!-- 戦略診断パック -->
+            <div class="reveal t-card p-8 text-center">
+              <p class="text-xs font-semibold mb-3" style="color:var(--color-blue); text-transform:uppercase; letter-spacing:0.1em;">Strategy Pack</p>
+              <h3 class="heading-sm mb-4">戦略診断パック</h3>
+              <p style="font-family:'Inter',sans-serif; font-weight:900; font-size:clamp(28px,4vw,40px); letter-spacing:-0.03em; color:var(--color-ink); line-height:1.2;">30<span style="font-size:18px; font-weight:600;">万円〜</span>50<span style="font-size:18px; font-weight:600;">万円</span></p>
+              <p class="body-sm mt-2 mb-6">2週間・買い切り</p>
+              <ul class="flex flex-col gap-2 text-left">
+                {['業務プロセス分析・AI適用評価', 'AI導入ロードマップ策定', 'ROIモデル構築', '経営層向けAI研修'].map(f => (
+                  <li class="flex items-start gap-2 body-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div>
-              <p class="text-xs font-semibold mb-2" style="color:var(--color-neon); text-transform:uppercase; letter-spacing:0.1em;">戦略策定</p>
-              <p class="heading-md">最短2週間</p>
-              <p class="body-sm mt-1">ヒアリングから</p>
+
+            <!-- 月額顧問プラン -->
+            <div class="reveal t-card p-8 text-center" style="border-color:rgba(216,255,0,0.25); background:rgba(216,255,0,0.03);">
+              <p class="text-xs font-semibold mb-3" style="color:var(--color-neon); text-transform:uppercase; letter-spacing:0.1em;">Monthly Advisory</p>
+              <h3 class="heading-sm mb-4">月額顧問プラン</h3>
+              <p style="font-family:'Inter',sans-serif; font-weight:900; font-size:clamp(28px,4vw,40px); letter-spacing:-0.03em; color:var(--color-ink); line-height:1.2;">20<span style="font-size:18px; font-weight:600;">万円〜</span>50<span style="font-size:18px; font-weight:600;">万円/月</span></p>
+              <p class="body-sm mt-2 mb-6">継続契約</p>
+              <ul class="flex flex-col gap-2 text-left">
+                {['月2〜4回のオンライン相談', '業務改善提案・優先度診断', 'AIツール選定・設定サポート', '月次レポート・改善提案', 'Slack/LINEでの随時相談'].map(f => (
+                  <li class="flex items-start gap-2 body-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D8FF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
             </div>
-            <div>
-              <p class="text-xs font-semibold mb-2" style="color:var(--color-neon); text-transform:uppercase; letter-spacing:0.1em;">対応範囲</p>
-              <p class="heading-md">全国対応</p>
-              <p class="body-sm mt-1">オンライン + 福岡訪問</p>
+
+            <!-- Embedded CAIO -->
+            <div class="reveal t-card p-8 text-center">
+              <p class="text-xs font-semibold mb-3" style="color:var(--color-blue); text-transform:uppercase; letter-spacing:0.1em;">Embedded CAIO</p>
+              <h3 class="heading-sm mb-4">Embedded CAIO</h3>
+              <p style="font-family:'Inter',sans-serif; font-weight:900; font-size:clamp(28px,4vw,40px); letter-spacing:-0.03em; color:var(--color-ink); line-height:1.2;">50<span style="font-size:18px; font-weight:600;">万円〜/月</span></p>
+              <p class="body-sm mt-2 mb-6">フルコミット型</p>
+              <ul class="flex flex-col gap-2 text-left">
+                {['週1〜2回の現場常駐', 'AI戦略の策定・実行・改善', '経営会議への参加', '社内AI人材の育成', '全社AI活用の推進'].map(f => (
+                  <li class="flex items-start gap-2 body-sm">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                    {f}
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
+        </div>
+
+        <!-- 補助金訴求 -->
+        <div class="reveal mb-24 p-6 text-center" style="background:rgba(20,86,251,0.06); border:1px solid rgba(20,86,251,0.12); border-radius:10px;">
+          <p style="font-size:15px; font-weight:700; color:var(--color-ink); margin-bottom:4px;">補助金活用で実質負担 <span style="color:var(--color-blue); font-size:20px;">1/2〜2/3</span></p>
+          <p class="body-sm">ものづくり補助金・IT導入補助金・省力化投資補助金 対応</p>
         </div>
 
         <!-- FAQ -->

@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro'
 
 const faqItems = [
   { q: 'AltShiftはどんなサービスですか？', a: '中小企業向けにAI導入を戦略から実装・運用まで一貫支援しています。ツール導入で終わらせず、現場で使いこなせる状態まで伴走します。' },
-  { q: '料金はいくらですか？', a: '月額3万円〜8万円の3プランをご用意しています（初期費用別途）。まずは無料ヒアリングで最適なプランをご提案します。' },
+  { q: '料金はいくらですか？', a: 'サービスにより異なります。Web制作・LINE自動化は月額3万円〜、AIコンサルティングは月額20万円〜、AI業務自動化は案件規模に応じてお見積もり。補助金活用で実質負担1/2〜2/3に抑えられます。' },
   { q: 'AIを使ったことがない会社でも大丈夫ですか？', a: 'はい。ゼロからの設計・設定・研修まで一貫サポート。むしろAI未経験の企業様こそ成果が出やすいパターンです。' },
   { q: 'どのくらいで成果が出ますか？', a: 'LINE自動化は翌月から、SEOは通常3〜6ヶ月。成果が出やすい施策から優先着手します。' },
   { q: '福岡以外でも対応できますか？', a: 'はい。オンラインで全国対応。福岡市内・近郊は訪問対応も可能です。' },
@@ -56,19 +56,19 @@ const faqSchema = {
           <!-- Left: Heading -->
           <div>
             <div class="accent-line mb-8"></div>
-            <h1 class="heading-hero">
-              中小企業の<br/>
-              AI導入を、<br/>
-              まるごと。
+            <h1 class="heading-hero" style="line-height:1.08;">
+              現場に入り、<br/>
+              AIを実装する。
             </h1>
           </div>
 
           <!-- Right: Description + CTAs -->
           <div style="padding-bottom:8px;">
-            <p class="body-lg mb-3" style="max-width:440px;">
-              戦略策定から実装・運用まで一貫支援。福岡発、中小企業専門のAIコンサルティング。
+            <p class="body-lg mb-3" style="max-width:480px;">
+              あなたの会社に、AIエンジニアを常駐させる。<br/>
+              診断2週間、稼働12週間。<a href="/simulator" style="color:var(--color-neon); text-decoration:underline; text-underline-offset:3px;">補助金活用で実質負担1/2〜2/3</a>。
             </p>
-            <p class="text-sm mb-8" style="color:var(--color-neon); font-weight:600;">月額3万円〜 / 最短2週間で戦略策定</p>
+            <p class="text-sm mb-8" style="color:var(--color-neon); font-weight:600;">中小企業向けFDE ／ 福岡発 ／ Claude × OpenAI</p>
             <div class="flex flex-wrap gap-4">
               <a href="/contact" class="btn-neon" style="font-size:14px; padding:14px 28px;">
                 無料で相談する
@@ -161,7 +161,7 @@ const faqSchema = {
         </p>
         <div class="flex items-center justify-center gap-12 flex-wrap reveal">
           <!-- CLIENT LOGO SLOTS: Replace with <img class="client-logo" src="..." alt="..." /> -->
-          {['三栄リフォーム', "BAR Kar's", '株式会社伸明', '株式会社BEGINS'].map(name => (
+          {['TYDロジスティクス株式会社', '三栄リフォーム', '株式会社伸明', '株式会社BEGINS'].map(name => (
             <span style="font-family:'Inter','Noto Sans JP',sans-serif; font-weight:700; font-size:16px; color:var(--color-ink); opacity:0.4; letter-spacing:0.02em;">
               {name}
             </span>
@@ -207,10 +207,10 @@ const faqSchema = {
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 stagger">
           {[
-            { num: '01', title: 'AI導入戦略', desc: '経営課題の分析、AI教育、ROIモデル、そして貴社の課題と目標に合致したAIロードマップを、最短2週間で提供します。', href: '/service/ai-consulting' },
-            { num: '02', title: 'カスタムAIソリューション', desc: '競争優位性を高め、コストを削減し、新たなビジネスチャンスを創出するために構築されたAIシステム。通常12週間以内に本番稼働を実現します。', href: '/service/ai-development' },
-            { num: '03', title: 'Web制作 × SEO/GEO', desc: 'Google・ChatGPT・Claudeに選ばれるWebサイト。AI時代の検索対応設計で、検索・地図双方からの集客基盤を構築します。', href: '/service/web-seo' },
-            { num: '04', title: 'LINE自動化 × 業務効率化', desc: '24時間365日の自動応答で機会損失をゼロに。チャットボット構築・自動配信・顧客管理で組織全体の業務を効率化します。', href: '/service/line-automation' },
+            { num: '01', title: 'AI導入コンサルティング', desc: '経営課題の分析、AI教育、ROIモデル、そして貴社の課題と目標に合致したAIロードマップを、最短2週間で提供します。', href: '/service/ai-consulting' },
+            { num: '02', title: 'カスタムAIシステム開発', desc: '競争優位性を高め、コストを削減し、新たなビジネスチャンスを創出するために構築されたAIシステム。通常12週間以内に本番稼働を実現します。', href: '/service/ai-development' },
+            { num: '03', title: 'AI時代の集客基盤構築', desc: 'Google・ChatGPT・Claudeに選ばれるWebサイト。AI時代の検索対応設計で、検索・地図双方からの集客基盤を構築します。', href: '/service/web-seo' },
+            { num: '04', title: '顧客接点の自動化', desc: '24時間365日の自動応答で機会損失をゼロに。チャットボット構築・自動配信・顧客管理で組織全体の業務を効率化します。', href: '/service/line-automation' },
           ].map(s => (
             <a href={s.href} class="reveal t-card p-7 flex flex-col" style="min-height:280px; text-decoration:none;">
               <p class="service-num mb-4">{s.num}</p>
@@ -335,8 +335,9 @@ const faqSchema = {
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 stagger">
           {[
-            { title: '三栄リフォーム × AltShift', tags: ['Web制作','SEO/GEO'], image: '/images/cases/sanei-reform.jpg', desc: 'AI時代の検索対応Webサイト。SEO/GEO対策でGoogleとAIに選ばれるコンテンツを構築。', url: 'https://sanei-reform.vercel.app' },
-            { title: '株式会社BEGINS × AltShift', tags: ['業務自動化','HR-Tech'], image: '/images/cases/begins.jpg', desc: 'コールセンター集計の完全自動化。採用業務工数50%削減を実現。', url: null },
+            { title: '三栄リフォーム × AltShift', tags: ['Web制作','SEO/GEO'], image: '/images/cases/sanei-reform.jpg', desc: 'AI時代の検索対応Webサイト。SEO/GEO対策でGoogleとAIに選ばれるコンテンツを構築。', url: 'https://sanei-reform.vercel.app', slug: null },
+            { title: '株式会社BEGINS × AltShift', tags: ['業務自動化','HR-Tech'], image: '/images/cases/begins.jpg', desc: 'コールセンター集計の完全自動化。採用業務工数50%削減を実現。', url: null, slug: null },
+            { title: 'TYDロジスティクス × AltShift', tags: ['物流','AI業務自動化','LINE自動化'], image: '/images/cases/tyd-logistics.jpg', desc: '物流現場の属人化を解消。LINE Bot＋配車システムで業務をAI化。', url: null, slug: '/cases/tyd-logistics' },
           ].map(c => (
             <div class="reveal t-card overflow-hidden">
               <!-- IMAGE SLOT -->
@@ -351,9 +352,11 @@ const faqSchema = {
                 </div>
                 <h3 class="heading-sm mb-2">{c.title}</h3>
                 <p class="body-sm mb-4">{c.desc}</p>
-                {c.url
-                  ? <a href={c.url} target="_blank" rel="noopener noreferrer" class="blue-link">サイトを見る <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
-                  : <span class="text-xs" style="color:var(--color-ink-dim);">Coming Soon</span>
+                {c.slug
+                  ? <a href={c.slug} class="neon-link" style="font-size:13px;">詳しく見る →</a>
+                  : c.url
+                    ? <a href={c.url} target="_blank" rel="noopener noreferrer" class="blue-link">サイトを見る <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+                    : <span class="text-xs" style="color:var(--color-ink-dim);">Coming Soon</span>
                 }
               </div>
             </div>
