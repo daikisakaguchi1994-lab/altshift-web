@@ -22,3 +22,9 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# benchmark screenshots (backed up to C:/projects/_backups/)
+screenshots/
+
+# phase-b temp files
+.phase-b-temp/
