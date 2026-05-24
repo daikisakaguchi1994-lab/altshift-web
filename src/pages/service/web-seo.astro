@@ -48,14 +48,14 @@ const schemaData = {
               ))}
             </ul>
           </div>
-          <div class="reveal t-card p-8" style="border-color:rgba(216,255,0,0.15);">
-            <p class="text-xs font-semibold mb-4" style="color:var(--color-neon); letter-spacing:0.1em; text-transform:uppercase;">GEO対策</p>
+          <div class="reveal t-card p-8" style="border-color:rgba(27,94,190,0.15);">
+            <p class="text-xs font-semibold mb-4" style="color:var(--color-primary); letter-spacing:0.1em; text-transform:uppercase;">GEO対策</p>
             <h3 class="heading-md mb-4">AI検索に引用される</h3>
             <p class="body-sm mb-6">ChatGPT、Perplexity、Google AI OverviewがあなたのWebサイトを引用・推薦するように最適化します。</p>
             <ul class="flex flex-col gap-3">
               {['AI抽出しやすいコンテンツ構造', '質問形式の見出し + 直接的な回答', 'エンティティ最適化（ナレッジグラフ対応）', 'llms.txt / robots.txt設定', '複数プラットフォームでの情報一貫性'].map(item => (
                 <li class="flex items-start gap-2 text-sm" style="color:var(--color-ink);">
-                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-neon); flex-shrink:0; margin-top:6px;"></div>
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-primary); flex-shrink:0; margin-top:6px;"></div>
                   {item}
                 </li>
               ))}
@@ -76,7 +76,7 @@ const schemaData = {
               { num: '38%', label: 'AI引用はSEO上位10位外', sub: 'コンテンツ質が重要' },
             ].map(s => (
               <div class="reveal t-card p-6 text-center">
-                <p class="number-value" style="font-size:clamp(32px,5vw,48px); color:var(--color-neon);">{s.num}</p>
+                <p class="number-value" style="font-size:clamp(32px,5vw,48px); color:var(--color-primary);">{s.num}</p>
                 <p class="text-sm font-semibold mt-2" style="color:var(--color-ink);">{s.label}</p>
                 <p class="text-xs mt-1" style="color:var(--color-ink-dim);">{s.sub}</p>
               </div>
@@ -91,7 +91,7 @@ const schemaData = {
           <p class="body-md mb-4">AI時代の検索対応Webサイトを実装。SEO/GEO対策により、GoogleとAI検索双方での露出を強化。</p>
           <div class="flex flex-wrap gap-6">
             <div class="flex items-center gap-2">
-              <div style="width:6px; height:6px; border-radius:50%; background:var(--color-neon);"></div>
+              <div style="width:6px; height:6px; border-radius:50%; background:var(--color-primary);"></div>
               <span class="text-sm" style="color:var(--color-ink);">AI検索・Googleマップ双方で上位露出</span>
             </div>
             <a href="/case" class="neon-link" style="font-size:13px;">事例を詳しく見る <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>

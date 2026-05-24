@@ -39,35 +39,35 @@ const schemaData = {
                 <label for="inquiries" class="block text-sm font-semibold mb-2" style="color:var(--color-ink);">月間の問い合わせ・電話件数</label>
                 <div class="flex items-center gap-3">
                   <input type="range" id="inquiries" min="10" max="500" value="50" class="roi-range flex-1" />
-                  <span id="inquiries-val" class="text-lg font-bold" style="color:var(--color-neon); min-width:60px; text-align:right;">50件</span>
+                  <span id="inquiries-val" class="text-lg font-bold" style="color:var(--color-primary); min-width:60px; text-align:right;">50件</span>
                 </div>
               </div>
               <div>
                 <label for="manual-hours" class="block text-sm font-semibold mb-2" style="color:var(--color-ink);">手作業にかかる時間（1日あたり）</label>
                 <div class="flex items-center gap-3">
                   <input type="range" id="manual-hours" min="0.5" max="8" value="2" step="0.5" class="roi-range flex-1" />
-                  <span id="hours-val" class="text-lg font-bold" style="color:var(--color-neon); min-width:60px; text-align:right;">2時間</span>
+                  <span id="hours-val" class="text-lg font-bold" style="color:var(--color-primary); min-width:60px; text-align:right;">2時間</span>
                 </div>
               </div>
               <div>
                 <label for="hourly-cost" class="block text-sm font-semibold mb-2" style="color:var(--color-ink);">スタッフの時給（平均）</label>
                 <div class="flex items-center gap-3">
                   <input type="range" id="hourly-cost" min="1000" max="5000" value="1500" step="100" class="roi-range flex-1" />
-                  <span id="cost-val" class="text-lg font-bold" style="color:var(--color-neon); min-width:80px; text-align:right;">1,500円</span>
+                  <span id="cost-val" class="text-lg font-bold" style="color:var(--color-primary); min-width:80px; text-align:right;">1,500円</span>
                 </div>
               </div>
               <div>
                 <label for="avg-revenue" class="block text-sm font-semibold mb-2" style="color:var(--color-ink);">顧客1件あたりの平均売上</label>
                 <div class="flex items-center gap-3">
                   <input type="range" id="avg-revenue" min="5000" max="500000" value="30000" step="5000" class="roi-range flex-1" />
-                  <span id="revenue-val" class="text-lg font-bold" style="color:var(--color-neon); min-width:100px; text-align:right;">30,000円</span>
+                  <span id="revenue-val" class="text-lg font-bold" style="color:var(--color-primary); min-width:100px; text-align:right;">30,000円</span>
                 </div>
               </div>
             </div>
           </div>
 
           <!-- Results Panel -->
-          <div class="reveal t-card p-8" style="border-color:rgba(216,255,0,0.2); background:rgba(216,255,0,0.03);">
+          <div class="reveal t-card p-8" style="border-color:rgba(27,94,190,0.2); background:rgba(27,94,190,0.03);">
             <h2 class="heading-md mb-6">AI導入後の効果予測</h2>
             <div class="flex flex-col gap-5">
               <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
@@ -75,28 +75,28 @@ const schemaData = {
                   <p class="text-sm font-semibold" style="color:var(--color-ink);">月間コスト削減額</p>
                   <p class="text-xs" style="color:var(--color-ink-dim);">手作業の70%をAIが代替</p>
                 </div>
-                <p id="result-cost" class="text-2xl font-bold" style="color:var(--color-neon);">—</p>
+                <p id="result-cost" class="text-2xl font-bold" style="color:var(--color-primary);">—</p>
               </div>
               <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
                 <div>
                   <p class="text-sm font-semibold" style="color:var(--color-ink);">月間の時間削減</p>
                   <p class="text-xs" style="color:var(--color-ink-dim);">スタッフが本来業務に集中</p>
                 </div>
-                <p id="result-hours" class="text-2xl font-bold" style="color:var(--color-neon);">—</p>
+                <p id="result-hours" class="text-2xl font-bold" style="color:var(--color-primary);">—</p>
               </div>
               <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
                 <div>
                   <p class="text-sm font-semibold" style="color:var(--color-ink);">売上増加の見込み</p>
                   <p class="text-xs" style="color:var(--color-ink-dim);">24時間対応による機会損失削減</p>
                 </div>
-                <p id="result-revenue" class="text-2xl font-bold" style="color:var(--color-neon);">—</p>
+                <p id="result-revenue" class="text-2xl font-bold" style="color:var(--color-primary);">—</p>
               </div>
-              <div class="flex items-center justify-between py-4 mt-2" style="border-top:2px solid var(--color-neon);">
+              <div class="flex items-center justify-between py-4 mt-2" style="border-top:2px solid var(--color-primary);">
                 <div>
                   <p class="text-sm font-bold" style="color:var(--color-ink);">年間の経済効果</p>
                   <p class="text-xs" style="color:var(--color-ink-dim);">コスト削減＋売上増加</p>
                 </div>
-                <p id="result-annual" class="text-3xl font-bold" style="color:var(--color-neon);">—</p>
+                <p id="result-annual" class="text-3xl font-bold" style="color:var(--color-primary);">—</p>
               </div>
             </div>
             <p class="text-xs mt-4" style="color:var(--color-ink-dim);">※ 試算値は一般的なAI導入効果に基づく概算です。実際の効果は業種・業務内容により異なります。</p>
@@ -105,7 +105,7 @@ const schemaData = {
 
         <!-- ROI Summary -->
         <div class="reveal t-card p-6 mt-8 text-center" id="roi-summary" style="display:none;">
-          <p class="body-sm">AltShiftの月額プラン（<span class="font-bold" style="color:var(--color-neon);">月額3万円〜</span>）で、<span id="roi-multiple" class="font-bold" style="color:var(--color-neon);"></span>のリターンが期待できます。</p>
+          <p class="body-sm">AltShiftの月額プラン（<span class="font-bold" style="color:var(--color-primary);">月額3万円〜</span>）で、<span id="roi-multiple" class="font-bold" style="color:var(--color-primary);"></span>のリターンが期待できます。</p>
         </div>
 
         <!-- CTA -->
@@ -137,19 +137,19 @@ const schemaData = {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: var(--color-neon);
+    background: var(--color-primary);
     cursor: pointer;
     border: 2px solid var(--color-bg);
-    box-shadow: 0 0 6px rgba(216,255,0,0.4);
+    box-shadow: 0 0 6px rgba(27,94,190,0.4);
   }
   .roi-range::-moz-range-thumb {
     width: 20px;
     height: 20px;
     border-radius: 50%;
-    background: var(--color-neon);
+    background: var(--color-primary);
     cursor: pointer;
     border: 2px solid var(--color-bg);
-    box-shadow: 0 0 6px rgba(216,255,0,0.4);
+    box-shadow: 0 0 6px rgba(27,94,190,0.4);
   }
 </style>
 

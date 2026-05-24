@@ -100,34 +100,34 @@ const schemaData = {
         </div>
 
         <!-- Results -->
-        <div id="sim-results" class="reveal t-card p-8 mb-6" style="border-color:rgba(216,255,0,0.2); background:rgba(216,255,0,0.03); display:none;">
+        <div id="sim-results" class="reveal t-card p-8 mb-6" style="border-color:rgba(27,94,190,0.2); background:rgba(27,94,190,0.03); display:none;">
           <h2 class="heading-md mb-6 text-center">シミュレーション結果</h2>
 
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
             <!-- 見積価格 -->
-            <div class="py-4 px-5" style="background:rgba(255,255,255,0.03); border-radius:12px;">
+            <div class="py-4 px-5" style="background:var(--color-bg-elevated); border-radius:12px;">
               <p class="text-xs font-semibold mb-1" style="color:var(--color-ink-dim);">概算費用</p>
               <p id="res-price" class="text-2xl font-bold" style="color:var(--color-ink);">—</p>
             </div>
             <!-- 実質負担 -->
-            <div class="py-4 px-5" style="background:rgba(216,255,0,0.06); border-radius:12px; border:1px solid rgba(216,255,0,0.15);">
-              <p class="text-xs font-semibold mb-1" style="color:var(--color-neon);">補助金活用後の実質負担額</p>
-              <p id="res-actual" class="text-2xl font-bold" style="color:var(--color-neon);">—</p>
+            <div class="py-4 px-5" style="background:rgba(27,94,190,0.06); border-radius:12px; border:1px solid rgba(27,94,190,0.15);">
+              <p class="text-xs font-semibold mb-1" style="color:var(--color-primary);">補助金活用後の実質負担額</p>
+              <p id="res-actual" class="text-2xl font-bold" style="color:var(--color-primary);">—</p>
             </div>
           </div>
 
           <div class="flex flex-col gap-4 mb-6">
             <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
               <p class="text-sm font-semibold" style="color:var(--color-ink);">適用可能な補助金</p>
-              <p id="res-subsidy" class="text-sm font-bold text-right" style="color:var(--color-neon);">—</p>
+              <p id="res-subsidy" class="text-sm font-bold text-right" style="color:var(--color-primary);">—</p>
             </div>
             <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
               <p class="text-sm font-semibold" style="color:var(--color-ink);">補助率</p>
-              <p id="res-rate" class="text-sm font-bold" style="color:var(--color-neon);">—</p>
+              <p id="res-rate" class="text-sm font-bold" style="color:var(--color-primary);">—</p>
             </div>
             <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
               <p class="text-sm font-semibold" style="color:var(--color-ink);">想定実装期間</p>
-              <p id="res-duration" class="text-sm font-bold" style="color:var(--color-neon);">—</p>
+              <p id="res-duration" class="text-sm font-bold" style="color:var(--color-primary);">—</p>
             </div>
           </div>
 
@@ -149,13 +149,13 @@ const schemaData = {
 
         <!-- Related links -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-12 stagger">
-          <a href="/service/ai-automation" class="reveal t-card p-5 block" style="text-decoration:none; color:inherit; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(216,255,0,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
-            <p class="text-xs font-semibold mb-1" style="color:var(--color-neon);">サービス詳細</p>
+          <a href="/service/ai-automation" class="reveal t-card p-5 block" style="text-decoration:none; color:inherit; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(27,94,190,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+            <p class="text-xs font-semibold mb-1" style="color:var(--color-primary);">サービス詳細</p>
             <p class="heading-sm">AI業務自動化</p>
             <p class="text-xs mt-1" style="color:var(--color-ink-dim);">補助金活用で実質負担1/2〜2/3 →</p>
           </a>
-          <a href="/cases/tyd-logistics" class="reveal t-card p-5 block" style="text-decoration:none; color:inherit; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(216,255,0,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
-            <p class="text-xs font-semibold mb-1" style="color:var(--color-neon);">導入事例</p>
+          <a href="/cases/tyd-logistics" class="reveal t-card p-5 block" style="text-decoration:none; color:inherit; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(27,94,190,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+            <p class="text-xs font-semibold mb-1" style="color:var(--color-primary);">導入事例</p>
             <p class="heading-sm">物流企業のAI業務自動化</p>
             <p class="text-xs mt-1" style="color:var(--color-ink-dim);">LINE Bot＋配車システム →</p>
           </a>
@@ -176,19 +176,19 @@ const schemaData = {
     padding: 16px 12px;
     border-radius: 12px;
     border: 1px solid var(--color-border);
-    background: rgba(255,255,255,0.02);
+    background: var(--color-bg);
     cursor: pointer;
     transition: all 0.2s ease;
     text-align: center;
   }
   .sim-option:hover {
-    border-color: rgba(216,255,0,0.4);
-    background: rgba(216,255,0,0.04);
+    border-color: rgba(27,94,190,0.4);
+    background: rgba(27,94,190,0.04);
   }
   .sim-option.active {
-    border-color: var(--color-neon);
-    background: rgba(216,255,0,0.08);
-    box-shadow: 0 0 12px rgba(216,255,0,0.15);
+    border-color: var(--color-primary);
+    background: rgba(27,94,190,0.08);
+    box-shadow: 0 0 12px rgba(27,94,190,0.1);
   }
   .sim-option-label {
     font-size: 14px;
@@ -196,7 +196,7 @@ const schemaData = {
     color: var(--color-ink);
   }
   .sim-option.active .sim-option-label {
-    color: var(--color-neon);
+    color: var(--color-primary);
   }
   .sim-option-sub {
     font-size: 11px;
@@ -207,14 +207,14 @@ const schemaData = {
     padding: 12px 16px;
     border-radius: 10px;
     border: 1px solid var(--color-border);
-    background: rgba(255,255,255,0.02);
+    background: var(--color-bg);
     color: var(--color-ink);
     font-size: 14px;
     outline: none;
     transition: border-color 0.2s;
   }
   .sim-input:focus {
-    border-color: rgba(216,255,0,0.5);
+    border-color: rgba(27,94,190,0.5);
   }
   .sim-input::placeholder {
     color: var(--color-ink-dim);

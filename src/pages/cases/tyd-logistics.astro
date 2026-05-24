@@ -56,19 +56,19 @@ const schemaData = {
     </section>
 
     <!-- ========== KEY NUMBERS (Tomoro式) ========== -->
-    <section style="background:var(--color-bg); border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06);">
+    <section style="background:var(--color-bg); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
       <div class="max-w-5xl mx-auto px-6 lg:px-8 py-20">
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center stagger">
           <div class="reveal">
-            <p class="font-bold" style="font-size:clamp(48px,7vw,80px); color:var(--color-neon); line-height:1; letter-spacing:-0.03em;">●●<span class="text-2xl">週間</span></p>
+            <p class="font-bold" style="font-size:clamp(48px,7vw,80px); color:var(--color-primary); line-height:1; letter-spacing:-0.03em;">●●<span class="text-2xl">週間</span></p>
             <p class="text-sm mt-2" style="color:var(--color-ink-dim);">本番投入までの期間</p>
           </div>
           <div class="reveal">
-            <p class="font-bold" style="font-size:clamp(48px,7vw,80px); color:var(--color-neon); line-height:1; letter-spacing:-0.03em;">●●<span class="text-2xl">%</span></p>
+            <p class="font-bold" style="font-size:clamp(48px,7vw,80px); color:var(--color-primary); line-height:1; letter-spacing:-0.03em;">●●<span class="text-2xl">%</span></p>
             <p class="text-sm mt-2" style="color:var(--color-ink-dim);">業務工数削減率</p>
           </div>
           <div class="reveal">
-            <p class="font-bold" style="font-size:clamp(48px,7vw,80px); color:var(--color-neon); line-height:1; letter-spacing:-0.03em;">24<span class="text-2xl">時間</span></p>
+            <p class="font-bold" style="font-size:clamp(48px,7vw,80px); color:var(--color-primary); line-height:1; letter-spacing:-0.03em;">24<span class="text-2xl">時間</span></p>
             <p class="text-sm mt-2" style="color:var(--color-ink-dim);">稼働継続時間</p>
           </div>
         </div>
@@ -104,8 +104,8 @@ const schemaData = {
           <!-- After -->
           <div class="reveal t-card p-8" style="border-color:rgba(216,255,0,0.2); background:rgba(216,255,0,0.03);">
             <div class="flex items-center gap-3 mb-6">
-              <div style="width:10px; height:10px; border-radius:50%; background:var(--color-neon);"></div>
-              <h2 class="heading-md" style="color:var(--color-neon);">ソリューション — After</h2>
+              <div style="width:10px; height:10px; border-radius:50%; background:var(--color-primary);"></div>
+              <h2 class="heading-md" style="color:var(--color-primary);">ソリューション — After</h2>
             </div>
             <ul class="flex flex-col gap-4">
               {[
@@ -116,7 +116,7 @@ const schemaData = {
               ].map(item => (
                 <li class="flex items-start gap-3 body-sm">
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="none" style="flex-shrink:0; margin-top:3px;">
-                    <path d="M8 12l3 3 5-5" stroke="var(--color-neon)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M8 12l3 3 5-5" stroke="var(--color-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
                   </svg>
                   {item}
                 </li>
@@ -129,7 +129,7 @@ const schemaData = {
     </section>
 
     <!-- ========== FEATURES (8 cards) ========== -->
-    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid rgba(255,255,255,0.06);">
+    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid var(--color-border);">
       <div class="max-w-5xl mx-auto px-6 lg:px-8">
         <h2 class="heading-lg text-center mb-16 reveal">実装機能</h2>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-4 stagger">
@@ -144,7 +144,7 @@ const schemaData = {
             { num: '08', title: '月次レポート自動生成' },
           ].map(f => (
             <div class="reveal t-card p-5 text-center">
-              <p class="text-xs font-bold mb-2" style="color:var(--color-neon); letter-spacing:0.05em;">{f.num}</p>
+              <p class="text-xs font-bold mb-2" style="color:var(--color-primary); letter-spacing:0.05em;">{f.num}</p>
               <h3 class="text-sm font-bold" style="color:var(--color-ink);">{f.title}</h3>
             </div>
           ))}
@@ -166,7 +166,7 @@ const schemaData = {
               { name: 'Claude API', sub: 'Anthropic', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M16.5 3.5L20.5 12L16.5 20.5H13L17 12L13 3.5H16.5ZM7.5 3.5L11.5 12L7.5 20.5H11L15 12L11 3.5H7.5Z" fill="currentColor" opacity="0.9"/></svg>` },
             ].map(t => (
               <div class="flex flex-col items-center text-center gap-2">
-                <div style="color:var(--color-neon);" set:html={t.icon} />
+                <div style="color:var(--color-primary);" set:html={t.icon} />
                 <p class="text-sm font-bold" style="color:var(--color-ink);">{t.name}</p>
                 <p class="text-xs" style="color:var(--color-ink-dim);">{t.sub}</p>
               </div>
@@ -177,14 +177,14 @@ const schemaData = {
     </section>
 
     <!-- ========== TIMELINE & COST ========== -->
-    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid rgba(255,255,255,0.06);">
+    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid var(--color-border);">
       <div class="max-w-3xl mx-auto px-6 lg:px-8">
         <h2 class="heading-lg text-center mb-12 reveal">実装期間とコスト</h2>
         <div class="reveal t-card p-8">
           <div class="flex flex-col gap-5">
             <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
               <p class="text-sm font-semibold" style="color:var(--color-ink);">開発期間</p>
-              <p class="text-lg font-bold" style="color:var(--color-neon);">●●週間</p>
+              <p class="text-lg font-bold" style="color:var(--color-primary);">●●週間</p>
             </div>
             <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
               <p class="text-sm font-semibold" style="color:var(--color-ink);">開発体制</p>
@@ -211,15 +211,15 @@ const schemaData = {
           <div class="flex flex-col gap-4">
             <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
               <p class="text-sm font-semibold" style="color:var(--color-ink);">利用補助金</p>
-              <p class="text-sm font-bold" style="color:var(--color-neon);">●●補助金</p>
+              <p class="text-sm font-bold" style="color:var(--color-primary);">●●補助金</p>
             </div>
             <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
               <p class="text-sm font-semibold" style="color:var(--color-ink);">補助率</p>
-              <p class="text-sm font-bold" style="color:var(--color-neon);">●●</p>
+              <p class="text-sm font-bold" style="color:var(--color-primary);">●●</p>
             </div>
             <div class="flex items-center justify-between py-3">
               <p class="text-sm font-semibold" style="color:var(--color-ink);">実質負担額</p>
-              <p class="text-lg font-bold" style="color:var(--color-neon);">●●万円</p>
+              <p class="text-lg font-bold" style="color:var(--color-primary);">●●万円</p>
             </div>
           </div>
           <p class="text-xs mt-4" style="color:var(--color-ink-dim);">※補助金未活用の場合、このセクションは非表示になります。後日情報が確定次第更新します。</p>
@@ -228,7 +228,7 @@ const schemaData = {
     </section>
 
     <!-- ========== LEARNINGS ========== -->
-    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid rgba(255,255,255,0.06);">
+    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid var(--color-border);">
       <div class="max-w-3xl mx-auto px-6 lg:px-8">
         <h2 class="heading-lg text-center mb-12 reveal">学び・今後の展開</h2>
         <div class="flex flex-col gap-5 stagger">
@@ -253,12 +253,12 @@ const schemaData = {
         <!-- Related links -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8 stagger">
           <a href="/service/ai-automation" class="reveal t-card p-5 block" style="text-decoration:none; color:inherit; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(216,255,0,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
-            <p class="text-xs font-semibold mb-1" style="color:var(--color-neon);">サービス詳細</p>
+            <p class="text-xs font-semibold mb-1" style="color:var(--color-primary);">サービス詳細</p>
             <p class="heading-sm">AI業務自動化</p>
             <p class="text-xs mt-1" style="color:var(--color-ink-dim);">補助金活用で実質負担1/2〜2/3 →</p>
           </a>
           <a href="/simulator" class="reveal t-card p-5 block" style="text-decoration:none; color:inherit; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.borderColor='rgba(216,255,0,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
-            <p class="text-xs font-semibold mb-1" style="color:var(--color-neon);">ツール</p>
+            <p class="text-xs font-semibold mb-1" style="color:var(--color-primary);">ツール</p>
             <p class="heading-sm">補助金シミュレーター</p>
             <p class="text-xs mt-1" style="color:var(--color-ink-dim);">実質負担額を30秒で診断 →</p>
           </a>

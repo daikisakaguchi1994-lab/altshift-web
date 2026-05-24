@@ -28,7 +28,7 @@ import Footer from '../components/Footer.astro'
               ].map(f => (
                 <div>
                   <label style="display:block; font-size:12px; font-weight:500; color:var(--color-ink-muted); margin-bottom:6px;" for={f.id}>
-                    {f.label} {f.required ? <span style="color:var(--color-neon);">*</span> : <span style="font-weight:300;">（任意）</span>}
+                    {f.label} {f.required ? <span style="color:#DC2626;">*</span> : <span style="font-weight:300;">（任意）</span>}
                   </label>
                   <input type={f.type} id={f.id} name={f.id} required={f.required}
                          style="width:100%; border:1px solid var(--color-border-card); border-radius:8px; padding:12px 16px; font-size:14px; background:var(--color-bg-card); color:var(--color-ink); transition:all 0.2s;"
@@ -38,7 +38,7 @@ import Footer from '../components/Footer.astro'
 
               <div>
                 <label style="display:block; font-size:12px; font-weight:500; color:var(--color-ink-muted); margin-bottom:6px;" for="message">
-                  お問い合わせ内容 <span style="color:var(--color-neon);">*</span>
+                  お問い合わせ内容 <span style="color:#DC2626;">*</span>
                 </label>
                 <textarea id="message" name="message" required rows="5"
                           style="width:100%; border:1px solid var(--color-border-card); border-radius:8px; padding:12px 16px; font-size:14px; background:var(--color-bg-card); color:var(--color-ink); resize:none; transition:all 0.2s;"
@@ -68,8 +68,8 @@ import Footer from '../components/Footer.astro'
 
             <!-- Success message -->
             <div id="form-success" style="display:none;" class="t-card p-8 text-center">
-              <div style="width:64px; height:64px; border-radius:50%; background:rgba(216,255,0,0.15); display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D8FF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <div style="width:64px; height:64px; border-radius:50%; background:rgba(27,94,190,0.1); display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1B5EBE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"/>
                 </svg>
               </div>
@@ -103,8 +103,8 @@ import Footer from '../components/Footer.astro'
               </div>
             </div>
 
-            <div class="t-card p-6" style="border-color:rgba(216,255,0,0.15); background:rgba(216,255,0,0.03);">
-              <p class="text-xs font-semibold mb-3" style="color:var(--color-neon); letter-spacing:0.1em; text-transform:uppercase;">LINE</p>
+            <div class="t-card p-6" style="border-color:rgba(6,199,85,0.2); background:rgba(6,199,85,0.04);">
+              <p class="text-xs font-semibold mb-3" style="color:#06C755; letter-spacing:0.1em; text-transform:uppercase;">LINE</p>
               <p class="body-sm mb-4">LINEでもご相談を受け付けています。</p>
               <a href="https://lin.ee/VOiIxYB" target="_blank" rel="noopener noreferrer" class="btn-line" style="width:100%; justify-content:center; font-size:14px; padding:12px 20px;">
                 <svg width="16" height="16" viewBox="0 0 48 48" fill="white">
@@ -119,15 +119,15 @@ import Footer from '../components/Footer.astro'
               <p class="text-xs font-semibold mb-4" style="color:var(--color-ink-muted); letter-spacing:0.1em; text-transform:uppercase;">実績</p>
               <div class="flex flex-col gap-3">
                 <div class="flex items-center gap-3">
-                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-neon); flex-shrink:0;"></div>
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-primary); flex-shrink:0;"></div>
                   <p class="text-sm" style="color:var(--color-ink);">導入実績 4社</p>
                 </div>
                 <div class="flex items-center gap-3">
-                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-neon); flex-shrink:0;"></div>
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-primary); flex-shrink:0;"></div>
                   <p class="text-sm" style="color:var(--color-ink);">採用業務工数 50%削減</p>
                 </div>
                 <div class="flex items-center gap-3">
-                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-neon); flex-shrink:0;"></div>
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-primary); flex-shrink:0;"></div>
                   <p class="text-sm" style="color:var(--color-ink);">最短2週間で戦略策定</p>
                 </div>
               </div>

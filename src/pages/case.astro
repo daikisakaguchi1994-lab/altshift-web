@@ -75,7 +75,7 @@ const cases = [
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 stagger">
           {cases.map(c => (
-            <a href={c.slug} class="reveal t-card overflow-hidden block" style="text-decoration:none; color:inherit; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(216,255,0,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+            <a href={c.slug} class="reveal t-card overflow-hidden block" style="text-decoration:none; color:inherit; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(27,94,190,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
               <div class="media-slot" style="aspect-ratio:16/9; position:relative;">
                 <img src={c.image} alt={c.company} loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
                 <div class="neon-glow-circle" style="bottom:15%; right:25%;"></div>
@@ -90,7 +90,7 @@ const cases = [
                 <h3 class="heading-sm mb-2">{c.title}</h3>
                 <p class="body-sm mb-3">{c.desc}</p>
                 <div class="flex items-start gap-2 mb-4">
-                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-neon); flex-shrink:0; margin-top:6px;"></div>
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-primary); flex-shrink:0; margin-top:6px;"></div>
                   <p class="text-xs" style="color:var(--color-ink-muted);">{c.result}</p>
                 </div>
                 <span class="neon-link" style="font-size:13px;">詳しく見る <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
