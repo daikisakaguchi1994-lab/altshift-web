@@ -22,7 +22,7 @@ const schemaData = {
 }
 
 const faqs = [
-  { q: '補助金は必ず採択されますか？', a: '採択を保証するものではありませんが、過去の申請実績に基づいた計画書作成を伴走支援します。不採択の場合も、再申請や他の補助金制度のご案内が可能です。' },
+  { q: '補助金は必ず採択されますか？', a: '採択を保証するものではありませんが、事業計画の策定助言と技術要件の文書化をAltShiftが担当し、申請書類の作成は提携行政書士が担当する体制で支援します。不採択の場合も、再申請や他の補助金制度のご案内が可能です。' },
   { q: '開発期間中の費用はいつ支払いますか？', a: '補助金活用の場合、採択後に着手金（全体の30%）、中間納品時（30%）、本番稼働時（40%）の3回払いが基本です。補助金の入金タイミングに合わせた調整も可能です。' },
   { q: '自社にエンジニアがいなくても運用できますか？', a: 'はい。運用は専門知識不要で使える管理画面を提供します。本番稼働後3ヶ月間の運用サポート込みで、その後もオプションで継続サポートが可能です。' },
   { q: '福岡以外でも対応可能ですか？', a: 'はい。オンラインで全国対応しています。ヒアリング・設計・開発・運用すべてリモートで完結可能です。福岡市内・近郊の企業様には訪問対応も行っています。' },
@@ -94,7 +94,7 @@ const faqSchema = {
           {[
             { num: '01', title: '業務工数を最大50%削減', desc: '反復的な手作業をAIが代替。スタッフは本来注力すべきコア業務に集中できます。', icon: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>` },
             { num: '02', title: '24時間365日の自動処理', desc: '夜間・休日も止まらないAIシステム。人が寝ている間もビジネスが動き続けます。', icon: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>` },
-            { num: '03', title: '補助金活用で実質負担1/2〜2/3', desc: '省力化投資補助金の申請を伴走支援。採択実績に基づく計画書作成で、コスト負担を大幅に軽減。', icon: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>` },
+            { num: '03', title: '補助金活用で実質負担1/2〜2/3', desc: '事業計画の策定助言と技術要件の文書化をAltShiftが担当。申請書類は提携行政書士が作成し、コスト負担を大幅に軽減。', icon: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>` },
           ].map(p => (
             <div class="reveal t-card p-8 text-center">
               <div style="color:var(--color-primary); margin-bottom:16px; display:inline-block;" set:html={p.icon} />
@@ -119,7 +119,7 @@ const faqSchema = {
               'Google Apps Script / API連携',
               'データ集計・レポート自動生成',
               '運用サポート・機能追加（3ヶ月）',
-              '補助金申請の伴走支援',
+              '補助金活用の助言・提携専門家による申請支援',
             ].map(item => (
               <div class="flex items-start gap-3">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0; margin-top:2px;">
@@ -157,7 +157,7 @@ const faqSchema = {
               <p class="text-2xl font-bold" style="color:var(--color-primary);">150万円〜400万円</p>
             </div>
           </div>
-          <p class="text-xs mt-4" style="color:var(--color-ink-dim);">※申請支援込み。採択保証ではありません。補助金の詳細は<a href="/simulator" style="color:var(--color-primary); text-decoration:underline;">シミュレーター</a>でも確認できます。</p>
+          <p class="text-xs mt-4" style="color:var(--color-ink-dim);">※提携行政書士による申請支援体制あり。採択保証ではありません。補助金の詳細は<a href="/simulator" style="color:var(--color-primary); text-decoration:underline;">シミュレーター</a>でも確認できます。</p>
         </div>
       </div>
     </section>
@@ -169,7 +169,7 @@ const faqSchema = {
         <div class="grid grid-cols-1 md:grid-cols-5 gap-4 stagger">
           {[
             { week: 'Week 1-2', title: '業務ヒアリング・診断', desc: '現場の業務フローを分析し、AI化の優先度を診断。' },
-            { week: 'Week 3-4', title: 'システム設計・補助金申請', desc: 'AI化の設計書作成と補助金申請を並行で進行。' },
+            { week: 'Week 3-4', title: 'システム設計・補助金準備', desc: 'AI化の設計書作成と補助金活用の事業計画策定を並行で進行。' },
             { week: 'Week 5-10', title: '開発・テスト', desc: 'アジャイル開発でプロトタイプを反復改善。実データで検証。' },
             { week: 'Week 11-12', title: '本番投入・運用引継ぎ', desc: '本番環境にデプロイ。運用マニュアルと研修を提供。' },
             { week: '以降', title: '月次運用サポート', desc: 'モニタリング・精度改善・機能追加をオプションで継続。' },
