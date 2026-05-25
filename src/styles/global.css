@@ -407,20 +407,6 @@ h1, h2, h3 {
 }
 .nav-link:hover { color: var(--color-ink); }
 
-/* Menu button — 段階確認後に変更予定 */
-.menu-btn-neon {
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  background: #D8FF00;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  border: none;
-  transition: transform 0.2s;
-}
-.menu-btn-neon:hover { transform: scale(1.05); }
 
 /* ===== Footer (ダーク維持) ===== */
 .footer-dark { background: var(--color-footer-bg); }
