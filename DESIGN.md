@@ -1,259 +1,251 @@
 ---
-version: 0.2.0
+version: 0.3.0
 name: AltShift Corporate
 description: >
   福岡拠点の中小企業向けAI導入支援ブランド「AltShift」のデザインシステム。
-  信頼性と先進性を両立させた、プロフェッショナルかつ親しみやすいビジュアルアイデンティティ。
-colors:
-  primary: "#1B5EBE"
-  primary-light: "#4A90D9"
-  secondary: "#C8A15A"
-  secondary-light: "#E8C97A"
-  accent-neon: "#D8FF00"  # アクセント色：使用率10%以下、小要素のみ
-  neutral-bg: "#FFFFFF"
-  neutral-bg-sub: "#F4F4F4"
-  neutral-ink: "#1A1A1A"
-  neutral-ink-muted: "#6B6B6B"
-  neutral-border: "#E5E5E5"
-  line-green: "#06C755"
-  error: "#DC2626"
-  dark-bg: "#0F1117"
-  dark-bg-sub: "#1A1D27"
-  dark-ink: "#F0F4FF"
-  dark-ink-muted: "#8A92B0"
-  dark-border: "#252836"
-typography:
-  display-hero:
-    fontFamily: Inter, Noto Sans JP, sans-serif
-    fontSize: clamp(36px, 5vw, 64px)
-    fontWeight: 900
-    lineHeight: 1.15
-    letterSpacing: -0.02em
-  headline-lg:
-    fontFamily: Inter, Noto Sans JP, sans-serif
-    fontSize: clamp(28px, 4vw, 40px)
-    fontWeight: 800
-    letterSpacing: -0.03em
-  headline-md:
-    fontFamily: Inter, Noto Sans JP, sans-serif
-    fontSize: 22px
-    fontWeight: 800
-    letterSpacing: -0.03em
-  headline-sm:
-    fontFamily: Inter, Noto Sans JP, sans-serif
-    fontSize: 17px
-    fontWeight: 700
-    letterSpacing: -0.03em
-  body-md:
-    fontFamily: Noto Sans JP, Inter, sans-serif
-    fontSize: 15px
-    fontWeight: 400
-    lineHeight: 1.8
-  body-sm:
-    fontFamily: Noto Sans JP, Inter, sans-serif
-    fontSize: 14px
-    fontWeight: 300
-    lineHeight: 1.9
-  label-section:
-    fontFamily: Inter, sans-serif
-    fontSize: 13px
-    fontWeight: 700
-    letterSpacing: 0.15em
-  label-tag:
-    fontFamily: Inter, Noto Sans JP, sans-serif
-    fontSize: 12px
-    fontWeight: 500
-    letterSpacing: 0.02em
-  nav-link:
-    fontFamily: Inter, Noto Sans JP, sans-serif
-    fontSize: 14px
-    fontWeight: 500
-    letterSpacing: 0.01em
-rounded:
-  sm: 4px
-  md: 6px
-  lg: 8px
-  xl: 12px
-  full: 9999px
-spacing:
-  xs: 4px
-  sm: 8px
-  md: 16px
-  lg: 24px
-  xl: 32px
-  2xl: 48px
-  section-y: 96px
-  container-max: 1152px
-components:
-  button-cta-line:
-    backgroundColor: "{colors.line-green}"
-    textColor: "#FFFFFF"
-    typography: "{typography.body-md}"
-    rounded: "{rounded.md}"
-    padding: 14px 28px
-  button-cta-line-hover:
-    backgroundColor: "{colors.line-green}"
-  button-primary:
-    backgroundColor: "{colors.primary}"
-    textColor: "#FFFFFF"
-    rounded: "{rounded.md}"
-    padding: 10px 20px
-  button-primary-hover:
-    backgroundColor: "{colors.primary-light}"
-  button-outline:
-    backgroundColor: transparent
-    textColor: "{colors.neutral-ink}"
-    rounded: "{rounded.md}"
-    padding: 14px 28px
-  button-outline-hover:
-    textColor: "{colors.primary}"
-  card-standard:
-    backgroundColor: "{colors.neutral-bg}"
-    textColor: "{colors.neutral-ink}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.lg}"
-  card-accent:
-    backgroundColor: "{colors.neutral-bg}"
-    textColor: "{colors.neutral-ink}"
-    rounded: "{rounded.lg}"
-    padding: "{spacing.xl}"
-  tag-primary:
-    backgroundColor: rgba(27, 94, 190, 0.06)
-    textColor: "{colors.primary}"
-    rounded: "{rounded.sm}"
-    padding: 5px 12px
-  icon-box:
-    backgroundColor: rgba(27, 94, 190, 0.08)
-    rounded: "{rounded.lg}"
-    size: 48px
-  input-field:
-    backgroundColor: "{colors.neutral-bg}"
-    textColor: "{colors.neutral-ink}"
-    rounded: "{rounded.lg}"
-    padding: 12px 16px
+  信頼性と先進性を両立させた、ライトファーストのプロフェッショナルデザイン。
 ---
 
-# AltShift Design System
+# AltShift Design System v0.3.0
 
 ## Overview
 
 AltShiftは「福岡の中小企業に、AIという選択肢を。」をミッションに掲げるAI導入支援ブランド。デザインは**信頼性（Trustworthy）と先進性（Forward-looking）**の両立を目指す。
 
-ターゲットはITに不慣れなブルーカラー中小企業の経営者。派手さや過度なテック感は避け、「この会社なら安心して任せられる」と感じさせるクリーンで堅実なビジュアルを基調とする。一方で、ブランドカラーのブルーグラデーションとゴールドのアクセントにより、AI時代の先進性と高い専門性を表現する。
+ターゲットはITに不慣れなブルーカラー中小企業の経営者。派手さや過度なテック感は避け、「この会社なら安心して任せられる」と感じさせるクリーンで堅実なビジュアルを基調とする。
 
-全体のトーンは**「高品質な新聞社のデジタル版」** — 情報が整理され、余白が効き、視線誘導が明確。感情的にはプロフェッショナルでありながら、親しみやすさを失わない温度感。
+全体のトーンは**「高品質な新聞社のデジタル版」** — 情報が整理され、余白が効き、視線誘導が明確。
 
-## Colors
+---
 
-カラーシステムはライトモード/ダークモードのデュアルテーマ対応。CSS変数 `--color-*` を通じてテーマ切替を実現する。
+## Color Usage Rules（60-30-10則）
 
-- **Primary (#1B5EBE):** ブランドの核。CTAボタン・リンク・アクセントに使用。信頼・誠実を象徴するロイヤルブルー。グラデーション `#1B5EBE → #4A90D9` でセクションラベルやロゴに奥行きを出す。
-- **Secondary / Gold (#C8A15A):** プレミアム感を演出するアクセントゴールド。装飾ライン・テキストリンクの下線・ロゴの下部バーに限定使用。グラデーション `#C8A15A → #E8C97A` で繊細な光沢を表現。
-- **Neutral Ink (#1A1A1A):** 本文テキストの基本色。深い墨色で最高の可読性。
-- **Neutral Ink Muted (#6B6B6B):** サブテキスト・メタ情報・キャプションに使用。
-- **Neutral BG (#FFFFFF):** メイン背景。清潔感と広がりを確保。
-- **Neutral BG Sub (#F4F4F4):** セクション交互背景。微妙なコントラストでリズムを生む。
-- **LINE Green (#06C755):** LINE公式カラー。CTA専用。他の用途には使用しない。
-- **Hero Gradient:** テキストに `linear-gradient(135deg, #1B5EBE 0%, #4A90D9 60%, #C8A15A 100%)` を適用し、ブルーからゴールドへの流れでブランドの進化を象徴する。
+Kelley Gordon (NN/g) の配色原則に準拠。
 
-### Accent Neon
+| 色 | 配分 | 用途 |
+|---|---|---|
+| Primary #1B5EBE | 60% | 主要素、CTAメイン、リンク、見出し下線、ナビCTA |
+| Neutral / White | 30% | 背景、カード、余白 |
+| Secondary #C8A15A | 10% | 補助金関連バナー、Layer 3表示、プレミアム装飾 |
+| Accent Lime #D8FF00 | **5%以下** | 最重要バナーの装飾、マイクロインタラクション。**CTAボタンには使用しない** |
 
-- **Accent Neon (#D8FF00):** 戦略的アクセントカラー。ライムイエロー系。「先進性」「テック感」を表現する小要素に限定使用。
-  - 使用率：全UI要素の **10%以下**（目視＋計測で担保）
-  - 使用箇所：CTA下線、強調記号、矢印アイコン、小バッジ、注釈マーカー等の **小要素のみ**
-  - 禁止：背景色全面、ボタン背景全面、見出し全体、大きな塊での使用
-  - 役割分担：信頼性=Primary/Secondary、先進性=Accent Neon
+## Color Tokens（CSS変数）
 
-### Dark Mode
+```css
+@theme {
+  --color-primary: #1B5EBE;
+  --color-primary-dark: #164C99;
+  --color-primary-light: #E8F0FB;
+  --color-secondary: #C8A15A;
+  --color-secondary-light: #FAF5E8;
+  --color-accent: #D8FF00;     /* 5%以下、最重要バナー装飾のみ。CTAボタン禁止 */
+  --color-blue: #1456FB;
+  --color-ink: #1A1A1A;
+  --color-ink-sub: rgba(26,26,26,0.6);
+  --color-ink-dim: rgba(26,26,26,0.3);
+  --color-ink-muted: #6B6B6B;
+  --color-muted: #6B6B6B;
+  --color-border: #E5E5E5;
+  --color-line: #E5E5E5;
+  --color-border-card: rgba(26,26,26,0.08);
+  --color-bg: #FFFFFF;
+  --color-bg-soft: #F7F8FA;
+  --color-bg-card: #FFFFFF;
+  --color-bg-elevated: #F4F4F4;
+  --color-bg-cream: #EEE8DF;
+  --color-footer-bg: #0F1117;
+}
+```
 
-`[data-theme="dark"]` でCSS変数を上書き。背景はディープネイビー (#0F1117)、テキストはクールホワイト (#F0F4FF)。Primary はやや明るめの #4A90D9 に変わり、視認性を維持する。
+### 色の役割分担
+- **Primary (#1B5EBE):** ブランドの核。CTA・リンク・セクションラベル。信頼・誠実を象徴するロイヤルブルー。
+- **Secondary (#C8A15A):** プレミアム感。補助金セクションのLayer 3（行政書士）、装飾ライン限定使用。
+- **Accent Lime (#D8FF00):** btn-accent-lime（補助金最重要バナー限定）とFooterロゴの2箇所のみ。
+- **LINE Green (#06C755):** LINE CTA専用。他の用途には使用しない。
 
-## Typography
+---
 
-書体戦略は**Inter（見出し・英字） + Noto Sans JP（本文・日本語）**のデュアルフォント構成。
+## Type Scale
 
-- **見出し (h1-h3):** Inter優先。font-weight: 800-900、letter-spacing: -0.03em のタイトな字間で力強い印象。clampによるレスポンシブサイジングで画面幅に追従。
-- **本文 (body):** Noto Sans JP優先。font-weight: 300-400 の軽やかなウェイトで長文の可読性を確保。line-height: 1.8-1.9 のゆったりした行間。
-- **セクションラベル:** Inter 700 / 13px / letter-spacing: 0.15em / uppercase。`background-clip: text` でブルーグラデーションを適用し、セクションの導入を華やかに演出する。
-- **装飾テキスト:** 各セクションの背景に配置される英字大文字（SERVICE, CASE等）。Inter 900 / clamp(60px,10vw,120px) / opacity: 0.04 でゴーストレタリング効果。
+| 要素 | サイズ | ウェイト | 行間 | 字間 | CSSクラス |
+|---|---|---|---|---|---|
+| h1 | clamp(2.5rem, 5vw, 4rem) | 800 | 1.1 | -0.02em | `.heading-hero` |
+| h2 | clamp(1.875rem, 3.5vw, 2.5rem) | 700 | 1.2 | -0.015em | `.heading-lg` |
+| h3 (large) | 22px | 600 | 1.3 | -0.02em | `.heading-md` |
+| h3 (small) | 17px | 600 | 1.3 | normal | `.heading-sm` |
+| body-lg | 18px | 400 | 1.8 | normal | `.body-lg` |
+| body-md | 16px | 400 | 1.8 | normal | `.body-md` |
+| body-sm | 14px | 300 | 1.9 | normal | `.body-sm` |
+| eyebrow | 14px | 600 | normal | 0.1em uppercase | `.section-label` |
+| caption | 13px | 400 | normal | normal | — |
 
-## Layout
+### フォント構成
+- **見出し (h1-h3):** Inter優先、Noto Sans JPフォールバック
+- **本文:** Inter + Noto Sans JP
 
-レイアウトは**固定最大幅 + Fluid Grid**モデル。
+### 日本語専用ルール
+- letter-spacing: 0.02em（漢字・かな混在時）
+- line-height: 1.75〜1.9（本文）
 
-- **最大幅:** 1152px (`max-w-6xl`)。左右 padding: 24px で小画面に対応。
-- **グリッド:** CSS Grid を多用。メインコンテンツは `grid-cols-1 md:grid-cols-2` または `md:grid-cols-3`。gap は 16px〜24px。
-- **セクション間隔:** 上下 padding: 96px で各セクションに十分な呼吸空間。
-- **8px ベースグリッド:** すべてのスペーシングは 8px の倍数（4px は微調整用）。
-- **Hero:** `min-height: 100vh` のフルスクリーン。左寄せテキスト + 右側に福岡の都市写真。左→右のグラデーションオーバーレイでテキスト可読性を確保。
+### ウェイト使い分け
+- **800/900:** ヒーローH1、巨大数字（`.number-value`）、ロゴのみ
+- **700:** H2、CTAボタン、ナビリンクのアクティブ状態
+- **600:** H3、ナビゲーション、eyebrow
+- **400:** 本文、説明文
+- **300:** body-sm（補足テキスト）
+- **「極太一辺倒」を避ける** — Linear Inter Display の軽量感を参考
 
-## Elevation & Depth
+### 数字専用
+```css
+.stat-number {
+  font-variant-numeric: tabular-nums;
+  font-weight: 800;
+}
+```
 
-フラットデザインを基調とし、深度は**ボーダーと背景色の切替**で表現する。影は控えめ。
+---
 
-- **カード:** `border: 1px solid var(--color-border)` が標準。ホバーで `shadow-md` を追加して軽い浮遊感。
-- **アクセントカード:** `border-top: 3px solid var(--color-primary)` で上辺にブルーラインを入れ、重要度を示す。
-- **ナビゲーション:** `sticky top-0` + スクロール時に `shadow-sm` を動的追加。
-- **モーダル/オーバーレイ:** Hero 背景画像に対して `rgba()` グラデーションで多層レイヤー。
+## Buttons
 
-## Shapes
+| クラス | 背景 | テキスト | ボーダー | パディング | 用途 |
+|---|---|---|---|---|---|
+| `btn-primary` | #1B5EBE | white | none | 14px 28px | メインCTA（無料相談、お問い合わせ、送信） |
+| `btn-primary-sm` | #1B5EBE | white | none | 8px 20px | ナビ内CTA |
+| `btn-secondary-ghost` | transparent | #1B5EBE | 2px #1B5EBE | 12px 26px | サブCTA（導入事例を見る、詳細資料請求等） |
+| `btn-accent-lime` | #D8FF00 | #1A1A1A | none | 12px 24px | **補助金最重要バナー限定**。汎用CTA禁止 |
+| `btn-outline` | transparent | #1A1A1A | 1px border | 14px 28px | pricing等の非popular選択肢 |
+| `btn-line` | #06C755 | white | none | 14px 28px | LINE CTA専用 |
 
-形状言語は**控えめなラウンド（4px〜12px）**。柔らかすぎず、硬すぎないバランス。
+### ホバー動作
+- `btn-primary` / `btn-primary-sm`: background → `--color-primary-dark` (#164C99)
+- `btn-secondary-ghost`: background → primary、text → white（反転）
+- `btn-accent-lime`: brightness(0.95)
+- `btn-outline`: border-color → primary、text → primary
 
-- **ボタン:** `border-radius: 6px` — モダンだがカジュアルすぎない。
-- **カード:** `border-radius: 8px` — 読みやすさと親しみやすさの両立。
-- **ケースカード（画像付き）:** `border-radius: 12px` — 画像を含む大きな要素にはやや大きめの角丸で柔和な印象。
-- **アイコンボックス:** `border-radius: 8px` の正方形コンテナ。
-- **バッジ/タグ:** `border-radius: 4px-6px` のコンパクトな角丸。
+### CTA主従ルール（根拠：Unbounce 18,639LP分析）
+- 1画面に**主CTAは1つ**（btn-primary）
+- 副アクションは `btn-secondary-ghost`（ゴースト）で視覚的に一段下げる
+- **同一ウェイトのCTAを2つ並べない**
 
-## Components
+---
 
-### Buttons
+## Navigation Rules
 
-**LINE CTA（最重要）:** `background: #06C755` / 白テキスト / LINEアイコン付き。ヒーロー・最終CTA・モバイル固定バーの3箇所に配置。hover で opacity: 0.85。
+### PC（≥768px）
+- **グローバルナビ常時可視**。ハンバーガー禁止
+- 根拠：NN/g 179名定量UT「Discoverability is cut almost in half by hiding navigation」
+- ベンチマーク：Stripe・Linear・Notion・ABEJA・ELYZA・PKSHA
 
-**Primary:** `background: var(--color-primary)` / 白テキスト。サービス詳細リンク等に使用。
+### Mobile（<768px）
+- ハンバーガー可。アイコンは**標準サイズ（24×24px）**
+- 巨大円（旧 menu-btn-neon）は廃止済
 
-**Outline:** 透明背景 + `border: 1.5px solid var(--color-ink)`。hover で border と text が primary カラーに変化。セカンダリアクションに使用。
+### メニュー構成
+```
+サービス / 補助金活用（/#subsidies） / 導入実績 / 代表・会社情報 / ナレッジ / [無料相談]
+```
+- 「料金」はメニューから削除（URLは保持、フッターからアクセス可能）
+- 「無料相談」は `btn-primary-sm` で右端に配置
 
-**Ghost（ダウンロード等）:** `border: 1.5px solid var(--color-primary)` / primary テキスト。hover で `bg-blue-50`。
+---
 
-### Cards
+## Subsidy Section Rules（改正行政書士法対応）
 
-**標準カード:** 白背景 + 1px ボーダー + 8px 角丸。padding: 28px-32px。hover で shadow-md。
+### 三層モデル可視化
+- **Layer 1（情報提供）:** Primary色。AltShiftが担当
+- **Layer 2（適合診断）:** Primary色。AltShiftが担当
+- **Layer 3（申請実務）:** **Secondary色**。提携行政書士が担当
 
-**アクセントカード:** 上辺に 3px の primary ボーダーを追加。課題提起セクションで使用。
+### 表現ルール
+- **全廃:** 「申請代行」「申請サポート無料」「申請を伴走」
+- **必須免責文:**
+  > AltShift は申請書類の作成・代理提出を行いません。申請実務は提携行政書士が担当します（改正行政書士法第19条遵守）
+- 採択率を表示する場合は「事務局公表値・採択保証なし」と併記
+- DX推進センター連携は「準備中」の表現（「連携済」「登録済」は虚偽になるため禁止）
 
-**ケースカード:** 12px 角丸 + 画像（aspect-ratio: 16/9）+ テキストエリア。画像は hover で scale(1.04) のズーム効果。
+### 福岡県補助金の強調
+- テーブル最上段 + 背景色ハイライト + 「★最優先」「福岡限定」バッジ
+- 独立ハイライトカード（primary-light背景 + primary枠）
 
-### Tags / Badges
+---
 
-`border: 1px solid` + `background: rgba(27,94,190,0.06)` + primary テキスト。font-size: 11-12px。サービスタグ・技術タグに使用。
+## Imagery
 
-### Section Labels
+### 代表者顔写真
+- 現在: `/images/daiki_profile.jpg`（大学卒業写真を暫定使用）
+- 将来: プロ撮影、自然光、ジャケット着用、軽い笑顔、1500×1500px以上
+- ヒーロー右側（64×64 rounded-full）と会社情報ページで使用
 
-`text-transform: uppercase` + Inter 700 + ブルーグラデーション `background-clip: text`。各セクション冒頭に配置し、英語キーワードで視覚的なリズムを作る。
+### クライアントロゴ
+- **フルカラー表示**（グレースケール化禁止）
+- 白背景カード上、min-height 120px
+- 根拠：「グレースケール化はB2C SaaSの慣習。福岡の中小企業ターゲットには具体感が重要」
+- ロゴ画像なし時はテキスト表示（color:#595959、コントラスト比5.91:1）
+- 「※ロゴ掲載は各社の許諾を得ています」注記を必ず付記
 
-### Navigation
+### 写真フィルター
+- 彩度-10%、コントラスト+5% で「新聞社のデジタル版」トーン統一
 
-sticky ヘッダー。h-16。左ロゴ + 中央ナビ + 右CTA群。モバイルはハンバーガーメニュー展開。
+### AI生成画像
+- **使用禁止**。すべて実写または許諾済み素材を使用
 
-### FAQ Accordion
-
-ボーダーカード内にボタン + 非表示回答。クリックで展開、chevron アイコンが 180deg 回転。排他制御（1つ開くと他が閉じる）。
+---
 
 ## Do's and Don'ts
 
-- Do: LINE Green は LINE CTA ボタンのみに使用する
-- Do: セクション間は必ず 96px の余白を確保する
-- Do: 見出しは Inter 優先、本文は Noto Sans JP 優先にする
-- Do: ゴールド (#C8A15A) は装飾ラインとグラデーションのアクセントに限定する
-- Do: WCAG AA コントラスト比（4.5:1以上）を維持する
-- Don't: ゴールドを背景色やボタン背景に使用しない
-- Don't: 影を多用しない（hover 時の shadow-md のみ許可）
-- Don't: font-weight: 800-900 を本文テキストに使用しない
-- Don't: ブランドグラデーション以外のグラデーションを UI 要素に適用しない
-- Don't: opacity による色の薄め以外でグレー系の中間色を増やさない
-- Do: アクセント・ネオン（ライムイエロー）は「先進性」を表す戦略的アクセントとしてのみ使用。使用率10%以下、原則として小要素（バッジ、矢印、下線、強調記号、注釈マーカー）に限定する
-- Don't: アクセント・ネオンを背景全面・ボタン背景・大セクションに使用しない
-- Don't: アクセント・ネオンを Primary や Secondary より目立たせない（補助役を厳守）
+### Do's
+- LINE Green は LINE CTA ボタンのみに使用する
+- セクション間は 96px の余白を確保する
+- 見出しは Inter 優先、本文は Noto Sans JP 優先
+- WCAG AA コントラスト比（4.5:1以上）を全テキストで維持する
+- 1画面に主CTAは1つ（btn-primary）、副はゴーストで一段下げる
+- 数字には tabular-nums を適用する
+- 補助金セクションには必ず三層モデルと免責文を表示する
+
+### Don'ts
+- **CTAに btn-accent-lime を汎用使用しない**（補助金最重要バナー限定）
+- **PCグローバルナビにハンバーガーを使用しない**（≥768pxは常時可視）
+- **「申請代行」「申請サポート無料」表現を使用しない**（行政書士法違反）
+- **「DX推進センター連携済」「登録済」と書かない**（準備中のため虚偽）
+- ゴールドを背景色やボタン背景に使用しない
+- 影を多用しない（hover 時の shadow-md のみ許可）
+- font-weight 800-900 を h2/h3/本文に使用しない（h1・巨大数字・ロゴのみ）
+- 「!」を多用しない（B2Bの信頼性に反する。「。」または削除）
+- ブランドグラデーション以外のグラデーションを UI 要素に適用しない
+- アクセント・ネオンを Primary や Secondary より目立たせない
+
+---
+
+## Layout
+
+- **最大幅:** 1280px（ヒーロー）/ 1152px（コンテンツ）/ 1024px（補助金セクション）
+- **グリッド:** CSS Grid。ヒーローは12col（左7+右5）、サービスは4col
+- **セクション間隔:** padding: 96px（section-padding）/ 60px（section-padding-sm）
+- **8px ベースグリッド:** すべてのスペーシングは 8px の倍数
+- **Hero:** min-height: 100vh。左7col（コピー+CTA）+ 右5col（代表者カード+数字グリッド）
+- **Footer:** ダーク維持（#0F1117）。ロゴの `.ai` は #D8FF00（唯一の意図的ライム使用箇所）
+
+---
+
+## Changelog
+
+### v0.3.0 (2026-05-26) — Phase B リサーチ反映
+- 60-30-10則の導入（Kelley Gordon, NN/g）
+- Type Scale 階層化（h1=800/h2=700/h3=600）
+- ボタン体系の再設計（btn-primary/secondary-ghost/accent-lime）
+- btn-neon 完全廃止（ライム使用率5%以下達成）
+- PCグローバルナビ常時可視化（NN/g 179名UT根拠）
+- 補助金活用セクション新設（/#subsidies、三層モデル）
+- ヒーロー右側に代表者カード+数字グリッド追加
+- クライアントセクションのカード型レイアウト化
+- 問い合わせフォームにご相談内容セレクト追加
+- Subsidy Section Rules（改正行政書士法対応）追記
+- Imagery Rules（AI生成画像禁止、グレースケール禁止）追記
+
+### v0.2.0 (2026-05-23) — Phase A
+- ライトファースト配色システム導入
+- Primary #1B5EBE / Secondary #C8A15A 確定
+- テーマトグル廃止
+
+### v0.1.0 (2026-05-22) — Initial
+- ダークテーマベースの初期デザイン
