@@ -365,13 +365,17 @@ const faqSchema = {
           {[
             { title: '三栄リフォーム × AltShift', tags: ['Web制作','SEO/GEO'], image: '/images/cases/sanei-reform.jpg', desc: 'AI時代の検索対応Webサイト。SEO/GEO対策でGoogleとAIに選ばれるコンテンツを構築。', url: 'https://sanei-reform.vercel.app', slug: null },
             { title: '株式会社BEGINS × AltShift', tags: ['業務自動化','HR-Tech'], image: '/images/cases/begins.jpg', desc: 'コールセンター集計の完全自動化。採用業務工数50%削減を実現。', url: null, slug: null },
-            { title: 'TYDロジスティクス × AltShift', tags: ['物流','AI業務自動化','LINE自動化'], image: '/images/cases/tyd-logistics.jpg', desc: '物流現場の属人化を解消。LINE Bot＋配車システムで業務をAI化。', url: null, slug: '/cases/tyd-logistics' },
+            { title: 'TYDロジスティクス × AltShift', tags: ['物流','AI業務自動化','LINE自動化'], image: null, desc: '物流現場の属人化を解消。LINE Bot＋配車システムで業務をAI化。', url: null, slug: '/cases/tyd-logistics' },
           ].map(c => (
             <div class="reveal t-card overflow-hidden">
               <!-- IMAGE SLOT -->
               <div class="media-slot" style="aspect-ratio:16/9; position:relative;">
-                <img src={c.image} alt={c.title} loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
-                <!-- Neon glow overlay (Tomoro photo style) -->
+                {c.image
+                  ? <img src={c.image} alt={c.title} loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+                  : <div style="width:100%;height:100%;background:var(--color-bg-soft);display:flex;align-items:center;justify-content:center;">
+                      <p style="font-size:14px;font-weight:600;color:var(--color-ink-muted);">{c.title}</p>
+                    </div>
+                }
                 <div class="neon-glow-circle" style="bottom:20%; left:30%;"></div>
               </div>
               <div class="p-6">
