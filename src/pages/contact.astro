@@ -37,6 +37,21 @@ import Footer from '../components/Footer.astro'
               ))}
 
               <div>
+                <label style="display:block; font-size:12px; font-weight:500; color:var(--color-ink-muted); margin-bottom:6px;" for="inquiry-type">
+                  ご相談内容 <span style="color:#DC2626;">*</span>
+                </label>
+                <select id="inquiry-type" name="inquiry-type" required
+                        style="width:100%; border:1px solid var(--color-border-card); border-radius:8px; padding:12px 16px; font-size:14px; background:var(--color-bg-card); color:var(--color-ink); transition:all 0.2s; appearance:none; background-image:url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%226B6B6B%22 stroke-width=%222%22%3E%3Cpolyline points=%226 9 12 15 18 9%22/%3E%3C/svg%3E'); background-repeat:no-repeat; background-position:right 16px center;">
+                  <option value="" disabled selected>選択してください</option>
+                  <option value="ai-consulting">AI導入のご相談</option>
+                  <option value="ai-system">カスタムAIシステム開発</option>
+                  <option value="subsidy">補助金活用のご相談</option>
+                  <option value="subsidy-doc">補助金詳細資料の希望</option>
+                  <option value="other">その他</option>
+                </select>
+              </div>
+
+              <div>
                 <label style="display:block; font-size:12px; font-weight:500; color:var(--color-ink-muted); margin-bottom:6px;" for="message">
                   お問い合わせ内容 <span style="color:#DC2626;">*</span>
                 </label>
@@ -149,6 +164,15 @@ import Footer from '../components/Footer.astro'
   const btnLoading = document.getElementById('btn-loading')!
   const btnArrow = document.getElementById('btn-arrow')!
 
+  // URLパラメータ ?type=subsidy-doc 対応
+  const params = new URLSearchParams(window.location.search)
+  const presetType = params.get('type')
+  if (presetType) {
+    const select = document.getElementById('inquiry-type') as HTMLSelectElement
+    const option = select.querySelector(`option[value="${presetType}"]`)
+    if (option) select.value = presetType
+  }
+
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
     errorDiv.style.display = 'none'
@@ -172,8 +196,9 @@ import Footer from '../components/Footer.astro'
           company: data.company || '未記入',
           email: data.email,
           tel: data.tel || '未記入',
+          'inquiry-type': data['inquiry-type'],
           message: data.message,
-          _subject: `【AltShift】${data.company || data.name}様からのお問い合わせ`,
+          _subject: `【AltShift】${data.company || data.name}様からのお問い合わせ（${data['inquiry-type']}）`,
         }),
       })
 
