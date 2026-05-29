@@ -22,7 +22,7 @@ const schemaData = {
 }
 
 const faqs = [
-  { q: '補助金は必ず採択されますか？', a: '採択を保証するものではありませんが、過去の申請実績に基づいた計画書作成を伴走支援します。不採択の場合も、再申請や他の補助金制度のご案内が可能です。' },
+  { q: '補助金は必ず採択されますか？', a: '採択を保証するものではありませんが、事業計画の策定助言と技術要件の文書化をAltShiftが担当し、申請書類の作成は提携行政書士が担当する体制で支援します。不採択の場合も、再申請や他の補助金制度のご案内が可能です。' },
   { q: '開発期間中の費用はいつ支払いますか？', a: '補助金活用の場合、採択後に着手金（全体の30%）、中間納品時（30%）、本番稼働時（40%）の3回払いが基本です。補助金の入金タイミングに合わせた調整も可能です。' },
   { q: '自社にエンジニアがいなくても運用できますか？', a: 'はい。運用は専門知識不要で使える管理画面を提供します。本番稼働後3ヶ月間の運用サポート込みで、その後もオプションで継続サポートが可能です。' },
   { q: '福岡以外でも対応可能ですか？', a: 'はい。オンラインで全国対応しています。ヒアリング・設計・開発・運用すべてリモートで完結可能です。福岡市内・近郊の企業様には訪問対応も行っています。' },
@@ -71,7 +71,7 @@ const faqSchema = {
             </p>
             <p class="text-xs mb-1" style="color:var(--color-ink-dim);">現場常駐型（Forward Deployed Engineer）で、貴社の業務に入り込みます。</p>
             <div class="flex flex-wrap gap-4 mt-6">
-              <a href="/contact" class="btn-neon" style="font-size:14px; padding:14px 28px;">
+              <a href="/contact" class="btn-primary">
                 無料で相談する
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
@@ -87,17 +87,17 @@ const faqSchema = {
     </section>
 
     <!-- ========== 3 PILLARS ========== -->
-    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid rgba(255,255,255,0.06);">
+    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid var(--color-border);">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <h2 class="heading-lg text-center mb-16 reveal">このサービスで実現すること</h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger">
           {[
             { num: '01', title: '業務工数を最大50%削減', desc: '反復的な手作業をAIが代替。スタッフは本来注力すべきコア業務に集中できます。', icon: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>` },
             { num: '02', title: '24時間365日の自動処理', desc: '夜間・休日も止まらないAIシステム。人が寝ている間もビジネスが動き続けます。', icon: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>` },
-            { num: '03', title: '補助金活用で実質負担1/2〜2/3', desc: '省力化投資補助金の申請を伴走支援。採択実績に基づく計画書作成で、コスト負担を大幅に軽減。', icon: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>` },
+            { num: '03', title: '補助金活用で実質負担1/2〜2/3', desc: '事業計画の策定助言と技術要件の文書化をAltShiftが担当。申請書類は提携行政書士が作成し、コスト負担を大幅に軽減。', icon: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>` },
           ].map(p => (
             <div class="reveal t-card p-8 text-center">
-              <div style="color:var(--color-neon); margin-bottom:16px; display:inline-block;" set:html={p.icon} />
+              <div style="color:var(--color-primary); margin-bottom:16px; display:inline-block;" set:html={p.icon} />
               <p class="service-num mb-2" style="font-size:14px;">{p.num}</p>
               <h3 class="heading-sm mb-3">{p.title}</h3>
               <p class="body-sm">{p.desc}</p>
@@ -119,12 +119,12 @@ const faqSchema = {
               'Google Apps Script / API連携',
               'データ集計・レポート自動生成',
               '運用サポート・機能追加（3ヶ月）',
-              '補助金申請の伴走支援',
+              '補助金活用の助言・提携専門家による申請支援',
             ].map(item => (
               <div class="flex items-start gap-3">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" style="flex-shrink:0; margin-top:2px;">
-                  <circle cx="12" cy="12" r="10" stroke="var(--color-neon)" stroke-width="1.5"/>
-                  <path d="M8 12l3 3 5-5" stroke="var(--color-neon)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                  <circle cx="12" cy="12" r="10" stroke="var(--color-primary)" stroke-width="1.5"/>
+                  <path d="M8 12l3 3 5-5" stroke="var(--color-primary)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
                 <p class="body-sm">{item}</p>
               </div>
@@ -135,10 +135,10 @@ const faqSchema = {
     </section>
 
     <!-- ========== PRICING TABLE ========== -->
-    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid rgba(255,255,255,0.06);">
+    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid var(--color-border);">
       <div class="max-w-3xl mx-auto px-6 lg:px-8">
         <h2 class="heading-lg text-center mb-12 reveal">価格と補助金</h2>
-        <div class="reveal t-card p-8" style="border-color:rgba(216,255,0,0.2); background:rgba(216,255,0,0.03);">
+        <div class="reveal t-card p-8" style="border-color:rgba(27,94,190,0.2); background:rgba(27,94,190,0.03);">
           <div class="flex flex-col gap-5">
             <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
               <p class="text-sm font-semibold" style="color:var(--color-ink);">表示価格</p>
@@ -146,18 +146,18 @@ const faqSchema = {
             </div>
             <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
               <p class="text-sm font-semibold" style="color:var(--color-ink);">想定補助金</p>
-              <p class="text-sm font-bold" style="color:var(--color-neon);">省力化投資補助金〈一般型〉</p>
+              <p class="text-sm font-bold" style="color:var(--color-primary);">省力化投資補助金〈一般型〉</p>
             </div>
             <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
               <p class="text-sm font-semibold" style="color:var(--color-ink);">補助率</p>
-              <p class="text-sm font-bold" style="color:var(--color-neon);">1/2<span class="text-xs font-normal ml-1" style="color:var(--color-ink-dim);">（小規模事業者・再生事業者は2/3）</span></p>
+              <p class="text-sm font-bold" style="color:var(--color-primary);">1/2<span class="text-xs font-normal ml-1" style="color:var(--color-ink-dim);">（小規模事業者・再生事業者は2/3）</span></p>
             </div>
-            <div class="flex items-center justify-between py-4 mt-2" style="border-top:2px solid var(--color-neon);">
+            <div class="flex items-center justify-between py-4 mt-2" style="border-top:2px solid var(--color-primary);">
               <p class="text-sm font-bold" style="color:var(--color-ink);">実質負担額</p>
-              <p class="text-2xl font-bold" style="color:var(--color-neon);">150万円〜400万円</p>
+              <p class="text-2xl font-bold" style="color:var(--color-primary);">150万円〜400万円</p>
             </div>
           </div>
-          <p class="text-xs mt-4" style="color:var(--color-ink-dim);">※申請支援込み。採択保証ではありません。補助金の詳細は<a href="/simulator" style="color:var(--color-neon); text-decoration:underline;">シミュレーター</a>でも確認できます。</p>
+          <p class="text-xs mt-4" style="color:var(--color-ink-dim);">※提携行政書士による申請支援体制あり。採択保証ではありません。補助金の詳細は<a href="/simulator" style="color:var(--color-primary); text-decoration:underline;">シミュレーター</a>でも確認できます。</p>
         </div>
       </div>
     </section>
@@ -169,13 +169,13 @@ const faqSchema = {
         <div class="grid grid-cols-1 md:grid-cols-5 gap-4 stagger">
           {[
             { week: 'Week 1-2', title: '業務ヒアリング・診断', desc: '現場の業務フローを分析し、AI化の優先度を診断。' },
-            { week: 'Week 3-4', title: 'システム設計・補助金申請', desc: 'AI化の設計書作成と補助金申請を並行で進行。' },
+            { week: 'Week 3-4', title: 'システム設計・補助金準備', desc: 'AI化の設計書作成と補助金活用の事業計画策定を並行で進行。' },
             { week: 'Week 5-10', title: '開発・テスト', desc: 'アジャイル開発でプロトタイプを反復改善。実データで検証。' },
             { week: 'Week 11-12', title: '本番投入・運用引継ぎ', desc: '本番環境にデプロイ。運用マニュアルと研修を提供。' },
             { week: '以降', title: '月次運用サポート', desc: 'モニタリング・精度改善・機能追加をオプションで継続。' },
           ].map((s, i) => (
             <div class="reveal t-card p-5 flex flex-col">
-              <p class="text-xs font-bold mb-2" style={`color:${i < 4 ? 'var(--color-neon)' : 'var(--color-ink-dim)'}; letter-spacing:0.05em;`}>{s.week}</p>
+              <p class="text-xs font-bold mb-2" style={`color:${i < 4 ? 'var(--color-primary)' : 'var(--color-ink-dim)'}; letter-spacing:0.05em;`}>{s.week}</p>
               <h3 class="text-sm font-bold mb-2" style="color:var(--color-ink);">{s.title}</h3>
               <p class="text-xs flex-1" style="color:var(--color-ink-dim);">{s.desc}</p>
             </div>
@@ -185,7 +185,7 @@ const faqSchema = {
     </section>
 
     <!-- ========== BUSINESS AREAS ========== -->
-    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid rgba(255,255,255,0.06);">
+    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid var(--color-border);">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <h2 class="heading-lg text-center mb-16 reveal">対応可能な業務領域</h2>
         <div class="grid grid-cols-2 md:grid-cols-3 gap-5 stagger">
@@ -198,7 +198,7 @@ const faqSchema = {
             { title: '経理・レポート自動化', desc: '請求書処理、経費精算、月次レポートの自動生成。', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>` },
           ].map(area => (
             <div class="reveal t-card p-6 text-center">
-              <div style="color:var(--color-neon); margin-bottom:12px; display:inline-block;" set:html={area.icon} />
+              <div style="color:var(--color-primary); margin-bottom:12px; display:inline-block;" set:html={area.icon} />
               <h3 class="heading-sm mb-2">{area.title}</h3>
               <p class="text-xs" style="color:var(--color-ink-dim);">{area.desc}</p>
             </div>
@@ -212,32 +212,32 @@ const faqSchema = {
       <div class="max-w-3xl mx-auto px-6 lg:px-8">
         <h2 class="heading-lg text-center mb-12 reveal">導入事例</h2>
         <div class="reveal t-card p-8">
-          <p class="text-xs font-semibold mb-2" style="color:var(--color-neon); letter-spacing:0.05em;">CASE STUDY</p>
+          <p class="text-xs font-semibold mb-2" style="color:var(--color-primary); letter-spacing:0.05em;">CASE STUDY</p>
           <h3 class="heading-md mb-3">大手物流企業A社</h3>
           <p class="body-sm mb-4">配車・受発注業務にAI自動化システムを導入。手作業で行っていた配車スケジューリングとデータ集計をAIが代替し、業務工数を大幅に削減。省力化投資補助金を活用し、実質負担を抑えて導入を実現。</p>
           <div class="grid grid-cols-3 gap-4 mb-4">
-            <div class="text-center py-3" style="background:rgba(216,255,0,0.04); border-radius:8px;">
+            <div class="text-center py-3" style="background:rgba(27,94,190,0.04); border-radius:8px;">
               <p class="text-xs" style="color:var(--color-ink-dim);">業務工数</p>
-              <p class="text-lg font-bold" style="color:var(--color-neon);">50%削減</p>
+              <p class="text-lg font-bold" style="color:var(--color-primary);">50%削減</p>
             </div>
-            <div class="text-center py-3" style="background:rgba(216,255,0,0.04); border-radius:8px;">
+            <div class="text-center py-3" style="background:rgba(27,94,190,0.04); border-radius:8px;">
               <p class="text-xs" style="color:var(--color-ink-dim);">導入期間</p>
-              <p class="text-lg font-bold" style="color:var(--color-neon);">10週間</p>
+              <p class="text-lg font-bold" style="color:var(--color-primary);">10週間</p>
             </div>
-            <div class="text-center py-3" style="background:rgba(216,255,0,0.04); border-radius:8px;">
+            <div class="text-center py-3" style="background:rgba(27,94,190,0.04); border-radius:8px;">
               <p class="text-xs" style="color:var(--color-ink-dim);">補助金活用</p>
-              <p class="text-lg font-bold" style="color:var(--color-neon);">2/3補助</p>
+              <p class="text-lg font-bold" style="color:var(--color-primary);">2/3補助</p>
             </div>
           </div>
           <div class="text-center mt-4">
-            <a href="/cases/tyd-logistics" class="text-sm font-semibold" style="color:var(--color-neon);">事例の詳細を見る →</a>
+            <a href="/cases/tyd-logistics" class="text-sm font-semibold" style="color:var(--color-primary);">事例の詳細を見る →</a>
           </div>
         </div>
       </div>
     </section>
 
     <!-- ========== FAQ ========== -->
-    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid rgba(255,255,255,0.06);">
+    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid var(--color-border);">
       <div class="max-w-3xl mx-auto px-6 lg:px-8">
         <h2 class="heading-lg text-center mb-12 reveal">よくある質問</h2>
         <div class="flex flex-col gap-4 stagger">
@@ -261,11 +261,11 @@ const faqSchema = {
     <!-- ========== BOTTOM CTA ========== -->
     <section class="section-padding" style="background:var(--color-bg);">
       <div class="max-w-3xl mx-auto px-6 lg:px-8">
-        <div class="reveal t-card p-10 text-center" style="border-color:rgba(216,255,0,0.2); background:rgba(216,255,0,0.03);">
+        <div class="reveal t-card p-10 text-center" style="border-color:rgba(27,94,190,0.2); background:rgba(27,94,190,0.03);">
           <h2 class="heading-md mb-4">無料相談で、貴社の業務が<br class="hidden md:inline" />AI化可能か診断します。</h2>
           <p class="body-sm mb-8" style="max-width:480px; margin:0 auto;">現場の業務フローをヒアリングし、AI化の優先度・想定ROI・最適な補助金を無料でご提案します。</p>
           <div class="flex flex-wrap gap-4 justify-center">
-            <a href="/contact" class="btn-neon" style="font-size:14px; padding:14px 28px;">
+            <a href="/contact" class="btn-primary">
               無料で相談する
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
@@ -292,7 +292,7 @@ const faqSchema = {
   }
   details[open] .faq-chevron {
     transform: rotate(180deg);
-    color: var(--color-neon);
+    color: var(--color-primary);
   }
   details summary::-webkit-details-marker {
     display: none;

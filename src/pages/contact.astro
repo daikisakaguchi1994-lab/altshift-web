@@ -28,7 +28,7 @@ import Footer from '../components/Footer.astro'
               ].map(f => (
                 <div>
                   <label style="display:block; font-size:12px; font-weight:500; color:var(--color-ink-muted); margin-bottom:6px;" for={f.id}>
-                    {f.label} {f.required ? <span style="color:var(--color-neon);">*</span> : <span style="font-weight:300;">（任意）</span>}
+                    {f.label} {f.required ? <span style="color:#DC2626;">*</span> : <span style="font-weight:300;">（任意）</span>}
                   </label>
                   <input type={f.type} id={f.id} name={f.id} required={f.required}
                          style="width:100%; border:1px solid var(--color-border-card); border-radius:8px; padding:12px 16px; font-size:14px; background:var(--color-bg-card); color:var(--color-ink); transition:all 0.2s;"
@@ -37,8 +37,23 @@ import Footer from '../components/Footer.astro'
               ))}
 
               <div>
+                <label style="display:block; font-size:12px; font-weight:500; color:var(--color-ink-muted); margin-bottom:6px;" for="inquiry-type">
+                  ご相談内容 <span style="color:#DC2626;">*</span>
+                </label>
+                <select id="inquiry-type" name="inquiry-type" required
+                        style="width:100%; border:1px solid var(--color-border-card); border-radius:8px; padding:12px 16px; font-size:14px; background:var(--color-bg-card); color:var(--color-ink); transition:all 0.2s; appearance:none; background-image:url('data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%2212%22 height=%2212%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%226B6B6B%22 stroke-width=%222%22%3E%3Cpolyline points=%226 9 12 15 18 9%22/%3E%3C/svg%3E'); background-repeat:no-repeat; background-position:right 16px center;">
+                  <option value="" disabled selected>選択してください</option>
+                  <option value="ai-consulting">AI導入のご相談</option>
+                  <option value="ai-system">カスタムAIシステム開発</option>
+                  <option value="subsidy">補助金活用のご相談</option>
+                  <option value="subsidy-doc">補助金詳細資料の希望</option>
+                  <option value="other">その他</option>
+                </select>
+              </div>
+
+              <div>
                 <label style="display:block; font-size:12px; font-weight:500; color:var(--color-ink-muted); margin-bottom:6px;" for="message">
-                  お問い合わせ内容 <span style="color:var(--color-neon);">*</span>
+                  お問い合わせ内容 <span style="color:#DC2626;">*</span>
                 </label>
                 <textarea id="message" name="message" required rows="5"
                           style="width:100%; border:1px solid var(--color-border-card); border-radius:8px; padding:12px 16px; font-size:14px; background:var(--color-bg-card); color:var(--color-ink); resize:none; transition:all 0.2s;"
@@ -51,7 +66,7 @@ import Footer from '../components/Footer.astro'
               </div>
 
               <div>
-                <button type="submit" id="submit-btn" class="btn-neon" style="padding:14px 32px;">
+                <button type="submit" id="submit-btn" class="btn-primary" style="padding:14px 32px;">
                   <span id="btn-text">送信する</span>
                   <span id="btn-loading" style="display:none;">送信中...</span>
                   <svg id="btn-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -68,8 +83,8 @@ import Footer from '../components/Footer.astro'
 
             <!-- Success message -->
             <div id="form-success" style="display:none;" class="t-card p-8 text-center">
-              <div style="width:64px; height:64px; border-radius:50%; background:rgba(216,255,0,0.15); display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
-                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#D8FF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <div style="width:64px; height:64px; border-radius:50%; background:rgba(27,94,190,0.1); display:flex; align-items:center; justify-content:center; margin:0 auto 20px;">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="#1B5EBE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <polyline points="20 6 9 17 4 12"/>
                 </svg>
               </div>
@@ -103,8 +118,8 @@ import Footer from '../components/Footer.astro'
               </div>
             </div>
 
-            <div class="t-card p-6" style="border-color:rgba(216,255,0,0.15); background:rgba(216,255,0,0.03);">
-              <p class="text-xs font-semibold mb-3" style="color:var(--color-neon); letter-spacing:0.1em; text-transform:uppercase;">LINE</p>
+            <div class="t-card p-6" style="border-color:rgba(6,199,85,0.2); background:rgba(6,199,85,0.04);">
+              <p class="text-xs font-semibold mb-3" style="color:#06C755; letter-spacing:0.1em; text-transform:uppercase;">LINE</p>
               <p class="body-sm mb-4">LINEでもご相談を受け付けています。</p>
               <a href="https://lin.ee/VOiIxYB" target="_blank" rel="noopener noreferrer" class="btn-line" style="width:100%; justify-content:center; font-size:14px; padding:12px 20px;">
                 <svg width="16" height="16" viewBox="0 0 48 48" fill="white">
@@ -119,15 +134,15 @@ import Footer from '../components/Footer.astro'
               <p class="text-xs font-semibold mb-4" style="color:var(--color-ink-muted); letter-spacing:0.1em; text-transform:uppercase;">実績</p>
               <div class="flex flex-col gap-3">
                 <div class="flex items-center gap-3">
-                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-neon); flex-shrink:0;"></div>
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-primary); flex-shrink:0;"></div>
                   <p class="text-sm" style="color:var(--color-ink);">導入実績 4社</p>
                 </div>
                 <div class="flex items-center gap-3">
-                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-neon); flex-shrink:0;"></div>
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-primary); flex-shrink:0;"></div>
                   <p class="text-sm" style="color:var(--color-ink);">採用業務工数 50%削減</p>
                 </div>
                 <div class="flex items-center gap-3">
-                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-neon); flex-shrink:0;"></div>
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-primary); flex-shrink:0;"></div>
                   <p class="text-sm" style="color:var(--color-ink);">最短2週間で戦略策定</p>
                 </div>
               </div>
@@ -148,6 +163,15 @@ import Footer from '../components/Footer.astro'
   const btnText = document.getElementById('btn-text')!
   const btnLoading = document.getElementById('btn-loading')!
   const btnArrow = document.getElementById('btn-arrow')!
+
+  // URLパラメータ ?type=subsidy-doc 対応
+  const params = new URLSearchParams(window.location.search)
+  const presetType = params.get('type')
+  if (presetType) {
+    const select = document.getElementById('inquiry-type') as HTMLSelectElement
+    const option = select.querySelector(`option[value="${presetType}"]`)
+    if (option) select.value = presetType
+  }
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault()
@@ -172,8 +196,9 @@ import Footer from '../components/Footer.astro'
           company: data.company || '未記入',
           email: data.email,
           tel: data.tel || '未記入',
+          'inquiry-type': data['inquiry-type'],
           message: data.message,
-          _subject: `【AltShift】${data.company || data.name}様からのお問い合わせ`,
+          _subject: `【AltShift】${data.company || data.name}様からのお問い合わせ（${data['inquiry-type']}）`,
         }),
       })
 

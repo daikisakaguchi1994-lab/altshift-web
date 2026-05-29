@@ -10,7 +10,7 @@ export interface Props {
 
 const {
   title = 'AltShift｜福岡の中小企業向けAIコンサルティング・AI導入支援',
-  description = '福岡発、中小企業専門のAIコンサルティング。AI導入戦略からシステム開発・Web制作・LINE自動化まで一貫支援。月額3万円〜。無料相談受付中。',
+  description = '福岡発、中小企業専門のAIコンサルティング。AI導入戦略からシステム開発・Web制作・LINE自動化まで一貫支援。無料相談受付中。',
   ogImage = '/images/og-default.png',
   schemaData,
 } = Astro.props
@@ -43,17 +43,6 @@ const ogImageURL = new URL(ogImage, 'https://altshift.jp').href
     <link rel="alternate" hreflang="ja" href={canonicalURL} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <title>{title}</title>
-    <script is:inline>
-      (function() {
-        var t = localStorage.getItem('theme');
-        if (t === 'light') {
-          document.documentElement.setAttribute('data-theme', 'light');
-        } else {
-          localStorage.removeItem('theme');
-          document.documentElement.removeAttribute('data-theme');
-        }
-      })();
-    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -123,7 +112,7 @@ const ogImageURL = new URL(ogImage, 'https://altshift.jp').href
           {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "顧客接点の自動化", "description": "24時間365日自動応答で機会損失ゼロ"}}
         ]
       },
-      "priceRange": "月額3万円〜50万円",
+      "priceRange": "戦略診断30万円〜、月額顧問20万円〜、Embedded CAIO 50万円〜",
       "openingHours": "Mo-Fr 10:00-18:00",
       "sameAs": ["https://lin.ee/VOiIxYB"]
     }

@@ -54,7 +54,7 @@ const schemaData = {
         <div class="reveal mb-24">
           <h2 class="heading-lg text-center mb-12">導入前後の変化</h2>
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            <div class="t-card p-6" style="border-color:rgba(255,255,255,0.05);">
+            <div class="t-card p-6" style="border-color:var(--color-border);">
               <p class="text-xs font-semibold mb-4" style="color:var(--color-ink-dim); text-transform:uppercase; letter-spacing:0.1em;">Before</p>
               <ul class="flex flex-col gap-3">
                 {['営業時間外の問い合わせは翌日対応', '手動でのメッセージ配信に毎週2時間', '顧客情報がバラバラで管理できない', '予約の無断キャンセルが月5件以上'].map(item => (
@@ -65,12 +65,12 @@ const schemaData = {
                 ))}
               </ul>
             </div>
-            <div class="t-card p-6" style="border-color:rgba(216,255,0,0.15);">
-              <p class="text-xs font-semibold mb-4" style="color:var(--color-neon); text-transform:uppercase; letter-spacing:0.1em;">After</p>
+            <div class="t-card p-6" style="border-color:rgba(27,94,190,0.2);">
+              <p class="text-xs font-semibold mb-4" style="color:var(--color-primary); text-transform:uppercase; letter-spacing:0.1em;">After</p>
               <ul class="flex flex-col gap-3">
                 {['24時間365日自動応答で機会損失ゼロ', 'メッセージ配信は設定1回で自動運用', '顧客情報を一元管理、セグメント配信可能', '自動リマインドで無断キャンセル80%減'].map(item => (
                   <li class="flex items-start gap-2 text-sm" style="color:var(--color-ink);">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#D8FF00" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1B5EBE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:2px;"><polyline points="20 6 9 17 4 12"/></svg>
                     {item}
                   </li>
                 ))}
@@ -86,7 +86,7 @@ const schemaData = {
             <p class="body-sm">御社のLINE活用状況をヒアリングし、最適な自動化プランをご提案します。</p>
           </div>
           <div class="flex gap-3 flex-shrink-0">
-            <a href="/contact" class="btn-neon whitespace-nowrap">無料で相談する</a>
+            <a href="/contact" class="btn-primary whitespace-nowrap">無料で相談する</a>
             <a href="https://lin.ee/VOiIxYB" target="_blank" rel="noopener noreferrer" class="btn-line whitespace-nowrap">
               <svg width="14" height="14" viewBox="0 0 48 48" fill="white"><path d="M24 4C12.95 4 4 11.86 4 21.5c0 5.5 2.87 10.4 7.36 13.6L9 40l6.5-2.8A22.4 22.4 0 0024 39c11.05 0 20-7.86 20-17.5S35.05 4 24 4z"/></svg>
               LINE

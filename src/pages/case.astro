@@ -54,7 +54,7 @@ const cases = [
     tags: ['物流', 'AI業務自動化', 'LINE自動化'],
     desc: '物流現場の属人化を解消。LINE Bot＋配車システムで業務をAI化。24時間自動受付と請求書自動生成を実現。',
     result: '配車業務の属人化解消・24時間自動受付',
-    image: '/images/cases/tyd-logistics.jpg',
+    image: null,
     slug: '/cases/tyd-logistics',
     url: null,
     period: '2026年5月',
@@ -75,9 +75,14 @@ const cases = [
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 stagger">
           {cases.map(c => (
-            <a href={c.slug} class="reveal t-card overflow-hidden block" style="text-decoration:none; color:inherit; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(216,255,0,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
+            <a href={c.slug} class="reveal t-card overflow-hidden block" style="text-decoration:none; color:inherit; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(27,94,190,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
               <div class="media-slot" style="aspect-ratio:16/9; position:relative;">
-                <img src={c.image} alt={c.company} loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+                {c.image
+                  ? <img src={c.image} alt={c.company} loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+                  : <div style="width:100%;height:100%;background:var(--color-bg-soft);display:flex;align-items:center;justify-content:center;">
+                      <p style="font-size:14px;font-weight:600;color:var(--color-ink-muted);">{c.company}</p>
+                    </div>
+                }
                 <div class="neon-glow-circle" style="bottom:15%; right:25%;"></div>
               </div>
               <div class="p-6">
@@ -90,7 +95,7 @@ const cases = [
                 <h3 class="heading-sm mb-2">{c.title}</h3>
                 <p class="body-sm mb-3">{c.desc}</p>
                 <div class="flex items-start gap-2 mb-4">
-                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-neon); flex-shrink:0; margin-top:6px;"></div>
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-primary); flex-shrink:0; margin-top:6px;"></div>
                   <p class="text-xs" style="color:var(--color-ink-muted);">{c.result}</p>
                 </div>
                 <span class="neon-link" style="font-size:13px;">詳しく見る <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></span>
@@ -105,7 +110,7 @@ const cases = [
             <h3 class="heading-md mb-2">お客様の課題に合わせてご提案します</h3>
             <p class="body-sm">まずは話を聞かせてください。</p>
           </div>
-          <a href="/contact" class="btn-neon whitespace-nowrap flex-shrink-0">
+          <a href="/contact" class="btn-primary whitespace-nowrap flex-shrink-0">
             お問い合わせ
           </a>
         </div>

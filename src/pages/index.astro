@@ -1,11 +1,12 @@
 ---
 import Layout from '../layouts/Layout.astro'
 import Nav from '../components/Nav.astro'
+import SubsidySection from '../components/SubsidySection.astro'
 import Footer from '../components/Footer.astro'
 
 const faqItems = [
   { q: 'AltShiftはどんなサービスですか？', a: '中小企業向けにAI導入を戦略から実装・運用まで一貫支援しています。ツール導入で終わらせず、現場で使いこなせる状態まで伴走します。' },
-  { q: '料金はいくらですか？', a: 'サービスにより異なります。Web制作・LINE自動化は月額3万円〜、AIコンサルティングは月額20万円〜、AI業務自動化は案件規模に応じてお見積もり。補助金活用で実質負担1/2〜2/3に抑えられます。' },
+  { q: '料金はいくらですか？', a: 'サービスにより異なります。Web制作・LINE自動化は月額3万円〜、AIコンサルティングは戦略診断30万円〜・月額顧問20万円〜、AI業務自動化は案件規模に応じてお見積もり。補助金活用で実質負担1/2〜2/3に抑えられます。' },
   { q: 'AIを使ったことがない会社でも大丈夫ですか？', a: 'はい。ゼロからの設計・設定・研修まで一貫サポート。むしろAI未経験の企業様こそ成果が出やすいパターンです。' },
   { q: 'どのくらいで成果が出ますか？', a: 'LINE自動化は翌月から、SEOは通常3〜6ヶ月。成果が出やすい施策から優先着手します。' },
   { q: '福岡以外でも対応できますか？', a: 'はい。オンラインで全国対応。福岡市内・近郊は訪問対応も可能です。' },
@@ -24,7 +25,7 @@ const faqSchema = {
 
 <Layout
   title="AltShift｜福岡の中小企業向けAIコンサルティング・AI導入支援"
-  description="福岡発、中小企業専門のAIコンサルティング。AI導入戦略・システム開発・Web制作・LINE自動化を月額3万円〜で一貫支援。採用業務工数50%削減の実績あり。無料相談受付中。"
+  description="福岡発、中小企業専門のAIコンサルティング。AI導入戦略・システム開発・Web制作・LINE自動化を一貫支援。採用業務工数50%削減の実績あり。無料相談受付中。"
   schemaData={faqSchema}
 >
   <Nav />
@@ -50,60 +51,62 @@ const faqSchema = {
       -->
 
       <!-- Content -->
-      <div style="position:relative; z-index:10; max-width:1200px; margin:0 auto; padding:160px 48px 100px; width:100%;">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-end">
+      <div style="position:relative; z-index:10; max-width:1280px; margin:0 auto; padding:160px 24px 100px; width:100%;">
+        <div class="grid grid-cols-12 gap-8 lg:gap-12 items-center">
 
-          <!-- Left: Heading -->
-          <div>
+          <!-- Left: 7カラム（ヒーローコピーv2 — 内容変更禁止）-->
+          <div class="col-span-12 lg:col-span-7">
             <div class="accent-line mb-8"></div>
             <h1 class="heading-hero" style="line-height:1.08;">
               現場に入り、<br/>
               AIを実装する。
             </h1>
-          </div>
-
-          <!-- Right: Description + CTAs -->
-          <div style="padding-bottom:8px;">
-            <p class="body-lg mb-3" style="max-width:480px;">
+            <p class="body-lg mt-6 mb-8" style="max-width:480px;">
               あなたの会社に、AIエンジニアを常駐させる。<br/>
-              診断2週間、稼働12週間。<a href="/simulator" style="color:var(--color-neon); text-decoration:underline; text-underline-offset:3px;">補助金活用で実質負担1/2〜2/3</a>。
+              診断2週間、稼働12週間。<a href="/simulator" style="color:var(--color-primary); text-decoration:underline; text-underline-offset:3px;">補助金活用で実質負担1/2〜2/3</a>。
             </p>
-            <p class="text-sm mb-8" style="color:var(--color-neon); font-weight:600;">中小企業向けFDE ／ 福岡発 ／ Claude × OpenAI</p>
             <div class="flex flex-wrap gap-4">
-              <a href="/contact" class="btn-neon" style="font-size:14px; padding:14px 28px;">
+              <a href="/contact" class="btn-primary">
                 無料で相談する
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
                 </svg>
               </a>
-              <a href="/case" class="btn-outline" style="font-size:14px; padding:14px 28px;">
+              <a href="/case" class="btn-secondary-ghost">
                 導入事例を見る
               </a>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
 
-    <!-- ========== NUMBERS (実績) ========== -->
-    <section style="background:var(--color-bg); border-top:1px solid rgba(255,255,255,0.06); border-bottom:1px solid rgba(255,255,255,0.06);">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center reveal stagger">
-          <div>
-            <p class="number-value" data-count="50" data-suffix="%">0%</p>
-            <p class="number-label">採用業務工数削減</p>
-          </div>
-          <div>
-            <p class="number-value" data-count="2" data-suffix="週間">0週間</p>
-            <p class="number-label">最短戦略策定</p>
-          </div>
-          <div>
-            <p class="number-value" data-count="4" data-suffix="社">0社</p>
-            <p class="number-label">導入実績</p>
-          </div>
-          <div>
-            <p class="number-value" data-count="365" data-suffix="日">0日</p>
-            <p class="number-label">24時間自動応答</p>
+          <!-- Right: 5カラム（数字グリッド）-->
+          <div class="col-span-12 lg:col-span-5 flex items-center">
+            <!-- 実績数字グリッド 2x2 -->
+            <div class="grid grid-cols-2 gap-3">
+              <div style="background:#FFFFFF; border:1px solid var(--color-border); border-radius:12px; padding:20px;">
+                <p style="font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px,3vw,36px); color:var(--color-ink); line-height:1; margin-bottom:4px; font-variant-numeric:tabular-nums;">
+                  50<span style="font-size:clamp(16px,2vw,20px); color:var(--color-primary);">%</span>
+                </p>
+                <p style="font-size:12px; color:var(--color-ink-muted); line-height:1.4;">業務効率化（実績平均）</p>
+              </div>
+              <div style="background:#FFFFFF; border:1px solid var(--color-border); border-radius:12px; padding:20px;">
+                <p style="font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px,3vw,36px); color:var(--color-ink); line-height:1; margin-bottom:4px; font-variant-numeric:tabular-nums;">
+                  2<span style="font-size:clamp(16px,2vw,20px); color:var(--color-primary);">週間</span>
+                </p>
+                <p style="font-size:12px; color:var(--color-ink-muted); line-height:1.4;">戦略診断パック納期</p>
+              </div>
+              <div style="background:#FFFFFF; border:1px solid var(--color-border); border-radius:12px; padding:20px;">
+                <p style="font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px,3vw,36px); color:var(--color-ink); line-height:1; margin-bottom:4px; font-variant-numeric:tabular-nums;">
+                  4<span style="font-size:clamp(16px,2vw,20px); color:var(--color-primary);">社</span>
+                </p>
+                <p style="font-size:12px; color:var(--color-ink-muted); line-height:1.4;">導入実績</p>
+              </div>
+              <div style="background:#FFFFFF; border:1px solid var(--color-border); border-radius:12px; padding:20px;">
+                <p style="font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px,3vw,36px); color:var(--color-ink); line-height:1; margin-bottom:4px; font-variant-numeric:tabular-nums;">
+                  365<span style="font-size:clamp(16px,2vw,20px); color:var(--color-primary);">日</span>
+                </p>
+                <p style="font-size:12px; color:var(--color-ink-muted); line-height:1.4;">伴走サポート</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -114,9 +117,9 @@ const faqSchema = {
       <!-- FULL-WIDTH MEDIA SLOT: Replace with hero video or image -->
       <div style="position:relative; width:100%; aspect-ratio:16/7; background:var(--color-bg-card); overflow:hidden;">
         <!-- Placeholder: gradient animation simulating AI visuals -->
-        <div style="position:absolute; inset:0; background: linear-gradient(135deg, #031B27 0%, #0A2535 30%, #071F2B 60%, #031B27 100%); display:flex; align-items:center; justify-content:center;">
-          <div style="width:280px; height:280px; border-radius:50%; background:radial-gradient(circle, rgba(216,255,0,0.2) 0%, rgba(216,255,0,0.05) 40%, transparent 70%); filter:blur(40px); animation: orbMove1 8s ease-in-out infinite alternate;"></div>
-          <p style="position:absolute; font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px,4vw,52px); color:rgba(255,255,255,0.9); letter-spacing:-0.02em; text-align:center; line-height:1.3;">
+        <div style="position:absolute; inset:0; background: linear-gradient(135deg, #F4F4F4 0%, #E8E8E8 30%, #F0F0F0 60%, #F4F4F4 100%); display:flex; align-items:center; justify-content:center;">
+          <div style="width:280px; height:280px; border-radius:50%; background:radial-gradient(circle, rgba(27,94,190,0.15) 0%, rgba(27,94,190,0.05) 40%, transparent 70%); filter:blur(40px); animation: orbMove1 8s ease-in-out infinite alternate;"></div>
+          <p style="position:absolute; font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px,4vw,52px); color:var(--color-ink); opacity:0.9; letter-spacing:-0.02em; text-align:center; line-height:1.3;">
             Beyond the<br/>ordinary
           </p>
         </div>
@@ -145,7 +148,7 @@ const faqSchema = {
               お客様の競争優位性の中心となるAIソリューションの設計、構築、運用を行っています。
             </p>
             <div class="flex items-center gap-3">
-              <div style="width:8px; height:8px; border-radius:50%; background:var(--color-neon);"></div>
+              <div style="width:8px; height:8px; border-radius:50%; background:var(--color-primary);"></div>
               <span style="font-size:14px; font-weight:500; color:var(--color-ink-sub);">中小企業専門 × AI特化 × 福岡発全国対応</span>
             </div>
           </div>
@@ -154,19 +157,29 @@ const faqSchema = {
     </section>
 
     <!-- ========== CLIENT LOGOS ========== -->
-    <section class="section-padding-sm" style="background:var(--color-bg);">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8 text-center">
-        <p class="body-md mb-10 reveal" style="color:var(--color-ink-muted);">
-          当社のクライアントには以下のような企業が含まれます
-        </p>
-        <div class="flex items-center justify-center gap-12 flex-wrap reveal">
-          <!-- CLIENT LOGO SLOTS: Replace with <img class="client-logo" src="..." alt="..." /> -->
-          {['TYDロジスティクス株式会社', '三栄リフォーム', '株式会社伸明', '株式会社BEGINS'].map(name => (
-            <span style="font-family:'Inter','Noto Sans JP',sans-serif; font-weight:700; font-size:16px; color:var(--color-ink); opacity:0.4; letter-spacing:0.02em;">
-              {name}
-            </span>
+    <section class="section-padding" style="background:var(--color-bg-soft);">
+      <div class="max-w-6xl mx-auto px-6">
+        <div class="text-center mb-12 reveal">
+          <p class="section-label mb-4" style="text-transform:uppercase; letter-spacing:0.1em; color:var(--color-primary);">Clients</p>
+          <h2 class="heading-lg">福岡の中小企業4社で実装中。</h2>
+        </div>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 stagger">
+          {[
+            { name: 'TYDロジスティクス', sub: '株式会社' },
+            { name: '三栄リフォーム', sub: '' },
+            { name: '株式会社伸明', sub: '' },
+            { name: '株式会社BEGINS', sub: '' },
+          ].map(client => (
+            <div class="reveal" style="background:#FFFFFF; border:1px solid var(--color-border); border-radius:12px; padding:24px; display:flex; align-items:center; justify-content:center; min-height:120px;">
+              <p style="font-family:'Inter','Noto Sans JP',sans-serif; font-weight:700; font-size:16px; color:#595959; text-align:center; line-height:1.5;">
+                {client.name}{client.sub && <><br /><span style="font-size:13px; font-weight:500;">{client.sub}</span></>}
+              </p>
+            </div>
           ))}
         </div>
+        <p class="text-center mt-8 reveal" style="font-size:13px; color:var(--color-ink-muted);">
+          ※ロゴ掲載は各社の許諾を得ています
+        </p>
       </div>
     </section>
 
@@ -184,8 +197,8 @@ const faqSchema = {
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger">
           {[
             { layer: 'Layer 1', title: '見つけてもらう', sub: 'Web × SEO × GEO', desc: 'Google検索・AI検索・Googleマップで上位表示。お客様があなたの会社を「見つけられる」状態を作ります。', color: '#1456FB' },
-            { layer: 'Layer 2', title: '逃さない', sub: 'LINE × チャットボット', desc: '24時間自動応答・予約管理・リマインド配信。問い合わせから来店・契約までの取りこぼしをゼロにします。', color: '#D8FF00' },
-            { layer: 'Layer 3', title: '育てる', sub: 'AI分析 × 改善ループ', desc: 'データに基づいた月次改善。KPI追跡・A/Bテスト・コンテンツ更新で、成果を継続的に引き上げます。', color: '#FFFFFF' },
+            { layer: 'Layer 2', title: '逃さない', sub: 'LINE × チャットボット', desc: '24時間自動応答・予約管理・リマインド配信。問い合わせから来店・契約までの取りこぼしをゼロにします。', color: '#06C755' },
+            { layer: 'Layer 3', title: '育てる', sub: 'AI分析 × 改善ループ', desc: 'データに基づいた月次改善。KPI追跡・A/Bテスト・コンテンツ更新で、成果を継続的に引き上げます。', color: '#C8A15A' },
           ].map(l => (
             <div class="reveal t-card p-8 flex flex-col" style={`border-top:3px solid ${l.color};`}>
               <p class="text-xs font-semibold mb-2" style={`color:${l.color}; letter-spacing:0.1em; text-transform:uppercase;`}>{l.layer}</p>
@@ -238,17 +251,15 @@ const faqSchema = {
           <div class="tech-marquee-track">
             {[
               { name: 'Claude', sub: 'Anthropic', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M16.5 3.5L20.5 12L16.5 20.5H13L17 12L13 3.5H16.5ZM7.5 3.5L11.5 12L7.5 20.5H11L15 12L11 3.5H7.5Z" fill="currentColor" opacity="0.9"/></svg>` },
-              { name: 'GPT-4o', sub: 'OpenAI', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M22.282 9.821a5.985 5.985 0 00-.516-4.91 6.046 6.046 0 00-6.51-2.9A6.065 6.065 0 0011.698.414a6.018 6.018 0 00-5.755 4.206 5.993 5.993 0 00-4.008 2.907 6.042 6.042 0 00.749 7.088 5.985 5.985 0 00.516 4.911 6.046 6.046 0 006.51 2.9A6.065 6.065 0 0013.302 23.586a6.018 6.018 0 005.755-4.206 5.993 5.993 0 004.008-2.907 6.042 6.042 0 00-.749-7.088z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>` },
-              { name: 'Gemini', sub: 'Google', icon: `<svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2L8.5 8.5L2 12l6.5 3.5L12 22l3.5-6.5L22 12l-6.5-3.5L12 2z" fill="currentColor" opacity="0.85"/></svg>` },
-              { name: 'Perplexity', sub: 'AI Search', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1" opacity="0.6"/></svg>` },
+              { name: 'Claude Code', sub: 'Dev Tool', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M8 9l-3 3 3 3M16 9l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 7l-2 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>` },
               { name: 'LINE', sub: 'Messaging API', icon: `<svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2C6.48 2 2 5.82 2 10.5c0 2.93 1.95 5.5 4.86 7.04-.19.7-.68 2.6-.78 3-.13.52.19.51.4.37.17-.1 2.64-1.8 3.72-2.53.57.08 1.16.12 1.8.12 5.52 0 10-3.82 10-8.5S17.52 2 12 2z" fill="currentColor" opacity="0.85"/></svg>` },
-              { name: 'Google Cloud', sub: 'Platform', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M12 7.5L14.5 12H9.5L12 7.5z" fill="currentColor" opacity="0.5"/><path d="M12 3a9 9 0 100 18 9 9 0 000-18z" stroke="currentColor" stroke-width="1.5"/><path d="M12 3v4.5M12 16.5V21M3 12h4.5M16.5 12H21" stroke="currentColor" stroke-width="1" opacity="0.5"/></svg>` },
-              { name: 'Whisper', sub: 'OpenAI', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" stroke="currentColor" stroke-width="1.5"/><path d="M19 10v2a7 7 0 01-14 0v-2" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="19" x2="12" y2="23" stroke="currentColor" stroke-width="1.5"/></svg>` },
-              { name: 'Stable Diffusion', sub: 'Stability AI', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/><circle cx="9" cy="9" r="2" fill="currentColor" opacity="0.6"/><path d="M3 16l5-5 4 4 3-3 6 6" stroke="currentColor" stroke-width="1.2"/></svg>` },
-              { name: 'LangChain', sub: 'Framework', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M9 12h6" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="5" r="2.5" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="19" r="2.5" stroke="currentColor" stroke-width="1.3"/><path d="M12 7.5v4.5M12 12v4.5" stroke="currentColor" stroke-width="1" opacity="0.5"/></svg>` },
+              { name: 'Google Workspace', sub: 'Sheets & Drive', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>` },
+              { name: 'Google Apps Script', sub: 'Automation', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h8M8 8h5M8 16h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>` },
+              { name: 'Next.js', sub: 'React Framework', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M7 8v8M17 8l-7 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
               { name: 'Astro', sub: 'Web Framework', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M8 21s-2-4-2-8 4-12 6-13c2 1 6 9 6 13s-2 8-2 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 14a2 2 0 100 4 2 2 0 000-4z" fill="currentColor" opacity="0.6"/></svg>` },
+              { name: 'Tailwind CSS', sub: 'Styling', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M12 6c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.3.74 1.9 1.35C13.35 10.82 14.5 12 17 12c2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.3-.74-1.9-1.35C15.65 7.18 14.5 6 12 6zM7 12c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.3.74 1.9 1.35C8.35 16.82 9.5 18 12 18c2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.3-.74-1.9-1.35C10.65 13.18 9.5 12 7 12z" stroke="currentColor" stroke-width="1.3"/></svg>` },
+              { name: 'n8n', sub: 'Workflow', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><rect x="2" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="16" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="15" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h2M14 12h2M12 9v-0M12 15v0" stroke="currentColor" stroke-width="1.2"/></svg>` },
               { name: 'Vercel', sub: 'Deployment', icon: `<svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2L2 19.5h20L12 2z" fill="currentColor" opacity="0.85"/></svg>` },
-              { name: 'n8n', sub: 'Automation', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><rect x="2" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="16" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="15" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h2M14 12h2M12 9v-0M12 15v0" stroke="currentColor" stroke-width="1.2"/></svg>` },
             ].map(t => (
               <div class="tech-item">
                 <div class="tech-icon" set:html={t.icon} />
@@ -261,17 +272,15 @@ const faqSchema = {
             {/* Duplicate for seamless loop */}
             {[
               { name: 'Claude', sub: 'Anthropic', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M16.5 3.5L20.5 12L16.5 20.5H13L17 12L13 3.5H16.5ZM7.5 3.5L11.5 12L7.5 20.5H11L15 12L11 3.5H7.5Z" fill="currentColor" opacity="0.9"/></svg>` },
-              { name: 'GPT-4o', sub: 'OpenAI', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M22.282 9.821a5.985 5.985 0 00-.516-4.91 6.046 6.046 0 00-6.51-2.9A6.065 6.065 0 0011.698.414a6.018 6.018 0 00-5.755 4.206 5.993 5.993 0 00-4.008 2.907 6.042 6.042 0 00.749 7.088 5.985 5.985 0 00.516 4.911 6.046 6.046 0 006.51 2.9A6.065 6.065 0 0013.302 23.586a6.018 6.018 0 005.755-4.206 5.993 5.993 0 004.008-2.907 6.042 6.042 0 00-.749-7.088z" stroke="currentColor" stroke-width="1.5" fill="none"/></svg>` },
-              { name: 'Gemini', sub: 'Google', icon: `<svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2L8.5 8.5L2 12l6.5 3.5L12 22l3.5-6.5L22 12l-6.5-3.5L12 2z" fill="currentColor" opacity="0.85"/></svg>` },
-              { name: 'Perplexity', sub: 'AI Search', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.5"/><path d="M12 3v18M3 12h18M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="1" opacity="0.6"/></svg>` },
+              { name: 'Claude Code', sub: 'Dev Tool', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M8 9l-3 3 3 3M16 9l3 3-3 3" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/><path d="M13 7l-2 10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>` },
               { name: 'LINE', sub: 'Messaging API', icon: `<svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2C6.48 2 2 5.82 2 10.5c0 2.93 1.95 5.5 4.86 7.04-.19.7-.68 2.6-.78 3-.13.52.19.51.4.37.17-.1 2.64-1.8 3.72-2.53.57.08 1.16.12 1.8.12 5.52 0 10-3.82 10-8.5S17.52 2 12 2z" fill="currentColor" opacity="0.85"/></svg>` },
-              { name: 'Google Cloud', sub: 'Platform', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M12 7.5L14.5 12H9.5L12 7.5z" fill="currentColor" opacity="0.5"/><path d="M12 3a9 9 0 100 18 9 9 0 000-18z" stroke="currentColor" stroke-width="1.5"/><path d="M12 3v4.5M12 16.5V21M3 12h4.5M16.5 12H21" stroke="currentColor" stroke-width="1" opacity="0.5"/></svg>` },
-              { name: 'Whisper', sub: 'OpenAI', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z" stroke="currentColor" stroke-width="1.5"/><path d="M19 10v2a7 7 0 01-14 0v-2" stroke="currentColor" stroke-width="1.5"/><line x1="12" y1="19" x2="12" y2="23" stroke="currentColor" stroke-width="1.5"/></svg>` },
-              { name: 'Stable Diffusion', sub: 'Stability AI', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><rect x="3" y="3" width="18" height="18" rx="3" stroke="currentColor" stroke-width="1.5"/><circle cx="9" cy="9" r="2" fill="currentColor" opacity="0.6"/><path d="M3 16l5-5 4 4 3-3 6 6" stroke="currentColor" stroke-width="1.2"/></svg>` },
-              { name: 'LangChain', sub: 'Framework', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><circle cx="6" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><circle cx="18" cy="12" r="3" stroke="currentColor" stroke-width="1.5"/><path d="M9 12h6" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="5" r="2.5" stroke="currentColor" stroke-width="1.3"/><circle cx="12" cy="19" r="2.5" stroke="currentColor" stroke-width="1.3"/><path d="M12 7.5v4.5M12 12v4.5" stroke="currentColor" stroke-width="1" opacity="0.5"/></svg>` },
+              { name: 'Google Workspace', sub: 'Sheets & Drive', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><rect x="3" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5" stroke="currentColor" stroke-width="1.5"/></svg>` },
+              { name: 'Google Apps Script', sub: 'Automation', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h8M8 8h5M8 16h6" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/></svg>` },
+              { name: 'Next.js', sub: 'React Framework', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M7 8v8M17 8l-7 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>` },
               { name: 'Astro', sub: 'Web Framework', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M8 21s-2-4-2-8 4-12 6-13c2 1 6 9 6 13s-2 8-2 8" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M12 14a2 2 0 100 4 2 2 0 000-4z" fill="currentColor" opacity="0.6"/></svg>` },
+              { name: 'Tailwind CSS', sub: 'Styling', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M12 6c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.3.74 1.9 1.35C13.35 10.82 14.5 12 17 12c2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.3-.74-1.9-1.35C15.65 7.18 14.5 6 12 6zM7 12c-2.67 0-4.33 1.33-5 4 1-1.33 2.17-1.83 3.5-1.5.76.19 1.3.74 1.9 1.35C8.35 16.82 9.5 18 12 18c2.67 0 4.33-1.33 5-4-1 1.33-2.17 1.83-3.5 1.5-.76-.19-1.3-.74-1.9-1.35C10.65 13.18 9.5 12 7 12z" stroke="currentColor" stroke-width="1.3"/></svg>` },
+              { name: 'n8n', sub: 'Workflow', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><rect x="2" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="16" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="15" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h2M14 12h2M12 9v-0M12 15v0" stroke="currentColor" stroke-width="1.2"/></svg>` },
               { name: 'Vercel', sub: 'Deployment', icon: `<svg viewBox="0 0 24 24" width="28" height="28"><path d="M12 2L2 19.5h20L12 2z" fill="currentColor" opacity="0.85"/></svg>` },
-              { name: 'n8n', sub: 'Automation', icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><rect x="2" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="16" y="9" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="3" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><rect x="9" y="15" width="6" height="6" rx="1" stroke="currentColor" stroke-width="1.5"/><path d="M8 12h2M14 12h2M12 9v-0M12 15v0" stroke="currentColor" stroke-width="1.2"/></svg>` },
             ].map(t => (
               <div class="tech-item">
                 <div class="tech-icon" set:html={t.icon} />
@@ -286,14 +295,17 @@ const faqSchema = {
       </div>
     </section>
 
+    <!-- ========== SUBSIDY SUPPORT ========== -->
+    <SubsidySection />
+
     <!-- ========== CTA BANNER (Background image slot) ========== -->
     <section class="relative overflow-hidden" style="min-height:400px; display:flex;">
       <!-- BACKGROUND IMAGE/VIDEO SLOT -->
       <div style="position:absolute; inset:0; background:var(--color-bg-card);">
         <!-- Placeholder: Replace with background image like Tomoro's walking woman photo -->
-        <div style="position:absolute; inset:0; background:linear-gradient(135deg, rgba(3,27,39,0.95), rgba(10,37,53,0.9));"></div>
-        <!-- Neon glow spot (like Tomoro's yellow circle on ground) -->
-        <div style="position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:300px; height:150px; background:radial-gradient(ellipse, rgba(204,255,0,0.15) 0%, transparent 70%); filter:blur(30px);"></div>
+        <div style="position:absolute; inset:0; background:linear-gradient(135deg, rgba(27,94,190,0.08), rgba(27,94,190,0.04));"></div>
+        <!-- Subtle blue glow accent -->
+        <div style="position:absolute; bottom:0; left:50%; transform:translateX(-50%); width:300px; height:150px; background:radial-gradient(ellipse, rgba(27,94,190,0.1) 0%, transparent 70%); filter:blur(30px);"></div>
       </div>
 
       <div style="position:relative; z-index:10; max-width:1200px; margin:0 auto; padding:80px 48px; width:100%;">
@@ -337,13 +349,17 @@ const faqSchema = {
           {[
             { title: '三栄リフォーム × AltShift', tags: ['Web制作','SEO/GEO'], image: '/images/cases/sanei-reform.jpg', desc: 'AI時代の検索対応Webサイト。SEO/GEO対策でGoogleとAIに選ばれるコンテンツを構築。', url: 'https://sanei-reform.vercel.app', slug: null },
             { title: '株式会社BEGINS × AltShift', tags: ['業務自動化','HR-Tech'], image: '/images/cases/begins.jpg', desc: 'コールセンター集計の完全自動化。採用業務工数50%削減を実現。', url: null, slug: null },
-            { title: 'TYDロジスティクス × AltShift', tags: ['物流','AI業務自動化','LINE自動化'], image: '/images/cases/tyd-logistics.jpg', desc: '物流現場の属人化を解消。LINE Bot＋配車システムで業務をAI化。', url: null, slug: '/cases/tyd-logistics' },
+            { title: 'TYDロジスティクス × AltShift', tags: ['物流','AI業務自動化','LINE自動化'], image: null, desc: '物流現場の属人化を解消。LINE Bot＋配車システムで業務をAI化。', url: null, slug: '/cases/tyd-logistics' },
           ].map(c => (
             <div class="reveal t-card overflow-hidden">
               <!-- IMAGE SLOT -->
               <div class="media-slot" style="aspect-ratio:16/9; position:relative;">
-                <img src={c.image} alt={c.title} loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
-                <!-- Neon glow overlay (Tomoro photo style) -->
+                {c.image
+                  ? <img src={c.image} alt={c.title} loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+                  : <div style="width:100%;height:100%;background:var(--color-bg-soft);display:flex;align-items:center;justify-content:center;">
+                      <p style="font-size:14px;font-weight:600;color:var(--color-ink-muted);">{c.title}</p>
+                    </div>
+                }
                 <div class="neon-glow-circle" style="bottom:20%; left:30%;"></div>
               </div>
               <div class="p-6">
@@ -369,8 +385,8 @@ const faqSchema = {
     <section class="section-padding footer-cream">
       <div class="max-w-7xl mx-auto px-6 lg:px-8">
         <div class="flex items-center justify-between mb-12 reveal">
-          <h2 style="font-weight:800; font-size:clamp(26px,3.5vw,40px); letter-spacing:-0.02em; color:#031B27;">インサイト</h2>
-          <a href="#" class="neon-link" style="color:#031B27;">
+          <h2 class="heading-lg">インサイト</h2>
+          <a href="#" class="neon-link" style="color:var(--color-ink);">
             すべて表示
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
@@ -391,13 +407,13 @@ const faqSchema = {
                   ? <img src={a.image} alt={a.title} loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
                   : <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
                       <!-- Neon circle placeholder (Tomoro article style) -->
-                      <div style="width:120px;height:120px;border-radius:50%;background:rgba(204,255,0,0.4);filter:blur(20px);"></div>
+                      <div style="width:120px;height:120px;border-radius:50%;background:rgba(27,94,190,0.15);filter:blur(20px);"></div>
                     </div>
                 }
                 <span class="tag" style="position:absolute; top:12px; left:12px;">記事</span>
               </div>
               <p style="font-size:13px; font-weight:600; color:var(--color-blue); margin-bottom:8px;">{a.date}</p>
-              <h3 style="font-weight:700; font-size:17px; color:#031B27; line-height:1.5;">{a.title}</h3>
+              <h3 style="font-weight:700; font-size:17px; color:var(--color-ink); line-height:1.5;">{a.title}</h3>
             </div>
           ))}
         </div>
