@@ -1,29 +1,48 @@
 @import "tailwindcss";
 
-/* ===== Light-first Color System (DESIGN.md v0.2.0) ===== */
+/* ===== Color System v0.4.0 — 60(中立)-30(青)-10(アクセント) ===== */
 @theme {
+  /* --- 60% 中立面 --- */
   --color-bg: #FFFFFF;
-  --color-bg-soft: #F7F8FA;
+  --color-bg-subtle: #F5F7FA;          /* カード・セクション区切り */
   --color-bg-card: #FFFFFF;
   --color-bg-elevated: #F4F4F4;
-  --color-bg-cream: #EEE8DF;
-  --color-primary: #1B5EBE;
-  --color-primary-dark: #164C99;
-  --color-primary-light: #E8F0FB;
-  --color-secondary: #C8A15A;
-  --color-secondary-light: #FAF5E8;
-  --color-accent: #D8FF00;     /* 5%以下、最重要バナー装飾のみ。CTAボタン禁止 */
-  --color-blue: #1456FB;
-  --color-ink: #1A1A1A;
-  --color-ink-sub: rgba(26,26,26,0.6);
-  --color-ink-dim: rgba(26,26,26,0.3);
+
+  /* --- 30% 青系 --- */
+  --color-brand: #1B5EBE;              /* メイン青：ナビ・見出し・リンク・図の基調 */
+  --color-brand-dark: #164C99;         /* ホバー用 */
+  --color-brand-light: #E8F0FB;        /* 背景用 */
+  --color-navy: #0F2F5B;               /* ヒーロー背景・フッター・濃い面 */
+
+  /* --- 10% アクセント --- */
+  --color-accent: #0E9E96;             /* ティール：アイコン・強調下線・3step到達点 */
+  --color-gold: #C8A15A;               /* 小面積限定・ベタ塗り禁止：ロゴ細部・区切り線・バッジのみ */
+
+  /* --- 5% CTA暖色 --- */
+  --color-cta: #EA6A00;                /* 主要ボタンのみ（無料相談・資料請求） */
+  --color-cta-dark: #D05E00;           /* ホバー用 */
+
+  /* --- テキスト --- */
+  --color-text: #1F2933;               /* 本文・見出し（純黒回避のチャコール） */
+  --color-ink: #1F2933;                /* 互換エイリアス */
+  --color-ink-sub: rgba(31,41,51,0.6);
+  --color-ink-dim: rgba(31,41,51,0.3);
   --color-ink-muted: #6B6B6B;
   --color-muted: #6B6B6B;
+
+  /* --- ボーダー --- */
   --color-border: #E5E5E5;
   --color-line: #E5E5E5;
   --color-border-card: rgba(26,26,26,0.08);
-  --color-dark-text: #1A1A1A;
-  --color-footer-bg: #0F1117;
+
+  /* --- 互換（段階的に廃止予定） --- */
+  --color-primary: #1B5EBE;            /* → --color-brand */
+  --color-primary-dark: #164C99;       /* → --color-brand-dark */
+  --color-primary-light: #E8F0FB;      /* → --color-brand-light */
+  --color-secondary: #C8A15A;          /* → --color-gold */
+  --color-secondary-light: #FAF5E8;    /* → 廃止予定 */
+  --color-dark-text: #1F2933;          /* → --color-text */
+  --color-footer-bg: #0F2F5B;         /* → --color-navy */
 }
 
 html { scroll-behavior: smooth; }
@@ -34,6 +53,13 @@ body {
   -webkit-font-smoothing: antialiased;
   color: var(--color-ink);
   background-color: var(--color-bg);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
 
 h1, h2, h3 {
@@ -119,7 +145,7 @@ h3 { font-weight: 600; line-height: 1.3; }
 .accent-line {
   width: 40px;
   height: 4px;
-  background: var(--color-blue);
+  background: var(--color-brand);
   border-radius: 2px;
 }
 
@@ -192,7 +218,7 @@ h3 { font-weight: 600; line-height: 1.3; }
   font-weight: 800;
   font-size: clamp(36px, 5vw, 52px);
   letter-spacing: -0.04em;
-  color: var(--color-blue);
+  color: var(--color-brand);
   line-height: 1;
 }
 
@@ -230,13 +256,13 @@ h3 { font-weight: 600; line-height: 1.3; }
 
 /* ===== Buttons ===== */
 
-/* メインCTA：青塗り＋白文字 */
+/* メインCTA：暖色オレンジ＋白文字 */
 .btn-primary {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
-  background: var(--color-primary);
+  background: var(--color-cta);
   color: #FFFFFF;
   font-weight: 700;
   font-size: 16px;
@@ -246,16 +272,35 @@ h3 { font-weight: 600; line-height: 1.3; }
   transition: background 0.15s ease;
 }
 .btn-primary:hover {
-  background: var(--color-primary-dark);
+  background: var(--color-cta-dark);
 }
 
-/* ナビ内CTA：青塗り小サイズ */
+/* LINE CTA：LINEグリーン＋白文字 */
+.btn-line {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #06C755;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: background 0.15s ease;
+}
+.btn-line:hover {
+  background: #05b04c;
+}
+
+/* ナビ内CTA：暖色オレンジ小サイズ */
 .btn-primary-sm {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 6px;
-  background: var(--color-primary);
+  background: var(--color-cta);
   color: #FFFFFF;
   font-weight: 700;
   font-size: 14px;
@@ -265,7 +310,7 @@ h3 { font-weight: 600; line-height: 1.3; }
   transition: background 0.15s ease;
 }
 .btn-primary-sm:hover {
-  background: var(--color-primary-dark);
+  background: var(--color-cta-dark);
 }
 
 /* サブCTA：透明背景＋青枠＋青文字（ゴースト） */
@@ -289,7 +334,7 @@ h3 { font-weight: 600; line-height: 1.3; }
   color: #FFFFFF;
 }
 
-/* ライム：補助金最重要バナー限定（汎用CTA禁止） */
+/* ティールアクセント：補助金最重要バナー限定（汎用CTA禁止） */
 .btn-accent-lime {
   display: inline-flex;
   align-items: center;
@@ -353,7 +398,7 @@ h3 { font-weight: 600; line-height: 1.3; }
   gap: 6px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--color-blue);
+  color: var(--color-brand);
   text-decoration: none;
   transition: gap 0.2s ease;
 }
@@ -365,7 +410,7 @@ h3 { font-weight: 600; line-height: 1.3; }
   gap: 6px;
   font-size: 14px;
   font-weight: 500;
-  color: var(--color-blue);
+  color: var(--color-brand);
   text-decoration: none;
   transition: gap 0.2s ease;
 }
@@ -376,7 +421,7 @@ h3 { font-weight: 600; line-height: 1.3; }
   font-size: 11px;
   font-weight: 600;
   padding: 4px 10px;
-  background: var(--color-blue);
+  background: var(--color-brand);
   color: #FFFFFF;
   border-radius: 4px;
 }
@@ -502,7 +547,7 @@ input, textarea, select {
   border-color: var(--color-border-card);
 }
 input:focus, textarea:focus, select:focus {
-  border-color: var(--color-blue);
+  border-color: var(--color-brand);
   outline: none;
   box-shadow: 0 0 0 3px rgba(20,86,251,0.15);
 }
@@ -569,7 +614,7 @@ input:focus, textarea:focus, select:focus {
 }
 .tech-item:hover .tech-icon {
   opacity: 1;
-  color: var(--color-blue);
+  color: var(--color-brand);
 }
 .tech-name {
   font-family: 'Inter', sans-serif;

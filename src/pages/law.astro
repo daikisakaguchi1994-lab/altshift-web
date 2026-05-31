@@ -9,11 +9,11 @@ import Footer from '../components/Footer.astro'
   description="AltShiftの特定商取引法に基づく表記ページです。"
 >
   <Nav />
-  <main class="min-h-screen pt-28 pb-24 px-6" style="background-color: var(--color-bg-sub);">
+  <main class="min-h-screen pt-28 pb-24 px-6" style="background-color: var(--color-bg-subtle);">
     <div class="max-w-3xl mx-auto">
 
       <div class="mb-12">
-        <p class="text-xs tracking-[0.2em] uppercase mb-2" style="color: #C8A15A;">Legal</p>
+        <p class="text-xs tracking-[0.2em] uppercase mb-2" style="color: var(--color-gold);">Legal</p>
         <h1 class="font-sans font-bold text-2xl mb-2" style="color: var(--color-ink);">特定商取引法に基づく表記</h1>
         <div class="w-10 h-0.5" style="background-color: #B85042;"></div>
       </div>
@@ -41,7 +41,7 @@ import Footer from '../components/Footer.astro'
         ].map((row, i, arr) => (
           <dl class={`flex flex-col sm:flex-row ${i !== arr.length - 1 ? 'border-b' : ''}`} style="border-color: var(--color-border);">
             <dt class="w-full sm:w-44 px-8 py-5 text-xs font-medium tracking-wide flex-shrink-0"
-                style="color: var(--color-ink-muted); background-color: var(--color-bg-sub);">
+                style="color: var(--color-ink-muted); background-color: var(--color-bg-subtle);">
               {row.label}
             </dt>
             <dd class="flex-1 px-8 py-5 text-sm leading-relaxed" style="color: var(--color-ink);">

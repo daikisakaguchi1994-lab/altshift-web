@@ -95,7 +95,7 @@ const schemaData = {
           {plans.map(plan => (
             <div class={`reveal t-card p-6 flex flex-col relative ${plan.popular ? 'ring-2' : ''}`} style={plan.popular ? 'border-color:var(--color-primary);' : ''}>
               {plan.popular && (
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 text-xs font-bold rounded-full" style="background:var(--color-primary); color:#031B27;">
+                <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 text-xs font-bold rounded-full" style="background:var(--color-primary); color:var(--color-navy);">
                   人気
                 </div>
               )}
@@ -129,7 +129,7 @@ const schemaData = {
         <div class="reveal t-card p-8 mb-16" style="border-color:rgba(27,94,190,0.2); background:rgba(27,94,190,0.03);">
           <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
             <div>
-              <div class="inline-block px-3 py-1 text-xs font-bold rounded-full mb-4" style="background:var(--color-primary); color:#031B27;">
+              <div class="inline-block px-3 py-1 text-xs font-bold rounded-full mb-4" style="background:var(--color-primary); color:var(--color-navy);">
                 最大30%お得
               </div>
               <h2 class="heading-lg mb-3">{bundlePlan.name}</h2>
@@ -161,7 +161,7 @@ const schemaData = {
         <!-- Subsidy Note -->
         <div class="reveal t-card p-6 mb-16 flex flex-col md:flex-row items-start gap-4">
           <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" style="background:rgba(20,86,251,0.1);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
           </div>
           <div>
             <h3 class="heading-sm mb-2">補助金の活用で費用を最大2/3削減</h3>

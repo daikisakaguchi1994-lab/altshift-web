@@ -72,6 +72,10 @@ const faqSchema = {
                   <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
                 </svg>
               </a>
+              <a href="https://line.me/R/ti/p/@544thnig" target="_blank" rel="noopener noreferrer" class="btn-line">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+                LINEで無料相談する
+              </a>
               <a href="/case" class="btn-secondary-ghost">
                 導入事例を見る
               </a>
@@ -157,7 +161,7 @@ const faqSchema = {
     </section>
 
     <!-- ========== CLIENT LOGOS ========== -->
-    <section class="section-padding" style="background:var(--color-bg-soft);">
+    <section class="section-padding" style="background:var(--color-bg-subtle);">
       <div class="max-w-6xl mx-auto px-6">
         <div class="text-center mb-12 reveal">
           <p class="section-label mb-4" style="text-transform:uppercase; letter-spacing:0.1em; color:var(--color-primary);">Clients</p>
@@ -196,9 +200,9 @@ const faqSchema = {
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger">
           {[
-            { layer: 'Layer 1', title: '見つけてもらう', sub: 'Web × SEO × GEO', desc: 'Google検索・AI検索・Googleマップで上位表示。お客様があなたの会社を「見つけられる」状態を作ります。', color: '#1456FB' },
+            { layer: 'Layer 1', title: '見つけてもらう', sub: 'Web × SEO × GEO', desc: 'Google検索・AI検索・Googleマップで上位表示。お客様があなたの会社を「見つけられる」状態を作ります。', color: 'var(--color-brand)' },
             { layer: 'Layer 2', title: '逃さない', sub: 'LINE × チャットボット', desc: '24時間自動応答・予約管理・リマインド配信。問い合わせから来店・契約までの取りこぼしをゼロにします。', color: '#06C755' },
-            { layer: 'Layer 3', title: '育てる', sub: 'AI分析 × 改善ループ', desc: 'データに基づいた月次改善。KPI追跡・A/Bテスト・コンテンツ更新で、成果を継続的に引き上げます。', color: '#C8A15A' },
+            { layer: 'Layer 3', title: '育てる', sub: 'AI分析 × 改善ループ', desc: 'データに基づいた月次改善。KPI追跡・A/Bテスト・コンテンツ更新で、成果を継続的に引き上げます。', color: 'var(--color-gold)' },
           ].map(l => (
             <div class="reveal t-card p-8 flex flex-col" style={`border-top:3px solid ${l.color};`}>
               <p class="text-xs font-semibold mb-2" style={`color:${l.color}; letter-spacing:0.1em; text-transform:uppercase;`}>{l.layer}</p>
@@ -356,7 +360,7 @@ const faqSchema = {
               <div class="media-slot" style="aspect-ratio:16/9; position:relative;">
                 {c.image
                   ? <img src={c.image} alt={c.title} loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
-                  : <div style="width:100%;height:100%;background:var(--color-bg-soft);display:flex;align-items:center;justify-content:center;">
+                  : <div style="width:100%;height:100%;background:var(--color-bg-subtle);display:flex;align-items:center;justify-content:center;">
                       <p style="font-size:14px;font-weight:600;color:var(--color-ink-muted);">{c.title}</p>
                     </div>
                 }
@@ -402,7 +406,7 @@ const faqSchema = {
           ].map(a => (
             <div class="reveal">
               <!-- ARTICLE IMAGE SLOT -->
-              <div style="aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:#E8E2D6; margin-bottom:16px; position:relative;">
+              <div style="aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:var(--color-bg-subtle); margin-bottom:16px; position:relative;">
                 {a.image
                   ? <img src={a.image} alt={a.title} loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
                   : <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
@@ -412,7 +416,7 @@ const faqSchema = {
                 }
                 <span class="tag" style="position:absolute; top:12px; left:12px;">記事</span>
               </div>
-              <p style="font-size:13px; font-weight:600; color:var(--color-blue); margin-bottom:8px;">{a.date}</p>
+              <p style="font-size:13px; font-weight:600; color:var(--color-brand); margin-bottom:8px;">{a.date}</p>
               <h3 style="font-weight:700; font-size:17px; color:var(--color-ink); line-height:1.5;">{a.title}</h3>
             </div>
           ))}
