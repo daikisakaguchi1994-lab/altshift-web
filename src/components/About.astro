@@ -9,19 +9,18 @@ const info = [
 ]
 ---
 
-<section id="about" class="section-padding scroll-mt-16" style="background:var(--color-bg-sub);">
+<section id="about" class="section-padding scroll-mt-16" style="background:var(--color-bg-subtle);">
   <div class="max-w-5xl mx-auto">
 
     <div class="mb-14 reveal">
       <p class="section-label mb-2">— 会社概要</p>
       <h2 class="heading-lg mb-3">会社概要</h2>
-      <div class="gold-line" style="width:40px;"></div>
     </div>
 
     <div class="reveal card overflow-hidden" style="border-radius:12px;">
       {info.map((row, i) => (
         <dl class={`flex flex-col sm:flex-row ${i !== info.length - 1 ? '' : ''}`} style={i !== info.length - 1 ? `border-bottom:1px solid var(--color-border);` : ''}>
-          <dt class="w-full sm:w-36 px-8 py-5 text-xs font-medium tracking-wide flex-shrink-0" style="color:var(--color-ink-muted); background:var(--color-bg-sub);">
+          <dt class="w-full sm:w-36 px-8 py-5 text-xs font-medium tracking-wide flex-shrink-0" style="color:var(--color-ink-muted); background:var(--color-bg-subtle);">
             {row.label}
           </dt>
           <dd class="flex-1 px-8 py-5 text-sm" style="color:var(--color-ink);">

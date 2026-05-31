@@ -40,7 +40,7 @@ const schemaData = {
 
         <!-- Header -->
         <div class="mb-16 reveal">
-          <a href="/service" class="text-xs font-semibold mb-4 inline-block" style="color:var(--color-blue); letter-spacing:0.05em;">← サービス一覧</a>
+          <a href="/service" class="text-xs font-semibold mb-4 inline-block" style="color:var(--color-brand); letter-spacing:0.05em;">← サービス一覧</a>
           <p class="service-num mb-4">01</p>
           <h1 class="heading-hero" style="font-size:clamp(28px,4vw,48px);">AI導入コンサルティング</h1>
           <p class="body-lg mt-4" style="max-width:640px;">
@@ -79,7 +79,7 @@ const schemaData = {
                 '月次レポートと継続的な改善提案',
               ].map(item => (
                 <li class="flex items-start gap-3 body-md">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1B5EBE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><polyline points="20 6 9 17 4 12"/></svg>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><polyline points="20 6 9 17 4 12"/></svg>
                   {item}
                 </li>
               ))}
@@ -108,14 +108,14 @@ const schemaData = {
           <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger">
             <!-- 戦略診断パック -->
             <div class="reveal t-card p-8 text-center">
-              <p class="text-xs font-semibold mb-3" style="color:var(--color-blue); text-transform:uppercase; letter-spacing:0.1em;">Strategy Pack</p>
+              <p class="text-xs font-semibold mb-3" style="color:var(--color-brand); text-transform:uppercase; letter-spacing:0.1em;">Strategy Pack</p>
               <h3 class="heading-sm mb-4">戦略診断パック</h3>
               <p style="font-family:'Inter',sans-serif; font-weight:900; font-size:clamp(28px,4vw,40px); letter-spacing:-0.03em; color:var(--color-ink); line-height:1.2;">30<span style="font-size:18px; font-weight:600;">万円〜</span>50<span style="font-size:18px; font-weight:600;">万円</span></p>
               <p class="body-sm mt-2 mb-6">2週間・買い切り</p>
               <ul class="flex flex-col gap-2 text-left">
                 {['業務プロセス分析・AI適用評価', 'AI導入ロードマップ策定', 'ROIモデル構築', '経営層向けAI研修'].map(f => (
                   <li class="flex items-start gap-2 body-sm">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
                     {f}
                   </li>
                 ))}
@@ -131,7 +131,7 @@ const schemaData = {
               <ul class="flex flex-col gap-2 text-left">
                 {['月2〜4回のオンライン相談', '業務改善提案・優先度診断', 'AIツール選定・設定サポート', '月次レポート・改善提案', 'Slack/LINEでの随時相談'].map(f => (
                   <li class="flex items-start gap-2 body-sm">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#1B5EBE" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
                     {f}
                   </li>
                 ))}
@@ -140,14 +140,14 @@ const schemaData = {
 
             <!-- Embedded CAIO -->
             <div class="reveal t-card p-8 text-center">
-              <p class="text-xs font-semibold mb-3" style="color:var(--color-blue); text-transform:uppercase; letter-spacing:0.1em;">Embedded CAIO</p>
+              <p class="text-xs font-semibold mb-3" style="color:var(--color-brand); text-transform:uppercase; letter-spacing:0.1em;">Embedded CAIO</p>
               <h3 class="heading-sm mb-4">Embedded CAIO</h3>
               <p style="font-family:'Inter',sans-serif; font-weight:900; font-size:clamp(28px,4vw,40px); letter-spacing:-0.03em; color:var(--color-ink); line-height:1.2;">50<span style="font-size:18px; font-weight:600;">万円〜/月</span></p>
               <p class="body-sm mt-2 mb-6">フルコミット型</p>
               <ul class="flex flex-col gap-2 text-left">
                 {['週1〜2回の現場常駐', 'AI戦略の策定・実行・改善', '経営会議への参加', '社内AI人材の育成', '全社AI活用の推進'].map(f => (
                   <li class="flex items-start gap-2 body-sm">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-blue)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
                     {f}
                   </li>
                 ))}
@@ -158,7 +158,7 @@ const schemaData = {
 
         <!-- 補助金訴求 -->
         <div class="reveal mb-24 p-6 text-center" style="background:rgba(20,86,251,0.06); border:1px solid rgba(20,86,251,0.12); border-radius:10px;">
-          <p style="font-size:15px; font-weight:700; color:var(--color-ink); margin-bottom:4px;">補助金活用で実質負担 <span style="color:var(--color-blue); font-size:20px;">1/2〜2/3</span></p>
+          <p style="font-size:15px; font-weight:700; color:var(--color-ink); margin-bottom:4px;">補助金活用で実質負担 <span style="color:var(--color-brand); font-size:20px;">1/2〜2/3</span></p>
           <p class="body-sm">ものづくり補助金・省力化投資補助金・新事業進出補助金 対応</p>
         </div>
 

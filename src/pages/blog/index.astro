@@ -34,7 +34,7 @@ const posts = (await getCollection('blog')).sort((a, b) => b.data.date.getTime()
                 </div>
               </div>
               <div class="p-6">
-                <p class="text-xs mb-2" style="color:var(--color-blue); font-weight:600;">
+                <p class="text-xs mb-2" style="color:var(--color-brand); font-weight:600;">
                   {post.data.date.toLocaleDateString('ja-JP', { year: 'numeric', month: 'long', day: 'numeric' })}
                 </p>
                 <h2 class="heading-sm mb-2" style="line-height:1.5;">{post.data.title}</h2>
