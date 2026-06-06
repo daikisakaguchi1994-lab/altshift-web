@@ -5,6 +5,27 @@ interface Message {
   content: string;
 }
 
+function renderMarkdown(text: string) {
+  // Split by **bold** markers, alternating between normal and bold
+  const parts = text.split(/\*\*(.+?)\*\*/g);
+  const elements: React.ReactNode[] = [];
+  parts.forEach((part, i) => {
+    // Even indices are normal text, odd indices are bold content
+    const textContent = i % 2 === 1 ? <strong key={i}>{part}</strong> : part;
+    if (typeof textContent === 'string') {
+      // Split by newlines and insert <br/>
+      const lines = textContent.split('\n');
+      lines.forEach((line, j) => {
+        if (j > 0) elements.push(<br key={`${i}-br-${j}`} />);
+        if (line) elements.push(<span key={`${i}-${j}`}>{line}</span>);
+      });
+    } else {
+      elements.push(textContent);
+    }
+  });
+  return elements;
+}
+
 const SUGGESTS = [
   '予約の問い合わせを自動応答したい',
   'キャンセル連絡の対応を楽にしたい',
@@ -221,7 +242,7 @@ export default function DemoChat() {
               whiteSpace: 'pre-wrap',
               wordBreak: 'break-word',
             }}>
-              {m.content}
+              {renderMarkdown(m.content)}
             </div>
           </div>
         ))}
