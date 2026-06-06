@@ -5,11 +5,16 @@ import sitemap from '@astrojs/sitemap';
 
 import react from '@astrojs/react';
 
+import vercel from '@astrojs/vercel';
+
 // https://astro.build/config
 export default defineConfig({
   site: 'https://altshift.jp',
   integrations: [sitemap(), react()],
+
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+
+  adapter: vercel()
 });
