@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro'
 import Nav from '../components/Nav.astro'
 import SubsidySection from '../components/SubsidySection.astro'
 import Footer from '../components/Footer.astro'
+import DemoChat from '../components/DemoChat.tsx'
 
 const faqItems = [
   { q: 'AltShiftはどんなサービスですか？', a: '中小企業向けにAI導入を戦略から実装・運用まで一貫支援しています。ツール導入で終わらせず、現場で使いこなせる状態まで伴走します。' },
@@ -110,6 +111,20 @@ const faqSchema = {
             </svg>
           </a>
         </div>
+      </div>
+    </section>
+
+    <!-- ========== DEMO ========== -->
+    <section id="demo-section" class="section-padding" style="background:var(--color-bg);">
+      <div class="max-w-2xl mx-auto px-6">
+        <div class="text-center mb-8 reveal">
+          <p class="section-label mb-4" style="text-transform:uppercase; letter-spacing:0.1em; color:var(--color-primary);">Live Demo</p>
+          <h2 class="heading-lg mb-2">AIを体験してみる</h2>
+          <p class="body-md" style="color:var(--color-ink-sub);">
+            このデモ自体が「御社に導入できるシステムの実物サンプル」です
+          </p>
+        </div>
+        <DemoChat client:visible />
       </div>
     </section>
 
