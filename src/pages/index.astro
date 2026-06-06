@@ -245,8 +245,43 @@ const faqSchema = {
       </div>
     </section>
 
+    <!-- ========== SCOPE (3-Layer downgraded) ========== -->
+    <section style="background:var(--color-bg-subtle); padding:48px 0;">
+      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-10 reveal">
+          <p class="section-label mb-3" style="text-transform:uppercase; letter-spacing:0.1em; color:var(--color-ink-muted);">What We Build</p>
+          <h3 class="heading-md mb-3" style="color:var(--color-ink);">集客・接客・継続の3領域に対応します</h3>
+        </div>
+
+        <div class="layer-grid stagger">
+          {[
+            { num: '01', layer: 'Layer 1', title: '見つけてもらう', sub: 'Web × SEO × GEO', desc: 'Google検索もAI検索（ChatGPT・Claude）も、Googleマップも。"探されたときに必ず見つかる"状態を作ります。', color: '#6BA3D6' },
+            { num: '02', layer: 'Layer 2', title: '逃さない', sub: 'LINE × チャットボット', desc: '深夜の問い合わせにもAIが即応答。予約・リマインドまで自動で、"せっかくの見込み客"を取りこぼしません。', color: 'var(--color-brand)' },
+            { num: '03', layer: 'Layer 3', title: '育てる', sub: 'AI分析 × 改善ループ', desc: '数字を見て、毎月手を打つ。KPI追跡と改善を回し続け、"入れて終わり"にしない成果の伸ばし方を。', color: 'var(--color-accent)' },
+          ].map((l, i) => (
+            <Fragment>
+              {i > 0 && (
+                <div class="layer-arrow" aria-hidden="true">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                  </svg>
+                </div>
+              )}
+              <div class="reveal layer-card t-card p-8 flex flex-col" style={`border-top:3px solid ${l.color};`}>
+                <span class="layer-num" style={`color:${l.color};`}>{l.num}</span>
+                <p class="text-xs font-semibold mb-2" style={`color:${l.color}; letter-spacing:0.1em; text-transform:uppercase;`}>{l.layer}</p>
+                <h3 class="heading-md mb-1">{l.title}</h3>
+                <p class="text-xs mb-4" style="color:var(--color-ink-dim);">{l.sub}</p>
+                <p class="body-sm flex-1">{l.desc}</p>
+              </div>
+            </Fragment>
+          ))}
+        </div>
+      </div>
+    </section>
+
     <!-- ========== DEMO ========== -->
-    <section id="demo-section" class="section-padding" style="background:var(--color-bg-subtle);">
+    <section id="demo-section" class="section-padding" style="background:var(--color-bg);">
       <div class="max-w-2xl mx-auto px-6">
         <div class="text-center mb-8 reveal">
           <p class="section-label mb-4" style="text-transform:uppercase; letter-spacing:0.1em; color:var(--color-primary);">Live Demo</p>
@@ -314,46 +349,6 @@ const faqSchema = {
         </p>
       </div>
     </section>
-
-    <div class="section-divider max-w-7xl mx-auto"></div>
-
-    <!-- ========== ALTSHIFT 3-LAYER METHOD ========== -->
-    <section class="section-padding" style="background:var(--color-bg);">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-16 reveal">
-          <p class="section-label mb-4" style="text-transform:uppercase; letter-spacing:0.1em;">Our Methodology</p>
-          <h2 class="heading-lg mb-4">AltShift 3-Layer メソッド</h2>
-          <p class="body-md" style="max-width:600px; margin:0 auto;">中小企業の集客・業務を3つのレイヤーで最適化。段階的にAIを導入し、持続的な成長基盤を構築します。</p>
-        </div>
-
-        <div class="layer-grid stagger">
-          {[
-            { num: '01', layer: 'Layer 1', title: '見つけてもらう', sub: 'Web × SEO × GEO', desc: 'Google検索もAI検索（ChatGPT・Claude）も、Googleマップも。"探されたときに必ず見つかる"状態を作ります。', color: '#6BA3D6' },
-            { num: '02', layer: 'Layer 2', title: '逃さない', sub: 'LINE × チャットボット', desc: '深夜の問い合わせにもAIが即応答。予約・リマインドまで自動で、"せっかくの見込み客"を取りこぼしません。', color: 'var(--color-brand)' },
-            { num: '03', layer: 'Layer 3', title: '育てる', sub: 'AI分析 × 改善ループ', desc: '数字を見て、毎月手を打つ。KPI追跡と改善を回し続け、"入れて終わり"にしない成果の伸ばし方を。', color: 'var(--color-accent)' },
-          ].map((l, i) => (
-            <Fragment>
-              {i > 0 && (
-                <div class="layer-arrow" aria-hidden="true">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                  </svg>
-                </div>
-              )}
-              <div class="reveal layer-card t-card p-8 flex flex-col" style={`border-top:3px solid ${l.color};`}>
-                <span class="layer-num" style={`color:${l.color};`}>{l.num}</span>
-                <p class="text-xs font-semibold mb-2" style={`color:${l.color}; letter-spacing:0.1em; text-transform:uppercase;`}>{l.layer}</p>
-                <h3 class="heading-md mb-1">{l.title}</h3>
-                <p class="text-xs mb-4" style="color:var(--color-ink-dim);">{l.sub}</p>
-                <p class="body-sm flex-1">{l.desc}</p>
-              </div>
-            </Fragment>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <div class="section-divider max-w-7xl mx-auto"></div>
 
     <!-- ========== SERVICES (01-04 Cards) ========== -->
     <section class="section-padding" style="background:var(--color-bg);">
