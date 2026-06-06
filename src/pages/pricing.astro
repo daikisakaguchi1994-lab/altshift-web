@@ -3,219 +3,225 @@ import Layout from '../layouts/Layout.astro'
 import Nav from '../components/Nav.astro'
 import Footer from '../components/Footer.astro'
 
-const plans = [
-  {
-    name: 'AI時代の集客基盤構築',
-    desc: 'AI検索時代に対応したWebサイト制作。Google・ChatGPT双方からの集客基盤を構築。',
-    initial: '15万円〜',
-    monthly: '3万円',
-    features: ['レスポンシブWebサイト制作', 'SEO内部対策・構造化データ', 'GEO対策（llms.txt・AI検索最適化）', 'Googleビジネスプロフィール最適化', '月次レポート・改善提案'],
-    popular: false,
-  },
-  {
-    name: '顧客接点の自動化',
-    desc: '24時間365日の自動応答で機会損失をゼロに。顧客接点の拡大とリピーター育成。',
-    initial: '10万円〜',
-    monthly: '3万円',
-    features: ['LINE公式アカウント構築', 'AIチャットボット設定', 'リッチメニュー・自動応答設計', 'ウェルカムメッセージ自動配信', '月次レポート・シナリオ改善'],
-    popular: false,
-  },
-  {
-    name: 'AI業務自動化',
-    desc: '手作業の業務をAIで自動化。コスト削減と生産性向上を同時に実現。',
-    initial: '20万円〜',
-    monthly: '5万円',
-    features: ['業務フロー分析・AI化設計', 'カスタム自動化システム構築', 'Google Apps Script / API連携', 'データ集計・レポート自動生成', '運用サポート・機能追加'],
-    popular: true,
-  },
-  {
-    name: 'AI導入コンサルティング',
-    desc: '戦略診断（30〜50万円・買い切り）から月額顧問（20〜50万円/月）、Embedded CAIO（50万円〜/月）まで3段階。',
-    initial: '30万円〜',
-    monthly: '20万円〜50万円',
-    features: ['業務プロセス分析・AI適用評価', 'AI導入ロードマップ策定', '月次レポート・改善提案', 'AI活用レクチャー・社内研修', 'Slack/LINEでの随時相談'],
-    popular: false,
-  },
-]
-
-const bundlePlan = {
-  name: 'まるごとAIパッケージ',
-  desc: 'Web制作・LINE自動化・AI業務自動化・コンサルティングをすべて含むオールインワンプラン。個別導入より最大30%お得。',
-  initial: '30万円〜',
-  monthly: '12万円',
-  features: ['上記すべてのサービスを包括', 'AI導入ロードマップ策定', '優先サポート・専任担当', '月次戦略ミーティング', '追加開発の優先対応'],
-}
-
 const faqs = [
   { q: '契約期間の縛りはありますか？', a: '最低契約期間は3ヶ月です。初期構築に1〜2ヶ月、効果測定に1ヶ月を想定しています。4ヶ月目以降はいつでも解約可能です。' },
   { q: '初期費用の分割払いは可能ですか？', a: 'はい、最大3回までの分割払いに対応しています。お気軽にご相談ください。' },
   { q: '途中でプランの変更はできますか？', a: 'はい、月単位でプランのアップグレード・ダウングレードが可能です。ビジネスの成長に合わせて柔軟に対応します。' },
-  { q: '補助金は使えますか？', a: 'はい、ご活用いただけます。AltShiftのサービスに適合する主要補助金（2026年度）：\n\n・ものづくり補助金（第23次）— 最大2,500万円・補助率1/2〜2/3\n・省力化投資補助金〈一般型〉— 最大1億円・補助率1/3〜2/3\n・新事業進出補助金（第4回）— 最大7,000万円・補助率1/2\n・福岡県中小企業生産性向上・賃上げ緊急支援補助金 — 最大1,300万円・補助率2/3\n\n※補助金は精算払い（後払い）です。採択を保証するものではありません。申請書類の作成・提出は提携行政書士・中小企業診断士が担当します。補助金活用の詳細については、お気軽に無料相談をご利用ください。（2026年5月時点の情報）' },
   { q: '無料相談では何ができますか？', a: '現在の業務課題のヒアリング、AI導入の方向性提案、概算見積もりの提示を行います。30分〜1時間程度で、オンラインまたは対面で実施します。' },
 ]
 
 const schemaData = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: '料金プラン | AltShift',
-  description: '福岡の中小企業向けAIコンサルティング・AI導入支援の料金プラン。Web制作、LINE自動化、AI業務自動化、コンサルティング顧問。',
-  mainEntity: {
-    '@type': 'OfferCatalog',
-    name: 'AltShift サービス料金',
-    itemListElement: plans.map((p, i) => ({
-      '@type': 'Offer',
-      position: i + 1,
-      name: p.name,
-      description: p.desc,
-      price: p.monthly.replace('万円', '0000'),
-      priceCurrency: 'JPY',
-      priceSpecification: { '@type': 'UnitPriceSpecification', price: p.monthly.replace('万円', '0000'), priceCurrency: 'JPY', unitText: 'MONTH' },
-    })),
-  },
+  name: '料金の考え方 | AltShift',
+  description: '福岡の中小企業向けAI内製化パッケージの料金の考え方。採用代替フレームで120万円の投資価値を解説。',
 }
 ---
 
 <Layout
-  title="料金プラン | 福岡の中小企業向けAI導入支援 AltShift"
-  description="福岡の中小企業向けAIコンサルティングの料金プラン。Web制作・LINE自動化・AI業務自動化・コンサルティング顧問の4サービス。無料相談受付中。"
+  title="料金の考え方 | AI内製化パッケージ | AltShift 福岡"
+  description="AI内製化パッケージ総額120万円。中途採用1人の紹介料とほぼ同額で、今いるチームをAI人材に育てる投資です。補助金を活用できる場合があります。"
   schemaData={schemaData}
 >
   <Nav />
   <main>
+
+    <!-- ========== HEADLINE ========== -->
     <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="mb-14 reveal text-center">
+      <div class="max-w-3xl mx-auto px-6 lg:px-8">
+        <div class="mb-16 reveal text-center">
           <div class="accent-line mb-6 mx-auto"></div>
-          <h1 class="heading-hero" style="font-size:clamp(28px,4vw,48px);">料金プラン</h1>
-          <p class="body-lg mt-4 max-w-2xl mx-auto">中小企業に最適化された、シンプルで透明な料金体系。<br />初期費用＋月額サポートで、導入から運用まで一貫支援します。</p>
-        </div>
-
-        <!-- Plans Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12 stagger">
-          {plans.map(plan => (
-            <div class={`reveal t-card p-6 flex flex-col relative ${plan.popular ? 'ring-2' : ''}`} style={plan.popular ? 'border-color:var(--color-primary);' : ''}>
-              {plan.popular && (
-                <div class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 text-xs font-bold rounded-full" style="background:var(--color-primary); color:var(--color-navy);">
-                  人気
-                </div>
-              )}
-              <h3 class="heading-sm mb-2">{plan.name}</h3>
-              <p class="body-sm mb-6" style="min-height:48px;">{plan.desc}</p>
-              <div class="mb-6">
-                {plan.initial && (
-                  <p class="text-xs mb-1" style="color:var(--color-ink-dim);">初期費用 <span class="font-semibold" style="color:var(--color-ink);">{plan.initial}</span></p>
-                )}
-                <div class="flex items-end gap-1">
-                  <span class="text-3xl font-bold" style="color:var(--color-primary); letter-spacing:-0.03em;">月額{plan.monthly}</span>
-                  <span class="text-xs mb-1" style="color:var(--color-ink-dim);">〜（税別）</span>
-                </div>
-              </div>
-              <ul class="flex flex-col gap-2 mb-8 flex-1">
-                {plan.features.map(f => (
-                  <li class="flex items-start gap-2 text-sm" style="color:var(--color-ink-sub);">
-                    <svg class="flex-shrink-0 mt-0.5" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-              <a href="/contact" class={plan.popular ? 'btn-primary w-full justify-center' : 'btn-outline w-full justify-center'}>
-                無料で相談する
-              </a>
-            </div>
-          ))}
-        </div>
-
-        <!-- Bundle Plan -->
-        <div class="reveal t-card p-8 mb-16" style="border-color:rgba(27,94,190,0.2); background:rgba(27,94,190,0.03);">
-          <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-            <div>
-              <div class="inline-block px-3 py-1 text-xs font-bold rounded-full mb-4" style="background:var(--color-primary); color:var(--color-navy);">
-                最大30%お得
-              </div>
-              <h2 class="heading-lg mb-3">{bundlePlan.name}</h2>
-              <p class="body-sm mb-4">{bundlePlan.desc}</p>
-              <div class="flex items-center gap-4 mb-6">
-                <div>
-                  <p class="text-xs" style="color:var(--color-ink-dim);">初期費用</p>
-                  <p class="text-lg font-bold" style="color:var(--color-ink);">{bundlePlan.initial}</p>
-                </div>
-                <div style="width:1px; height:32px; background:var(--color-border);"></div>
-                <div>
-                  <p class="text-xs" style="color:var(--color-ink-dim);">月額</p>
-                  <p class="text-2xl font-bold" style="color:var(--color-primary); letter-spacing:-0.03em;">{bundlePlan.monthly}〜<span class="text-xs font-normal" style="color:var(--color-ink-dim);">（税別）</span></p>
-                </div>
-              </div>
-              <a href="/contact" class="btn-primary">まるごとパッケージを相談する</a>
-            </div>
-            <ul class="flex flex-col gap-3">
-              {bundlePlan.features.map(f => (
-                <li class="flex items-start gap-3 body-sm">
-                  <svg class="flex-shrink-0 mt-0.5" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--color-primary)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
-                  {f}
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-
-        <!-- Subsidy Note -->
-        <div class="reveal t-card p-6 mb-16 flex flex-col md:flex-row items-start gap-4">
-          <div class="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center" style="background:rgba(20,86,251,0.1);">
-            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
-          </div>
-          <div>
-            <h3 class="heading-sm mb-2">補助金の活用で費用を最大2/3削減</h3>
-            <p class="body-sm">ものづくり補助金や省力化投資補助金等との組み合わせで、導入費用の1/2〜2/3が補助対象になるケースがあります。申請書類の作成は提携行政書士が担当する一貫支援体制をご用意しています。</p>
-          </div>
-        </div>
-
-        <!-- FAQ -->
-        <div class="max-w-3xl mx-auto mb-16">
-          <h2 class="heading-lg mb-8 text-center reveal">よくある質問</h2>
-          <div class="flex flex-col gap-4 stagger">
-            {faqs.map(faq => (
-              <details class="reveal t-card p-5 group">
-                <summary class="heading-sm cursor-pointer flex items-center justify-between" style="list-style:none;">
-                  {faq.q}
-                  <svg class="flex-shrink-0 ml-4 transition-transform group-open:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                </summary>
-                <p class="body-sm mt-3 pt-3" style="border-top:1px solid var(--color-border);">{faq.a}</p>
-              </details>
-            ))}
-          </div>
-        </div>
-
-        <!-- CTA -->
-        <div class="reveal t-card flex flex-col md:flex-row items-center justify-between gap-6 p-8">
-          <div>
-            <h3 class="heading-md mb-2">まずは無料で相談しませんか？</h3>
-            <p class="body-sm">御社の課題をヒアリングし、最適なプランと概算をご提示します。</p>
-          </div>
-          <a href="/contact" class="btn-primary whitespace-nowrap flex-shrink-0">無料で相談する</a>
+          <h1 class="heading-hero" style="font-size:clamp(28px,4vw,48px);">料金の考え方</h1>
+          <p class="body-lg mt-6" style="max-width:600px; margin:0 auto; line-height:1.8;">
+            AltShiftは「AIツールを売る」のではありません。<br />
+            「AIを"使える人"を社内に育てる」——<br />
+            これが私たちの提供価値です。
+          </p>
         </div>
       </div>
     </section>
+
+    <!-- ========== HIRING ALTERNATIVE FRAME ========== -->
+    <section class="section-padding" style="background:var(--color-bg-subtle);">
+      <div class="max-w-3xl mx-auto px-6 lg:px-8">
+        <div class="reveal">
+          <p class="section-label mb-4" style="text-transform:uppercase; letter-spacing:0.1em; color:var(--color-brand);">Investment</p>
+          <h2 class="heading-lg mb-8">「人を1人増やす」代わりに、<br />「今いる人をAI人材に変える」</h2>
+
+          <div class="body-md" style="line-height:1.9; color:var(--color-ink-sub);">
+            <p class="mb-6">新しく人を1人採用するには、何がかかるでしょうか。</p>
+
+            <div class="t-card p-6 mb-6" style="background:#FFFFFF;">
+              <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px;">
+                <li class="flex items-start gap-3">
+                  <span style="color:var(--color-brand); font-weight:700; flex-shrink:0;">・</span>
+                  <span>中途採用1人あたりの平均採用コスト：<strong style="color:var(--color-ink);">約103万円</strong>（※1）</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span style="color:var(--color-brand); font-weight:700; flex-shrink:0;">・</span>
+                  <span>人材紹介会社経由なら、年収の約30%（年収400万円なら紹介料だけで<strong style="color:var(--color-ink);">約120万円</strong>）</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <span style="color:var(--color-brand); font-weight:700; flex-shrink:0;">・</span>
+                  <span>さらに、採用後は毎年の人件費（給与＋社会保険料）が発生します</span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="t-card p-6 mb-6" style="border-color:var(--color-brand); border-width:2px; background:rgba(27,94,190,0.03);">
+              <p style="font-size:18px; font-weight:700; color:var(--color-ink); margin-bottom:8px;">
+                AltShiftの「AI内製化パッケージ」は総額<span style="color:var(--color-brand); font-size:24px;">120</span>万円。
+              </p>
+              <p style="color:var(--color-ink-sub);">
+                中途採用1人を紹介会社経由で雇う費用と、ほぼ同額です。
+              </p>
+            </div>
+
+            <p class="mb-4" style="color:var(--color-ink); font-weight:600;">違うのは——</p>
+            <ul style="list-style:none; padding:0; margin:0 0 24px 0; display:flex; flex-direction:column; gap:8px;">
+              <li class="flex items-start gap-3">
+                <svg class="flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>採用後の人件費が、毎年発生しない</span>
+              </li>
+              <li class="flex items-start gap-3">
+                <svg class="flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                <span>既存の社員が"AIを使える人材"に育ち、その知見が社内に残る</span>
+              </li>
+            </ul>
+
+            <p style="font-weight:600; color:var(--color-ink);">
+              「人を増やす」のではなく、「今いるチームの生産性を上げる」投資です。
+            </p>
+            <p class="mt-4" style="font-size:12px; color:var(--color-ink-dim);">
+              ※1 出典：リクルート 就職みらい研究所「就職白書2020」
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 3-PART STRUCTURE ========== -->
+    <section class="section-padding" style="background:var(--color-bg);">
+      <div class="max-w-5xl mx-auto px-6 lg:px-8">
+        <div class="text-center mb-12 reveal">
+          <p class="section-label mb-4" style="text-transform:uppercase; letter-spacing:0.1em; color:var(--color-brand);">Package</p>
+          <h2 class="heading-lg">パッケージの3つの構成</h2>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger">
+          {[
+            {
+              num: '01',
+              title: 'システム構築',
+              desc: '業務自動化システム（LINE Bot・スプレッドシート連携等）を、御社の業務に合わせて設計・構築します。',
+              note: '福岡県の補助金が活用できる場合があります（補助率2/3〜3/4）',
+              color: '#6BA3D6',
+            },
+            {
+              num: '02',
+              title: '研修（座学）',
+              desc: 'AIの基礎、業務の棚卸し、ツールの操作を、御社のチームが学びます。',
+              note: '人材開発支援助成金が活用できる場合があります（経費助成45〜75%）',
+              color: 'var(--color-brand)',
+            },
+            {
+              num: '03',
+              title: '伴走・内製化サポート',
+              desc: '現場で二人三脚。御社の担当者が、自分でAIを使いこなし、改修できる状態まで引き上げます。',
+              note: 'ここは補助対象外の自費サービスです。AltShiftの価値の核です。',
+              color: 'var(--color-accent)',
+            },
+          ].map(item => (
+            <div class="reveal t-card p-7 flex flex-col" style={`border-top:3px solid ${item.color};`}>
+              <span style={`font-family:'Inter',sans-serif; font-weight:800; font-size:40px; line-height:1; opacity:0.18; color:${item.color}; margin-bottom:8px;`}>{item.num}</span>
+              <h3 class="heading-md mb-3">{item.title}</h3>
+              <p class="body-sm flex-1 mb-4">{item.desc}</p>
+              <p style={`font-size:12px; color:${item.color}; font-weight:500; line-height:1.5;`}>
+                → {item.note}
+              </p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== SUBSIDY NOTE ========== -->
+    <section class="section-padding" style="background:var(--color-bg-subtle);">
+      <div class="max-w-3xl mx-auto px-6 lg:px-8">
+        <div class="reveal">
+          <p class="section-label mb-4" style="text-transform:uppercase; letter-spacing:0.1em; color:var(--color-accent);">Subsidy</p>
+          <h2 class="heading-lg mb-8">補助金について</h2>
+
+          <p class="body-md mb-8" style="line-height:1.8;">
+            御社の状況に応じて、活用できる補助金の「適合診断」を無料で行います。
+          </p>
+
+          <div class="t-card p-6 mb-8" style="background:#FFFFFF;">
+            <p class="heading-sm mb-4" style="color:var(--color-ink);">ただし、以下は正直にお伝えします：</p>
+            <ul style="list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:12px;">
+              <li class="flex items-start gap-3 body-sm">
+                <svg class="flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <span>補助金・助成金の申請者・受給者は、お客様（御社）です</span>
+              </li>
+              <li class="flex items-start gap-3 body-sm">
+                <svg class="flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <span>申請手続きは、認定支援機関・社会保険労務士と連携してご支援します</span>
+              </li>
+              <li class="flex items-start gap-3 body-sm">
+                <svg class="flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <span>補助金は審査制・予算上限制のため、採択を保証するものではありません</span>
+              </li>
+              <li class="flex items-start gap-3 body-sm">
+                <svg class="flex-shrink-0 mt-1" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                <span>伴走・内製化サポート（③）は補助対象外の自費サービスです</span>
+              </li>
+            </ul>
+          </div>
+
+          <p class="body-md" style="font-weight:600; color:var(--color-ink); line-height:1.8;">
+            「実質無料」のような表現はいたしません。<br />
+            御社にとって本当に価値があるかを、一緒に見極めます。
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FAQ ========== -->
+    <section class="section-padding" style="background:var(--color-bg);">
+      <div class="max-w-3xl mx-auto px-6 lg:px-8">
+        <h2 class="heading-lg mb-8 text-center reveal">よくある質問</h2>
+        <div class="flex flex-col gap-4 stagger">
+          {faqs.map(faq => (
+            <details class="reveal t-card p-5 group">
+              <summary class="heading-sm cursor-pointer flex items-center justify-between" style="list-style:none;">
+                {faq.q}
+                <svg class="flex-shrink-0 ml-4 transition-transform group-open:rotate-180" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-muted)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+              </summary>
+              <p class="body-sm mt-3 pt-3" style="border-top:1px solid var(--color-border);">{faq.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CTA ========== -->
+    <section class="section-padding" style="background:var(--color-bg-subtle);">
+      <div class="max-w-2xl mx-auto px-6 text-center reveal">
+        <h2 class="heading-lg mb-4">まずは御社に補助金が使えるか、<br />無料で診断します。</h2>
+        <p class="body-md mb-8" style="color:var(--color-ink-sub);">30分の無料相談で、御社の課題と補助金の適合を確認します。</p>
+        <a href="https://calendly.com/daiki-sakaguchi1994/30min" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:16px; padding:16px 40px;">
+          無料相談（30分）
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+          </svg>
+        </a>
+      </div>
+    </section>
+
   </main>
   <Footer />
 </Layout>
 
 <style>
-  .btn-outline {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 12px 24px;
-    border: 1px solid var(--color-border-card);
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: 600;
-    color: var(--color-ink);
-    text-decoration: none;
-    transition: all 0.2s;
-  }
-  .btn-outline:hover {
-    border-color: var(--color-primary);
-    color: var(--color-primary);
-  }
   details summary::-webkit-details-marker { display: none; }
 </style>
