@@ -9,7 +9,7 @@ const schemaData = {
   name: 'AI業務自動化',
   provider: { '@type': 'Organization', name: 'AltShift', url: 'https://altshift.jp' },
   areaServed: [{ '@type': 'City', name: '福岡市' }, { '@type': 'Country', name: '日本' }],
-  description: '中小企業の業務をAIで自動化。8〜12週間で本番投入、補助金活用で実質負担1/2〜2/3。',
+  description: '中小企業の業務をAIで自動化。8〜12週間で本番投入。補助金を活用できる場合があります。',
   serviceType: 'AI業務自動化',
   offers: {
     '@type': 'AggregateOffer',
@@ -17,7 +17,7 @@ const schemaData = {
     highPrice: '4000000',
     priceCurrency: 'JPY',
     offerCount: '1',
-    description: '補助金活用後の実質負担額',
+    description: '補助金採択時のお客様負担目安',
   },
 }
 
@@ -40,8 +40,8 @@ const faqSchema = {
 ---
 
 <Layout
-  title="AI業務自動化 | 補助金活用で実質負担1/2〜2/3 | AltShift 福岡"
-  description="手作業の業務をAIで自動化。8〜12週間で本番投入、省力化投資補助金の活用で実質負担150万円〜。物流・受発注・顧客対応・経理など幅広い業務領域に対応。福岡発、全国対応。"
+  title="AI業務自動化 | 補助金活用についてもご相談可能 | AltShift 福岡"
+  description="手作業の業務をAIで自動化。8〜12週間で本番投入。補助金を活用できる場合があります。物流・受発注・顧客対応・経理など幅広い業務領域に対応。福岡発、全国対応。"
   schemaData={schemaData}
 >
   <Nav />
@@ -67,7 +67,7 @@ const faqSchema = {
           </div>
           <div style="padding-bottom:8px;">
             <p class="body-lg mb-3" style="max-width:440px;">
-              手作業の業務をAI化。8〜12週間で本番投入、<br class="hidden md:inline" />補助金活用で実質負担1/2〜2/3。
+              手作業の業務をAI化。8〜12週間で本番投入。<br class="hidden md:inline" />補助金を活用できる場合があります。
             </p>
             <p class="text-xs mb-1" style="color:var(--color-ink-dim);">現場常駐型（Forward Deployed Engineer）で、貴社の業務に入り込みます。</p>
             <div class="flex flex-wrap gap-4 mt-6">
@@ -94,7 +94,7 @@ const faqSchema = {
           {[
             { num: '01', title: '業務工数を最大50%削減', desc: '反復的な手作業をAIが代替。スタッフは本来注力すべきコア業務に集中できます。', icon: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>` },
             { num: '02', title: '24時間365日の自動処理', desc: '夜間・休日も止まらないAIシステム。人が寝ている間もビジネスが動き続けます。', icon: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>` },
-            { num: '03', title: '補助金活用で実質負担1/2〜2/3', desc: '事業計画の策定助言と技術要件の文書化をAltShiftが担当。申請書類は提携行政書士が作成し、コスト負担を大幅に軽減。', icon: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>` },
+            { num: '03', title: '補助金の活用をご支援', desc: '事業計画の策定助言と技術要件の文書化をAltShiftが担当。申請書類は提携行政書士が作成。採択は審査によります。', icon: `<svg viewBox="0 0 24 24" width="32" height="32" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>` },
           ].map(p => (
             <div class="reveal t-card p-8 text-center">
               <div style="color:var(--color-primary); margin-bottom:16px; display:inline-block;" set:html={p.icon} />
@@ -153,7 +153,7 @@ const faqSchema = {
               <p class="text-sm font-bold" style="color:var(--color-primary);">1/2<span class="text-xs font-normal ml-1" style="color:var(--color-ink-dim);">（小規模事業者・再生事業者は2/3）</span></p>
             </div>
             <div class="flex items-center justify-between py-4 mt-2" style="border-top:2px solid var(--color-primary);">
-              <p class="text-sm font-bold" style="color:var(--color-ink);">実質負担額</p>
+              <p class="text-sm font-bold" style="color:var(--color-ink);">お客様負担目安</p>
               <p class="text-2xl font-bold" style="color:var(--color-primary);">150万円〜400万円</p>
             </div>
           </div>
@@ -214,7 +214,7 @@ const faqSchema = {
         <div class="reveal t-card p-8">
           <p class="text-xs font-semibold mb-2" style="color:var(--color-primary); letter-spacing:0.05em;">CASE STUDY</p>
           <h3 class="heading-md mb-3">大手物流企業A社</h3>
-          <p class="body-sm mb-4">配車・受発注業務にAI自動化システムを導入。手作業で行っていた配車スケジューリングとデータ集計をAIが代替し、業務工数を大幅に削減。省力化投資補助金を活用し、実質負担を抑えて導入を実現。</p>
+          <p class="body-sm mb-4">配車・受発注業務にAI自動化システムを導入。手作業で行っていた配車スケジューリングとデータ集計をAIが代替し、業務工数を大幅に削減。補助金を活用して導入を実現。</p>
           <div class="grid grid-cols-3 gap-4 mb-4">
             <div class="text-center py-3" style="background:rgba(27,94,190,0.04); border-radius:8px;">
               <p class="text-xs" style="color:var(--color-ink-dim);">業務工数</p>
