@@ -49,8 +49,11 @@ export default function DemoChat() {
     scrollToBottom();
   }, [messages, isLoading]);
 
+  const userTurnCount = messages.filter(m => m.role === 'user').length;
+  const demoEnded = userTurnCount >= 6;
+
   const sendMessage = async (text: string) => {
-    if (!text.trim() || isLoading) return;
+    if (!text.trim() || isLoading || demoEnded) return;
 
     setError('');
     const userMsg: Message = { role: 'user', content: text.trim() };
@@ -59,11 +62,26 @@ export default function DemoChat() {
     setInput('');
     setIsLoading(true);
 
+    const newTurnCount = newMessages.filter(m => m.role === 'user').length;
+
+    // Prepend tab context so the AI knows the industry
+    const contextMessages: Message[] = [
+      {
+        role: 'user' as const,
+        content: '[デモ文脈] 現在のタブ: 美容クリニック向けデモ。相手は美容室・美容クリニックの経営者または院長。業種は既知なので再度聞かない。'
+      },
+      {
+        role: 'assistant' as const,
+        content: '承知しました。美容クリニックの院長先生とのご相談として進めます。'
+      },
+      ...newMessages
+    ];
+
     try {
       const res = await fetch('/api/chat', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ messages: newMessages }),
+        body: JSON.stringify({ messages: contextMessages, turnCount: newTurnCount }),
       });
 
       const data = await res.json();
@@ -289,7 +307,39 @@ export default function DemoChat() {
         )}
       </div>
 
-      {/* Input form */}
+      {/* Input form / Demo ended */}
+      {demoEnded ? (
+        <div style={{
+          padding: '20px 16px',
+          borderTop: '1px solid var(--color-border, #E5E7EB)',
+          background: '#F9FAFB',
+          textAlign: 'center',
+        }}>
+          <p style={{ fontSize: '14px', color: '#374151', fontWeight: 600, margin: '0 0 4px 0' }}>
+            このデモ体験はここまでです。
+          </p>
+          <p style={{ fontSize: '13px', color: '#6B7280', margin: '0 0 12px 0' }}>
+            続きはディーチャー本人と話しませんか？
+          </p>
+          <a
+            href="https://calendly.com/daiki-sakaguchi1994/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: 'inline-block',
+              padding: '10px 24px',
+              fontSize: '14px',
+              fontWeight: 700,
+              background: 'var(--color-cta, #EA6A00)',
+              color: '#FFFFFF',
+              borderRadius: '10px',
+              textDecoration: 'none',
+            }}
+          >
+            無料相談を予約する（30分）
+          </a>
+        </div>
+      ) : (
       <form
         onSubmit={handleSubmit}
         style={{
@@ -298,25 +348,42 @@ export default function DemoChat() {
           display: 'flex',
           gap: '8px',
           background: '#FFFFFF',
+          flexWrap: 'wrap',
         }}
       >
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          placeholder="メッセージを入力..."
-          disabled={isLoading}
-          style={{
-            flex: 1,
-            padding: '10px 14px',
-            fontSize: '14px',
-            border: '1px solid var(--color-border, #E5E7EB)',
-            borderRadius: '10px',
-            outline: 'none',
-            background: '#F9FAFB',
-            color: '#1F2937',
-          }}
-        />
+        <div style={{ flex: 1, position: 'relative', minWidth: 0 }}>
+          <input
+            type="text"
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
+            maxLength={150}
+            placeholder="メッセージを入力..."
+            disabled={isLoading}
+            style={{
+              width: '100%',
+              padding: '10px 14px',
+              fontSize: '14px',
+              border: '1px solid var(--color-border, #E5E7EB)',
+              borderRadius: '10px',
+              outline: 'none',
+              background: '#F9FAFB',
+              color: '#1F2937',
+              boxSizing: 'border-box',
+            }}
+          />
+          {input.length > 0 && (
+            <span style={{
+              position: 'absolute',
+              right: '10px',
+              top: '50%',
+              transform: 'translateY(-50%)',
+              fontSize: '11px',
+              color: input.length >= 140 ? '#DC2626' : '#9CA3AF',
+            }}>
+              {input.length}/150
+            </span>
+          )}
+        </div>
         <button
           type="submit"
           disabled={isLoading || !input.trim()}
@@ -336,6 +403,7 @@ export default function DemoChat() {
           送信
         </button>
       </form>
+      )}
 
       {/* 3-box flow */}
       <div style={{
