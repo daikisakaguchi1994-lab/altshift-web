@@ -51,14 +51,14 @@ const schemaData = {
           <h2 class="heading-lg mb-6">飲食店向けAIソリューション</h2>
           <div class="flex flex-col gap-4">
             {[
-              { title: 'LINE AIチャットボット', desc: '営業時間・メニュー・予約に関する質問にAIが24時間自動回答。複雑な質問はスタッフに自動エスカレーション。友だち追加でクーポン自動配信も。', icon: '💬' },
-              { title: 'デジタルメニュー', desc: 'LINE上で閲覧可能な写真付きデジタルメニュー。QRコードで店内・SNS両方で活用。メニュー変更もリアルタイム反映。', icon: '📱' },
-              { title: 'Googleマップ上位表示', desc: '写真追加、カテゴリ最適化、レビュー管理、定期投稿の仕組み化でGoogleマップでの露出を強化。', icon: '📍' },
-              { title: 'リピーター育成', desc: 'LINE友だちリストを活用した再来店促進。誕生日クーポン、新メニュー告知、イベント案内を自動配信。', icon: '🔄' },
+              { title: 'LINE AIチャットボット', desc: '営業時間・メニュー・予約に関する質問にAIが24時間自動回答。複雑な質問はスタッフに自動エスカレーション。友だち追加でクーポン自動配信も。', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>' },
+              { title: 'デジタルメニュー', desc: 'LINE上で閲覧可能な写真付きデジタルメニュー。QRコードで店内・SNS両方で活用。メニュー変更もリアルタイム反映。', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="14" height="20" x="5" y="2" rx="2" ry="2"/><path d="M12 18h.01"/></svg>' },
+              { title: 'Googleマップ上位表示', desc: '写真追加、カテゴリ最適化、レビュー管理、定期投稿の仕組み化でGoogleマップでの露出を強化。', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>' },
+              { title: 'リピーター育成', desc: 'LINE友だちリストを活用した再来店促進。誕生日クーポン、新メニュー告知、イベント案内を自動配信。', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a9 9 0 1 1-9-9c2.52 0 4.93 1 6.74 2.74L21 8"/><path d="M21 3v5h-5"/></svg>' },
             ].map(s => (
               <div class="t-card p-5">
                 <div class="flex items-start gap-3">
-                  <span class="text-xl flex-shrink-0">{s.icon}</span>
+                  <span class="flex-shrink-0" set:html={s.icon} />
                   <div>
                     <h3 class="heading-sm mb-2">{s.title}</h3>
                     <p class="body-sm">{s.desc}</p>

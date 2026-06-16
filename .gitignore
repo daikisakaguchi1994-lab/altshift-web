@@ -28,3 +28,5 @@ screenshots/
 
 # phase-b temp files
 .phase-b-temp/
+
+.vercel

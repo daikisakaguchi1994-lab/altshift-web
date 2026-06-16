@@ -51,14 +51,14 @@ const schemaData = {
           <h2 class="heading-lg mb-6">物流業界向けAIソリューション</h2>
           <div class="flex flex-col gap-4">
             {[
-              { title: 'レポート・集計の完全自動化', desc: 'Google Apps Script + AIで日次・週次レポートを自動生成。コールセンター集計、配送実績、稼働データをリアルタイムでダッシュボード化。', icon: '📊' },
-              { title: 'AI採用管理システム', desc: 'LINE経由の求人応募を自動記録。応募者のステータス管理（新規→面接→採用）をリアルタイム可視化。面接日程もAIが自動調整。', icon: '👥' },
-              { title: 'LINE自動応答（BtoB/BtoC）', desc: '集荷依頼・配送状況確認・見積もり依頼にAIが24時間自動回答。営業時間外の問い合わせも逃さない。', icon: '💬' },
-              { title: 'Web集客・求人ページ制作', desc: 'SEO/GEO対応の企業サイト・求人特設ページを制作。「福岡 ドライバー 求人」「福岡 物流 見積もり」で検索上位を目指す。', icon: '🌐' },
+              { title: 'レポート・集計の完全自動化', desc: 'Google Apps Script + AIで日次・週次レポートを自動生成。コールセンター集計、配送実績、稼働データをリアルタイムでダッシュボード化。', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2"/><path d="M9 3v18"/><path d="M3 9h18"/><path d="M3 15h18"/></svg>' },
+              { title: 'AI採用管理システム', desc: 'LINE経由の求人応募を自動記録。応募者のステータス管理（新規→面接→採用）をリアルタイム可視化。面接日程もAIが自動調整。', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>' },
+              { title: 'LINE自動応答（BtoB/BtoC）', desc: '集荷依頼・配送状況確認・見積もり依頼にAIが24時間自動回答。営業時間外の問い合わせも逃さない。', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>' },
+              { title: 'Web集客・求人ページ制作', desc: 'SEO/GEO対応の企業サイト・求人特設ページを制作。「福岡 ドライバー 求人」「福岡 物流 見積もり」で検索上位を目指す。', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>' },
             ].map(s => (
               <div class="t-card p-5">
                 <div class="flex items-start gap-3">
-                  <span class="text-xl flex-shrink-0">{s.icon}</span>
+                  <span class="flex-shrink-0" set:html={s.icon} />
                   <div>
                     <h3 class="heading-sm mb-2">{s.title}</h3>
                     <p class="body-sm">{s.desc}</p>

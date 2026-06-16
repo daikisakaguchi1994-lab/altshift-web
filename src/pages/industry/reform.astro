@@ -51,14 +51,14 @@ const schemaData = {
           <h2 class="heading-lg mb-6">AltShiftのリフォーム業界向けソリューション</h2>
           <div class="flex flex-col gap-4">
             {[
-              { title: 'AI検索対応Webサイト制作', desc: 'Googleだけでなく、ChatGPTやPerplexityにも引用されるWebサイトを構築。構造化データ・llms.txt・質問形式コンテンツで、あらゆる検索エンジンからの流入を確保します。', icon: '🌐' },
-              { title: 'Googleマップ上位表示（MEO対策）', desc: 'Googleビジネスプロフィールの最適化、施工写真の定期投稿、レビュー管理を一貫支援。「福岡 リフォーム」で地図検索上位を狙います。', icon: '📍' },
-              { title: 'LINE自動応答で24時間対応', desc: '営業時間外でもAIチャットボットが見積もり依頼・施工事例・対応エリアの質問に自動回答。見込み客を逃しません。', icon: '💬' },
-              { title: 'AI活用の業務効率化', desc: '見積書の自動作成、施工写真の自動整理、顧客管理の効率化。AIで事務作業を削減し、現場に集中できる環境を作ります。', icon: '⚡' },
+              { title: 'AI検索対応Webサイト制作', desc: 'Googleだけでなく、ChatGPTやPerplexityにも引用されるWebサイトを構築。構造化データ・llms.txt・質問形式コンテンツで、あらゆる検索エンジンからの流入を確保します。', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"/><path d="M2 12h20"/></svg>' },
+              { title: 'Googleマップ上位表示（MEO対策）', desc: 'Googleビジネスプロフィールの最適化、施工写真の定期投稿、レビュー管理を一貫支援。「福岡 リフォーム」で地図検索上位を狙います。', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>' },
+              { title: 'LINE自動応答で24時間対応', desc: '営業時間外でもAIチャットボットが見積もり依頼・施工事例・対応エリアの質問に自動回答。見込み客を逃しません。', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22z"/></svg>' },
+              { title: 'AI活用の業務効率化', desc: '見積書の自動作成、施工写真の自動整理、顧客管理の効率化。AIで事務作業を削減し、現場に集中できる環境を作ります。', icon: '<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9l1-8z"/></svg>' },
             ].map(s => (
               <div class="t-card p-5">
                 <div class="flex items-start gap-3">
-                  <span class="text-xl flex-shrink-0">{s.icon}</span>
+                  <span class="flex-shrink-0" set:html={s.icon} />
                   <div>
                     <h3 class="heading-sm mb-2">{s.title}</h3>
                     <p class="body-sm">{s.desc}</p>

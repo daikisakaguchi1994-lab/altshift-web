@@ -1,4 +1,5 @@
 import { useState, useRef, useEffect } from 'react';
+import { Bot, Smartphone, Sparkles, Table2 } from 'lucide-react';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -130,10 +131,9 @@ export default function DemoChat() {
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
-          fontSize: '16px',
           flexShrink: 0,
         }}>
-          🤖
+          <Bot size={20} color="var(--color-accent, #0E9E96)" />
         </div>
         <div>
           <p style={{ color: '#FFFFFF', fontWeight: 700, fontSize: '14px', margin: 0, lineHeight: 1.3 }}>
@@ -242,10 +242,9 @@ export default function DemoChat() {
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
-                fontSize: '12px',
                 flexShrink: 0,
               }}>
-                🤖
+                <Bot size={14} color="#FFFFFF" />
               </div>
             )}
             <div style={{
@@ -275,10 +274,9 @@ export default function DemoChat() {
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              fontSize: '12px',
               flexShrink: 0,
             }}>
-              🤖
+              <Bot size={14} color="#FFFFFF" />
             </div>
             <div style={{
               padding: '10px 14px',
@@ -419,9 +417,9 @@ export default function DemoChat() {
           flexWrap: 'wrap',
         }}>
           {[
-            { icon: '📱', label: 'LINEで受信' },
-            { icon: '🤖', label: 'Claude AIが判断' },
-            { icon: '📊', label: 'Sheetsに記録' },
+            { icon: <Smartphone size={14} color="var(--color-accent, #0E9E96)" />, label: 'LINEで受信' },
+            { icon: <Sparkles size={14} color="var(--color-accent, #0E9E96)" />, label: 'Claude AIが判断' },
+            { icon: <Table2 size={14} color="var(--color-accent, #0E9E96)" />, label: 'Sheetsに記録' },
           ].map((item, i) => (
             <div key={item.label} style={{ display: 'contents' }}>
               {i > 0 && (
