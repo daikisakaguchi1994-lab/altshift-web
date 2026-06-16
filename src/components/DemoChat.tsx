@@ -27,18 +27,61 @@ function renderMarkdown(text: string) {
   return elements;
 }
 
-const SUGGESTS = [
-  '予約の問い合わせを自動応答したい',
-  'キャンセル連絡の対応を楽にしたい',
-  'LINE問い合わせを24時間対応したい',
-];
+type TabKey = 'construction' | 'dental' | 'beauty';
+
+const TABS: TabKey[] = ['construction', 'dental', 'beauty'];
+
+const INDUSTRY_CONFIG: Record<TabKey, {
+  label: string;
+  subtitle: string;
+  context: string;
+  contextAck: string;
+  suggests: string[];
+}> = {
+  construction: {
+    label: '建設・リフォーム',
+    subtitle: '建設・リフォーム会社向けデモ',
+    context: '[デモ文脈] 現在のタブ: 建設・リフォーム会社向けデモ。相手は工務店・リフォーム会社の経営者または現場責任者。業種は既知なので再度聞かない。建設・リフォーム業でよくある課題（見積もり依頼の一次対応、問い合わせからの追客、現場写真や進捗のLINE共有、職人不足の中での事務作業削減）について、AIがどう自動化できるかを具体的に会話を進める。',
+    contextAck: '承知しました。建設・リフォーム会社の社長とのご相談として進めます。',
+    suggests: [
+      '見積もり依頼の一次対応を自動化したい',
+      '問い合わせ後の追客を自動化したい',
+      '職人の事務作業を減らしたい',
+    ],
+  },
+  dental: {
+    label: '歯科',
+    subtitle: '歯科医院向けデモ',
+    context: '[デモ文脈] 現在のタブ: 歯科医院向けデモ。相手は歯科医院の院長または受付担当者。業種は既知なので再度聞かない。歯科医院でよくある課題（予約の電話対応、予約変更・キャンセル対応、診療時間外の問い合わせ、定期検診のリマインド、初診の問診対応）について、AIがどう自動化できるかを具体的に会話を進める。',
+    contextAck: '承知しました。歯科医院の院長先生とのご相談として進めます。',
+    suggests: [
+      '予約・変更の電話対応を自動化したい',
+      '診療時間外の問い合わせを自動応答したい',
+      '定期検診のリマインドを自動化したい',
+    ],
+  },
+  beauty: {
+    label: '美容クリニック',
+    subtitle: '美容クリニック向けデモ',
+    context: '[デモ文脈] 現在のタブ: 美容クリニック向けデモ。相手は美容室・美容クリニックの経営者または院長。業種は既知なので再度聞かない。',
+    contextAck: '承知しました。美容クリニックの院長先生とのご相談として進めます。',
+    suggests: [
+      '予約の問い合わせを自動応答したい',
+      'キャンセル連絡の対応を楽にしたい',
+      'LINE問い合わせを24時間対応したい',
+    ],
+  },
+};
 
 export default function DemoChat() {
+  const [activeTab, setActiveTab] = useState<TabKey>('construction');
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState('');
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState('');
   const chatRef = useRef<HTMLDivElement>(null);
+
+  const config = INDUSTRY_CONFIG[activeTab];
 
   const scrollToBottom = () => {
     if (chatRef.current) {
@@ -52,6 +95,14 @@ export default function DemoChat() {
 
   const userTurnCount = messages.filter(m => m.role === 'user').length;
   const demoEnded = userTurnCount >= 6;
+
+  const handleTabChange = (tab: TabKey) => {
+    if (tab === activeTab) return;
+    setActiveTab(tab);
+    setMessages([]);
+    setInput('');
+    setError('');
+  };
 
   const sendMessage = async (text: string) => {
     if (!text.trim() || isLoading || demoEnded) return;
@@ -67,14 +118,8 @@ export default function DemoChat() {
 
     // Prepend tab context so the AI knows the industry
     const contextMessages: Message[] = [
-      {
-        role: 'user' as const,
-        content: '[デモ文脈] 現在のタブ: 美容クリニック向けデモ。相手は美容室・美容クリニックの経営者または院長。業種は既知なので再度聞かない。'
-      },
-      {
-        role: 'assistant' as const,
-        content: '承知しました。美容クリニックの院長先生とのご相談として進めます。'
-      },
+      { role: 'user' as const, content: config.context },
+      { role: 'assistant' as const, content: config.contextAck },
       ...newMessages
     ];
 
@@ -140,35 +185,40 @@ export default function DemoChat() {
             ディーチャーAI
           </p>
           <p style={{ color: 'rgba(255,255,255,0.7)', fontSize: '11px', margin: 0 }}>
-            美容クリニック向けデモ
+            {config.subtitle}
           </p>
         </div>
       </div>
 
-      {/* Tab */}
+      {/* Tabs */}
       <div style={{
         borderBottom: '1px solid var(--color-border, #E5E7EB)',
-        padding: '0 20px',
+        padding: '0 12px',
         display: 'flex',
+        overflowX: 'auto',
       }}>
-        <button
-          type="button"
-          style={{
-            padding: '10px 16px',
-            fontSize: '13px',
-            fontWeight: 600,
-            color: 'var(--color-brand, #1B5EBE)',
-            borderBottom: '2px solid var(--color-brand, #1B5EBE)',
-            background: 'none',
-            border: 'none',
-            borderBottomStyle: 'solid',
-            borderBottomWidth: '2px',
-            borderBottomColor: 'var(--color-brand, #1B5EBE)',
-            cursor: 'default',
-          }}
-        >
-          美容クリニック
-        </button>
+        {TABS.map(tab => (
+          <button
+            key={tab}
+            type="button"
+            onClick={() => handleTabChange(tab)}
+            style={{
+              padding: '10px 14px',
+              fontSize: '13px',
+              fontWeight: 600,
+              color: activeTab === tab ? 'var(--color-accent, #0E9E96)' : '#6B7280',
+              background: 'none',
+              border: 'none',
+              borderBottom: activeTab === tab ? '2px solid var(--color-accent, #0E9E96)' : '2px solid transparent',
+              cursor: 'pointer',
+              whiteSpace: 'nowrap',
+              transition: 'color 0.2s, border-color 0.2s',
+              flexShrink: 0,
+            }}
+          >
+            {INDUSTRY_CONFIG[tab].label}
+          </button>
+        ))}
       </div>
 
       {/* Chat area */}
@@ -191,7 +241,7 @@ export default function DemoChat() {
               実際のAIが応答します。<br />気になるお悩みを選んでください。
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', width: '100%', maxWidth: '320px' }}>
-              {SUGGESTS.map((s) => (
+              {config.suggests.map((s) => (
                 <button
                   key={s}
                   type="button"
@@ -257,8 +307,8 @@ export default function DemoChat() {
               fontSize: '13px',
               lineHeight: 1.6,
               boxShadow: '0 1px 3px rgba(0,0,0,0.06)',
-              whiteSpace: 'pre-wrap',
-              wordBreak: 'break-word',
+              whiteSpace: 'pre-wrap' as const,
+              wordBreak: 'break-word' as const,
             }}>
               {renderMarkdown(m.content)}
             </div>
@@ -367,7 +417,7 @@ export default function DemoChat() {
               outline: 'none',
               background: '#F9FAFB',
               color: '#1F2937',
-              boxSizing: 'border-box',
+              boxSizing: 'border-box' as const,
             }}
           />
           {input.length > 0 && (

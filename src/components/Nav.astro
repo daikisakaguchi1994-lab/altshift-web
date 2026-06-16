@@ -52,15 +52,20 @@
     backdrop-filter: blur(16px);
     -webkit-backdrop-filter: blur(16px);
   }
+  .nav-header.menu-open {
+    background: rgba(255,255,255,1);
+  }
 </style>
 
 <script>
   const btn = document.getElementById('menu-btn')!
   const menu = document.getElementById('mobile-menu')!
+  const header = document.getElementById('site-nav')!
   btn.addEventListener('click', () => {
     const isOpen = !menu.classList.contains('hidden')
     menu.classList.toggle('hidden')
     menu.setAttribute('aria-hidden', isOpen ? 'true' : 'false')
     btn.setAttribute('aria-expanded', isOpen ? 'false' : 'true')
+    header.classList.toggle('menu-open', !isOpen)
   })
 </script>
