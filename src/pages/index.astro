@@ -336,21 +336,18 @@ const faqSchema = {
         </div>
         <div class="grid grid-cols-2 md:grid-cols-4 gap-6 stagger">
           {[
-            { name: 'TYDロジスティクス', sub: '株式会社' },
-            { name: '三栄リフォーム', sub: '' },
-            { name: '株式会社伸明', sub: '' },
-            { name: '株式会社BEGINS', sub: '' },
+            { name: '軽貨物・ラストワンマイル配送' },
+            { name: '建設・リフォーム' },
+            { name: '住宅・店舗リノベーション' },
+            { name: 'コールセンター・採用支援' },
           ].map(client => (
             <div class="reveal" style="background:#FFFFFF; border:1px solid var(--color-border); border-radius:12px; padding:24px; display:flex; align-items:center; justify-content:center; min-height:120px;">
               <p style="font-family:'Inter','Noto Sans JP',sans-serif; font-weight:700; font-size:16px; color:#595959; text-align:center; line-height:1.5;">
-                {client.name}{client.sub && <><br /><span style="font-size:13px; font-weight:500;">{client.sub}</span></>}
+                {client.name}
               </p>
             </div>
           ))}
         </div>
-        <p class="text-center mt-8 reveal" style="font-size:13px; color:var(--color-ink-muted);">
-          ※ロゴ掲載は各社の許諾を得ています
-        </p>
       </div>
     </section>
 
@@ -493,7 +490,7 @@ const faqSchema = {
           {[
             { title: '建設リフォーム会社（福岡） × AltShift', tags: ['Web制作','SEO/GEO'], image: '/images/cases/sanei-reform.jpg', desc: 'AI時代の検索対応Webサイト。SEO/GEO対策でGoogleとAIに選ばれるコンテンツを構築。', url: 'https://sanei-reform.vercel.app', slug: null },
             { title: 'コールセンター運営企業（東京・福岡） × AltShift', tags: ['業務自動化','HR-Tech'], image: '/images/cases/begins.jpg', desc: 'コールセンター集計の完全自動化。採用業務工数50%削減（担当者体感）を実現。', url: null, slug: null },
-            { title: '物流会社（福岡） × AltShift', tags: ['物流','AI業務自動化','LINE自動化'], image: null, desc: '物流現場の属人化を解消。LINE Bot＋配車システムで業務をAI化。', url: null, slug: '/cases/tyd-logistics' },
+            { title: '軽貨物・ラストワンマイル（福岡） × AltShift', tags: ['物流','AI業務自動化','LINE自動化'], image: '/images/cases/tyd-logistics.jpg', desc: '物流現場の属人化を解消。LINE Bot＋配車システムで業務をAI化。', url: null, slug: '/cases/tyd-logistics' },
           ].map(c => (
             <div class="reveal t-card overflow-hidden">
               <!-- IMAGE SLOT -->

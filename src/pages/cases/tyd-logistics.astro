@@ -3,11 +3,9 @@ import Layout from '../../layouts/Layout.astro'
 import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
 
-// Disclosure toggle: set PUBLIC_TYD_DISCLOSURE=true to show real company name
-const disclosed = import.meta.env.PUBLIC_TYD_DISCLOSURE === 'true'
-const companyName = disclosed ? 'TYDロジスティクス株式会社' : '大手物流企業A社'
-const companyShort = disclosed ? 'TYDロジスティクス' : '物流企業A社'
-const heroTitle = disclosed ? 'TYDロジスティクス × AltShift' : '物流企業A社 × AltShift'
+const companyName = '軽貨物・ラストワンマイル配送企業'
+const companyShort = '軽貨物・ラストワンマイル'
+const heroTitle = '軽貨物・ラストワンマイル × AltShift'
 const publishDate = '2026年5月'
 
 const schemaData = {
