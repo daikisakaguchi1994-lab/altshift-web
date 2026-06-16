@@ -14,39 +14,7 @@ const cases = [
     slug: '/case/sanei-reform',
     url: 'https://sanei-reform.vercel.app',
     period: '2026年3月',
-  },
-  {
-    company: '飲食・バー',
-    title: '飲食・バー × AltShift',
-    tags: ['Web制作', 'LINE自動化', 'デジタルメニュー'],
-    desc: '福岡・中洲のアフターバー。デジタルメニューとLINE自動応答を導入し、営業時間外の問い合わせ対応を自動化。',
-    result: '営業時間外の問い合わせ対応を完全自動化',
-    image: '/images/cases/bar-kars.jpg',
-    slug: '/case/bar-kars',
-    url: null,
-    period: '2026年3月',
-  },
-  {
-    company: '住宅・店舗リノベーション',
-    title: '住宅・店舗リノベーション × AltShift',
-    tags: ['GEO最適化', 'SEO対策', 'HP制作'],
-    desc: 'Googleマップへの上位表示およびSEO対策を一貫支援。検索・地図双方からの集客基盤を構築。',
-    result: 'Googleマップ上位表示・オーガニック流入増加',
-    image: '/images/cases/shinmei.jpg',
-    slug: '/case/shinmei',
-    url: null,
-    period: '2026年4月',
-  },
-  {
-    company: 'コールセンター・採用支援',
-    title: 'コールセンター・採用支援 × AltShift',
-    tags: ['コールセンター自動化', '応募者管理', 'HR-Tech'],
-    desc: 'コールセンター集計の完全自動化・求人応募者管理・面接日程の自動設定。採用〜オペレーション領域をAI化。',
-    result: '採用業務工数50%削減・集計作業完全自動化',
-    image: '/images/cases/begins.jpg',
-    slug: '/case/begins',
-    url: null,
-    period: '2026年4月',
+    glow: 'bottom:8%; right:5%',
   },
   {
     company: '軽貨物・ラストワンマイル配送',
@@ -58,6 +26,43 @@ const cases = [
     slug: '/cases/tyd-logistics',
     url: null,
     period: '2026年5月',
+    glow: 'top:5%; left:8%',
+  },
+  {
+    company: '住宅・店舗リノベーション',
+    title: '住宅・店舗リノベーション × AltShift',
+    tags: ['GEO最適化', 'SEO対策', 'HP制作'],
+    desc: 'Googleマップへの上位表示およびSEO対策を一貫支援。検索・地図双方からの集客基盤を構築。',
+    result: 'Googleマップ上位表示・オーガニック流入増加',
+    image: '/images/cases/shinmei.jpg',
+    slug: '/case/shinmei',
+    url: null,
+    period: '2026年4月',
+    glow: 'top:10%; right:8%',
+  },
+  {
+    company: 'コールセンター・採用支援',
+    title: 'コールセンター・採用支援 × AltShift',
+    tags: ['コールセンター自動化', '応募者管理', 'HR-Tech'],
+    desc: 'コールセンター集計の完全自動化・求人応募者管理・面接日程の自動設定。採用〜オペレーション領域をAI化。',
+    result: '採用業務工数50%削減・集計作業完全自動化',
+    image: '/images/cases/begins.jpg',
+    slug: '/case/begins',
+    url: null,
+    period: '2026年4月',
+    glow: 'bottom:5%; left:15%',
+  },
+  {
+    company: '飲食・バー',
+    title: '飲食・バー × AltShift',
+    tags: ['Web制作', 'LINE自動化', 'デジタルメニュー'],
+    desc: '福岡・中洲のアフターバー。デジタルメニューとLINE自動応答を導入し、営業時間外の問い合わせ対応を自動化。',
+    result: '営業時間外の問い合わせ対応を完全自動化',
+    image: '/images/cases/bar-kars.jpg',
+    slug: '/case/bar-kars',
+    url: null,
+    period: '2026年3月',
+    glow: 'bottom:10%; left:10%',
   },
 ]
 ---
@@ -83,7 +88,10 @@ const cases = [
                       <p style="font-size:14px;font-weight:600;color:var(--color-ink-muted);">{c.company}</p>
                     </div>
                 }
-                <div class="neon-glow-circle" style="bottom:15%; right:25%;"></div>
+                {c.glow
+                  ? <div class="teal-glow" style={c.glow}></div>
+                  : <div class="neon-glow-circle" style="bottom:15%; right:25%;"></div>
+                }
               </div>
               <div class="p-6">
                 <div class="flex items-center justify-between mb-3">
