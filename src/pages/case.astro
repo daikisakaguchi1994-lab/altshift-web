@@ -11,6 +11,7 @@ const cases = [
     desc: 'AI時代の検索対応Webサイトを実装。SEO/GEO対策により、ChatGPTやGoogleでの露出を強化。',
     result: 'AI検索・Googleマップ双方で上位露出',
     image: '/images/cases/construction.png',
+    objPos: 'center',
     slug: '/case/sanei-reform',
     url: 'https://sanei-reform.vercel.app',
     period: '2026年3月',
@@ -23,6 +24,7 @@ const cases = [
     desc: '物流現場の属人化を解消。LINE Bot＋配車システムで業務をAI化。24時間自動受付と請求書自動生成を実現。',
     result: '配車業務の属人化解消・24時間自動受付',
     image: '/images/cases/logistics.png',
+    objPos: 'center',
     slug: '/cases/tyd-logistics',
     url: null,
     period: '2026年5月',
@@ -35,6 +37,7 @@ const cases = [
     desc: 'Googleマップへの上位表示およびSEO対策を一貫支援。検索・地図双方からの集客基盤を構築。',
     result: 'Googleマップ上位表示・オーガニック流入増加',
     image: '/images/cases/renovation.png',
+    objPos: 'center right',
     slug: '/case/shinmei',
     url: null,
     period: '2026年4月',
@@ -47,6 +50,7 @@ const cases = [
     desc: 'コールセンター集計の完全自動化・求人応募者管理・面接日程の自動設定。採用〜オペレーション領域をAI化。',
     result: '採用業務工数50%削減・集計作業完全自動化',
     image: '/images/cases/callcenter.png',
+    objPos: 'center',
     slug: '/case/begins',
     url: null,
     period: '2026年4月',
@@ -59,6 +63,7 @@ const cases = [
     desc: '福岡・中洲のバー。デジタルメニューとLINE自動応答を導入し、営業時間外の問い合わせ対応を自動化。',
     result: '営業時間外の問い合わせ対応を完全自動化',
     image: '/images/cases/bar.png',
+    objPos: 'center',
     slug: '/case/bar-kars',
     url: null,
     period: '2026年3月',
@@ -78,12 +83,12 @@ const cases = [
           <p class="body-lg mt-4">実践的なAI導入で、ビジネスを変革した企業たち。</p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 stagger">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 stagger">
           {cases.map(c => (
             <a href={c.slug} class="reveal t-card overflow-hidden block" style="text-decoration:none; color:inherit; transition:transform 0.2s, border-color 0.2s;" onmouseover="this.style.transform='translateY(-4px)';this.style.borderColor='rgba(27,94,190,0.3)'" onmouseout="this.style.transform='';this.style.borderColor=''">
               <div class="media-slot" style="aspect-ratio:16/9; position:relative;">
                 {c.image
-                  ? <img src={c.image} alt={c.company} loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+                  ? <img src={c.image} alt={c.company} loading="lazy" style={`width:100%;height:100%;object-fit:cover;object-position:${c.objPos || 'center'}`} />
                   : <div style="width:100%;height:100%;background:var(--color-bg-subtle);display:flex;align-items:center;justify-content:center;">
                       <p style="font-size:14px;font-weight:600;color:var(--color-ink-muted);">{c.company}</p>
                     </div>
@@ -94,11 +99,11 @@ const cases = [
                 }
               </div>
               <div class="p-6">
-                <div class="flex items-center justify-between mb-3">
+                <div class="flex flex-wrap items-center justify-between gap-2 mb-3">
                   <div class="flex flex-wrap gap-2">
                     {c.tags.map(tag => <span class="tag">{tag}</span>)}
                   </div>
-                  <p class="text-xs flex-shrink-0 ml-2" style="color:var(--color-ink-dim);">{c.period}</p>
+                  <p class="text-xs flex-shrink-0" style="color:var(--color-ink-dim);">{c.period}</p>
                 </div>
                 <h3 class="heading-sm mb-2">{c.title}</h3>
                 <p class="body-sm mb-3">{c.desc}</p>

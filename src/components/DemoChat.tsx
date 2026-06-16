@@ -175,7 +175,8 @@ export default function DemoChat() {
       <div
         ref={chatRef}
         style={{
-          height: '360px',
+          minHeight: '280px',
+          maxHeight: '360px',
           overflowY: 'auto',
           padding: '20px',
           background: '#F9FAFB',

@@ -39,7 +39,7 @@ const faqSchema = {
       <div class="hero-dot-grid" style="position:absolute; inset:0; z-index:1;"></div>
 
       <!-- Content -->
-      <div style="position:relative; z-index:10; max-width:1280px; margin:0 auto; padding:160px 24px 100px; width:100%;">
+      <div class="hero-content-wrapper" style="position:relative; z-index:10; max-width:1280px; margin:0 auto; padding:160px 24px 100px; width:100%;">
         <div class="grid grid-cols-12 gap-8 lg:gap-12 items-center">
 
           <!-- Left: 7カラム -->
@@ -54,7 +54,7 @@ const faqSchema = {
             <p class="hero-subtitle mb-8" style="font-size:15px; max-width:520px; color:rgba(255,255,255,0.65);">
               診断2週間、稼働12週間。<a href="/simulator" style="color:rgba(255,255,255,0.75); text-decoration:underline; text-underline-offset:3px;">補助金を活用できる場合があります</a>。
             </p>
-            <div class="flex flex-wrap gap-4 hero-subtitle">
+            <div class="flex flex-col sm:flex-row flex-wrap gap-4 hero-subtitle">
               <a href="/contact" class="btn-primary">
                 無料で相談する
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -488,13 +488,13 @@ const faqSchema = {
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 stagger">
           {[
-            { title: '建設・リフォーム × AltShift', tags: ['Web制作','SEO/GEO','LINE自動化'], image: '/images/cases/construction.png', desc: 'AI時代の検索対応Webサイト。SEO/GEO対策でGoogleとAIに選ばれるコンテンツを構築。', slug: '/case/sanei-reform', glow: 'bottom:16px; left:24px' },
-            { title: '軽貨物・ラストワンマイル × AltShift', tags: ['物流','AI業務自動化','LINE自動化'], image: '/images/cases/logistics.png', desc: '物流現場の属人化を解消。LINE Bot＋配車システムで業務をAI化。24時間自動受付を実現。', slug: '/cases/tyd-logistics', glow: 'top:16px; left:24px' },
-            { title: '住宅・店舗リノベーション × AltShift', tags: ['GEO最適化','SEO対策','HP制作'], image: '/images/cases/renovation.png', desc: 'Googleマップ上位表示とSEO対策を一貫支援。検索・地図双方からの集客基盤を構築。', slug: '/case/shinmei', glow: 'top:16px; right:20px' },
+            { title: '建設・リフォーム × AltShift', tags: ['Web制作','SEO/GEO','LINE自動化'], image: '/images/cases/construction.png', desc: 'AI時代の検索対応Webサイト。SEO/GEO対策でGoogleとAIに選ばれるコンテンツを構築。', slug: '/case/sanei-reform', glow: 'bottom:16px; left:24px', objPos: 'center' },
+            { title: '軽貨物・ラストワンマイル × AltShift', tags: ['物流','AI業務自動化','LINE自動化'], image: '/images/cases/logistics.png', desc: '物流現場の属人化を解消。LINE Bot＋配車システムで業務をAI化。24時間自動受付を実現。', slug: '/cases/tyd-logistics', glow: 'top:16px; left:24px', objPos: 'center' },
+            { title: '住宅・店舗リノベーション × AltShift', tags: ['GEO最適化','SEO対策','HP制作'], image: '/images/cases/renovation.png', desc: 'Googleマップ上位表示とSEO対策を一貫支援。検索・地図双方からの集客基盤を構築。', slug: '/case/shinmei', glow: 'top:16px; right:20px', objPos: 'center right' },
           ].map(c => (
             <div class="reveal t-card overflow-hidden">
               <div class="media-slot" style="aspect-ratio:16/9; position:relative;">
-                <img src={c.image} alt={c.title} loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
+                <img src={c.image} alt={c.title} loading="lazy" style={`width:100%;height:100%;object-fit:cover;object-position:${c.objPos || 'center'}`} />
                 <div class="teal-glow" style={c.glow}></div>
               </div>
               <div class="p-6">

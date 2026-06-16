@@ -154,7 +154,7 @@ h3 { font-weight: 600; line-height: 1.3; }
 /* h1 level */
 .heading-hero {
   font-weight: 800;
-  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-size: clamp(1.875rem, 5vw, 4rem);
   line-height: 1.1;
   letter-spacing: -0.02em;
   color: var(--color-ink);
@@ -527,6 +527,9 @@ h3 { font-weight: 600; line-height: 1.3; }
 
 /* ===== Section spacing ===== */
 .section-padding { padding: 100px 24px; }
+@media (max-width: 640px) {
+  .section-padding { padding: 52px 24px; }
+}
 .section-padding-sm { padding: 60px 24px; }
 
 .section-divider {
@@ -752,4 +755,9 @@ input:focus, textarea:focus, select:focus {
 @keyframes marquee-scroll {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+
+/* ===== Mobile optimizations (≤640px) ===== */
+@media (max-width: 640px) {
+  .hero-content-wrapper { padding-top: 96px !important; padding-bottom: 64px !important; }
 }
