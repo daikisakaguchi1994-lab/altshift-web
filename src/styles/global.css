@@ -124,6 +124,22 @@ h3 { font-weight: 600; line-height: 1.3; }
   .hero-gradient { animation: none; }
   .hero-title, .hero-subtitle { animation: none; opacity: 1; }
   .logo-ai { animation: none; opacity: 1; }
+  .btn-primary, .btn-primary svg,
+  .btn-secondary-ghost, .btn-secondary-ghost svg,
+  .btn-outline, .btn-outline svg,
+  .neon-link, .neon-link::after,
+  .blue-link, .blue-link::after,
+  .nav-link, .nav-link::after,
+  .t-card { transition: none; }
+  .btn-primary:hover,
+  .btn-secondary-ghost:hover,
+  .btn-outline:hover,
+  .t-card:hover { transform: none; box-shadow: none; }
+  .btn-primary:hover svg,
+  .btn-secondary-ghost:hover svg,
+  .btn-outline:hover svg { transform: none; }
+  .neon-link:hover::after, .blue-link:hover::after,
+  .nav-link:hover::after { width: 0; }
 }
 
 /* Accent line (white on dark hero) */
@@ -232,11 +248,12 @@ h3 { font-weight: 600; line-height: 1.3; }
   background: var(--color-bg-card);
   border: 1px solid var(--color-border-card);
   border-radius: 12px;
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 .t-card:hover {
   border-color: rgba(26,26,26,0.15);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.04);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.07);
+  transform: translateY(-3px);
 }
 
 /* ===== 3-Layer Method ===== */
@@ -294,10 +311,18 @@ h3 { font-weight: 600; line-height: 1.3; }
   padding: 14px 28px;
   border-radius: 8px;
   text-decoration: none;
-  transition: background 0.15s ease;
+  transition: background 0.15s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 .btn-primary:hover {
   background: var(--color-cta-dark);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+}
+.btn-primary:hover svg {
+  transform: translateX(4px);
+}
+.btn-primary svg {
+  transition: transform 0.2s ease;
 }
 
 /* LINE CTA：LINEグリーン＋白文字 */
@@ -352,11 +377,19 @@ h3 { font-weight: 600; line-height: 1.3; }
   border-radius: 8px;
   border: 2px solid var(--color-primary);
   text-decoration: none;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: background 0.15s ease, color 0.15s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 .btn-secondary-ghost:hover {
   background: var(--color-primary);
   color: #FFFFFF;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+}
+.btn-secondary-ghost svg {
+  transition: transform 0.2s ease;
+}
+.btn-secondary-ghost:hover svg {
+  transform: translateX(4px);
 }
 
 /* ティールアクセント：補助金最重要バナー限定（汎用CTA禁止） */
@@ -391,11 +424,19 @@ h3 { font-weight: 600; line-height: 1.3; }
   border-radius: 8px;
   border: 1px solid var(--color-border);
   text-decoration: none;
-  transition: all 0.25s ease;
+  transition: all 0.2s ease;
 }
 .btn-outline:hover {
   border-color: var(--color-primary);
   color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+.btn-outline svg {
+  transition: transform 0.2s ease;
+}
+.btn-outline:hover svg {
+  transform: translateX(4px);
 }
 
 .btn-line {
@@ -426,8 +467,20 @@ h3 { font-weight: 600; line-height: 1.3; }
   color: var(--color-accent);
   text-decoration: none;
   transition: gap 0.2s ease;
+  position: relative;
+}
+.neon-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-accent);
+  transition: width 0.2s ease;
 }
 .neon-link:hover { gap: 10px; }
+.neon-link:hover::after { width: 100%; }
 
 .blue-link {
   display: inline-flex;
@@ -438,8 +491,20 @@ h3 { font-weight: 600; line-height: 1.3; }
   color: var(--color-accent);
   text-decoration: none;
   transition: gap 0.2s ease;
+  position: relative;
+}
+.blue-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: var(--color-accent);
+  transition: width 0.2s ease;
 }
 .blue-link:hover { gap: 10px; }
+.blue-link:hover::after { width: 100%; }
 
 /* ===== Tags ===== */
 .tag {
@@ -551,8 +616,21 @@ h3 { font-weight: 600; line-height: 1.3; }
   font-size: 14px;
   color: var(--color-ink-sub);
   transition: color 0.2s;
+  position: relative;
+}
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  border-radius: 1px;
+  background: var(--color-accent);
+  transition: width 0.2s ease;
 }
 .nav-link:hover { color: var(--color-ink); }
+.nav-link:hover::after { width: 100%; }
 
 
 /* ===== Footer (ダーク維持) ===== */
