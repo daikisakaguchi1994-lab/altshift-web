@@ -1,5 +1,6 @@
 import type { APIRoute } from 'astro';
 import Anthropic from '@anthropic-ai/sdk';
+import { Redis } from '@upstash/redis';
 
 export const prerender = false;
 
@@ -8,10 +9,41 @@ const MAX_MESSAGE_LENGTH = 2000;     // 1メッセージあたり最大文字数
 const MAX_MESSAGES_COUNT = 50;       // メッセージ配列の上限
 const VALID_ROLES = ['user', 'assistant'] as const;
 
-// --- レート制限（暫定: サーバーメモリMap。Phase H-Aで永続化予定）---
-const rateLimitMap = new Map<string, { count: number; resetAt: number }>();
-const MAX_MESSAGES_PER_SESSION = 12;
-const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000; // 10 min
+// --- レート制限（Upstash Redis永続化）---
+const RATE_LIMIT_MAX = 12;           // 10分間の上限メッセージ数
+const RATE_LIMIT_WINDOW_SEC = 600;   // 10分（秒）
+
+// 環境変数未設定時はnull（ローカル開発でエラーにならない）
+const redis = (import.meta.env.UPSTASH_REDIS_REST_URL && import.meta.env.UPSTASH_REDIS_REST_TOKEN)
+  ? new Redis({
+      url: import.meta.env.UPSTASH_REDIS_REST_URL,
+      token: import.meta.env.UPSTASH_REDIS_REST_TOKEN,
+    })
+  : null;
+
+/**
+ * Upstash Redis によるIP別レート制限
+ * @returns true = 制限超過（429を返すべき）, false = 通過OK
+ */
+async function checkRateLimit(ip: string): Promise<boolean> {
+  if (!redis) return false; // Redis未設定 → 制限なしで通過
+
+  try {
+    const key = `ratelimit:${ip}`;
+    const count = await redis.incr(key);
+
+    // 初回アクセス時にTTLをセット
+    if (count === 1) {
+      await redis.expire(key, RATE_LIMIT_WINDOW_SEC);
+    }
+
+    return count > RATE_LIMIT_MAX;
+  } catch (error) {
+    // Redis接続失敗 → 可用性優先で制限なしで通過
+    console.error('Redis rate limit error (proceeding without limit):', error);
+    return false;
+  }
+}
 
 const SYSTEM_PROMPT = `あなたは「ディーチャーAI」。福岡のAI実装コンサル「AltShift」の代表ディーチャーの分身AIです。このWebサイトのデモで、中小企業経営者のAI導入相談を受けています。
 
@@ -140,24 +172,14 @@ export const POST: APIRoute = async ({ request }) => {
     const ip = request.headers.get('x-forwarded-for')?.split(',')[0]
       || request.headers.get('x-real-ip')
       || 'unknown';
-    const now = Date.now();
 
-    // Rate limit check
-    const limit = rateLimitMap.get(ip);
-    if (limit) {
-      if (now < limit.resetAt && limit.count >= MAX_MESSAGES_PER_SESSION) {
-        return new Response(
-          JSON.stringify({ error: 'セッションの上限に達しました。少し時間をおいてから再度お試しください。' }),
-          { status: 429, headers: { 'Content-Type': 'application/json' } }
-        );
-      }
-      if (now >= limit.resetAt) {
-        rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
-      } else {
-        limit.count++;
-      }
-    } else {
-      rateLimitMap.set(ip, { count: 1, resetAt: now + RATE_LIMIT_WINDOW_MS });
+    // Rate limit check (Upstash Redis)
+    const isLimited = await checkRateLimit(ip);
+    if (isLimited) {
+      return new Response(
+        JSON.stringify({ error: 'セッションの上限に達しました。少し時間をおいてから再度お試しください。' }),
+        { status: 429, headers: { 'Content-Type': 'application/json' } }
+      );
     }
 
     // リクエストボディのパース
