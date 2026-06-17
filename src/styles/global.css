@@ -760,4 +760,19 @@ input:focus, textarea:focus, select:focus {
 /* ===== Mobile optimizations (≤640px) ===== */
 @media (max-width: 640px) {
   .hero-content-wrapper { padding-top: 96px !important; padding-bottom: 64px !important; }
+
+  /* ヒーローCTAボタン: 上下padding 4px削減 + gap詰め */
+  .btn-primary,
+  .btn-secondary-ghost { padding-top: 10px; padding-bottom: 10px; }
+  .btn-line { padding: 10px 20px; font-size: 14px; }
+  .hero-content-wrapper .flex.gap-4 { gap: 12px; }
+}
+
+/* ===== 下部固定バー フェード制御 ===== */
+#mobile-cta {
+  transition: opacity 0.3s ease;
+}
+#mobile-cta.is-hidden {
+  opacity: 0;
+  pointer-events: none;
 }

@@ -114,16 +114,17 @@ const ogImageURL = new URL(ogImage, 'https://altshift.jp').href
       },
       "priceRange": "戦略診断30万円〜、月額顧問20万円〜、Embedded CAIO 50万円〜",
       "openingHours": "Mo-Fr 10:00-18:00",
-      "sameAs": ["https://lin.ee/VOiIxYB"]
+      "sameAs": ["https://lin.ee/ySjX76bl"]
     }
     </script>
   </head>
   <body>
     <slot />
 
-    <!-- Mobile fixed CTA -->
+    <!-- Mobile fixed CTA（ヒーロー表示中は非表示） -->
     <a href="/contact"
-       class="md:hidden fixed bottom-0 left-0 right-0 z-50 flex items-center justify-center gap-2 py-4 text-white font-semibold text-sm"
+       id="mobile-cta"
+       class="md:hidden fixed bottom-0 left-0 right-0 z-50 flex items-center justify-center gap-2 py-4 text-white font-semibold text-sm is-hidden"
        style="background-color: var(--color-cta);">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
@@ -141,6 +142,19 @@ const ogImageURL = new URL(ogImage, 'https://altshift.jp').href
         });
       }, { threshold: 0.15, rootMargin: '0px 0px -50px 0px' });
       document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+      // 下部固定バー: ヒーローが見えている間は非表示
+      const mobileCta = document.getElementById('mobile-cta');
+      const hero = document.querySelector('.hero-gradient');
+      if (mobileCta && hero) {
+        const heroObs = new IntersectionObserver(([entry]) => {
+          mobileCta.classList.toggle('is-hidden', entry.isIntersecting);
+        }, { threshold: 0 });
+        heroObs.observe(hero);
+      } else if (mobileCta) {
+        // ヒーローがないページでは常時表示
+        mobileCta.classList.remove('is-hidden');
+      }
 
       // Counter animation
       document.querySelectorAll('[data-count]').forEach(el => {
