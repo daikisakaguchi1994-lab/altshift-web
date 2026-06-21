@@ -31,3 +31,6 @@ screenshots/
 
 .vercel
 .env.local
+
+# experiments / prototypes
+_experiments/

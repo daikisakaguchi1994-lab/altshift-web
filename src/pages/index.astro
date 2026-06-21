@@ -115,49 +115,277 @@ const faqSchema = {
       </div>
     </section>
 
-    <!-- ========== PRODUCT INTRO (WHY ALTSHIFT) ========== -->
-    <section id="why-altshift" class="section-padding" style="background:var(--color-bg-subtle);">
-      <div class="max-w-4xl mx-auto px-6 lg:px-8">
-        <div class="reveal">
-          <p class="section-label mb-4" style="text-transform:uppercase; letter-spacing:0.1em; color:var(--color-accent);">Why AltShift</p>
+    <!-- ========== HERO → CONSTELLATION BRIDGE ========== -->
+    <div class="hero-bridge"></div>
 
-          <h2 class="heading-lg mb-6" style="line-height:1.4;">
-            「AIを導入する」だけでは、<br class="hidden md:block" />変わらない。
-          </h2>
+    <!-- ========== CONSTELLATION (星座ビジュアル) ========== -->
+    <section class="constellation" id="constellation">
+      <div class="constellation-pin" id="constellation-pin">
+        <canvas class="particle-canvas" id="constellation-particles"></canvas>
+        <div class="stage" id="constellation-stage">
 
-          <div class="body-md" style="line-height:1.9; color:var(--color-ink-sub);">
-            <p class="mb-4">ツールを入れても、使いこなせる人がいなければ宝の持ち腐れ。</p>
-            <p class="mb-4">外注に丸投げすれば、業者がいなくなった瞬間に止まる。</p>
-            <p class="mb-4" style="font-weight:700; color:var(--color-ink);">
-              AltShiftは、AIを"使える人"を社内に育てます。
-            </p>
-            <p class="mb-8">現場に入り、システムを一緒に作り、運用できる人材を残す。<br />
-            これが「AI内製化パッケージ」です。</p>
+          <!-- Header -->
+          <div class="constellation-header" id="constellation-header">
+            <p class="label">Why AltShift</p>
+            <h2>バラバラの業務が、ひとつの仕組みになる。</h2>
           </div>
 
-          <!-- 採用代替メッセージ（核） -->
-          <div class="t-card p-8 mb-8" style="border-left:4px solid var(--color-cta); background:#FFFFFF;">
-            <p class="heading-md mb-2" style="color:var(--color-ink);">
-              「人を1人雇う」のではなく、「今いるチームをAI人材に変える」。
-            </p>
-            <p class="body-md" style="color:var(--color-ink-sub);">
-              新しく1人採用するコストは平均約103万円。AI内製化パッケージは、それとほぼ同じ投資で、辞めない"仕組みと人材"が社内に残ります。
-            </p>
+          <!-- SVG lines -->
+          <svg class="line-layer" id="constellation-lines" xmlns="http://www.w3.org/2000/svg"></svg>
+
+          <!-- Hub -->
+          <div class="hub" id="constellation-hub">
+            <div class="hub-outer">
+              <div class="hub-bloom" id="constellation-bloom"></div>
+              <div class="hub-ring-2"></div>
+              <div class="hub-ring"></div>
+              <div class="hub-core" id="constellation-core">
+                <div class="hub-label">AI内製化<br/>パッケージ</div>
+              </div>
+            </div>
           </div>
 
-          <!-- 料金導線＋CTA -->
-          <div class="flex flex-col sm:flex-row gap-4">
-            <a href="/pricing" class="btn-secondary-ghost" style="font-size:15px; padding:14px 32px;">
-              料金の考え方を見る →
-            </a>
-            <a href="https://calendly.com/daiki-sakaguchi1994/30min" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:15px; padding:14px 32px;">
-              無料相談（30分）
+          <!-- 主役（3枚） -->
+          <div class="tile" data-tier="main" data-angle="270" data-dist="32" data-float-speed="5.0" data-float-amp="4">
+            <div class="tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
+            <div class="tile-label">LINE 24時間自動対応</div>
+            <div class="tile-sub">深夜でもAIが即応答</div>
+          </div>
+          <div class="tile" data-tier="main" data-angle="30" data-dist="34" data-float-speed="4.5" data-float-amp="5">
+            <div class="tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
+            <div class="tile-label">議事録・日報の自動作成</div>
+            <div class="tile-sub">会議後すぐに共有可能</div>
+          </div>
+          <div class="tile" data-tier="main" data-angle="150" data-dist="33" data-float-speed="5.2" data-float-amp="4">
+            <div class="tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="8" y1="21" x2="8" y2="13"/><line x1="16" y1="21" x2="16" y2="9"/><path d="M6 9h4v4H6z"/></svg></div>
+            <div class="tile-label">請求書・見積もりAI作成</div>
+            <div class="tile-sub">入力ミスも工数も削減</div>
+          </div>
+
+          <!-- 脇役（5枚） -->
+          <div class="tile" data-tier="sub" data-angle="330" data-dist="42" data-float-speed="4.8" data-float-amp="3">
+            <div class="tile-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+            <div class="tile-label">問い合わせ自動返信</div>
+          </div>
+          <div class="tile" data-tier="sub" data-angle="70" data-dist="40" data-float-speed="5.4" data-float-amp="3">
+            <div class="tile-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+            <div class="tile-label">顧客リスト自動整理</div>
+          </div>
+          <div class="tile" data-tier="sub" data-angle="120" data-dist="43" data-float-speed="4.6" data-float-amp="4">
+            <div class="tile-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
+            <div class="tile-label">予約管理自動化</div>
+          </div>
+          <div class="tile" data-tier="sub" data-angle="210" data-dist="41" data-float-speed="5.1" data-float-amp="3">
+            <div class="tile-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></div>
+            <div class="tile-label">Googleカレンダー連携</div>
+          </div>
+          <div class="tile" data-tier="sub" data-angle="240" data-dist="39" data-float-speed="4.9" data-float-amp="3">
+            <div class="tile-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h.01M12 9h.01M16 9h.01"/></svg></div>
+            <div class="tile-label">Slack・Chatwork連携</div>
+          </div>
+
+          <!-- 背景群（7枚） -->
+          <div class="tile" data-tier="bg" data-angle="0" data-dist="52" data-float-speed="5.8" data-float-amp="2">
+            <div class="tile-label">RAG社内ナレッジ検索</div>
+          </div>
+          <div class="tile" data-tier="bg" data-angle="50" data-dist="55" data-float-speed="6.0" data-float-amp="2">
+            <div class="tile-label">AIエージェント</div>
+          </div>
+          <div class="tile" data-tier="bg" data-angle="100" data-dist="54" data-float-speed="5.5" data-float-amp="2">
+            <div class="tile-label">音声AI文字起こし</div>
+          </div>
+          <div class="tile" data-tier="bg" data-angle="160" data-dist="53" data-float-speed="6.2" data-float-amp="2">
+            <div class="tile-label">経費精算AI</div>
+          </div>
+          <div class="tile" data-tier="bg" data-angle="195" data-dist="56" data-float-speed="5.7" data-float-amp="2">
+            <div class="tile-label">データ分析・予測</div>
+          </div>
+          <div class="tile" data-tier="bg" data-angle="290" data-dist="51" data-float-speed="5.9" data-float-amp="2">
+            <div class="tile-label">SEO/GEO対策</div>
+          </div>
+          <div class="tile" data-tier="bg" data-angle="315" data-dist="54" data-float-speed="6.1" data-float-amp="2">
+            <div class="tile-label">Web制作</div>
+          </div>
+
+          <!-- Converge message -->
+          <div class="converge-msg" id="constellation-msg">
+            <h3>ひとつの仕組みに。</h3>
+            <p>バラバラだった業務が、統合される。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== CONSTELLATION → WHAT WE DO BRIDGE ========== -->
+    <div class="section-bridge"></div>
+
+    <!-- ========== WHAT WE DO (サービス4枚) ========== -->
+    <section class="btob-section" id="what-we-do">
+      <div class="btob-inner">
+
+        <p class="section-label reveal">What We Do</p>
+
+        <h2 class="reveal reveal-d1">その<span class="accent">"ひとつの仕組み"</span>を、<br/>あなたの会社に。</h2>
+
+        <p class="btob-subtitle reveal reveal-d2">バラバラだった業務も、属人化していた作業も、AIで一つに繋がる。<br/>AltShiftは現場に入って一緒に作り、<span class="subtitle-em">"使える人"ごと社内に残します。</span></p>
+
+        <div class="teal-divider reveal reveal-d2"></div>
+
+        <div class="service-section-header reveal reveal-d3">
+          <p class="service-section-label">Service</p>
+          <p class="service-section-title">あなたの課題に合わせて、4つの入り方をご用意しました。</p>
+        </div>
+
+        <div class="service-cards">
+
+          <!-- カード①: 単発AI自動化（入口） -->
+          <div class="service-card reveal reveal-d3">
+            <p class="service-card-num">01</p>
+            <h3>単発AI自動化</h3>
+            <p class="service-card-desc">「まず一つだけ自動化したい」に応えます。LINE Botによる問い合わせ対応、見積もり作成、日報集計など、現場の特定業務をピンポイントで自動化します。</p>
+            <!-- 価格未確定：要差し替え -->
+            <p class="service-price">月額〇〇<span class="price-unit">円〜</span></p>
+            <div class="service-features-header">
+              <span class="service-features-line"></span>
+              <span class="service-features-label">サービス特徴</span>
+            </div>
+            <div class="service-feature-tags">
+              <span class="service-feature-tag">LINE Bot構築</span>
+              <span class="service-feature-tag">単一業務から</span>
+              <span class="service-feature-tag">短期間で導入</span>
+              <span class="service-feature-tag">スモールスタート</span>
+              <span class="service-feature-tag">効果を体感</span>
+            </div>
+            <div class="service-card-actions">
+              <a href="https://lin.ee/ySjX76bl" target="_blank" rel="noopener noreferrer" class="service-card-cta">
+                まずは試してみる
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </a>
+              <a href="/service/line-automation" class="service-card-cta-secondary">
+                LINE自動化の事例を見る
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- カード②: AI内製化パッケージ（主力） -->
+          <div class="service-card service-card--primary reveal reveal-d4">
+            <span class="service-badge">主力サービス</span>
+            <p class="service-card-num">02</p>
+            <h3>AI内製化パッケージ</h3>
+            <p class="service-card-desc">3ヶ月、現場で一緒にAIシステムを構築。運用できる人材を社内に残す、伴走型のAI導入です。</p>
+
+            <div class="compare-grid">
+              <div class="compare-card compare-card--old">
+                <p class="compare-label">新規に1人を採用すると</p>
+                <p class="compare-amount">約103<span class="unit">万円</span></p>
+                <p class="compare-desc">採用コスト+教育で半年。<br/>退職すればゼロに戻る。</p>
+              </div>
+              <div class="compare-arrow">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </div>
+              <div class="compare-card compare-card--new">
+                <p class="compare-label">AI内製化パッケージなら</p>
+                <p class="compare-amount">同じ投資<span class="unit">で</span></p>
+                <p class="compare-desc"><strong>辞めない"仕組みと人材"</strong>が<br/>社内に残り続ける。</p>
+              </div>
+            </div>
+            <p class="compare-caption">人を1人雇うのではなく、今いるチームをAI人材に変える。<br/>それがAltShiftの考え方です。</p>
+
+            <div class="service-features-header">
+              <span class="service-features-line"></span>
+              <span class="service-features-label">サービス特徴</span>
+            </div>
+            <div class="service-feature-tags">
+              <span class="service-feature-tag">3ヶ月伴走</span>
+              <span class="service-feature-tag">現場常駐型</span>
+              <span class="service-feature-tag">システム構築込み</span>
+              <span class="service-feature-tag">人材育成込み</span>
+              <span class="service-feature-tag">補助金活用可</span>
+              <span class="service-feature-tag">運用定着まで</span>
+            </div>
+            <div class="service-card-actions">
+              <a href="https://lin.ee/ySjX76bl" target="_blank" rel="noopener noreferrer" class="service-card-cta service-card-cta--primary">
+                詳しく相談する
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </a>
+              <a href="#process" class="service-card-cta-secondary">
+                3ヶ月の流れを見る
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+
+          <!-- カード③: AI活用研修 -->
+          <div class="service-card reveal reveal-d4">
+            <p class="service-card-num">03</p>
+            <h3>AI活用研修</h3>
+            <p class="service-card-desc">チーム全体のAIリテラシーを底上げします。御社の業務に合わせたカスタマイズ研修で、明日から使えるスキルを身につけます。</p>
+            <div class="service-features-header">
+              <span class="service-features-line"></span>
+              <span class="service-features-label">サービス特徴</span>
+            </div>
+            <div class="service-feature-tags">
+              <span class="service-feature-tag">業務カスタマイズ</span>
+              <span class="service-feature-tag">ハンズオン形式</span>
+              <span class="service-feature-tag">助成金対象</span>
+              <span class="service-feature-tag">少人数〜全社対応</span>
+              <span class="service-feature-tag">実務直結</span>
+            </div>
+            <a href="https://lin.ee/ySjX76bl" target="_blank" rel="noopener noreferrer" class="service-card-cta">
+              研修を相談する
               <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                 <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
               </svg>
             </a>
           </div>
+
+          <!-- カード④: AI顧問 -->
+          <div class="service-card reveal reveal-d4">
+            <p class="service-card-num">04</p>
+            <h3>AI顧問</h3>
+            <p class="service-card-desc">導入後の「ちょっとした疑問」に継続対応。月次で運用状況を確認し、AI活用が社内に根付くまで伴走します。</p>
+            <div class="service-features-header">
+              <span class="service-features-line"></span>
+              <span class="service-features-label">サービス特徴</span>
+            </div>
+            <div class="service-feature-tags">
+              <span class="service-feature-tag">月額制</span>
+              <span class="service-feature-tag">チャット即日対応</span>
+              <span class="service-feature-tag">月次ミーティング</span>
+              <span class="service-feature-tag">運用改善提案</span>
+              <span class="service-feature-tag">いつでも相談</span>
+            </div>
+            <a href="https://lin.ee/ySjX76bl" target="_blank" rel="noopener noreferrer" class="service-card-cta">
+              顧問を相談する
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+              </svg>
+            </a>
+          </div>
+
         </div>
+
+        <div class="cta-row reveal reveal-d4">
+          <a href="/pricing" class="btn-secondary-ghost" style="font-size:15px; padding:14px 32px;">料金の考え方を見る →</a>
+          <a href="https://lin.ee/ySjX76bl" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:15px; padding:14px 32px;">
+            無料相談（30分）
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
+            </svg>
+          </a>
+        </div>
+
       </div>
     </section>
 
@@ -346,32 +574,6 @@ const faqSchema = {
                 {client.name}
               </p>
             </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== SERVICES (01-04 Cards) ========== -->
-    <section class="section-padding" style="background:var(--color-bg);">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <h2 class="heading-lg text-center mb-4 reveal">ご支援内容</h2>
-        <p class="text-center mb-16 reveal" style="font-size:15px; color:var(--color-accent); font-weight:500;">
-          導入して終わりにしない。仕組みと運用できる人材を、御社に残します。
-        </p>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 stagger">
-          {[
-            { num: '01', title: 'AI導入コンサルティング', desc: '経営課題の分析、AI教育、ROIモデル、そして貴社の課題と目標に合致したAIロードマップを、最短2週間で提供します。', href: '/service/ai-consulting' },
-            { num: '02', title: 'カスタムAIシステム開発', desc: '競争優位性を高め、コストを削減し、新たなビジネスチャンスを創出するために構築されたAIシステム。通常12週間以内に本番稼働を実現します。', href: '/service/ai-development' },
-            { num: '03', title: 'AI時代の集客基盤構築', desc: 'Google・ChatGPT・Claudeに選ばれるWebサイト。AI時代の検索対応設計で、検索・地図双方からの集客基盤を構築します。', href: '/service/web-seo' },
-            { num: '04', title: '顧客接点の自動化', desc: '24時間365日の自動応答で機会損失をゼロに。チャットボット構築・自動配信・顧客管理で組織全体の業務を効率化します。', href: '/service/line-automation' },
-          ].map(s => (
-            <a href={s.href} class="reveal t-card p-7 flex flex-col" style="min-height:280px; text-decoration:none;">
-              <p class="service-num mb-4">{s.num}</p>
-              <h3 class="heading-md mb-4">{s.title}</h3>
-              <p class="body-sm flex-1">{s.desc}</p>
-              <span class="neon-link mt-4" style="font-size:13px;">詳しく見る →</span>
-            </a>
           ))}
         </div>
       </div>
@@ -601,4 +803,267 @@ const faqSchema = {
       }
     })
   })
+</script>
+
+<script>
+(function() {
+  'use strict';
+
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  // ─── Elements ───
+  const section     = document.getElementById('constellation');
+  const header      = document.getElementById('constellation-header');
+  const hubCore     = document.getElementById('constellation-core');
+  const hubBloom    = document.getElementById('constellation-bloom');
+  const convergeMsg = document.getElementById('constellation-msg');
+  const btobReveals = Array.from(document.querySelectorAll('.btob-section .reveal'));
+  const lineSvg     = document.getElementById('constellation-lines');
+  const canvas      = document.getElementById('constellation-particles') as HTMLCanvasElement;
+  const ctx         = canvas.getContext('2d')!;
+
+  const tiles = Array.from(document.querySelectorAll('.tile'));
+
+  // ─── Tier timing ───
+  const TIER_TIMING: Record<string, {moveStart:number;moveEnd:number;absorbStart:number;absorbEnd:number}> = {
+    bg:   { moveStart: 0.00, moveEnd: 0.40, absorbStart: 0.40, absorbEnd: 0.55 },
+    sub:  { moveStart: 0.02, moveEnd: 0.50, absorbStart: 0.50, absorbEnd: 0.65 },
+    main: { moveStart: 0.05, moveEnd: 0.60, absorbStart: 0.60, absorbEnd: 0.78 },
+  };
+
+  // ─── Parse tile data ───
+  const tileState = tiles.map(t => {
+    const el = t as HTMLElement;
+    const angle = parseFloat(el.dataset.angle!) * Math.PI / 180;
+    const dist  = parseFloat(el.dataset.dist!) / 100;
+    const speed = parseFloat(el.dataset.floatSpeed!);
+    const amp   = parseFloat(el.dataset.floatAmp!);
+    const tier  = el.dataset.tier!;
+    const timing = TIER_TIMING[tier];
+    const lineEl = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+    lineEl.setAttribute('stroke', tier === 'main' ? 'rgba(14,158,150,0.3)' :
+                                   tier === 'sub'  ? 'rgba(14,158,150,0.18)' :
+                                                     'rgba(14,158,150,0.08)');
+    lineEl.setAttribute('stroke-width', tier === 'main' ? '1.2' : tier === 'sub' ? '0.8' : '0.5');
+    lineEl.setAttribute('stroke-dasharray', tier === 'bg' ? '3 5' : '5 4');
+    lineSvg!.appendChild(lineEl);
+    return { el, angle, dist, speed, amp, tier, timing, lineEl };
+  });
+
+  // ─── Particles ───
+  let particles: {homeX:number;homeY:number;x:number;y:number;r:number;vx:number;vy:number;baseAlpha:number;tealness:number;pullDelay:number}[] = [];
+  function initParticles() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+    particles = [];
+    const count = Math.floor(canvas.width * canvas.height / 16000);
+    for (let i = 0; i < count; i++) {
+      const angle = Math.random() * Math.PI * 2;
+      const dist = 0.3 + Math.random() * 0.7;
+      particles.push({
+        homeX: canvas.width / 2 + Math.cos(angle) * dist * canvas.width * 0.5,
+        homeY: canvas.height / 2 + Math.sin(angle) * dist * canvas.height * 0.5,
+        x: 0, y: 0,
+        r: Math.random() * 1.6 + 0.5,
+        vx: 0, vy: 0,
+        baseAlpha: Math.random() * 0.18 + 0.06,
+        tealness: Math.random() * 0.5,
+        pullDelay: Math.random() * 0.15,
+      });
+    }
+    particles.forEach(p => { p.x = p.homeX; p.y = p.homeY; });
+  }
+  initParticles();
+  window.addEventListener('resize', initParticles);
+
+  function drawParticles(progress: number) {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    const cx = canvas.width / 2, cy = canvas.height / 2;
+
+    particles.forEach(p => {
+      const dx = cx - p.x, dy = cy - p.y;
+      const d = Math.sqrt(dx * dx + dy * dy) || 1;
+
+      const pullRaw = Math.max(0, (progress - p.pullDelay) / (1 - p.pullDelay));
+      const pull = pullRaw * pullRaw;
+
+      const proximityBoost = Math.min(3, 200 / d);
+      const force = pull * 0.025 * (1 + proximityBoost * pull);
+
+      p.vx += (dx / d) * force;
+      p.vy += (dy / d) * force;
+
+      if (pull < 0.3) {
+        p.vx += (Math.random() - 0.5) * 0.02 * (1 - pull * 3);
+        p.vy += (Math.random() - 0.5) * 0.02 * (1 - pull * 3);
+      }
+
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vx *= 0.96;
+      p.vy *= 0.96;
+
+      if (d < 30 && pull > 0.2) {
+        const respawnAngle = Math.random() * Math.PI * 2;
+        const respawnDist = 0.7 + Math.random() * 0.3;
+        p.x = cx + Math.cos(respawnAngle) * respawnDist * canvas.width * 0.5;
+        p.y = cy + Math.sin(respawnAngle) * respawnDist * canvas.height * 0.5;
+        p.vx = 0; p.vy = 0;
+      }
+
+      const glowIntensity = Math.min(1, pull * 1.5);
+      const alpha = p.baseAlpha + glowIntensity * 0.35;
+      const tealMix = p.tealness + glowIntensity * 0.5;
+      const r = Math.round(255 - tealMix * 241);
+      const g = Math.round(255 - tealMix * 97);
+      const b = Math.round(255 - tealMix * 105);
+
+      if (d < 150 && pull > 0.15) {
+        const glowR = p.r * (2 + glowIntensity * 2);
+        const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glowR);
+        grad.addColorStop(0, `rgba(${r},${g},${b},${alpha * 0.8})`);
+        grad.addColorStop(1, `rgba(14,158,150,0)`);
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, glowR, 0, Math.PI * 2);
+        ctx.fillStyle = grad;
+        ctx.fill();
+      }
+
+      ctx.beginPath();
+      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(${r},${g},${b},${Math.min(1, alpha)})`;
+      ctx.fill();
+    });
+  }
+
+  // ─── Easing ───
+  function easeOutCubic(t: number) {
+    return 1 - Math.pow(1 - t, 3);
+  }
+  function easeOutQuart(t: number) {
+    return 1 - Math.pow(1 - t, 4);
+  }
+
+  // ─── Main update ───
+  let currentProgress = 0;
+  const now = () => performance.now() / 1000;
+
+  function update(progress: number) {
+    currentProgress = progress;
+    const t = now();
+    const vw = window.innerWidth;
+    const vh = window.innerHeight;
+    const cx = vw / 2, cy = vh / 2;
+
+    // Header fade
+    header!.style.opacity = String(Math.max(0, 1 - progress * 5));
+
+    // All tiles converged?
+    const allConverged = progress >= 0.80;
+
+    // Tiles
+    tileState.forEach((td, i) => {
+      const { moveStart, moveEnd, absorbStart, absorbEnd } = td.timing;
+
+      const rawMoveP = Math.max(0, Math.min(1, (progress - moveStart) / (moveEnd - moveStart)));
+      const moveP = easeOutCubic(rawMoveP);
+
+      const rawAbsorbP = Math.max(0, Math.min(1, (progress - absorbStart) / (absorbEnd - absorbStart)));
+      const absorbP = easeOutQuart(rawAbsorbP);
+
+      const maxRadius = Math.min(vw, vh) * 0.42;
+      const startX = Math.cos(td.angle) * td.dist * maxRadius;
+      const startY = Math.sin(td.angle) * td.dist * maxRadius;
+      let curX = startX * (1 - moveP);
+      let curY = startY * (1 - moveP);
+
+      if (!reduced && rawMoveP < 0.6) {
+        const floatStrength = 1 - rawMoveP * 1.67;
+        const phase = t * (2 * Math.PI / td.speed) + i * 1.3;
+        curY += Math.sin(phase) * td.amp * floatStrength;
+        curX += Math.cos(phase * 0.7) * td.amp * 0.35 * floatStrength;
+      }
+
+      const screenX = cx + curX - td.el.offsetWidth / 2;
+      const screenY = cy + curY - td.el.offsetHeight / 2;
+
+      const scale = 1 - absorbP * 0.6;
+      const opacity = 1 - absorbP;
+      td.el.style.transform = `translate(${screenX}px, ${screenY}px) scale(${Math.max(0.3, scale)})`;
+      td.el.style.opacity = String(Math.max(0, opacity));
+
+      // Line
+      const lineStartP = moveStart + 0.05;
+      const lineP = Math.max(0, Math.min(1, (progress - lineStartP) / (absorbEnd - lineStartP)));
+      const tileCX = cx + curX, tileCY = cy + curY;
+      td.lineEl.setAttribute('x1', String(tileCX));
+      td.lineEl.setAttribute('y1', String(tileCY));
+      td.lineEl.setAttribute('x2', String(cx));
+      td.lineEl.setAttribute('y2', String(cy));
+      const lineFade = lineP < 0.7 ? lineP / 0.7 : Math.max(0, 1 - (lineP - 0.7) / 0.3);
+      td.lineEl.setAttribute('stroke-opacity', String(lineFade * (td.tier === 'main' ? 0.5 : td.tier === 'sub' ? 0.3 : 0.15)));
+    });
+
+    // Hub glow
+    const glowP = Math.max(0, Math.min(1, (progress - 0.05) / 0.70));
+    const glowSize = 20 + glowP * 35;
+    const glowAlpha = 0.1 + glowP * 0.3;
+    hubCore!.style.boxShadow = `0 0 ${glowSize}px rgba(14,158,150,${glowAlpha})`;
+    hubBloom!.style.opacity = String(glowP * 0.6);
+
+    // Hub pulse on full convergence
+    if (allConverged) {
+      const pulseRaw = Math.min(1, (progress - 0.80) / 0.15);
+      const pulse = easeOutQuart(pulseRaw);
+      hubCore!.style.transform = `scale(${1 + pulse * 0.15})`;
+      hubCore!.style.boxShadow = `0 0 ${50 + pulse * 50}px rgba(14,158,150,${0.35 + pulse * 0.25}), 0 0 ${100 + pulse * 60}px rgba(14,158,150,${0.12 + pulse * 0.15})`;
+      hubBloom!.style.opacity = String(0.5 + pulse * 0.5);
+      hubBloom!.style.transform = `scale(${1 + pulse * 0.4})`;
+    } else {
+      hubCore!.style.transform = 'scale(1)';
+      hubBloom!.style.transform = 'scale(1)';
+    }
+
+    // Converge message
+    const msgP = Math.max(0, Math.min(1, (progress - 0.80) / 0.10));
+    convergeMsg!.style.opacity = String(easeOutQuart(msgP));
+
+    // Particles
+    if (!reduced) drawParticles(progress);
+
+    // BtoB reveals
+    btobReveals.forEach(el => {
+      const r = el.getBoundingClientRect();
+      if (r.top < vh * 0.88) el.classList.add('visible');
+    });
+  }
+
+  // ─── Scroll ───
+  let ticking = false;
+  function onScroll() {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+      const rect = section!.getBoundingClientRect();
+      const scrollable = section!.offsetHeight - window.innerHeight;
+      const scrolled = -rect.top;
+      const progress = Math.max(0, Math.min(1, scrolled / scrollable));
+      update(progress);
+      ticking = false;
+    });
+  }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+
+  // ─── Render loop ───
+  function loop() {
+    if (!reduced) update(currentProgress);
+    requestAnimationFrame(loop);
+  }
+  requestAnimationFrame(() => {
+    update(0);
+    if (!reduced) loop();
+  });
+
+})();
 </script>
