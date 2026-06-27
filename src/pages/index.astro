@@ -54,7 +54,7 @@ const faqSchema = {
             <p class="hero-subtitle mb-8" style="font-size:15px; max-width:520px; color:rgba(255,255,255,0.65);">
               診断2週間、稼働12週間。<a href="/simulator" style="color:rgba(255,255,255,0.75); text-decoration:underline; text-underline-offset:3px;">補助金を活用できる場合があります</a>。
             </p>
-            <div class="flex flex-col sm:flex-row flex-wrap gap-4 hero-subtitle">
+            <div class="flex flex-col items-center sm:items-start sm:flex-row flex-wrap gap-4 hero-subtitle">
               <a href="/contact" class="btn-primary">
                 無料で相談する
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
@@ -449,7 +449,7 @@ const faqSchema = {
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger">
           <!-- Phase 1 -->
           <div class="reveal t-card p-8 flex flex-col" style="border-top:3px solid var(--color-brand);">
-            <span style="font-family:'Inter',sans-serif; font-weight:800; font-size:48px; line-height:1; opacity:0.15; color:var(--color-brand); margin-bottom:8px;">01</span>
+            <span style="font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px, 3.5vw, 36px); line-height:1; color:#0E9E96; letter-spacing:-0.03em; margin-bottom:12px;">01</span>
             <span style="display:inline-block; background:var(--color-brand); color:#FFFFFF; font-size:12px; font-weight:700; padding:4px 12px; border-radius:20px; margin-bottom:12px; width:fit-content;">1ヶ月目</span>
             <h3 class="heading-md mb-3">業務の整理・AI設計</h3>
             <ul class="body-sm flex-1" style="color:var(--color-ink-sub); display:flex; flex-direction:column; gap:8px;">
@@ -469,7 +469,7 @@ const faqSchema = {
           </div>
           <!-- Phase 2 (highlighted) -->
           <div class="reveal t-card p-8 flex flex-col" style="border:2px solid var(--color-brand); border-top:3px solid var(--color-brand); background:rgba(27,94,190,0.03);">
-            <span style="font-family:'Inter',sans-serif; font-weight:800; font-size:48px; line-height:1; opacity:0.15; color:var(--color-brand); margin-bottom:8px;">02</span>
+            <span style="font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px, 3.5vw, 36px); line-height:1; color:#0E9E96; letter-spacing:-0.03em; margin-bottom:12px;">02</span>
             <span style="display:inline-block; background:var(--color-brand); color:#FFFFFF; font-size:12px; font-weight:700; padding:4px 12px; border-radius:20px; margin-bottom:12px; width:fit-content;">2ヶ月目</span>
             <h3 class="heading-md mb-3">システム構築・実動確認</h3>
             <ul class="body-sm flex-1" style="color:var(--color-ink-sub); display:flex; flex-direction:column; gap:8px;">
@@ -489,7 +489,7 @@ const faqSchema = {
           </div>
           <!-- Phase 3 -->
           <div class="reveal t-card p-8 flex flex-col" style="border-top:3px solid var(--color-accent);">
-            <span style="font-family:'Inter',sans-serif; font-weight:800; font-size:48px; line-height:1; opacity:0.15; color:var(--color-accent); margin-bottom:8px;">03</span>
+            <span style="font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px, 3.5vw, 36px); line-height:1; color:#0E9E96; letter-spacing:-0.03em; margin-bottom:12px;">03</span>
             <span style="display:inline-block; background:var(--color-accent); color:#FFFFFF; font-size:12px; font-weight:700; padding:4px 12px; border-radius:20px; margin-bottom:12px; width:fit-content;">3ヶ月目</span>
             <h3 class="heading-md mb-3">内製化・自走</h3>
             <ul class="body-sm flex-1" style="color:var(--color-ink-sub); display:flex; flex-direction:column; gap:8px;">
@@ -534,7 +534,7 @@ const faqSchema = {
                 </div>
               )}
               <div class="reveal layer-card t-card p-8 flex flex-col" style={`border-top:3px solid ${l.color};`}>
-                <span class="layer-num" style={`color:${l.color};`}>{l.num}</span>
+                <span class="layer-num">{l.num}</span>
                 <p class="text-xs font-semibold mb-2" style={`color:${l.color}; letter-spacing:0.1em; text-transform:uppercase;`}>{l.layer}</p>
                 <h3 class="heading-md mb-1">{l.title}</h3>
                 <p class="text-xs mb-4" style="color:var(--color-ink-dim);">{l.sub}</p>
