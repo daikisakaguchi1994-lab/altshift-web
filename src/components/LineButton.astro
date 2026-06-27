@@ -1,0 +1,23 @@
+---
+interface Props {
+  href?: string;
+  size?: 'sm';
+  class?: string;
+}
+
+const {
+  href = 'https://lin.ee/ySjX76bl',
+  size,
+  class: className,
+} = Astro.props;
+
+const sizeClass = size === 'sm' ? 'btn-line--sm' : '';
+const classes = ['btn-line', sizeClass, className].filter(Boolean).join(' ');
+---
+
+<a href={href} target="_blank" rel="noopener noreferrer" class={classes}>
+  <svg width="14" height="14" viewBox="0 0 48 48" fill="currentColor" aria-hidden="true">
+    <path d="M24 4C12.95 4 4 11.86 4 21.5c0 5.5 2.87 10.4 7.36 13.6L9 40l6.5-2.8A22.4 22.4 0 0024 39c11.05 0 20-7.86 20-17.5S35.05 4 24 4z"/>
+  </svg>
+  LINEで相談
+</a>

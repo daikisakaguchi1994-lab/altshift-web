@@ -23,7 +23,7 @@ const ogImageURL = new URL(ogImage, 'https://altshift.jp').href
 <html lang="ja">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta name="description" content={description} />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href={canonicalURL} />
@@ -124,8 +124,8 @@ const ogImageURL = new URL(ogImage, 'https://altshift.jp').href
     <!-- Mobile fixed CTA（ヒーロー表示中は非表示） -->
     <a href="/contact"
        id="mobile-cta"
-       class="md:hidden fixed bottom-0 left-0 right-0 z-50 flex items-center justify-center gap-2 py-4 text-white font-semibold text-sm is-hidden"
-       style="background-color: var(--color-cta);">
+       class="md:hidden fixed bottom-0 left-0 right-0 z-50 flex items-center justify-center gap-2 text-white font-semibold text-sm is-hidden"
+       style="background-color: var(--color-cta); padding: 16px 16px calc(16px + env(safe-area-inset-bottom));">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
       </svg>
