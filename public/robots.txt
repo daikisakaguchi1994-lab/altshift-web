@@ -13,4 +13,4 @@ Allow: /
 User-agent: PerplexityBot
 Allow: /
 
-Sitemap: https://altshift.jp/sitemap.xml
+Sitemap: https://altshift.jp/sitemap-index.xml

@@ -1,19 +1,28 @@
 # AltShift
 
-> 福岡を拠点に、リフォーム・建設業などの中小企業向けにAI導入支援を提供。
-> 代表はディーチャー（坂口 大輝）。外部CAIOとしてAI戦略立案から実装まで担当。
+> 福岡を拠点に、リフォーム・建設・物流などの中小企業向けに、AIの導入を支援する会社。
+> 代表はディーチャー（坂口 大樹）。AI導入の戦略づくりから、仕組みの開発・社内への定着まで担当。全国対応。
 
 ## サービス
-- 外部CAIOサービス（週1〜2回の伴走型AI化支援）
-- AIシステム開発（Lumio）
-- Web制作 × SEO/GEO対策
-- LINE自動化
+- [AI導入コンサルティング](https://altshift.jp/service/ai-consulting)：業務の課題を整理し、AIの導入計画をつくる
+- [カスタムAIシステム開発](https://altshift.jp/service/ai-development)：業務に合わせたAIの仕組みをつくる
+- [AI業務自動化](https://altshift.jp/service/ai-automation)：手作業を自動化する
+- [AI活用研修](https://altshift.jp/service/ai-training)：社員が自分でAIを使えるようにする
+- [LINE自動化](https://altshift.jp/service/line-automation)：問い合わせ対応・チャットボットの構築
+- [Web制作 × SEO/GEO対策](https://altshift.jp/service/web-seo)：AI検索にも対応したホームページ
+- [料金の考え方](https://altshift.jp/pricing)
 
-## 実績
-- 三栄リフォーム（sanei-reform.vercel.app）
-- BAR Kar's（中洲のアフターバー）
+## 業種別
+- [リフォーム会社](https://altshift.jp/industry/reform)
+- [物流・運送会社](https://altshift.jp/industry/logistics)
+- [飲食店](https://altshift.jp/industry/restaurant)
+
+## 会社
+- [会社情報](https://altshift.jp/company)
+- [導入事例](https://altshift.jp/case)
+- [お問い合わせ](https://altshift.jp/contact)
 
 ## 連絡先
 - Web: https://altshift.jp
-- LINE: https://lin.ee/VOiIxYB
+- LINE: https://lin.ee/ySjX76bl
 - 拠点：福岡県福岡市
