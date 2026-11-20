@@ -1,0 +1,88 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+
+// トップページの「よくある質問」（5問）と同じ質問は、ここに重ねない
+const faqItems = [
+  {
+    q: '「AltShift」の読み方は何ですか？「オルタシフト」とは違いますか？',
+    a: '正式な読み方は「オルトシフト（AltShift）」です。「オルタシフト」「アルトシフト」と読まれたり書かれたりすることもありますが、福岡のAI会社 AltShift のことであれば、すべて弊社を指しています。キーボードの「Alt + Shift」のように、これまでとは別の新しい選択肢（Alternative）へ事業を切り替える（Shift）、という意味を込めています。',
+  },
+  {
+    q: '従来のSEOや広告と、AI検索対策（AEO／GEO／LLMO）は何が違うのですか？',
+    a: 'SEOは、Google検索の順位を上げてクリックしてもらう取り組みです。広告は、出稿している間だけ表示される「掛け捨て」の費用です。AI検索対策（AEO・GEO・LLMO・AIO）は、ChatGPTやGeminiなどのAIが答えを作るときに、御社の名前を出しやすいだけの裏付け（事実にもとづく記事と、辻褄の合った公式の情報）を、Web上にデジタルの資産として積み上げていく取り組みです。記事はお客様の名義・アカウントで公開するため、ご契約を終えたあともお客様の情報として残ります。',
+  },
+  {
+    q: '現場に来てもらわなくても、全国オンラインで対応できますか？',
+    a: 'はい、全国オンラインで対応できます。AI検索対策は、月1回のオンライン取材（約30〜45分）でお話しいただくだけで、記事の構成・執筆・AEO最適化・ホームページの更新まで一貫して代行します。',
+  },
+  {
+    q: '必ずAIに推薦されるようになりますか？',
+    a: 'お約束はできません。AIの仕組みは公開されておらず、変わり続けるためです。そのかわり、毎月「AIにどう出ているか」を実際に確かめ、結果をお見せしながら直していきます。',
+  },
+  {
+    q: '3つの商品のうち、どれを選べばよいですか？',
+    a: '集客を増やしたい方は「AI検索対策」、見積もりや日報などの手作業を減らしたい方は「AI業務自動化」、両方をまとめて任せたい方は「AI顧問」が合います。迷う場合は、30分の無料相談でお聞きしてご提案します。',
+  },
+  {
+    q: 'AI検索対策の記事の末尾のクレジット表記は、なくせますか？',
+    a: 'はい。先着10社の特別モニター価格（月額55,000円・税込）は、記事の末尾に「編集・AEO最適化：AltShift」のクレジットを掲載させていただく条件です。クレジットを出さない完全非公開（黒子）での対応は、別途オプションでお受けします。通常価格は月額88,000円（税込）です。',
+  },
+  {
+    q: '記事は、だれの名前で公開されますか？',
+    a: 'お客様の名義で、内容をご確認いただいてから公開します。',
+  },
+  {
+    q: 'AI顧問とAI検索対策は、何が違いますか？',
+    a: 'AI顧問（月額150,000〜300,000円・税込）は、AI検索対策の内容をすべて含んだうえで、社内の業務の自動化や研修まで、外部CAIO（最高AI責任者）として毎月まとめて支援するプランです。集客（攻め）と業務（守り）の両方を任せたい方に向いています。',
+  },
+]
+
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems.map(item => ({
+    '@type': 'Question',
+    name: item.q,
+    acceptedAnswer: { '@type': 'Answer', text: item.a },
+  })),
+}
+---
+
+<Layout
+  title="よくある質問 | AltShift（オルトシフト）"
+  description="AltShift（オルトシフト）の読み方、従来のSEO・広告とAI検索対策（AEO・GEO・LLMO）の違い、全国オンラインでの対応、3つの商品の選び方、料金などのよくある質問。"
+  schemaData={faqSchema}
+>
+  <Nav />
+  <main>
+    <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="mb-12 reveal">
+          <div class="accent-line mb-6"></div>
+          <h1 class="heading-hero" style="font-size:clamp(28px,4vw,44px);">よくある質問</h1>
+          <p class="body-md mt-4" style="color:var(--color-ink-sub);">言葉の意味は <a href="/glossary" class="blue-link" style="display:inline;">AI・検索用語集</a>、全体の質問は <a href="/#faq-list" class="blue-link" style="display:inline;">トップページのよくある質問</a> もご覧ください。</p>
+        </div>
+
+        <div class="flex flex-col gap-4">
+          {faqItems.map(item => (
+            <div class="reveal t-card p-6 md:p-8">
+              <h2 class="heading-sm mb-3" style="line-height:1.6;">Q. {item.q}</h2>
+              <p class="body-sm" style="line-height:1.9;">{item.a}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="reveal t-card flex flex-col md:flex-row items-center justify-between gap-6 p-8 mt-12">
+          <div>
+            <h2 class="heading-md mb-2">ほかに気になることがあれば</h2>
+            <p class="body-sm">30分の無料相談で、そのままお聞きください。</p>
+          </div>
+          <a href="/contact" class="btn-primary whitespace-nowrap flex-shrink-0">無料で相談する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

@@ -105,7 +105,7 @@ const schemaData = {
 
         <!-- ROI Summary -->
         <div class="reveal t-card p-6 mt-8 text-center" id="roi-summary" style="display:none;">
-          <p class="body-sm">AltShiftの月額プラン（<span class="font-bold" style="color:var(--color-primary);">月額3万円〜</span>）で、<span id="roi-multiple" class="font-bold" style="color:var(--color-primary);"></span>のリターンが期待できます。</p>
+          <p class="body-sm">業務の自動化と集客の両方を含む <span class="font-bold" style="color:var(--color-primary);">AI顧問（月額150,000円〜・税込）</span> を基準にすると、<span id="roi-multiple" class="font-bold" style="color:var(--color-primary);"></span>のリターンが期待できます。</p>
         </div>
 
         <!-- CTA -->
@@ -190,7 +190,7 @@ const schemaData = {
     document.getElementById('result-annual')!.textContent = `¥${fmt(annualEffect)}`
 
     // ROI multiple
-    const monthlyPlan = 30000
+    const monthlyPlan = 150000 // AI顧問の下限（業務の自動化と集客の両方を含む・税込）
     const monthlyTotal = monthlyCostSaving + monthlyRevenueIncrease
     const multiple = monthlyTotal / monthlyPlan
     const summary = document.getElementById('roi-summary') as HTMLElement

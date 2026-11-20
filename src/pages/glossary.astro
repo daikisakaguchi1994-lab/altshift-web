@@ -1,0 +1,183 @@
+---
+import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
+
+const terms = [
+  {
+    id: 'seo',
+    name: 'SEO（検索エンジン最適化）',
+    en: 'Search Engine Optimization',
+    desc: 'Googleなどの検索結果で、自社のページが上位に表示されるように整える取り組みです。',
+    biz: '「地域名＋業種」で探されたときに見つかるかどうかは、いまも問い合わせの大きな入口です。AIも検索エンジンの情報を参考にするため、AI検索対策の土台になります。',
+  },
+  {
+    id: 'aeo',
+    name: 'AEO（回答エンジン最適化）',
+    en: 'Answer Engine Optimization',
+    desc: 'ChatGPTやGeminiなど、質問に直接答えるAI（回答エンジン）の答えの中で、自社が正しく紹介されるように情報を整える取り組みです。',
+    biz: '「福岡で〇〇を頼める会社は？」とAIに聞く人が増えています。答えの候補に入るかどうかが、問い合わせの入口になります。',
+  },
+  {
+    id: 'geo',
+    name: 'GEO（生成エンジン最適化）',
+    en: 'Generative Engine Optimization',
+    desc: '文章を生成するAIが答えを作るときに、自社の情報を材料として使ってもらいやすくする取り組みです。AEOとほぼ同じ意味で使われます。',
+    biz: '「地域を絞った検索（ローカルSEO）」のことを GEO と呼ぶ場合もあり、言葉が混ざりやすい点に注意が要ります。',
+  },
+  {
+    id: 'llmo',
+    name: 'LLMO（大規模言語モデル最適化）',
+    en: 'Large Language Model Optimization',
+    desc: 'ChatGPTなどの土台になっている大規模言語モデル（LLM）に、自社のことを正しく理解して答えてもらうための取り組みの呼び方です。',
+    biz: 'AEO・GEO・LLMO・AIOは、目的がほぼ同じで、呼び方が違うだけと考えて差し支えありません。',
+  },
+  {
+    id: 'aio',
+    name: 'AIO（AI最適化）',
+    en: 'AI Optimization',
+    desc: 'AIによる検索や回答全般に向けて、自社の情報を最適化する取り組みの総称です。Googleの「AIによる概要（AI Overviews）」への対策を指して使われることもあります。',
+    biz: 'Googleで検索すると、結果の上にAIの要約が出ることが増えました。そこで自社が紹介されるかどうかが、クリックされるかどうかを左右します。',
+  },
+  {
+    id: 'meo',
+    name: 'MEO（マップエンジン最適化）',
+    en: 'Map Engine Optimization',
+    desc: 'Googleマップなどの地図検索で、自社が見つかりやすくなるように、Googleビジネスプロフィールの情報や口コミを整える取り組みです。',
+    biz: '工事・修理・クリニックなど地域の仕事では、地図からの問い合わせが多くなります。地図の情報とホームページの情報を食い違わせないことが大切です。',
+  },
+  {
+    id: 'sxo',
+    name: 'SXO（検索体験最適化）',
+    en: 'Search Experience Optimization',
+    desc: '検索して訪れた人が、迷わず目的を果たせるように、ページの分かりやすさ・速さ・問い合わせまでの流れを整える取り組みです。',
+    biz: '上位に表示されても、読みにくい・電話番号が見つからないページでは問い合わせになりません。集客を結果につなげる最後のひと押しです。',
+  },
+  {
+    id: 'vso',
+    name: 'VSO（音声検索最適化）',
+    en: 'Voice Search Optimization',
+    desc: 'スマートフォンやスマートスピーカーに話しかけて探す「音声検索」で、自社の情報が答えに使われるように整える取り組みです。',
+    biz: '音声では「近くの〇〇は？」のような話し言葉で聞かれます。質問の形の見出しと、短くはっきりした答えを用意しておくと、AI検索にも効きます。',
+  },
+  {
+    id: 'aso',
+    name: 'ASO（アプリストア最適化）',
+    en: 'App Store Optimization',
+    desc: 'App StoreやGoogle Playで、自社のアプリが見つかりやすく、入れてもらいやすくなるように整える取り組みです。',
+    biz: '自社のアプリを持つ場合に関わります。アプリがない会社は、まずホームページと地図の整備を優先して差し支えありません。',
+  },
+  {
+    id: 'smo',
+    name: 'SMO（SNS最適化）',
+    en: 'Social Media Optimization',
+    desc: 'X・Instagram・noteなどのSNSで、自社の情報が見つかり、広がりやすくなるように整える取り組みです。',
+    biz: 'SNSでの発信は、第三者に見つけてもらい、紹介・引用（サイテーション）されるきっかけになります。ホームページと同じ社名・同じ説明で発信することが、AIに同じ会社と分かってもらう近道です。',
+  },
+  {
+    id: 'rag',
+    name: 'RAG（検索拡張生成）',
+    en: 'Retrieval-Augmented Generation',
+    desc: 'AIが答える前に、最新のWebの情報や資料を検索して参照し、見つけた情報をもとに答えを作る仕組みです。',
+    biz: '検索のついたAIは、その場で見つけたページを根拠にします。自社のホームページや記事が見つけやすく読み取りやすいほど、答えに使われやすくなります。社内の資料を使って答えるAIの仕組みづくりにも使われます。',
+  },
+  {
+    id: 'entity',
+    name: 'エンティティ',
+    en: 'Entity',
+    desc: '検索エンジンやAIが、実在する会社・人・地名・商品などを「ひとつの固有のもの」として見分けて扱う単位です。',
+    biz: '社名の表記がページごとにばらばらだったり、似た名前の会社があったりすると、AIが別の会社と取り違えることがあります。社名・所在地・代表者名・事業内容を、どこでも同じ書き方にそろえることが大切です。',
+  },
+  {
+    id: 'citation',
+    name: 'サイテーション（外部言及）',
+    en: 'Citation',
+    desc: '外部のメディア・note・SNS・口コミなどで、自社の名前や事業が客観的に言及・引用されることです。リンクがなくても言及として数えられます。',
+    biz: 'AIは、自社サイトの自己紹介だけでなく、外の情報と照らし合わせて判断します。自社のnoteやSNSでの発信はあくまで自社の情報ですが、事実にもとづく発信を続けることで、取材記事・紹介・口コミなど第三者からの言及が生まれやすくなり、それが推薦の裏付けになります。',
+  },
+  {
+    id: 'jsonld',
+    name: '構造化データ（JSON-LD）',
+    en: 'Structured Data',
+    desc: '会社名・所在地・サービス・よくある質問などの意味を、AIや検索エンジンが正確に読み取れる決まった形で、ページに書き添えるデータです。JSON-LD はその書き方の1つです。',
+    biz: '人の目には見えませんが、「この会社は何者か」を機械に正確に伝える名札の役目をします。',
+  },
+  {
+    id: 'zero-click',
+    name: 'ゼロクリック検索',
+    en: 'Zero-click Search',
+    desc: '検索結果からリンク先のWebページへ移動せず、検索結果に出るAIの回答や地図の情報だけを見て行動が終わる検索のことです。',
+    biz: 'ホームページを見てもらえないまま、比べられて選ばれる場面が増えています。AIの回答と地図の情報の中で、正しく・魅力的に紹介されていることが大切になります。',
+  },
+  {
+    id: 'eeat',
+    name: 'E-E-A-T（経験・専門性・権威性・信頼性）',
+    en: 'Experience, Expertise, Authoritativeness, Trustworthiness',
+    desc: 'Googleが、情報の質を評価するときに重視している考え方です。実際の経験、専門性、その分野での認知、信頼できるかどうか、の4つを指します。',
+    biz: '現場の写真・作業の手順・お客様とのやりとりなど、その会社にしか書けない一次情報や実体験が評価されやすくなります。中小企業がいちばん強みを出せるところです。',
+  },
+]
+
+const glossarySchema = {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTermSet',
+  name: 'AI・検索用語集',
+  url: 'https://altshift.jp/glossary',
+  publisher: { '@id': 'https://altshift.jp/#organization' },
+  hasDefinedTerm: terms.map(t => ({
+    '@type': 'DefinedTerm',
+    name: t.name,
+    alternateName: t.en,
+    description: t.desc,
+    url: `https://altshift.jp/glossary#${t.id}`,
+    inDefinedTermSet: 'https://altshift.jp/glossary',
+  })),
+}
+---
+
+<Layout
+  title="AI・検索用語集 | SEO・AEO・GEO・LLMO・MEOなど16語 | AltShift"
+  description="SEO・AEO・GEO・LLMO・AIO・MEO・SXO・VSO・ASO・SMO・RAG・エンティティ・サイテーション・構造化データ・ゼロクリック検索・E-E-A-Tの16語を、中小企業の集客と経営にどう関わるかという実務の視点で解説します。"
+  schemaData={glossarySchema}
+>
+  <Nav />
+  <main>
+    <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
+      <div class="max-w-3xl mx-auto px-6">
+        <div class="mb-10 reveal">
+          <div class="accent-line mb-6"></div>
+          <h1 class="heading-hero" style="font-size:clamp(28px,4vw,44px);">AI・検索用語集</h1>
+          <p class="body-md mt-4" style="color:var(--color-ink-sub);">検索とAIの対策でよく出てくる16の言葉を、中小企業の集客と経営にどう関わるかという視点で整理しました。</p>
+        </div>
+
+        <nav class="reveal mb-10" aria-label="用語の一覧">
+          <ul class="flex flex-wrap gap-2">
+            {terms.map(t => (
+              <li><a href={`#${t.id}`} class="t-card text-sm" style="display:inline-flex; align-items:center; min-height:44px; padding:0 14px; text-decoration:none; color:var(--color-brand);">{t.name.split('（')[0]}</a></li>
+            ))}
+          </ul>
+        </nav>
+
+        <div class="flex flex-col gap-4">
+          {terms.map(t => (
+            <div class="reveal t-card p-6 md:p-8" id={t.id} style="scroll-margin-top:100px;">
+              <h2 class="heading-sm mb-1">{t.name}</h2>
+              <p class="text-xs mb-3" style="color:var(--color-ink-sub);">{t.en}</p>
+              <p class="body-sm mb-4" style="line-height:1.9;">{t.desc}</p>
+              <p class="text-sm" style="color:var(--color-ink-sub); line-height:1.9;"><span style="font-weight:600; color:var(--color-brand);">中小企業にとっては：</span>{t.biz}</p>
+            </div>
+          ))}
+        </div>
+
+        <div class="reveal t-card flex flex-col md:flex-row items-center justify-between gap-6 p-8 mt-12">
+          <div>
+            <h2 class="heading-md mb-2">検索とAIの対策を、まとめて任せたい方へ</h2>
+            <p class="body-sm">月1回のオンライン取材から、記事とホームページの更新まで続けます。</p>
+          </div>
+          <a href="/service/ai-search" class="btn-primary whitespace-nowrap flex-shrink-0">AI検索対策を見る</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

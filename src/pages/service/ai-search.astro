@@ -1,0 +1,169 @@
+---
+import Layout from '../../layouts/Layout.astro'
+import Nav from '../../components/Nav.astro'
+import Footer from '../../components/Footer.astro'
+
+const includes = [
+  '月1回のオンライン取材（30〜45分）で、現場の一次情報を整理',
+  '事実にもとづくnote記事・コラムを月2本作成（お客様の名義で、確認のうえ公開）',
+  'ホームページの情報の更新・構造化データの整備・整合性（辻褄）の見直しを毎月',
+  '時事トレンドや最新の検索動向に合わせて、記事のテーマと情報を更新',
+  'Googleマップ（Googleビジネスプロフィール）の情報との食い違いを点検',
+  '毎月、ChatGPT・Gemini・Perplexity・Googleで御社がどう出ているかを確かめてご報告',
+]
+
+const faqItems = [
+  {
+    q: '従来のSEOや広告と、AI検索対策（AEO／GEO／LLMO）は何が違うのですか？',
+    a: 'SEOは、Google検索の順位を上げてクリックしてもらう取り組みです。広告は、出稿している間だけ表示される「掛け捨て」の費用です。AI検索対策（AEO・GEO・LLMO・AIO）は、ChatGPTやGeminiなどのAIが答えを作るときに、御社の名前を出しやすいだけの裏付け（事実にもとづく記事と、辻褄の合った公式の情報）をWeb上に積み上げていく取り組みです。記事はお客様の名義・アカウントで公開するため、ご契約を終えたあともお客様の情報として残ります。',
+  },
+  {
+    q: 'SEOやMEOは、やらなくてよいのですか？',
+    a: 'いいえ。AIも検索エンジンやGoogleマップの情報を参考にするため、SEOとMEOは土台として欠かせません。AI検索対策では、SEO・MEOとAIへの対策（AEO・GEO・LLMO・AIO）を、ひとつの流れの中で一緒に進めます。',
+  },
+  {
+    q: '必ずAIに推薦されるようになりますか？',
+    a: 'お約束はできません。AIの仕組みは公開されておらず、変わり続けるためです。そのかわり、毎月「AIにどう出ているか」を実際に確かめ、結果をお見せしながら直していきます。',
+  },
+  {
+    q: '記事の末尾のクレジット表記は、なくせますか？',
+    a: 'はい。先着10社の特別モニター価格（月額55,000円・税込）は、記事の末尾に「編集・AEO最適化：AltShift」のクレジットを掲載させていただく条件です。クレジットを出さない完全非公開（黒子）での対応は、別途オプションでお受けします。',
+  },
+]
+
+const schemaData = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: 'AI検索対策',
+  alternateName: ['AEO対策', 'GEO対策', 'LLMO対策', 'AIO対策'],
+  provider: { '@type': 'Organization', '@id': 'https://altshift.jp/#organization', name: 'AltShift', url: 'https://altshift.jp' },
+  areaServed: { '@type': 'Country', name: '日本' },
+  serviceType: 'AI検索対策（SEO・MEO・AEO・GEO・LLMO・AIO）',
+  description: 'ChatGPT・Gemini・Perplexity・Google AI Overviewsなどで推薦されるための月額サービス。月1回のオンライン取材から、事実にもとづくnote記事とホームページの更新を毎月続ける。',
+  url: 'https://altshift.jp/service/ai-search',
+  offers: [
+    {
+      '@type': 'Offer',
+      name: '特別モニター価格（先着10社・クレジット表記あり）',
+      price: '55000',
+      priceCurrency: 'JPY',
+      priceSpecification: { '@type': 'UnitPriceSpecification', price: '55000', priceCurrency: 'JPY', unitText: '月', valueAddedTaxIncluded: true },
+    },
+    {
+      '@type': 'Offer',
+      name: '通常価格',
+      price: '88000',
+      priceCurrency: 'JPY',
+      priceSpecification: { '@type': 'UnitPriceSpecification', price: '88000', priceCurrency: 'JPY', unitText: '月', valueAddedTaxIncluded: true },
+    },
+  ],
+}
+
+// よくある質問の構造化データ（FAQPage）は /faq とトップにだけ出す（同じ質問を重ねないため）
+---
+
+<Layout
+  title="AI検索対策 | ChatGPT・Google・地図で推薦される会社へ | AltShift"
+  description="ChatGPT・Gemini・Perplexity・Google AI Overviewsで推薦されるためのAI検索対策（AEO・GEO・LLMO・AIO）を、SEO・MEOと一括で。月1回のオンライン取材から、note記事とホームページの更新を毎月。先着10社は月額55,000円（税込）。全国オンライン対応。"
+  schemaData={schemaData}
+>
+  <Nav />
+  <main>
+    <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
+      <div class="max-w-5xl mx-auto px-6 lg:px-8">
+
+        <div class="mb-20 reveal">
+          <a href="/service" class="text-xs font-semibold mb-4 inline-flex items-center" style="color:var(--color-brand); letter-spacing:0.05em; min-height:44px;">← サービス一覧</a>
+          <p class="service-num mb-4">01</p>
+          <p class="section-label mb-3" style="letter-spacing:0.1em; color:var(--color-accent);">集客を増やしたい方へ</p>
+          <h1 class="heading-hero" style="font-size:clamp(30px,4.4vw,52px);">AI検索対策</h1>
+          <p class="heading-md mt-4" style="font-weight:600; line-height:1.6;">ChatGPT・Google・地図で、<br class="md:hidden"/>御社の名前が出る状態へ。</p>
+          <div class="body-lg mt-6 flex flex-col gap-4" style="max-width:700px;">
+            <p>Google検索で順位を競う時代から、ChatGPT・Gemini・Perplexity・Google AI OverviewsなどのAIが「おすすめの会社」を直接答える時代へ移りつつあります。</p>
+            <p>AI検索対策では、従来の<strong>SEO</strong>（Google検索）と<strong>MEO</strong>（Googleマップ）に加えて、AIの回答で推薦されるための<strong>AEO</strong>（回答エンジン最適化）・<strong>GEO</strong>（生成エンジン最適化）・<strong>LLMO</strong>（大規模言語モデル最適化）・<strong>AIO</strong>（AI最適化）に一括で対応します。</p>
+          </div>
+          <p class="text-sm mt-4" style="color:var(--color-ink-sub);">言葉の意味は <a href="/glossary" class="blue-link" style="display:inline;">AI・検索用語集</a> でくわしく説明しています。</p>
+        </div>
+
+        <!-- 積み上がる資産 -->
+        <div class="reveal t-card p-8 md:p-10 mb-12" style="background:var(--color-bg-subtle);">
+          <h2 class="heading-lg mb-6" style="font-size:clamp(22px,3vw,32px); line-height:1.5;">掛け捨ての広告費を、<br/>毎月積み上がる「集客の資産」に変える。</h2>
+          <ul class="flex flex-col gap-4">
+            {[
+              'リスティング広告や求人広告は、出稿を止めると流入も止まりやすい「掛け捨て」のコストです。',
+              'AI検索対策では、ホームページ（公式の一次情報）と、毎月2本の事実にもとづくnote記事（外の場所での発信）を連動させ、第三者に紹介・引用される（サイテーション）きっかけを増やします。',
+              '記事はお客様の名義で公開するため、ご契約を終えたあともお客様の情報として残り、続けるほど、検索エンジンとAIに見つけてもらうための材料が積み上がります。',
+              '毎月の取材の対話から業務のボトルネックも見えてくるため、AI業務自動化へもつなげやすくなります。',
+            ].map(t => (
+              <li class="flex items-start gap-3 body-md">
+                <div style="width:6px; height:6px; border-radius:50%; background:var(--color-brand); flex-shrink:0; margin-top:12px;"></div>
+                <span>{t}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+
+        <!-- 辻褄（エンティティ・E-E-A-T） -->
+        <div class="reveal mb-20" style="max-width:760px;">
+          <h2 class="heading-lg mb-6" style="font-size:clamp(22px,3vw,32px); line-height:1.5;">AIに「同じ会社」と分かってもらい、<br/>「信頼できる」と判断してもらう。</h2>
+          <div class="body-md flex flex-col gap-4">
+            <p>AIは、ネット上のさまざまな情報を照らし合わせて答えを作ります。社名・所在地・事業内容がページごとにばらばらだと、別の会社と取り違えられることがあります（<a href="/glossary#entity" class="blue-link" style="display:inline;">エンティティ</a>の認識）。</p>
+            <p>また、現場の経験や実績にもとづく一次情報ほど、信頼できる情報として評価されやすくなります（<a href="/glossary#eeat" class="blue-link" style="display:inline;">E-E-A-T</a>）。</p>
+            <p>月1回のオンライン取材（30〜45分）をもとに、時事トレンドや最新の検索動向に合わせて、ホームページ・note・Googleマップの情報の整合性を毎月アップデートします。</p>
+          </div>
+        </div>
+
+        <!-- 料金と内容 -->
+        <div class="mb-20" id="price">
+          <h2 class="heading-lg text-center mb-10 reveal">料金と内容</h2>
+          <div class="reveal t-card p-8 md:p-10" style="border-color:rgba(27,94,190,0.25); max-width:760px; margin:0 auto;">
+            <div class="flex flex-col md:flex-row md:items-end gap-4 md:gap-10 mb-8">
+              <div>
+                <p class="text-sm font-semibold" style="color:var(--color-accent);">先着10社・特別モニター価格</p>
+                <p style="color:var(--color-ink);"><span class="number-value" style="font-size:clamp(32px,8vw,44px); color:var(--color-brand); white-space:nowrap;">55,000</span><span class="text-sm" style="white-space:nowrap;">円／月（税込）</span></p>
+              </div>
+              <div>
+                <p class="text-sm" style="color:var(--color-ink-sub);">通常価格</p>
+                <p style="color:var(--color-ink-sub);"><span class="number-value" style="font-size:24px; white-space:nowrap;">88,000</span><span class="text-sm" style="white-space:nowrap;">円／月（税込）</span></p>
+              </div>
+            </div>
+            <ul class="flex flex-col gap-3 mb-6">
+              {includes.map(item => (
+                <li class="flex items-start gap-2 text-sm" style="color:var(--color-ink);">
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-brand); flex-shrink:0; margin-top:7px;"></div>
+                  {item}
+                </li>
+              ))}
+            </ul>
+            <p class="text-xs" style="color:var(--color-ink-sub); line-height:1.8;">※特別モニター価格は、記事の末尾に「編集・AEO最適化：AltShift」のクレジットを掲載させていただく条件です（完全非公開・黒子での対応は別途オプション）。ホームページの作り直しが必要な場合は、<a href="/service/web-seo" class="blue-link" style="display:inline;">Web制作</a>を別途お見積もりします。</p>
+          </div>
+          <p class="body-sm text-center mt-6 reveal" style="color:var(--color-ink-sub);">業務の自動化までまとめて任せたい方は、AI検索対策を標準で含む <a href="/service/ai-consulting" class="blue-link" style="display:inline;">AI顧問</a> をご覧ください。</p>
+        </div>
+
+        <!-- FAQ -->
+        <div class="mb-20" style="max-width:760px; margin-left:auto; margin-right:auto;">
+          <h2 class="heading-lg text-center mb-10 reveal">よくある質問</h2>
+          <div class="flex flex-col gap-4">
+            {faqItems.map(item => (
+              <div class="reveal t-card p-6 md:p-8">
+                <h3 class="heading-sm mb-3" style="line-height:1.6;">Q. {item.q}</h3>
+                <p class="body-sm" style="line-height:1.9;">{item.a}</p>
+              </div>
+            ))}
+          </div>
+          <p class="body-sm text-center mt-6 reveal"><a href="/faq" class="blue-link" style="display:inline;">ほかの質問を見る</a></p>
+        </div>
+
+        <!-- CTA -->
+        <div class="reveal t-card flex flex-col md:flex-row items-center justify-between gap-6 p-8">
+          <div>
+            <h3 class="heading-md mb-2">御社は、AIにどう紹介されていますか？</h3>
+            <p class="body-sm">30分の無料相談で、いまの出方を一緒に確かめます。オンラインで全国対応。</p>
+          </div>
+          <a href="/contact" class="btn-primary whitespace-nowrap flex-shrink-0">無料で相談する</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer />
+</Layout>

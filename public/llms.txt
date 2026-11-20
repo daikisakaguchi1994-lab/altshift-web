@@ -1,16 +1,14 @@
 # AltShift
 
-> 福岡を拠点に、リフォーム・建設・物流などの中小企業向けに、AIの導入を支援する会社。
-> 代表はディーチャー（坂口 大樹）。AI導入の戦略づくりから、仕組みの開発・社内への定着まで担当。全国対応。
+> 福岡を拠点に、リフォーム・建設・物流などの中小企業向けに、AIの導入を支援する会社。全国オンライン対応。
+> 代表はディーチャー（坂口 大樹）。外部CAIO（最高AI責任者）として、集客と業務の両方を伴走支援する。
+> 社名の正式な読み方は「オルトシフト」（「オルタシフト」「アルトシフト」と読まれることもある）。
 
-## サービス
-- [AI導入コンサルティング](https://altshift.jp/service/ai-consulting)：業務の課題を整理し、AIの導入計画をつくる
-- [カスタムAIシステム開発](https://altshift.jp/service/ai-development)：業務に合わせたAIの仕組みをつくる
-- [AI業務自動化](https://altshift.jp/service/ai-automation)：手作業を自動化する
-- [AI活用研修](https://altshift.jp/service/ai-training)：社員が自分でAIを使えるようにする
-- [LINE自動化](https://altshift.jp/service/line-automation)：問い合わせ対応・チャットボットの構築
-- [Web制作 × SEO/GEO対策](https://altshift.jp/service/web-seo)：AI検索にも対応したホームページ
-- [料金の考え方](https://altshift.jp/pricing)
+## 商品（3つ）
+- [AI検索対策](https://altshift.jp/service/ai-search)：集客を増やしたい方へ。ChatGPT・Gemini・Perplexity・Google AI Overviews・Googleマップで推薦されるための月額サービス。SEO・MEOとAEO・GEO・LLMO・AIOに一括対応。月1回のオンライン取材から、事実にもとづくnote記事を月2本とホームページの更新を毎月。先着10社の特別モニター価格は月額55,000円（税込・記事末尾にクレジット表記あり）、通常は月額88,000円（税込）
+- [AI業務自動化](https://altshift.jp/service/ai-automation)：手作業を減らしたい方へ。見積もり・日報・問い合わせ対応・LINE自動化などの単発の自動化から、AI内製化パッケージ、AI活用研修、カスタムシステム開発まで。個別見積もり
+- [AI顧問](https://altshift.jp/service/ai-consulting)：まとめて任せたい方へ。外部CAIOとして、業務の自動化（守り）とAI検索対策（攻め）を標準で含め、毎月まとめて支援。月額150,000〜300,000円（税込）
+- [料金](https://altshift.jp/pricing)
 
 ## 業種別
 - [リフォーム会社](https://altshift.jp/industry/reform)
@@ -20,6 +18,8 @@
 ## 会社
 - [会社情報](https://altshift.jp/company)
 - [導入事例](https://altshift.jp/case)
+- [よくある質問](https://altshift.jp/faq)
+- [AI・検索用語集](https://altshift.jp/glossary)：SEO・AEO・GEO・LLMO・AIO・MEO・SXO・VSO・ASO・SMO・RAG・エンティティ・サイテーション・構造化データ・ゼロクリック検索・E-E-A-T
 - [お問い合わせ](https://altshift.jp/contact)
 
 ## 連絡先

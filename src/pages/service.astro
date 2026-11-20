@@ -6,40 +6,32 @@ import Footer from '../components/Footer.astro'
 const services = [
   {
     num: '01',
-    title: 'AI導入コンサルティング',
-    desc: '経営課題の分析、AI教育、ROIモデル、そして貴社の課題と目標に合致したAIロードマップを最短2週間で提供します。',
-    details: ['業務プロセスの分析・最適化', 'AI導入計画の策定', 'ROIモデルの構築', '経営層・スタッフ向けAI教育'],
-    image: '/images/services/caio-service.jpg',
-    href: '/service/ai-consulting',
+    title: 'AI検索対策',
+    desc: '集客を増やしたい方へ。ChatGPT・Google・地図で、御社の名前が出る状態へ。月1回のオンライン取材から、note記事とホームページの更新を毎月続けます。先着10社は月額55,000円（税込）、通常は月額88,000円（税込）。',
+    details: ['SEO・MEOとAIへの対策（AEO・GEO・LLMO・AIO）を一括で', '事実にもとづくnote記事を月2本', 'ホームページの情報の整合性を毎月更新', '毎月、AIでの出方をご報告'],
+    image: '/images/services/web-seo.jpg',
+    href: '/service/ai-search',
   },
   {
     num: '02',
-    title: 'カスタムAIシステム開発',
-    desc: '競争優位性を高め、コストを削減し、新たなビジネスチャンスを創出するAIシステム。通常12週間以内に本番稼働を実現します。',
-    details: ['カスタムAIモデルの構築', '既存システムとの統合', 'データ分析・可視化', '保守・運用サポート'],
+    title: 'AI業務自動化',
+    desc: '手作業を減らしたい方へ。見積もり・日報・問い合わせの返事など、毎日の手作業を減らす仕組みをつくります。料金は個別見積もり。',
+    details: ['単発の業務自動化・LINE自動化', 'AI内製化パッケージ（3か月の伴走）', 'AI活用研修', 'カスタムシステム開発'],
     image: '/images/services/ai-system.jpg',
-    href: '/service/ai-development',
+    href: '/service/ai-automation',
   },
   {
     num: '03',
-    title: 'AI時代の集客基盤構築',
-    desc: 'Google・ChatGPT・Claudeに選ばれるWebサイト。AI時代の検索対応設計で集客基盤を構築します。',
-    details: ['AI時代のSEO最適化', 'ローカルSEO（GEO対策）', 'レスポンシブWebデザイン', '継続的な改善・分析'],
-    image: '/images/services/web-seo.jpg',
-    href: '/service/web-seo',
-  },
-  {
-    num: '04',
-    title: '顧客接点の自動化',
-    desc: '24時間365日の自動応答で機会損失をゼロに。チャットボット・自動配信・顧客管理に対応。',
-    details: ['LINEチャットボット構築', '自動配信・セグメント配信', '顧客管理システム連携', '分析・最適化'],
-    image: '/images/services/line-automation.jpg',
-    href: '/service/line-automation',
+    title: 'AI顧問',
+    desc: 'まとめて任せたい方へ。外部CAIO（最高AI責任者）として、業務の自動化（守り）とAI検索対策（攻め）を標準で含め、毎月まとめて支援します。月額150,000〜300,000円（税込）。',
+    details: ['AI検索対策の内容をすべて含む', '業務自動化の計画と仕組みづくり', '社員の方への研修・ルールづくり', '定例ミーティングとチャットでの相談'],
+    image: '/images/services/caio-service.jpg',
+    href: '/service/ai-consulting',
   },
 ]
 ---
 
-<Layout title="サービス一覧 | 福岡のAIコンサルティング AltShift" description="中小企業向けAI導入コンサルティング・AIシステム開発・Web制作×SEO/GEO・LINE自動化。最短2週間で戦略策定。福岡発、全国対応。">
+<Layout title="サービス一覧 | AI検索対策・AI業務自動化・AI顧問 | AltShift" description="AltShiftの商品は3つ。集客を増やすAI検索対策、手作業を減らすAI業務自動化、両方をまとめて任せられるAI顧問。福岡発、全国対応。">
   <Nav />
   <main>
     <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
@@ -47,6 +39,7 @@ const services = [
         <div class="mb-16 reveal">
           <div class="accent-line mb-6"></div>
           <h1 class="heading-hero" style="font-size:clamp(28px,4vw,48px);">当社のサービス</h1>
+          <p class="body-lg mt-4" style="max-width:640px;">やりたいことに合わせて、3つから選べます。迷ったら、30分の無料相談でお聞きします。</p>
         </div>
 
         <div class="flex flex-col gap-24">

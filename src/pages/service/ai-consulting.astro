@@ -3,83 +3,94 @@ import Layout from '../../layouts/Layout.astro'
 import Nav from '../../components/Nav.astro'
 import Footer from '../../components/Footer.astro'
 
+const includes = [
+  '定例のオンラインミーティング（頻度は御社に合わせてご相談）',
+  'チャットでの相談',
+  '業務自動化の計画づくりと、仕組みづくりの継続支援（守り）',
+  'AI検索対策の内容をすべて標準で含む：月1回の取材・note記事 月2本・ホームページの更新・毎月の出方のご報告（攻め）',
+  '社員の方へのAI活用研修と、社内のAIの使い方のルールづくり',
+  '新しいAIの道具の見極めと、使い方のご提案',
+]
+
 const steps = [
-  { num: '01', title: 'ヒアリング・現状分析', desc: '経営課題・業務フロー・既存システムを徹底的にヒアリング。AI導入の可能性と優先度を可視化します。', duration: '1〜3日' },
-  { num: '02', title: 'AI戦略・ロードマップ策定', desc: 'ROIモデルに基づいたAI導入計画を策定。短期で成果が出る施策と中長期の成長戦略を設計します。', duration: '1〜2週間' },
-  { num: '03', title: '実装・導入支援', desc: '戦略に基づき、AIツールの選定・設定・カスタマイズを実施。現場スタッフへの研修も行います。', duration: '2〜4週間' },
-  { num: '04', title: '運用・改善サイクル', desc: '月次レポートと改善提案を継続提供。KPIを追跡し、AIの活用度を段階的に引き上げます。', duration: '継続' },
+  { num: '01', title: 'ヒアリング', desc: '経営の課題と、集客・業務の困りごとをお聞きします。' },
+  { num: '02', title: '計画づくり', desc: '早く効果が出る施策と、中長期で取り組むことを分けて計画します。' },
+  { num: '03', title: '仕組みづくり・発信', desc: '業務の自動化と、AI検索対策の発信を並行して進めます。' },
+  { num: '04', title: '毎月の見直し', desc: '結果を見ながら、次の月にやることを決めます。' },
 ]
 
 const faqItems = [
-  { q: 'AIの知識がゼロでも依頼できますか？', a: 'はい。むしろAI未経験の企業様が最も多いです。専門用語を使わず、経営者の言葉でご説明します。' },
-  { q: 'コンサルティングだけで終わりませんか？', a: 'AltShiftは戦略策定だけでなく、実装・運用まで一貫して支援します。「提案書を渡して終わり」ではありません。' },
-  { q: '最短でどのくらいで始められますか？', a: '初回ヒアリングから最短2週間でAI戦略・ロードマップをお渡しします。実装は内容により4〜12週間です。' },
-  { q: '費用体系を教えてください。', a: '戦略診断パック（30〜50万円・買い切り）、月額顧問プラン（20〜50万円/月）、Embedded CAIO（50万円〜/月）の3段階です。補助金を活用できる場合があります（採択は審査によります）。' },
+  { q: 'AI検索対策と、何が違いますか？', a: 'AI顧問は、AI検索対策の内容をすべて含んだうえで、社内の業務の自動化や研修まで、毎月まとめて支援するプランです。集客（攻め）と業務（守り）の両方を任せたい方に向いています。' },
+  { q: 'CAIOとは何ですか？', a: 'Chief AI Officer（最高AI責任者）の略で、会社のAIの活用を経営の視点で進める役割です。AI顧問では、AltShiftが社外からその役割を担います。' },
+  { q: '料金はどう決まりますか？', a: '月額150,000〜300,000円（税込）の範囲で、関わり方と支援の範囲に合わせてお見積もりします。' },
 ]
 
 const schemaData = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: 'AI導入コンサルティング',
-  provider: { '@type': 'Organization', name: 'AltShift', url: 'https://altshift.jp' },
+  name: 'AI顧問',
+  alternateName: ['外部CAIO', 'AIコンサルティング'],
+  provider: { '@type': 'Organization', '@id': 'https://altshift.jp/#organization', name: 'AltShift', url: 'https://altshift.jp' },
   areaServed: [{ '@type': 'City', name: '福岡市' }, { '@type': 'Country', name: '日本' }],
-  description: '中小企業向けAI導入コンサルティング。経営課題の分析からAIロードマップ策定、実装、運用まで一貫支援。最短2週間で戦略策定。',
-  serviceType: 'AIコンサルティング',
+  serviceType: 'AI顧問（外部CAIO）',
+  description: '経営者の右腕となる外部CAIO（最高AI責任者）として、社内の業務自動化（守り）と、AI検索対策（攻め）を標準で含めて毎月まとめて支援する月額プラン。',
+  url: 'https://altshift.jp/service/ai-consulting',
+  offers: {
+    '@type': 'AggregateOffer',
+    lowPrice: '150000',
+    highPrice: '300000',
+    priceCurrency: 'JPY',
+    priceSpecification: { '@type': 'UnitPriceSpecification', minPrice: '150000', maxPrice: '300000', priceCurrency: 'JPY', unitText: '月', valueAddedTaxIncluded: true },
+  },
 }
 ---
 
 <Layout
-  title="AI導入コンサルティング | 中小企業向け | AltShift 福岡"
-  description="中小企業向けAI導入コンサルティング。経営課題の分析からAIロードマップ策定、実装支援、運用改善まで一貫対応。最短2週間で戦略策定。戦略診断30万円〜、月額顧問20万円〜。福岡発、全国対応。"
+  title="AI顧問 | 集客と業務の両方を毎月まとめて任せる | AltShift"
+  description="経営者の右腕となる外部CAIO（最高AI責任者）として、業務の自動化（守り）とAI検索対策（攻め）を標準で含めて毎月まとめて支援するAI顧問。月額150,000〜300,000円（税込）。福岡発・全国対応。"
   schemaData={schemaData}
 >
   <Nav />
   <main>
     <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
+      <div class="max-w-5xl mx-auto px-6 lg:px-8">
 
-        <!-- Header -->
-        <div class="mb-16 reveal">
-          <a href="/service" class="text-xs font-semibold mb-4 inline-block" style="color:var(--color-brand); letter-spacing:0.05em;">← サービス一覧</a>
-          <p class="service-num mb-4">01</p>
-          <h1 class="heading-hero" style="font-size:clamp(28px,4vw,48px);">AI導入コンサルティング</h1>
-          <p class="body-lg mt-4" style="max-width:640px;">
-            「AIで何ができるか分からない」を、「具体的な行動計画」に変える。経営課題を分析し、最短2週間でAI導入ロードマップを策定します。
-          </p>
+        <div class="mb-20 reveal">
+          <a href="/service" class="text-xs font-semibold mb-4 inline-flex items-center" style="color:var(--color-brand); letter-spacing:0.05em; min-height:44px;">← サービス一覧</a>
+          <p class="service-num mb-4">03</p>
+          <p class="section-label mb-3" style="letter-spacing:0.1em; color:var(--color-accent);">まとめて任せたい方へ</p>
+          <h1 class="heading-hero" style="font-size:clamp(30px,4.4vw,52px);">AI顧問</h1>
+          <p class="heading-md mt-4" style="font-weight:600; line-height:1.6;">集客と業務の両方を、<br class="md:hidden"/>毎月まとめて任せる。</p>
+          <div class="body-lg mt-6 flex flex-col gap-4" style="max-width:700px;">
+            <p>経営者の右腕となる<strong>外部CAIO（最高AI責任者）</strong>的な伴走パートナーとして、AIの活用を経営の視点で進めます。</p>
+            <p>社内の業務の自動化（守り）と、<a href="/service/ai-search" class="blue-link" style="display:inline;">AI検索対策</a>による集客・広報の発信（攻め）を標準で含め、毎月まとめて支援します。</p>
+          </div>
         </div>
 
-        <!-- What we do -->
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 mb-24 reveal">
-          <div>
-            <h2 class="heading-lg mb-6">こんな課題を解決します</h2>
-            <ul class="flex flex-col gap-4">
-              {[
-                'AIを導入したいが、何から始めればいいか分からない',
-                '社内にAIの知識を持つ人材がいない',
-                '過去にAIツールを導入したが、現場で使われていない',
-                '競合がAIを活用し始めていて焦りを感じている',
-                'AI導入の費用対効果が見えない',
-              ].map(item => (
-                <li class="flex items-start gap-3 body-md">
-                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-primary); flex-shrink:0; margin-top:10px;"></div>
-                  {item}
-                </li>
-              ))}
-            </ul>
+        <!-- 守りと攻め -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-20">
+          <div class="reveal t-card p-6 md:p-8">
+            <p class="text-xs font-semibold mb-3" style="color:var(--color-brand); letter-spacing:0.1em;">守り</p>
+            <h2 class="heading-md mb-3">業務の自動化</h2>
+            <p class="body-sm" style="color:var(--color-ink-sub);">見積もり・日報・問い合わせ対応などの手作業を減らし、社員の方が自分でAIを使える状態をつくります。くわしくは <a href="/service/ai-automation" class="blue-link" style="display:inline;">AI業務自動化</a>。</p>
           </div>
-          <div>
-            <h2 class="heading-lg mb-6">提供内容</h2>
-            <ul class="flex flex-col gap-4">
-              {[
-                '業務プロセスの分析・AI適用可能性の評価',
-                'AI導入計画（ロードマップ）の策定',
-                'ROIモデルの構築と投資対効果の予測',
-                '経営層・現場スタッフ向けAI研修',
-                'AIツールの選定・初期設定サポート',
-                '月次レポートと継続的な改善提案',
-              ].map(item => (
-                <li class="flex items-start gap-3 body-md">
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:4px;"><polyline points="20 6 9 17 4 12"/></svg>
+          <div class="reveal t-card p-6 md:p-8">
+            <p class="text-xs font-semibold mb-3" style="color:var(--color-brand); letter-spacing:0.1em;">攻め</p>
+            <h2 class="heading-md mb-3">AI検索からの集客</h2>
+            <p class="body-sm" style="color:var(--color-ink-sub);">ChatGPT・Google・地図で御社の名前が出るよう、取材・記事・ホームページの更新を毎月続けます。くわしくは <a href="/service/ai-search" class="blue-link" style="display:inline;">AI検索対策</a>。</p>
+          </div>
+        </div>
+
+        <!-- 料金と内容 -->
+        <div class="mb-20" id="price">
+          <h2 class="heading-lg text-center mb-10 reveal">料金と内容</h2>
+          <div class="reveal t-card p-8 md:p-10" style="border-color:rgba(27,94,190,0.25); max-width:760px; margin:0 auto;">
+            <p style="color:var(--color-ink);" class="mb-1"><span class="number-value" style="font-size:clamp(26px,7vw,40px); color:var(--color-brand); white-space:nowrap;">150,000〜300,000</span><span class="text-sm" style="white-space:nowrap;">円／月（税込）</span></p>
+            <p class="text-sm mb-8" style="color:var(--color-ink-sub);">関わり方と支援の範囲に合わせてお見積もりします</p>
+            <ul class="flex flex-col gap-3">
+              {includes.map(item => (
+                <li class="flex items-start gap-2 text-sm" style="color:var(--color-ink);">
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-brand); flex-shrink:0; margin-top:7px;"></div>
                   {item}
                 </li>
               ))}
@@ -87,104 +98,41 @@ const schemaData = {
           </div>
         </div>
 
-        <!-- Process -->
-        <div class="mb-24">
-          <h2 class="heading-lg text-center mb-16 reveal">導入プロセス</h2>
-          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 stagger">
+        <!-- 進め方 -->
+        <div class="mb-20">
+          <h2 class="heading-lg text-center mb-10 reveal">進め方</h2>
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-4" style="max-width:860px; margin:0 auto;">
             {steps.map(s => (
-              <div class="reveal t-card p-6">
-                <p class="service-num mb-3" style="font-size:32px;">{s.num}</p>
-                <h3 class="heading-sm mb-2">{s.title}</h3>
-                <p class="body-sm mb-3">{s.desc}</p>
-                <p class="text-xs" style="color:var(--color-primary); font-weight:600;">目安：{s.duration}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <!-- Pricing -->
-        <div class="mb-8">
-          <h2 class="heading-lg text-center mb-12 reveal">料金プラン</h2>
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger">
-            <!-- 戦略診断パック -->
-            <div class="reveal t-card p-8 text-center">
-              <p class="text-xs font-semibold mb-3" style="color:var(--color-brand); text-transform:uppercase; letter-spacing:0.1em;">Strategy Pack</p>
-              <h3 class="heading-sm mb-4">戦略診断パック</h3>
-              <p style="font-family:'Inter',sans-serif; font-weight:900; font-size:clamp(28px,4vw,40px); letter-spacing:-0.03em; color:var(--color-ink); line-height:1.2;">30<span style="font-size:18px; font-weight:600;">万円〜</span>50<span style="font-size:18px; font-weight:600;">万円</span></p>
-              <p class="body-sm mt-2 mb-6">2週間・買い切り</p>
-              <ul class="flex flex-col gap-2 text-left">
-                {['業務プロセス分析・AI適用評価', 'AI導入ロードマップ策定', 'ROIモデル構築', '経営層向けAI研修'].map(f => (
-                  <li class="flex items-start gap-2 body-sm">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <!-- 月額顧問プラン -->
-            <div class="reveal t-card p-8 text-center" style="border-color:rgba(27,94,190,0.25); background:rgba(27,94,190,0.03);">
-              <p class="text-xs font-semibold mb-3" style="color:var(--color-primary); text-transform:uppercase; letter-spacing:0.1em;">Monthly Advisory</p>
-              <h3 class="heading-sm mb-4">月額顧問プラン</h3>
-              <p style="font-family:'Inter',sans-serif; font-weight:900; font-size:clamp(28px,4vw,40px); letter-spacing:-0.03em; color:var(--color-ink); line-height:1.2;">20<span style="font-size:18px; font-weight:600;">万円〜</span>50<span style="font-size:18px; font-weight:600;">万円/月</span></p>
-              <p class="body-sm mt-2 mb-6">継続契約</p>
-              <ul class="flex flex-col gap-2 text-left">
-                {['月2〜4回のオンライン相談', '業務改善提案・優先度診断', 'AIツール選定・設定サポート', '月次レポート・改善提案', 'Slack/LINEでの随時相談'].map(f => (
-                  <li class="flex items-start gap-2 body-sm">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <!-- Embedded CAIO -->
-            <div class="reveal t-card p-8 text-center">
-              <p class="text-xs font-semibold mb-3" style="color:var(--color-brand); text-transform:uppercase; letter-spacing:0.1em;">Embedded CAIO</p>
-              <h3 class="heading-sm mb-4">Embedded CAIO</h3>
-              <p style="font-family:'Inter',sans-serif; font-weight:900; font-size:clamp(28px,4vw,40px); letter-spacing:-0.03em; color:var(--color-ink); line-height:1.2;">50<span style="font-size:18px; font-weight:600;">万円〜/月</span></p>
-              <p class="body-sm mt-2 mb-6">フルコミット型</p>
-              <ul class="flex flex-col gap-2 text-left">
-                {['週1〜2回の現場常駐', 'AI戦略の策定・実行・改善', '経営会議への参加', '社内AI人材の育成', '全社AI活用の推進'].map(f => (
-                  <li class="flex items-start gap-2 body-sm">
-                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--color-brand)" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0; margin-top:3px;"><polyline points="20 6 9 17 4 12"/></svg>
-                    {f}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          </div>
-        </div>
-
-        <!-- 補助金訴求 -->
-        <div class="reveal mb-24 p-6 text-center" style="background:rgba(20,86,251,0.06); border:1px solid rgba(20,86,251,0.12); border-radius:10px;">
-          <p style="font-size:15px; font-weight:700; color:var(--color-ink); margin-bottom:4px;">補助金を活用できる場合があります<span style="color:var(--color-ink-sub); font-size:13px;">（採択は審査によります）</span></p>
-          <p class="body-sm">ものづくり補助金・省力化投資補助金・新事業進出補助金 対応</p>
-        </div>
-
-        <!-- FAQ -->
-        <div class="mb-16">
-          <h2 class="heading-lg text-center mb-12 reveal">よくある質問</h2>
-          <div class="max-w-3xl mx-auto flex flex-col gap-3" id="faq-list">
-            {faqItems.map((item, i) => (
-              <div class="reveal faq-item">
-                <button class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between gap-4" aria-expanded="false" aria-controls={`faq-a-${i}`}>
-                  <span style="font-weight:500; color:var(--color-ink);">{item.q}</span>
-                  <svg class="faq-icon flex-shrink-0 transition-transform duration-200" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--color-ink-muted);"><polyline points="6 9 12 15 18 9"/></svg>
-                </button>
-                <div class="faq-answer hidden px-6 pb-5" id={`faq-a-${i}`}>
-                  <p class="body-sm">{item.a}</p>
+              <div class="reveal t-card p-6 flex gap-5 items-start">
+                <p class="service-num" style="margin:0; font-size:24px;">{s.num}</p>
+                <div>
+                  <h3 class="heading-sm mb-1">{s.title}</h3>
+                  <p class="body-sm" style="color:var(--color-ink-sub);">{s.desc}</p>
                 </div>
               </div>
             ))}
           </div>
         </div>
 
+        <!-- FAQ -->
+        <div class="mb-20" style="max-width:760px; margin-left:auto; margin-right:auto;">
+          <h2 class="heading-lg text-center mb-10 reveal">よくある質問</h2>
+          <div class="flex flex-col gap-4">
+            {faqItems.map(item => (
+              <div class="reveal t-card p-6 md:p-8">
+                <h3 class="heading-sm mb-3" style="line-height:1.6;">Q. {item.q}</h3>
+                <p class="body-sm" style="line-height:1.9;">{item.a}</p>
+              </div>
+            ))}
+          </div>
+          <p class="body-sm text-center mt-6 reveal"><a href="/faq" class="blue-link" style="display:inline;">ほかの質問を見る</a></p>
+        </div>
+
         <!-- CTA -->
         <div class="reveal t-card flex flex-col md:flex-row items-center justify-between gap-6 p-8">
           <div>
             <h3 class="heading-md mb-2">まずは無料相談（30分）から</h3>
-            <p class="body-sm">AI導入の可能性を一緒に探りましょう。</p>
+            <p class="body-sm">集客と業務の困りごとを、まとめてお聞きします。オンラインで全国対応。</p>
           </div>
           <a href="/contact" class="btn-primary whitespace-nowrap flex-shrink-0">無料で相談する</a>
         </div>
@@ -193,23 +141,3 @@ const schemaData = {
   </main>
   <Footer />
 </Layout>
-
-<script>
-  document.querySelectorAll('.faq-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const answer = btn.nextElementSibling as HTMLElement
-      const icon = btn.querySelector('.faq-icon') as HTMLElement
-      const isOpen = btn.getAttribute('aria-expanded') === 'true'
-      document.querySelectorAll('.faq-btn').forEach(b => {
-        b.setAttribute('aria-expanded', 'false')
-        ;(b.nextElementSibling as HTMLElement).classList.add('hidden')
-        ;(b.querySelector('.faq-icon') as HTMLElement).style.transform = 'rotate(0deg)'
-      })
-      if (!isOpen) {
-        btn.setAttribute('aria-expanded', 'true')
-        answer.classList.remove('hidden')
-        icon.style.transform = 'rotate(180deg)'
-      }
-    })
-  })
-</script>

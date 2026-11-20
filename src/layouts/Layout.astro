@@ -59,8 +59,9 @@ const ogImageURL = new URL(ogImage, 'https://altshift.jp').href
       "@context": "https://schema.org",
       "@type": "WebSite",
       "name": "AltShift",
-      "alternateName": "オルトシフト",
+      "alternateName": ["オルトシフト", "オルタシフト", "アルトシフト"],
       "url": "https://altshift.jp",
+      "publisher": {"@id": "https://altshift.jp/#organization"},
       "potentialAction": {
         "@type": "SearchAction",
         "target": "https://altshift.jp/blog?q={search_term_string}",
@@ -72,10 +73,11 @@ const ogImageURL = new URL(ogImage, 'https://altshift.jp').href
     <script type="application/ld+json" is:inline>
     {
       "@context": "https://schema.org",
-      "@type": ["LocalBusiness", "ProfessionalService"],
-      "name": "AltShift（オルトシフト）",
-      "alternateName": "AltShift",
-      "description": "福岡発、中小企業専門のAIコンサルティング。AI導入戦略からシステム開発・Web制作・LINE自動化まで一貫支援。",
+      "@type": ["Organization", "LocalBusiness", "ProfessionalService"],
+      "@id": "https://altshift.jp/#organization",
+      "name": "AltShift",
+      "alternateName": ["オルトシフト", "オルタシフト", "アルトシフト", "Alt Shift"],
+      "description": "福岡の中小企業向けにAIの導入を支援する会社。集客を増やすAI検索対策、手作業を減らすAI業務自動化、両方をまとめて任せられるAI顧問を提供。",
       "url": "https://altshift.jp",
       "email": "contact@altshift.jp",
       "image": "https://altshift.jp/images/og-default.png",
@@ -101,20 +103,19 @@ const ogImageURL = new URL(ogImage, 'https://altshift.jp').href
         "jobTitle": "代表 / AI Consultant",
         "url": "https://altshift.jp/company"
       },
-      "knowsAbout": ["AI導入支援", "AIコンサルティング", "生成AI活用", "DXコンサルティング", "Webマーケティング", "LINE自動化", "SEO対策", "GEO対策"],
+      "knowsAbout": ["AI導入支援", "AI顧問", "AI検索対策", "AI業務自動化", "生成AI活用", "SEO", "MEO", "AEO", "GEO", "LLMO", "AIO", "構造化データ", "LINE自動化", "AI活用研修"],
       "hasOfferCatalog": {
         "@type": "OfferCatalog",
-        "name": "AIコンサルティングサービス",
+        "name": "AltShiftの商品",
         "itemListElement": [
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI導入コンサルティング", "description": "経営課題の分析からAIロードマップ策定まで最短2週間"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "カスタムAIシステム開発", "description": "業務効率化・コスト削減を実現するAIシステムを12週間以内に本番稼働"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI時代の集客基盤構築", "description": "Google・AI検索に選ばれるWebサイト制作"}},
-          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "顧客接点の自動化", "description": "24時間365日自動応答で機会損失ゼロ"}}
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI検索対策", "description": "ChatGPT・Google・地図で推薦されるための月額サービス（SEO・MEO・AEO・GEO・LLMO・AIOに一括対応）。先着10社は月額55,000円（税込）、通常は月額88,000円（税込）", "url": "https://altshift.jp/service/ai-search"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI業務自動化", "description": "見積もり・日報・問い合わせ対応などの手作業を減らす仕組みづくり。単発の自動化からAI内製化パッケージ・AI活用研修・システム開発まで。個別見積もり", "url": "https://altshift.jp/service/ai-automation"}},
+          {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "AI顧問", "description": "外部CAIO（最高AI責任者）として、業務の自動化とAI検索対策を標準で含めて毎月まとめて支援。月額150,000〜300,000円（税込）", "url": "https://altshift.jp/service/ai-consulting"}}
         ]
       },
-      "priceRange": "戦略診断30万円〜、月額顧問20万円〜、Embedded CAIO 50万円〜",
+      "priceRange": "AI検索対策 月額55,000円〜（税込）、AI顧問 月額150,000〜300,000円（税込）、AI業務自動化 個別見積もり",
       "openingHours": "Mo-Fr 10:00-18:00",
-      "sameAs": ["https://lin.ee/ySjX76bl"]
+      "sameAs": ["https://note.com/daiki_and_ai", "https://x.com/daiki_and_ai", "https://lin.ee/ySjX76bl"]
     }
     </script>
   </head>

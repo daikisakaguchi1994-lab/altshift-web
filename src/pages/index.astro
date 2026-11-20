@@ -7,10 +7,10 @@ import Footer from '../components/Footer.astro'
 import DemoChat from '../components/DemoChat.tsx'
 
 const faqItems = [
-  { q: 'AltShiftはどんなサービスですか？', a: '中小企業向けにAI導入を戦略から実装・運用まで一貫支援しています。ツール導入で終わらせず、現場で使いこなせる状態まで伴走します。' },
-  { q: '料金はいくらですか？', a: 'サービスにより異なります。Web制作・LINE自動化は月額3万円〜、AIコンサルティングは戦略診断30万円〜・月額顧問20万円〜、AI業務自動化は案件規模に応じてお見積もり。補助金を活用できる場合があります（採択は審査によります）。' },
-  { q: 'AIを使ったことがない会社でも大丈夫ですか？', a: 'はい。ゼロからの設計・設定・研修まで一貫サポート。むしろAI未経験の企業様こそ成果が出やすいパターンです。' },
-  { q: 'どのくらいで成果が出ますか？', a: 'LINE自動化は翌月から、SEOは通常3〜6ヶ月。成果が出やすい施策から優先着手します。' },
+  { q: 'AltShiftはどんなサービスですか？', a: '福岡の中小企業向けに、AIの導入を支援しています。商品は、集客を増やす「AI検索対策」、手作業を減らす「AI業務自動化」、両方をまとめて任せられる「AI顧問」の3つです。ツールを入れて終わりにせず、現場で使いこなせる状態まで伴走します。' },
+  { q: '料金はいくらですか？', a: 'AI検索対策は先着10社が月額55,000円（税込）、通常は月額88,000円（税込）。AI顧問は月額150,000〜300,000円（税込）。AI業務自動化は、業務の内容に合わせて個別にお見積もりします。補助金を活用できる場合があります（採択は審査によります）。' },
+  { q: 'AIを使ったことがない会社でも大丈夫ですか？', a: 'はい。ゼロからの設計・設定・研修まで一貫してお手伝いします。専門用語を使わずにご説明します。' },
+  { q: 'どのくらいで成果が出ますか？', a: '内容によって変わります。LINEの自動応答のように短い期間で使い始められるものもあれば、検索の対策のように数か月かけて積み上げるものもあります。効果を確かめやすいものから先に進めます。' },
   { q: '福岡以外でも対応できますか？', a: 'はい。オンラインで全国対応。福岡市内・近郊は訪問対応も可能です。' },
 ]
 
@@ -82,9 +82,9 @@ const faqSchema = {
               </div>
               <div style="background:rgba(255,255,255,0.1); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:20px;">
                 <p style="font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px,3vw,36px); color:#FFFFFF; line-height:1; margin-bottom:4px; font-variant-numeric:tabular-nums;">
-                  2<span style="font-size:clamp(16px,2vw,20px); color:rgba(255,255,255,0.7);">週間</span>
+                  30<span style="font-size:clamp(16px,2vw,20px); color:rgba(255,255,255,0.7);">分</span>
                 </p>
-                <p style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.4;">戦略診断パック納期</p>
+                <p style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.4;">無料相談（オンライン）</p>
               </div>
               <div style="background:rgba(255,255,255,0.1); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:20px;">
                 <p style="font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px,3vw,36px); color:#FFFFFF; line-height:1; margin-bottom:4px; font-variant-numeric:tabular-nums;">
@@ -240,160 +240,98 @@ const faqSchema = {
           <span class="section-watermark" aria-hidden="true">SERVICE</span>
           <div class="section-label-row">
             <span class="section-label-line"></span>
-            <p class="section-label-text">事業内容</p>
+            <p class="section-label-text">目的で選ぶ</p>
           </div>
-          <p class="service-section-title">御社の状況に合わせて、4つの入り方から選べます。</p>
+          <p class="service-section-title">やりたいことに合わせて、3つから選べます。</p>
         </div>
 
         <div class="service-cards">
 
-          <!-- カード①: 単発AI自動化（入口） -->
-          <div class="service-card reveal reveal-d3">
+          <!-- カード①: AI検索対策（入口） -->
+          <div class="service-card service-card--primary reveal reveal-d3">
+            <span class="service-badge">まずはここから</span>
             <p class="service-card-num">01</p>
-            <h3>単発AI自動化</h3>
-            <p class="service-card-desc">「まず一つだけ自動化したい」に応えます。LINE Botによる問い合わせ対応、見積もり作成、日報集計など、現場の特定業務をピンポイントで自動化。小規模ツールから本格システム開発まで対応します。</p>
+            <p style="font-size:14px; font-weight:700; color:var(--color-accent); margin-bottom:8px;">集客を増やしたい方へ</p>
+            <h3>AI検索対策</h3>
+            <p class="service-card-desc">ChatGPT・Google・地図で、御社の名前が出る状態へ。月1回のオンライン取材から、事実にもとづくnote記事とホームページの更新を毎月続け、AIに推薦されるための裏付けを積み上げます。</p>
             <div class="service-features-header">
               <span class="service-features-line"></span>
               <span class="service-features-label">サービス特徴</span>
             </div>
             <div class="service-feature-tags">
-              <span class="service-feature-tag">月額5,000円〜</span>
-              <span class="service-feature-tag">LINE Bot構築</span>
-              <span class="service-feature-tag">単一業務から</span>
-              <span class="service-feature-tag">短期間で導入</span>
-              <span class="service-feature-tag">スモールスタート</span>
-              <span class="service-feature-tag">効果を体感</span>
+              <span class="service-feature-tag">先着10社 月額55,000円（税込）</span>
+              <span class="service-feature-tag">通常 88,000円</span>
+              <span class="service-feature-tag">オンライン完結</span>
+              <span class="service-feature-tag">note記事 月2本</span>
+              <span class="service-feature-tag">毎月の出方をご報告</span>
             </div>
             <div class="service-card-actions">
-              <a href="https://lin.ee/ySjX76bl" target="_blank" rel="noopener noreferrer" class="service-card-cta">
-                まずは試してみる
+              <a href="/service/ai-search" class="service-card-cta service-card-cta--primary">
+                AI検索対策を見る
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                </svg>
-              </a>
-              <a href="/service/line-automation" class="service-card-cta-secondary">
-                LINE自動化の事例を見る
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
                 </svg>
               </a>
             </div>
           </div>
 
-          <!-- カード②: AI内製化パッケージ（主力） -->
-          <div class="service-card service-card--primary reveal reveal-d4">
-            <span class="service-badge">おすすめ</span>
+          <!-- カード②: AI業務自動化（単発） -->
+          <div class="service-card reveal reveal-d4">
             <p class="service-card-num">02</p>
-            <h3>AI内製化パッケージ</h3>
-            <p class="service-card-desc">3ヶ月、現場で一緒にAIシステムを構築。運用できる人材を社内に残す、伴走型のAI導入です。</p>
-
-            <div class="compare-grid">
-              <div class="compare-card compare-card--old">
-                <p class="compare-label">新規に1人を採用すると</p>
-                <p class="compare-amount">約103<span class="unit">万円</span></p>
-                <p class="compare-desc">採用コスト+教育で半年。<br/>退職すればゼロに戻る。</p>
-              </div>
-              <div class="compare-arrow">
-                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                </svg>
-              </div>
-              <div class="compare-card compare-card--new">
-                <p class="compare-label">AI内製化パッケージなら</p>
-                <p class="compare-amount">同じ投資<span class="unit">で</span></p>
-                <p class="compare-desc"><strong>辞めない"仕組みと人材"</strong>が<br/>社内に残り続ける。</p>
-              </div>
-            </div>
-            <p class="compare-caption">人を1人雇うのではなく、今いるチームをAI人材に変える。<br/>それがAltShiftの考え方です。</p>
-
+            <p style="font-size:14px; font-weight:700; color:var(--color-accent); margin-bottom:8px;">手作業を減らしたい方へ</p>
+            <h3>AI業務自動化</h3>
+            <p class="service-card-desc">見積もり・日報・問い合わせの返事など、毎日の手作業を減らす仕組みをつくります。LINEの自動応答から、社員の方が自分でAIを使えるようになる研修まで、御社の業務に合わせて組み立てます。</p>
             <div class="service-features-header">
               <span class="service-features-line"></span>
               <span class="service-features-label">サービス特徴</span>
             </div>
             <div class="service-feature-tags">
-              <span class="service-feature-tag">3ヶ月伴走</span>
-              <span class="service-feature-tag">現場常駐型</span>
-              <span class="service-feature-tag">システム構築込み</span>
-              <span class="service-feature-tag">人材育成込み</span>
-              <span class="service-feature-tag">補助金活用可</span>
-              <span class="service-feature-tag">運用定着まで</span>
+              <span class="service-feature-tag">個別見積もり</span>
+              <span class="service-feature-tag">一つの業務から</span>
+              <span class="service-feature-tag">LINE自動化</span>
+              <span class="service-feature-tag">AI活用研修</span>
+              <span class="service-feature-tag">社内に残る仕組み</span>
             </div>
             <div class="service-card-actions">
-              <a href="https://lin.ee/ySjX76bl" target="_blank" rel="noopener noreferrer" class="service-card-cta service-card-cta--primary">
-                詳しく相談する
+              <a href="/service/ai-automation" class="service-card-cta">
+                AI業務自動化を見る
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                </svg>
-              </a>
-              <a href="#process" class="service-card-cta-secondary">
-                3ヶ月の流れを見る
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
                 </svg>
               </a>
             </div>
           </div>
 
-          <!-- カード③: AI活用研修 -->
+          <!-- カード③: AI顧問（本命） -->
           <div class="service-card reveal reveal-d4">
             <p class="service-card-num">03</p>
-            <h3>AI活用研修</h3>
-            <p class="service-card-desc">「AIを使える人」を、社内に増やす。御社の業務に合わせた研修で、社員が明日から自分でAIを使いこなせるようになります。</p>
+            <p style="font-size:14px; font-weight:700; color:var(--color-accent); margin-bottom:8px;">まとめて任せたい方へ</p>
+            <h3>AI顧問</h3>
+            <p class="service-card-desc">集客と業務の両方を、毎月まとめて任せられます。経営者の右腕となる外部CAIO（最高AI責任者）として、業務の自動化（守り）と、AI検索対策（攻め）を標準で含めて伴走します。</p>
             <div class="service-features-header">
               <span class="service-features-line"></span>
               <span class="service-features-label">サービス特徴</span>
             </div>
             <div class="service-feature-tags">
-              <span class="service-feature-tag">明日から使える</span>
-              <span class="service-feature-tag">業務カスタマイズ</span>
-              <span class="service-feature-tag">助成金で最大75%補助</span>
-              <span class="service-feature-tag">ハンズオン形式</span>
-              <span class="service-feature-tag">少人数〜全社対応</span>
+              <span class="service-feature-tag">月額150,000〜300,000円（税込）</span>
+              <span class="service-feature-tag">AI検索対策を標準で含む</span>
+              <span class="service-feature-tag">毎月の改善</span>
+              <span class="service-feature-tag">いつでも相談</span>
             </div>
             <div class="service-card-actions">
-              <a href="https://lin.ee/ySjX76bl" target="_blank" rel="noopener noreferrer" class="service-card-cta">
-                研修を相談する
+              <a href="/service/ai-consulting" class="service-card-cta">
+                AI顧問を見る
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
                   <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
                 </svg>
               </a>
-              <a href="/service/ai-training" class="service-card-cta-secondary">
-                研修の進め方を見る
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                </svg>
-              </a>
             </div>
-          </div>
-
-          <!-- カード④: AI顧問 -->
-          <div class="service-card reveal reveal-d4">
-            <p class="service-card-num">04</p>
-            <h3>AI顧問</h3>
-            <p class="service-card-desc">AIが社内に根付くまで、ずっと隣に。いつでも相談でき、毎月の運用改善で「使えるAI」が止まらず進化し続けます。</p>
-            <div class="service-features-header">
-              <span class="service-features-line"></span>
-              <span class="service-features-label">サービス特徴</span>
-            </div>
-            <div class="service-feature-tags">
-              <span class="service-feature-tag">月額3万円〜</span>
-              <span class="service-feature-tag">チャット即日対応</span>
-              <span class="service-feature-tag">毎月の運用改善</span>
-              <span class="service-feature-tag">いつでも相談</span>
-
-            </div>
-            <a href="https://lin.ee/ySjX76bl" target="_blank" rel="noopener noreferrer" class="service-card-cta">
-              顧問を相談する
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-              </svg>
-            </a>
           </div>
 
         </div>
 
         <div class="cta-row reveal reveal-d4">
-          <a href="/pricing" class="btn-secondary-ghost" style="font-size:15px; padding:14px 32px;">料金の考え方を見る →</a>
+          <a href="/pricing" class="btn-secondary-ghost" style="font-size:15px; padding:14px 32px;">料金を見る →</a>
           <a href="https://lin.ee/ySjX76bl" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:15px; padding:14px 32px;">
             無料相談（30分）
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
