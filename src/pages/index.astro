@@ -2,6 +2,8 @@
 // トップ（2026-11-21 作り直し）。見本は C:\projects\clients\altshift-hero-studies\top-b.html
 // よくある質問は faqItems から本文と構造化データ（FAQPage）を同時に作る（中身を必ず一致させるため）
 import Layout from '../layouts/Layout.astro'
+import Nav from '../components/Nav.astro'
+import Footer from '../components/Footer.astro'
 
 const faqItems = [
   {
@@ -42,18 +44,8 @@ const faqSchema = {
   description="福岡の中小企業のために、会社の中に入るエンジニア（FDE）が、社長の隣で、抱えすぎた仕事をAIの仕組みにします。AI検索対策・AI業務自動化・AI顧問。オンラインで全国対応、30分の無料相談。"
   schemaData={faqSchema}
 >
-  <Fragment slot="head">
-    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@500;600;700&family=Geist+Mono:wght@400;500&family=M+PLUS+1:wght@400;500;700;800&display=swap" rel="stylesheet" />
-  </Fragment>
+  <Nav />
 <div class="tp">
-
-  <header class="wrap nav" style="position:relative">
-    <a class="logo" href="/" aria-label="AltShift トップ"><i></i>altshift</a>
-    <nav class="links"><a href="/service">サービス</a><a href="/pricing">料金</a><a href="/case">事例</a><a href="/company">会社情報</a><a class="nav-cta" href="/contact">無料相談（30分）</a></nav>
-    <button class="menu" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="sp-menu"><i></i><i></i></button>
-    <nav class="sp-menu" id="sp-menu" aria-label="メニュー"><a href="/service">サービス</a><a href="/pricing">料金</a><a href="/case">事例</a><a href="/company">会社情報</a><a href="/faq">よくある質問</a><a class="nav-cta" href="/contact">無料相談（30分）</a></nav>
-  </header>
-
   <main>
   <!-- 1 1画面目 -->
   <section class="hero" data-hero>
@@ -241,35 +233,14 @@ const faqSchema = {
 
   </main>
 
-  <!-- 8 フッター -->
-  <footer class="site-foot">
-    <div class="wrap">
-      <div class="cols">
-        <div class="brand"><a class="logo" href="/"><i></i>altshift</a><p>人が決める。AIが動く。<br>福岡の中小企業のために、会社の中に入るエンジニア（FDE）です。</p></div>
-        <div><h4>SERVICES</h4><ul><li><a href="/service/ai-search">AI検索対策</a></li><li><a href="/service/ai-automation">AI業務自動化</a></li><li><a href="/service/ai-consulting">AI顧問</a></li></ul></div>
-        <div><h4>COMPANY</h4><ul><li><a href="/company">会社情報</a></li><li><a href="/pricing">料金</a></li><li><a href="/case">事例</a></li><li><a href="/contact">お問い合わせ</a></li></ul></div>
-        <div><h4>GUIDE</h4><ul><li><a href="/faq">よくある質問</a></li><li><a href="/glossary">AI・検索用語集</a></li><li><a href="https://note.com/daiki_and_ai" target="_blank" rel="noopener">note</a></li><li><a href="https://x.com/daiki_and_ai" target="_blank" rel="noopener">X</a></li></ul></div>
-      </div>
-      <div class="bottom"><span>© 2026 AltShift</span><a href="/law">特定商取引法に基づく表記</a></div>
-    </div>
-  </footer>
-
 </div>
+  <Footer />
 </Layout>
 
 <script>
   // 画面に入ったら、下から静かに出す
   const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('rv-on'); io.unobserve(e.target) } }), { rootMargin: '0px 0px -8% 0px' })
   document.querySelectorAll('.rv').forEach((el) => io.observe(el))
-  // スマホのメニュー
-  const btn = document.querySelector('.tp .menu')
-  const menu = document.getElementById('sp-menu')
-  btn?.addEventListener('click', () => {
-    const open = btn.getAttribute('aria-expanded') !== 'true'
-    btn.setAttribute('aria-expanded', String(open))
-    btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く')
-    menu?.classList.toggle('open', open)
-  })
 </script>
 
 <style>
@@ -318,7 +289,7 @@ const faqSchema = {
   .core { background: #fff; border-radius: 16px; box-shadow: 0 30px 60px -48px rgba(10,10,10,.35); }
 
   /* ===== 1画面目（8） ===== */
-  .hero { position: relative; min-height: calc(100dvh - 76px); display: flex; flex-direction: column; overflow: hidden; }
+  .hero { position: relative; min-height: calc(100dvh - 76px); margin-top: 76px; display: flex; flex-direction: column; overflow: hidden; }
   .hero::before { content: ""; position: absolute; left: 50%; bottom: -40vh; width: 120vw; height: 72vh; transform: translateX(-50%); pointer-events: none; z-index: 0;
     background: radial-gradient(40% 55% at 35% 50%, rgba(27,94,190,.20), transparent 70%), radial-gradient(38% 50% at 65% 55%, rgba(14,158,150,.15), transparent 70%), radial-gradient(30% 40% at 50% 40%, rgba(120,140,255,.13), transparent 70%); filter: blur(10px); }
   .hero .main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: clamp(20px, 4vh, 48px) 0; position: relative; z-index: 2; }
@@ -488,7 +459,7 @@ const faqSchema = {
     .nav { height: 64px; }
     .links { display: none; }
     .menu { display: flex; }
-    .hero { min-height: calc(100dvh - 64px); }
+    .hero { min-height: calc(100dvh - 64px); margin-top: 64px; }
     .hero .main { justify-content: flex-start; padding: 22px 0 28px; }
     .sp-br { display: inline; }
     .hero h1 { font-size: 48px; }

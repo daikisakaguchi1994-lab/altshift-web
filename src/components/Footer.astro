@@ -1,80 +1,70 @@
 ---
-import LineButton from './LineButton.astro'
+// 全ページ共通のフッター（2026-11-21 新しいトップと同じ形にそろえた）
 ---
 
-<!-- Cream section (Tomoro-style insights/footer) -->
-<footer>
-  <!-- Dark footer -->
-  <div class="footer-dark">
-    <div class="max-w-7xl mx-auto px-6 lg:px-8 pt-16 pb-10">
-      <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:gap-10">
-
-        <!-- Brand -->
-        <div class="md:col-span-1">
-          <p style="font-family:'Inter',sans-serif; font-weight:800; font-size:22px; letter-spacing:-0.03em; color:#FFFFFF; margin-bottom:16px;">
-            altshift
-          </p>
-          <p class="footer-muted mb-1">福岡県福岡市</p>
-          <a href="mailto:contact@altshift.jp" class="footer-muted block mb-4">contact@altshift.jp</a>
-          <p class="text-xs" style="color:var(--color-ink-dim);">
-            AIを、経営の武器に。
-          </p>
-          <div class="flex gap-4 mt-4">
-            <a href="https://x.com/daiki_and_ai" target="_blank" rel="noopener noreferrer" class="footer-muted" style="display:inline-flex; align-items:center; gap:4px; font-size:12px;" aria-label="X (Twitter)">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
-              X
-            </a>
-            <a href="https://note.com/daiki_and_ai" target="_blank" rel="noopener noreferrer" class="footer-muted" style="display:inline-flex; align-items:center; gap:4px; font-size:12px;">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="3" opacity="0.8"/><text x="12" y="16" text-anchor="middle" fill="white" font-size="10" font-weight="700" font-family="sans-serif">n</text></svg>
-              note
-            </a>
-          </div>
-        </div>
-
-        <!-- Services -->
-        <div>
-          <p class="text-xs font-semibold mb-5" style="color:var(--color-ink-muted); letter-spacing:0.1em; text-transform:uppercase;">サービス</p>
-          <ul class="flex flex-col gap-3">
-            <li><a href="/service/ai-search" class="footer-muted">AI検索対策</a></li>
-            <li><a href="/service/ai-automation" class="footer-muted">AI業務自動化</a></li>
-            <li><a href="/service/ai-consulting" class="footer-muted">AI顧問</a></li>
-          </ul>
-        </div>
-
-        <!-- Links -->
-        <div>
-          <p class="text-xs font-semibold mb-5" style="color:var(--color-ink-muted); letter-spacing:0.1em; text-transform:uppercase;">リンク</p>
-          <ul class="flex flex-col gap-3">
-            <li><a href="/pricing" class="footer-muted">料金</a></li>
-            <li><a href="/case" class="footer-muted">導入事例</a></li>
-            <li><a href="/company" class="footer-muted">会社情報</a></li>
-            <li><a href="/faq" class="footer-muted">よくある質問</a></li>
-            <li><a href="/glossary" class="footer-muted">AI・検索用語集</a></li>
-            <li><a href="/contact" class="footer-muted">お問い合わせ</a></li>
-          </ul>
-        </div>
-
-        <!-- Contact -->
-        <div>
-          <p class="text-xs font-semibold mb-5" style="color:var(--color-ink-muted); letter-spacing:0.1em; text-transform:uppercase;">お問い合わせ</p>
-          <div class="flex flex-col gap-3">
-            <a href="/contact" class="btn-primary justify-center" style="font-size:13px; padding:12px 20px; min-height:44px;">
-              お問い合わせ
-            </a>
-            <LineButton class="justify-center" />
-            <p class="text-xs text-center" style="color:rgba(255,255,255,0.45);">LINE登録でAI導入チェックリストプレゼント</p>
-          </div>
-        </div>
+<footer class="gf">
+  <div class="gf-in">
+    <div class="gf-cols">
+      <div class="gf-brand">
+        <a class="gf-logo" href="/"><i></i>altshift</a>
+        <p>人が決める。AIが動く。<br />福岡の中小企業のために、会社の中に入るエンジニア（FDE）です。</p>
+        <p class="gf-addr">福岡県福岡市<br /><a href="mailto:contact@altshift.jp">contact@altshift.jp</a></p>
+      </div>
+      <div>
+        <p class="gf-h">SERVICES</p>
+        <ul>
+          <li><a href="/service/ai-search">AI検索対策</a></li>
+          <li><a href="/service/ai-automation">AI業務自動化</a></li>
+          <li><a href="/service/ai-consulting">AI顧問</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="gf-h">COMPANY</p>
+        <ul>
+          <li><a href="/company">会社情報</a></li>
+          <li><a href="/pricing">料金</a></li>
+          <li><a href="/case">事例</a></li>
+          <li><a href="/contact">お問い合わせ</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="gf-h">GUIDE</p>
+        <ul>
+          <li><a href="/faq">よくある質問</a></li>
+          <li><a href="/glossary">AI・検索用語集</a></li>
+          <li><a href="/blog">ナレッジ</a></li>
+          <li><a href="https://lin.ee/ySjX76bl" target="_blank" rel="noopener">LINE</a></li>
+          <li><a href="https://note.com/daiki_and_ai" target="_blank" rel="noopener">note</a></li>
+          <li><a href="https://x.com/daiki_and_ai" target="_blank" rel="noopener">X</a></li>
+        </ul>
       </div>
     </div>
-
-    <div style="border-top:1px solid rgba(255,255,255,0.06);">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8 py-5 flex items-center justify-between flex-wrap gap-4">
-        <p class="text-xs" style="color:var(--color-ink-dim);">&copy; 2026 AltShift. All rights reserved.</p>
-        <div class="flex gap-6">
-          <a href="/company#legal" class="text-xs footer-muted">特定商取引法</a>
-        </div>
-      </div>
-    </div>
+    <div class="gf-bottom"><span>© 2026 AltShift</span><a href="/law">特定商取引法に基づく表記</a></div>
   </div>
 </footer>
+
+<style>
+  .gf {
+    --ink: #0a0a0a; --ink-2: #55585f; --ink-3: #6b6f76; --line: rgba(10,10,10,.12); --hair: rgba(10,10,10,.07); --accent: #1b5ebe;
+    --ease: cubic-bezier(0.32, 0.72, 0, 1);
+    background: #fff; border-top: 1px solid var(--line); padding: 64px 0 32px;
+    font-family: "M PLUS 1", sans-serif; font-size: 14px; line-height: 1.85; color: var(--ink-2); -webkit-font-smoothing: antialiased;
+  }
+  .gf-in { width: min(1200px, 100% - clamp(32px, 8vw, 112px)); margin: 0 auto; }
+  .gf-cols { display: grid; grid-template-columns: minmax(0, 4fr) repeat(3, minmax(0, 2fr)); gap: 40px; }
+  .gf-logo { font-family: "Geist", sans-serif; font-weight: 700; font-size: 21px; letter-spacing: -.045em; display: inline-flex; align-items: center; gap: 9px; min-height: 44px; color: var(--ink); text-decoration: none; }
+  .gf-logo i { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+  .gf-brand p { margin-top: 14px; max-width: 22em; line-height: 1.8; }
+  .gf-addr a { color: var(--ink-2); text-decoration: none; display: inline-flex; align-items: center; min-height: 44px; }
+  .gf-h { font-family: "Geist Mono", ui-monospace, monospace; font-size: 14px; font-weight: 500; color: var(--ink-3); letter-spacing: .06em; margin-bottom: 8px; }
+  .gf ul { list-style: none; margin: 0; padding: 0; }
+  .gf ul a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); text-decoration: none; transition: color .4s var(--ease); }
+  .gf ul a:hover { color: var(--accent); }
+  .gf-bottom { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--hair); }
+  .gf-bottom a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink-2); text-decoration: none; }
+  @media (max-width: 767px) {
+    .gf { padding-bottom: calc(96px + env(safe-area-inset-bottom)); }
+    .gf-cols { grid-template-columns: 1fr 1fr; }
+    .gf-brand { grid-column: 1 / -1; }
+  }
+</style>
