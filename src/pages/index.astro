@@ -1,23 +1,35 @@
 ---
+// トップ（2026-11-21 作り直し）。見本は C:\projects\clients\altshift-hero-studies\top-b.html
+// よくある質問は faqItems から本文と構造化データ（FAQPage）を同時に作る（中身を必ず一致させるため）
 import Layout from '../layouts/Layout.astro'
-import Nav from '../components/Nav.astro'
-import SubsidySection from '../components/SubsidySection.astro'
-import LineButton from '../components/LineButton.astro'
-import Footer from '../components/Footer.astro'
-import DemoChat from '../components/DemoChat.tsx'
 
 const faqItems = [
-  { q: 'AltShiftはどんなサービスですか？', a: '福岡の中小企業向けに、AIの導入を支援しています。商品は、集客を増やす「AI検索対策」、手作業を減らす「AI業務自動化」、両方をまとめて任せられる「AI顧問」の3つです。ツールを入れて終わりにせず、現場で使いこなせる状態まで伴走します。' },
-  { q: '料金はいくらですか？', a: 'AI検索対策は先着10社が月額55,000円（税込）、通常は月額88,000円（税込）。AI顧問は月額150,000〜300,000円（税込）。AI業務自動化は、業務の内容に合わせて個別にお見積もりします。補助金を活用できる場合があります（採択は審査によります）。' },
-  { q: 'AIを使ったことがない会社でも大丈夫ですか？', a: 'はい。ゼロからの設計・設定・研修まで一貫してお手伝いします。専門用語を使わずにご説明します。' },
-  { q: 'どのくらいで成果が出ますか？', a: '内容によって変わります。LINEの自動応答のように短い期間で使い始められるものもあれば、検索の対策のように数か月かけて積み上げるものもあります。効果を確かめやすいものから先に進めます。' },
-  { q: '福岡以外でも対応できますか？', a: 'はい。オンラインで全国対応。福岡市内・近郊は訪問対応も可能です。' },
+  {
+    "q": "3つの商品のうち、どれを選べばよいですか？",
+    "a": "集客を増やしたい方は「AI検索対策」、見積もりや日報などの手作業を減らしたい方は「AI業務自動化」、両方をまとめて任せたい方は「AI顧問」が合います。迷う場合は、30分の無料相談でお聞きしてご提案します。"
+  },
+  {
+    "q": "現場に来てもらわなくても、対応できますか？",
+    "a": "はい、全国オンラインで対応できます。AI検索対策は、月1回のオンライン取材（約30〜45分）でお話しいただくだけで、記事の構成・執筆・ホームページの更新まで代行します。"
+  },
+  {
+    "q": "途中でやめられますか？",
+    "a": "最低3か月のご契約で、その後は1か月ごとに続けるかを選べます。やめるときは、前の月の末日までにご連絡ください。"
+  },
+  {
+    "q": "必ずAIに推薦されるようになりますか？",
+    "a": "お約束はできません。AIの仕組みは公開されておらず、変わり続けるためです。そのかわり、毎月「AIにどう出ているか」を実際に確かめ、結果をお見せしながら直していきます。"
+  },
+  {
+    "q": "「AltShift」の読み方は何ですか？",
+    "a": "正式な読み方は「オルトシフト」です。「オルタシフト」「アルトシフト」と書かれることもありますが、福岡の AltShift のことであれば、すべて弊社を指しています。"
+  }
 ]
 
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: faqItems.map(item => ({
+  mainEntity: faqItems.map((item) => ({
     '@type': 'Question',
     name: item.q,
     acceptedAnswer: { '@type': 'Answer', text: item.a },
@@ -26,984 +38,516 @@ const faqSchema = {
 ---
 
 <Layout
-  title="AltShift｜福岡の中小企業向けAIコンサルティング・AI導入支援"
-  description="福岡発、中小企業専門のAIコンサルティング。AI導入戦略・システム開発・Web制作・LINE自動化を一貫支援。無料相談受付中。"
+  title="AltShift｜人が決める。AIが動く。福岡の中小企業のためのAIエンジニア"
+  description="福岡の中小企業のために、会社の中に入るエンジニア（FDE）が、社長の隣で、抱えすぎた仕事をAIの仕組みにします。AI検索対策・AI業務自動化・AI顧問。オンラインで全国対応、30分の無料相談。"
   schemaData={faqSchema}
 >
-  <Nav />
+  <Fragment slot="head">
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@500;600;700&family=Geist+Mono:wght@400;500&family=M+PLUS+1:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  </Fragment>
+<div class="tp">
+
+  <header class="wrap nav" style="position:relative">
+    <a class="logo" href="/" aria-label="AltShift トップ"><i></i>altshift</a>
+    <nav class="links"><a href="/service">サービス</a><a href="/pricing">料金</a><a href="/case">事例</a><a href="/company">会社情報</a><a class="nav-cta" href="/contact">無料相談（30分）</a></nav>
+    <button class="menu" type="button" aria-label="メニューを開く" aria-expanded="false" aria-controls="sp-menu"><i></i><i></i></button>
+    <nav class="sp-menu" id="sp-menu" aria-label="メニュー"><a href="/service">サービス</a><a href="/pricing">料金</a><a href="/case">事例</a><a href="/company">会社情報</a><a href="/faq">よくある質問</a><a class="nav-cta" href="/contact">無料相談（30分）</a></nav>
+  </header>
+
   <main>
-
-    <!-- ========== HERO ========== -->
-    <section class="hero-gradient relative overflow-hidden" style="min-height:100vh; display:flex; align-items:center;">
-
-      <!-- Dot grid overlay -->
-      <div class="hero-dot-grid" style="position:absolute; inset:0; z-index:1;"></div>
-
-      <!-- Content -->
-      <div class="hero-content-wrapper" style="position:relative; z-index:10; max-width:1280px; margin:0 auto; padding:160px 24px 100px; width:100%;">
-        <div class="grid grid-cols-12 gap-8 lg:gap-12 items-center">
-
-          <!-- Left: 7カラム -->
-          <div class="col-span-12 lg:col-span-7">
-            <div class="accent-line mb-8"></div>
-            <h1 class="heading-hero hero-title" style="line-height:1.08; color:#FFFFFF;">
-              AIを、「使える人」ごと<br/>社内に。
-            </h1>
-            <p class="body-lg hero-subtitle mt-6 mb-4" style="max-width:520px; color:rgba(255,255,255,0.85);">
-              「導入して終わり」にしない。全国どこからでもオンラインで現場に伴走し、3ヶ月でAIを回せる人材を育てる。
-            </p>
-            <p class="hero-subtitle mb-8" style="font-size:15px; max-width:520px; color:rgba(255,255,255,0.65);">
-              診断2週間、稼働12週間。全国オンライン対応。<a href="/simulator" style="color:rgba(255,255,255,0.75); text-decoration:underline; text-underline-offset:3px;">補助金を活用できる場合があります</a>。
-            </p>
-            <div class="flex flex-col items-center sm:items-start gap-3 hero-subtitle">
-              <a href="/contact" class="btn-primary">
-                無料で相談する
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                </svg>
-              </a>
-              <LineButton size="sm" />
-              <p style="font-size:12px; color:rgba(255,255,255,0.45); margin-top:-2px;">無料・30分・オンライン対応｜LINE登録で<a href="https://lin.ee/ySjX76bl" target="_blank" rel="noopener noreferrer" style="color:rgba(255,255,255,0.65); text-decoration:underline; text-underline-offset:2px;">AI導入チェックリスト</a>プレゼント</p>
-              <a href="/case" class="btn-secondary-ghost" style="color:rgba(255,255,255,0.7);">
-                導入事例を見る →
-              </a>
-            </div>
-          </div>
-
-          <!-- Right: 5カラム（数字グリッド）-->
-          <div class="col-span-12 lg:col-span-5 flex items-center hero-subtitle">
-            <!-- 実績数字グリッド 2x2 -->
-            <div class="grid grid-cols-2 gap-3">
-              <div style="background:rgba(255,255,255,0.1); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:20px;">
-                <p style="font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px,3vw,36px); color:#FFFFFF; line-height:1; margin-bottom:4px; font-variant-numeric:tabular-nums;">
-                  50<span style="font-size:clamp(16px,2vw,20px); color:rgba(255,255,255,0.7);">%</span>
-                </p>
-                <p style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.4;">業務効率化（目安）</p>
-              </div>
-              <div style="background:rgba(255,255,255,0.1); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:20px;">
-                <p style="font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px,3vw,36px); color:#FFFFFF; line-height:1; margin-bottom:4px; font-variant-numeric:tabular-nums;">
-                  30<span style="font-size:clamp(16px,2vw,20px); color:rgba(255,255,255,0.7);">分</span>
-                </p>
-                <p style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.4;">無料相談（オンライン）</p>
-              </div>
-              <div style="background:rgba(255,255,255,0.1); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:20px;">
-                <p style="font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px,3vw,36px); color:#FFFFFF; line-height:1; margin-bottom:4px; font-variant-numeric:tabular-nums;">
-                  4<span style="font-size:clamp(16px,2vw,20px); color:rgba(255,255,255,0.7);">社</span>
-                </p>
-                <p style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.4;">導入実績</p>
-              </div>
-              <div style="background:rgba(255,255,255,0.1); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.15); border-radius:12px; padding:20px;">
-                <p style="font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px,3vw,36px); color:#FFFFFF; line-height:1; margin-bottom:4px; font-variant-numeric:tabular-nums;">
-                  3<span style="font-size:clamp(16px,2vw,20px); color:rgba(255,255,255,0.7);">ヶ月</span>
-                </p>
-                <p style="font-size:12px; color:rgba(255,255,255,0.6); line-height:1.4;">集中伴走</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Demo scroll link -->
-        <div class="text-center mt-12 hero-subtitle" style="animation-delay:0.2s;">
-          <a href="#demo-section" style="color:rgba(255,255,255,0.7); font-size:13px; text-decoration:none; display:inline-flex; align-items:center; gap:6px; transition:color 0.2s;">
-            <span>→ デモを体験する</span>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="transform:rotate(90deg);">
-              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </a>
-        </div>
+  <!-- 1 1画面目 -->
+  <section class="hero" data-hero>
+    <div class="wrap main">
+      <p class="eyebrow rise d1"><span class="dot"></span>福岡の中小企業のための、AIエンジニア</p>
+      <h1 class="rise d2"><span class="nb">人が決める。</span><br><span class="nb">AIが動く。</span></h1>
+      <p class="sub rise d3"><span class="nb">決めるのは<span class="p">、</span>社長。</span><br class="sp-br"><span class="nb">AIを動かすのは<span class="p">、</span>私たちです。</span></p>
+      <p class="lead rise d3"><strong>会社の中に入るエンジニア（FDE）</strong>が、社長の隣で、抱えすぎた仕事をAIの仕組みにします。</p>
+      <div class="cta rise d4">
+        <a class="btn btn-1" href="/contact">無料で相談する（30分）<span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+        <a class="btn btn-2" href="#svc">サービスを見る</a>
       </div>
-    </section>
+      <ul class="trust rise d4">
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b5ebe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>オンラインで全国対応</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b5ebe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>最低3か月、その後は月ごと</li>
+        <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b5ebe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>福岡市が拠点・代表 坂口 大樹</li>
+      </ul>
+      <ol class="steps rise d5" aria-label="ご相談からの流れ">
+        <li><span class="n mono">01</span><b>無料相談</b><small>30分・オンライン</small></li>
+        <li><span class="n mono">02</span><b>仕事の棚卸し</b><small>社長に集まる仕事を洗い出す</small></li>
+        <li><span class="n mono">03</span><b>AIの仕組みにする</b><small>FDE が会社の中で</small></li>
+        <li class="end"><span class="n mono">04</span><b>余白</b><small>社長の時間に戻る</small></li>
+      </ol>
+    </div>
+    <div class="wrap foot"><p><b>MISSION</b>会社と社長に、余白の時間をつくる。</p></div>
+  </section>
 
-    <!-- ========== HERO → CONSTELLATION BRIDGE ========== -->
-    <div class="hero-bridge"></div>
+  <!-- 2 3つの入口 -->
+  <section class="sec" id="svc">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><p class="label">02 / SERVICES</p><h2><span class="nb">目的に合わせて<span class="p">、</span></span><br><span class="nb">3つから選ぶ。</span></h2></div>
+        <p>まず何から始めるか、無料相談で一緒に決めます。どれも月ごとの料金で、最低3か月からです。</p>
+      </div>
+      <div class="svc">
+        <a class="shell rv" href="/service/ai-search"><div class="core">
+          <span class="n mono">01</span><b>AI検索対策</b>
+          <p class="what">ChatGPT・Google・地図で、会社の名前が出る状態にします。</p>
+          <ul><li>記事を毎月2本（note）</li><li>毎月1回、オンラインで取材（30〜45分）</li><li>Google検索と AI の答えに、まとめて対応</li></ul>
+          <div class="price"><div><small>先着10社の価格（通常 88,000円）</small><strong>月 <em>55,000</em> 円〜（税込）</strong></div><span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b5ebe" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
+        </div></a>
+        <a class="shell rv" href="/service/ai-automation"><div class="core">
+          <span class="n mono">02</span><b>AI業務自動化</b>
+          <p class="what">見積もりや日報、問い合わせへの返事など、毎日の手作業を AI の仕組みにします。</p>
+          <ul><li>FDE が会社の中に入って作る</li><li>単発の自動化から、AI内製化まで</li><li>社員向けの AI活用研修にも対応</li></ul>
+          <div class="price"><div><small>仕事の量と範囲に合わせて</small><strong>個別にお見積もり</strong></div><span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b5ebe" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
+        </div></a>
+        <a class="shell rv" href="/service/ai-consulting"><div class="core">
+          <span class="n mono">03</span><b>AI顧問<span class="badge">AI検索対策つき</span></b>
+          <p class="what">集客と業務の両方を、毎月まとめて任せられます。</p>
+          <ul><li>経営者の右腕になる外部CAIO（最高AI責任者）</li><li>業務の自動化と、AI検索からの集客をまとめて</li><li>AI検索対策を含む</li></ul>
+          <div class="price"><div><small>関わり方に合わせて（〜300,000円）</small><strong>月 <em>150,000</em> 円〜（税込）</strong></div><span class="arr"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b5ebe" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></div>
+        </div></a>
+      </div>
+      <p class="note rv"><span>※ 最低3か月、その後は1か月ごと。やめるときは前の月の末日までにご連絡ください。</span><span>※ 料金はすべて税込です。</span></p>
+    </div>
+  </section>
 
-    <!-- ========== CONSTELLATION (星座ビジュアル) ========== -->
-    <section class="constellation" id="constellation">
-      <div class="constellation-pin" id="constellation-pin">
-        <canvas class="particle-canvas" id="constellation-particles"></canvas>
-        <div class="stage" id="constellation-stage">
-
-          <!-- Header -->
-          <div class="constellation-header" id="constellation-header">
-            <p class="label">Why AltShift</p>
-            <h2>バラバラの業務が、<span style="white-space:nowrap">ひとつの仕組みになる。</span></h2>
+  <!-- 3 FDE とは -->
+  <section class="sec fde" id="fde">
+    <div class="wrap">
+      <div class="grid">
+        <div class="body rv">
+          <p class="label">03 / WHAT IS FDE</p>
+          <h2><span class="nb">FDE は<span class="p">、</span></span><br><span class="nb"><span class="q">会社の中に入る</span></span><br><span class="nb">エンジニアです。</span></h2>
+          <p style="margin-top:22px">FDE（Forward Deployed Engineer）は、お客様の現場に入って、一緒に仕組みをつくるエンジニアのことです。</p>
+          <p>提案書を渡して終わりにはしません。社長や社員の方と同じ目線で仕事を見て、AI に渡せるところを見つけ、動く形にして、社内に残します。</p>
+          <div class="cmp">
+            <div class="h"><span></span><span>よくある頼み方</span><span>FDE</span></div>
+            <div><span>やること</span><span>提案して終わり</span><span>現場に入って、一緒に作る</span></div>
+            <div><span>手に残るもの</span><span>資料</span><span>動く仕組み</span></div>
+            <div><span>終わったあと</span><span>外の会社だのみ</span><span>社内で使い続けられる</span></div>
           </div>
-
-          <!-- SVG lines -->
-          <svg class="line-layer" id="constellation-lines" xmlns="http://www.w3.org/2000/svg"></svg>
-
-          <!-- Hub -->
-          <div class="hub" id="constellation-hub">
-            <div class="hub-outer">
-              <div class="hub-bloom" id="constellation-bloom"></div>
-              <div class="hub-ring-2"></div>
-              <div class="hub-ring"></div>
-              <div class="hub-core" id="constellation-core">
-                <div class="hub-label">AI内製化<br/>パッケージ</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- 主役（3枚） -->
-          <div class="tile" data-tier="main" data-angle="300" data-dist="54" data-float-speed="5.0" data-float-amp="4">
-            <div class="tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div>
-            <div class="tile-label">LINE 24時間自動対応</div>
-            <div class="tile-sub">深夜でもAIが即応答</div>
-          </div>
-          <div class="tile" data-tier="main" data-angle="60" data-dist="56" data-float-speed="4.5" data-float-amp="5">
-            <div class="tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
-            <div class="tile-label">議事録・日報の自動作成</div>
-            <div class="tile-sub">会議後すぐに共有可能</div>
-          </div>
-          <div class="tile" data-tier="main" data-angle="180" data-dist="52" data-float-speed="5.2" data-float-amp="4">
-            <div class="tile-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="2" y="3" width="20" height="18" rx="2"/><line x1="8" y1="21" x2="8" y2="13"/><line x1="16" y1="21" x2="16" y2="9"/><path d="M6 9h4v4H6z"/></svg></div>
-            <div class="tile-label">請求書・見積もりAI作成</div>
-            <div class="tile-sub">入力ミスも工数も削減</div>
-          </div>
-
-          <!-- 脇役（5枚） -->
-          <div class="tile" data-tier="sub" data-angle="335" data-dist="70" data-float-speed="4.8" data-float-amp="3">
-            <div class="tile-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
-            <div class="tile-label">問い合わせ自動返信</div>
-          </div>
-          <div class="tile" data-tier="sub" data-angle="75" data-dist="68" data-float-speed="5.4" data-float-amp="3">
-            <div class="tile-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-            <div class="tile-label">顧客リスト自動整理</div>
-          </div>
-          <div class="tile" data-tier="sub" data-angle="115" data-dist="72" data-float-speed="4.6" data-float-amp="4">
-            <div class="tile-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg></div>
-            <div class="tile-label">予約管理自動化</div>
-          </div>
-          <div class="tile" data-tier="sub" data-angle="205" data-dist="67" data-float-speed="5.1" data-float-amp="3">
-            <div class="tile-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg></div>
-            <div class="tile-label">Googleカレンダー連携</div>
-          </div>
-          <div class="tile" data-tier="sub" data-angle="245" data-dist="66" data-float-speed="4.9" data-float-amp="3">
-            <div class="tile-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 9h.01M12 9h.01M16 9h.01"/></svg></div>
-            <div class="tile-label">Slack・Chatwork連携</div>
-          </div>
-
-          <!-- 背景群（7枚） -->
-          <div class="tile" data-tier="bg" data-angle="5" data-dist="86" data-float-speed="5.8" data-float-amp="2">
-            <div class="tile-label">RAG社内ナレッジ検索</div>
-          </div>
-          <div class="tile" data-tier="bg" data-angle="50" data-dist="88" data-float-speed="6.0" data-float-amp="2">
-            <div class="tile-label">AIエージェント</div>
-          </div>
-          <div class="tile" data-tier="bg" data-angle="95" data-dist="85" data-float-speed="5.5" data-float-amp="2">
-            <div class="tile-label">音声AI文字起こし</div>
-          </div>
-          <div class="tile" data-tier="bg" data-angle="165" data-dist="84" data-float-speed="6.2" data-float-amp="2">
-            <div class="tile-label">経費精算AI</div>
-          </div>
-          <div class="tile" data-tier="bg" data-angle="195" data-dist="90" data-float-speed="5.7" data-float-amp="2">
-            <div class="tile-label">データ分析・予測</div>
-          </div>
-          <div class="tile" data-tier="bg" data-angle="290" data-dist="83" data-float-speed="5.9" data-float-amp="2">
-            <div class="tile-label">SEO/GEO対策</div>
-          </div>
-          <div class="tile" data-tier="bg" data-angle="320" data-dist="87" data-float-speed="6.1" data-float-amp="2">
-            <div class="tile-label">Web制作</div>
-          </div>
-
-          <!-- Converge message -->
-          <div class="converge-msg" id="constellation-msg">
-            <h3>ひとつの仕組みに。</h3>
-            <p>バラバラだった業務が、統合される。</p>
+        </div>
+        <div class="term rv" aria-label="FDE の進め方">
+          <div class="term-top"><span>altshift / fde</span><b><i></i>稼働中</b></div>
+          <div class="term-body">
+            <p class="c">$ altshift fde --for <span class="jp">あなたの会社</span></p>
+            <p><span class="jp">✓ 現場に入る</span><span class="ok">完了</span></p>
+            <p class="sub"><span class="jp">社長と社員の話を聞く</span></p>
+            <p><span class="jp">✓ 仕事を分ける</span><span class="ok">完了</span></p>
+            <p class="sub"><span class="jp">AI に渡せる仕事を選ぶ</span></p>
+            <p><span class="jp">▸ 仕組みにする</span><span class="run">進行中</span></p>
+            <p class="sub"><span class="jp">今の仕事の流れに組み込む</span></p>
+            <p><span class="jp">○ 社内に残す</span><span class="c">次へ</span></p>
+            <p class="sum"><span class="jp">＝ 社長の余白</span><span class="run">＋</span></p>
+            <p class="c" style="margin-top:6px">$ <span class="cur"></span></p>
           </div>
         </div>
       </div>
-    </section>
+      <ol class="three">
+        <li class="rv"><span class="n">01</span><h3>現場に入る</h3><p>オンラインを中心に、会社の中の一員として仕事の流れを見ます。</p></li>
+        <li class="rv"><span class="n">02</span><h3>一緒に作る</h3><p>使う人と話しながら、小さく作って、すぐ試します。</p></li>
+        <li class="rv"><span class="n">03</span><h3>社内に残す</h3><p>使い方と直し方まで渡して、社内で回るようにします。</p></li>
+      </ol>
+    </div>
+  </section>
 
-    <!-- ========== CONSTELLATION → WHAT WE DO BRIDGE ========== -->
-    <div class="section-bridge"></div>
-
-    <!-- ========== WHAT WE DO (サービス4枚) ========== -->
-    <section class="btob-section" id="what-we-do">
-      <div class="btob-inner">
-
-        <div class="unified-section-header reveal">
-          <span class="section-watermark" aria-hidden="true">WHAT WE DO</span>
-          <div class="section-label-row">
-            <span class="section-label-line"></span>
-            <p class="section-label-text">私たちの役割</p>
-          </div>
-        </div>
-
-        <h2 class="reveal reveal-d1">その<span class="accent">"ひとつの仕組み"</span>を、<br/>あなたの会社に。</h2>
-
-        <p class="btob-subtitle reveal reveal-d2">バラバラだった業務も、属人化していた作業も、AIで一つに繋がる。<br/>AltShiftは現場に入って一緒に作り、<span class="subtitle-em">"使える人"ごと社内に残します。</span></p>
-
-        <div class="teal-divider reveal reveal-d2"></div>
-
-        <div class="unified-section-header service-section-header reveal reveal-d3">
-          <span class="section-watermark" aria-hidden="true">SERVICE</span>
-          <div class="section-label-row">
-            <span class="section-label-line"></span>
-            <p class="section-label-text">目的で選ぶ</p>
-          </div>
-          <p class="service-section-title">やりたいことに合わせて、3つから選べます。</p>
-        </div>
-
-        <div class="service-cards">
-
-          <!-- カード①: AI検索対策（入口） -->
-          <div class="service-card service-card--primary reveal reveal-d3">
-            <span class="service-badge">まずはここから</span>
-            <p class="service-card-num">01</p>
-            <p style="font-size:14px; font-weight:700; color:var(--color-accent); margin-bottom:8px;">集客を増やしたい方へ</p>
-            <h3>AI検索対策</h3>
-            <p class="service-card-desc">ChatGPT・Google・地図で、御社の名前が出る状態へ。月1回のオンライン取材から、事実にもとづくnote記事とホームページの更新を毎月続け、AIに推薦されるための裏付けを積み上げます。</p>
-            <div class="service-features-header">
-              <span class="service-features-line"></span>
-              <span class="service-features-label">サービス特徴</span>
-            </div>
-            <div class="service-feature-tags">
-              <span class="service-feature-tag">先着10社 月額55,000円（税込）</span>
-              <span class="service-feature-tag">通常 88,000円</span>
-              <span class="service-feature-tag">オンライン完結</span>
-              <span class="service-feature-tag">note記事 月2本</span>
-              <span class="service-feature-tag">毎月の出方をご報告</span>
-            </div>
-            <div class="service-card-actions">
-              <a href="/service/ai-search" class="service-card-cta service-card-cta--primary">
-                AI検索対策を見る
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- カード②: AI業務自動化（単発） -->
-          <div class="service-card reveal reveal-d4">
-            <p class="service-card-num">02</p>
-            <p style="font-size:14px; font-weight:700; color:var(--color-accent); margin-bottom:8px;">手作業を減らしたい方へ</p>
-            <h3>AI業務自動化</h3>
-            <p class="service-card-desc">見積もり・日報・問い合わせの返事など、毎日の手作業を減らす仕組みをつくります。LINEの自動応答から、社員の方が自分でAIを使えるようになる研修まで、御社の業務に合わせて組み立てます。</p>
-            <div class="service-features-header">
-              <span class="service-features-line"></span>
-              <span class="service-features-label">サービス特徴</span>
-            </div>
-            <div class="service-feature-tags">
-              <span class="service-feature-tag">個別見積もり</span>
-              <span class="service-feature-tag">一つの業務から</span>
-              <span class="service-feature-tag">LINE自動化</span>
-              <span class="service-feature-tag">AI活用研修</span>
-              <span class="service-feature-tag">社内に残る仕組み</span>
-            </div>
-            <div class="service-card-actions">
-              <a href="/service/ai-automation" class="service-card-cta">
-                AI業務自動化を見る
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-          <!-- カード③: AI顧問（本命） -->
-          <div class="service-card reveal reveal-d4">
-            <p class="service-card-num">03</p>
-            <p style="font-size:14px; font-weight:700; color:var(--color-accent); margin-bottom:8px;">まとめて任せたい方へ</p>
-            <h3>AI顧問</h3>
-            <p class="service-card-desc">集客と業務の両方を、毎月まとめて任せられます。経営者の右腕となる外部CAIO（最高AI責任者）として、業務の自動化（守り）と、AI検索対策（攻め）を標準で含めて伴走します。</p>
-            <div class="service-features-header">
-              <span class="service-features-line"></span>
-              <span class="service-features-label">サービス特徴</span>
-            </div>
-            <div class="service-feature-tags">
-              <span class="service-feature-tag">月額150,000〜300,000円（税込）</span>
-              <span class="service-feature-tag">AI検索対策を標準で含む</span>
-              <span class="service-feature-tag">毎月の改善</span>
-              <span class="service-feature-tag">いつでも相談</span>
-            </div>
-            <div class="service-card-actions">
-              <a href="/service/ai-consulting" class="service-card-cta">
-                AI顧問を見る
-                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-                  <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                </svg>
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-        <div class="cta-row reveal reveal-d4">
-          <a href="/pricing" class="btn-secondary-ghost" style="font-size:15px; padding:14px 32px;">料金を見る →</a>
-          <a href="https://lin.ee/ySjX76bl" target="_blank" rel="noopener noreferrer" class="btn-primary" style="font-size:15px; padding:14px 32px;">
-            無料相談（30分）
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </a>
-        </div>
-
+  <!-- 4 事例の枠 -->
+  <section class="sec" id="cases">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <div><p class="label">04 / CASES</p><h2><span class="nb">1社ずつ<span class="p">、</span></span><br><span class="nb">短く、正直に。</span></h2></div>
+        <p>どんな会社が、何に困っていて、何をして、どう変わったか。1社を4つの項目だけで、短くまとめて載せます。</p>
       </div>
-    </section>
+      <div class="cases">
+        <article class="case shell rv"><div class="core">
+          <p class="top mono"><span>CASE 01</span><span>掲載準備中</span></p>
+          <dl><dt>業種</dt><dd><i class="s"></i></dd><dt>困っていたこと</dt><dd><i></i><i class="s"></i></dd><dt>やったこと</dt><dd><i></i><i class="s"></i></dd><dt class="res">変わったこと</dt><dd class="res"><i></i><i class="s"></i></dd></dl>
+        </div></article>
+        <article class="case shell rv"><div class="core">
+          <p class="top mono"><span>CASE 02</span><span>掲載準備中</span></p>
+          <dl><dt>業種</dt><dd><i class="s"></i></dd><dt>困っていたこと</dt><dd><i></i><i class="s"></i></dd><dt>やったこと</dt><dd><i></i><i class="s"></i></dd><dt class="res">変わったこと</dt><dd class="res"><i></i><i class="s"></i></dd></dl>
+        </div></article>
+        <article class="case shell rv"><div class="core">
+          <p class="top mono"><span>CASE 03</span><span>掲載準備中</span></p>
+          <dl><dt>業種</dt><dd><i class="s"></i></dd><dt>困っていたこと</dt><dd><i></i><i class="s"></i></dd><dt>やったこと</dt><dd><i></i><i class="s"></i></dd><dt class="res">変わったこと</dt><dd class="res"><i></i><i class="s"></i></dd></dl>
+        </div></article>
+      </div>
+      <div class="cases-note rv">
+        <p>事例は、お客様の了承をいただいてから、順に載せます。</p>
+        <a class="btn btn-1" href="/contact">無料で相談する（30分）<span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+      </div>
+    </div>
+  </section>
 
-    <!-- ========== BRAND STATEMENT ========== -->
-    <section style="background:var(--color-navy); padding:140px 24px;">
-      <div class="max-w-4xl mx-auto" style="text-align:left;">
-        <div class="reveal">
-          <div style="width:48px; height:3px; background:#0E9E96; margin-bottom:48px;"></div>
-          <h2 style="font-size:clamp(32px,6vw,72px); font-weight:700; line-height:1.15; color:#FFFFFF; margin-bottom:40px; letter-spacing:-0.02em;">
-            経営者の"やりたい"を、<br/>現場で動くAIに変える。
-          </h2>
-          <p style="font-size:clamp(14px,1.2vw,17px); line-height:1.9; color:rgba(255,255,255,0.65); max-width:600px; margin-bottom:32px;">
-            AltShiftは、福岡の中小企業に外部CAIO（AI統合責任者）として入り、AIを"導入して終わり"にせず、現場で使える仕組みまで実装する会社です。
-          </p>
-          <div style="width:32px; height:1px; background:rgba(255,255,255,0.2); margin-bottom:16px;"></div>
-          <div style="display:flex; flex-direction:column; gap:4px;">
-            <p style="font-size:13px; color:rgba(255,255,255,0.55); letter-spacing:0.03em;">Powered by Claude (Anthropic)</p>
-            <p style="font-size:11px; color:rgba(255,255,255,0.35);">Anthropic Academy 認定取得</p>
-          </div>
+  <!-- 5 会社情報と代表のあいさつ -->
+  <section class="sec about" id="about">
+    <div class="wrap">
+      <div class="grid">
+        <figure class="photo rv">
+          <div class="shell"><div class="core"><img src="/images/daiki_profile.jpg" loading="lazy" decoding="async" alt="AltShift 代表 坂口 大樹" width="1000" height="1250"></div></div>        </figure>
+        <div class="msg rv">
+          <p class="label" style="margin-top:0">05 / MESSAGE</p>
+          <h2><span class="nb">決めることに<span class="p">、</span></span><br><span class="nb">社長の時間を。</span></h2>
+          <p style="margin-top:26px">AIの時代になっても、会社の行き先を決めるのは、社長です。</p>
+          <p>けれど多くの社長は、決めることより先に、見積もりや日報、問い合わせへの返事に一日を取られています。</p>
+          <p>私たちは、その仕事を AI に渡せる形にします。会社の中に入り、社長の隣で、一緒に手を動かします。AI は仕事を奪うものではなく、人に新しい役割を渡すものだと考えています。</p>
+          <p class="sign">AltShift 代表<b>坂口 大樹</b></p>
         </div>
       </div>
-    </section>
+      <dl class="profile rv">
+        <div><dt>屋号</dt><dd>AltShift（オルトシフト）</dd></div>
+        <div><dt>代表</dt><dd>坂口 大樹</dd></div>
+        <div><dt>所在地</dt><dd>福岡県福岡市</dd></div>
+        <div><dt>設立</dt><dd>2025年</dd></div>
+        <div><dt>事業内容</dt><dd>AI検索対策・AI業務自動化・AI顧問</dd></div>
+        <div><dt>お問い合わせ</dt><dd>contact@altshift.jp</dd></div>
+      </dl>
+    </div>
+  </section>
 
-    <!-- ========== 3-MONTH TRAINING PHASE ========== -->
-    <section id="process" class="section-padding" style="background:var(--color-bg);">
-      <div class="max-w-5xl mx-auto px-6 lg:px-8">
-        <div class="reveal">
-          <p class="section-label mb-4" style="letter-spacing:0.1em; color:var(--color-accent);">導入の流れ</p>
-          <h2 class="heading-lg mb-4">3ヶ月で、AIを"使える会社"へ</h2>
-          <p class="body-md mb-6" style="max-width:640px; color:var(--color-ink-sub);">
-            ツールを入れて終わりにしない。3ヶ月、御社の担当者が自分でAIを動かせるようになるまで伴走します。
-          </p>
-        </div>
-
-        <!-- Stepper (desktop) -->
-        <div class="hidden md:flex items-center justify-center gap-3 mb-12 reveal" style="color:var(--color-ink-muted); font-size:13px; font-weight:600; letter-spacing:0.05em;">
-          <span style="color:var(--color-brand);">STEP 01</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          <span style="color:var(--color-brand);">STEP 02</span>
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
-          <span style="color:var(--color-accent);">STEP 03</span>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger">
-          <!-- Phase 1 -->
-          <div class="reveal t-card p-8 flex flex-col" style="border-top:3px solid var(--color-brand);">
-            <span style="font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px, 3.5vw, 36px); line-height:1; color:#0E9E96; letter-spacing:-0.03em; margin-bottom:12px;">01</span>
-            <span style="display:inline-block; background:var(--color-brand); color:#FFFFFF; font-size:12px; font-weight:700; padding:4px 12px; border-radius:20px; margin-bottom:12px; width:fit-content;">1ヶ月目</span>
-            <h3 class="heading-md mb-3">業務の整理・AI設計</h3>
-            <ul class="body-sm flex-1" style="color:var(--color-ink-sub); display:flex; flex-direction:column; gap:8px;">
-              <li class="flex items-start gap-2">
-                <span style="color:var(--color-brand); flex-shrink:0;">・</span>
-                <span>業務の棚卸しとAI適用箇所の特定</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span style="color:var(--color-brand); flex-shrink:0;">・</span>
-                <span>担当者へのAI基礎研修</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span style="color:var(--color-brand); flex-shrink:0;">・</span>
-                <span>即効施策の設計</span>
-              </li>
-            </ul>
-          </div>
-          <!-- Phase 2 (highlighted) -->
-          <div class="reveal t-card p-8 flex flex-col" style="border:2px solid var(--color-brand); border-top:3px solid var(--color-brand); background:rgba(27,94,190,0.03);">
-            <span style="font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px, 3.5vw, 36px); line-height:1; color:#0E9E96; letter-spacing:-0.03em; margin-bottom:12px;">02</span>
-            <span style="display:inline-block; background:var(--color-brand); color:#FFFFFF; font-size:12px; font-weight:700; padding:4px 12px; border-radius:20px; margin-bottom:12px; width:fit-content;">2ヶ月目</span>
-            <h3 class="heading-md mb-3">システム構築・実動確認</h3>
-            <ul class="body-sm flex-1" style="color:var(--color-ink-sub); display:flex; flex-direction:column; gap:8px;">
-              <li class="flex items-start gap-2">
-                <span style="color:var(--color-brand); flex-shrink:0;">・</span>
-                <span>即効施策の実装（すぐ成果が見える）</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span style="color:var(--color-brand); flex-shrink:0;">・</span>
-                <span>本命業務を担当者と二人三脚で自動化</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span style="color:var(--color-brand); flex-shrink:0;">・</span>
-                <span>動く状態まで一緒に作り上げる</span>
-              </li>
-            </ul>
-          </div>
-          <!-- Phase 3 -->
-          <div class="reveal t-card p-8 flex flex-col" style="border-top:3px solid var(--color-accent);">
-            <span style="font-family:'Inter',sans-serif; font-weight:800; font-size:clamp(28px, 3.5vw, 36px); line-height:1; color:#0E9E96; letter-spacing:-0.03em; margin-bottom:12px;">03</span>
-            <span style="display:inline-block; background:var(--color-accent); color:#FFFFFF; font-size:12px; font-weight:700; padding:4px 12px; border-radius:20px; margin-bottom:12px; width:fit-content;">3ヶ月目</span>
-            <h3 class="heading-md mb-3">内製化・自走</h3>
-            <ul class="body-sm flex-1" style="color:var(--color-ink-sub); display:flex; flex-direction:column; gap:8px;">
-              <li class="flex items-start gap-2">
-                <span style="color:var(--color-accent); flex-shrink:0;">・</span>
-                <span>担当者が単独で改修・運用できる状態へ</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span style="color:var(--color-accent); flex-shrink:0;">・</span>
-                <span>次のAI活用を社内で設計できるようにする</span>
-              </li>
-              <li class="flex items-start gap-2">
-                <span style="color:var(--color-accent); flex-shrink:0;">・</span>
-                <span>AIが社内に"根付く"状態を作る</span>
-              </li>
-            </ul>
-          </div>
-        </div>
+  <!-- 6 よくある質問 -->
+  <section class="sec faq" id="faq">
+    <div class="wrap grid">
+      <div class="side rv">
+        <p class="label">06 / FAQ</p>
+        <h2>よくある質問</h2>
+        <p>ほかにも気になることがあれば、無料相談でそのままお聞きください。</p>
+        <a class="more" href="/faq">ほかの質問を見る<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
       </div>
-    </section>
-
-    <!-- ========== SCOPE (3-Layer downgraded) ========== -->
-    <section style="background:var(--color-bg-subtle); padding:48px 0;">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="text-center mb-10 reveal">
-          <p class="section-label mb-3" style="letter-spacing:0.1em; color:var(--color-ink-muted);">対応領域</p>
-          <h3 class="heading-md mb-3" style="color:var(--color-ink);">集客・接客・継続の3領域に対応します</h3>
-        </div>
-
-        <div class="layer-grid stagger">
-          {[
-            { num: '01', layer: 'Layer 1', title: '見つけてもらう', sub: 'Web × SEO × GEO', desc: 'Google検索もAI検索（ChatGPT・Claude）も、Googleマップも。"探されたときに必ず見つかる"状態を作ります。', color: '#6BA3D6' },
-            { num: '02', layer: 'Layer 2', title: '逃さない', sub: 'LINE × チャットボット', desc: '深夜の問い合わせにもAIが即応答。予約・リマインドまで自動で、"せっかくの見込み客"を取りこぼしません。', color: 'var(--color-brand)' },
-            { num: '03', layer: 'Layer 3', title: '育てる', sub: 'AI分析 × 改善ループ', desc: '数字を見て、毎月手を打つ。KPI追跡と改善を回し続け、"入れて終わり"にしない成果の伸ばし方を。', color: 'var(--color-accent)' },
-          ].map((l, i) => (
-            <Fragment>
-              {i > 0 && (
-                <div class="layer-arrow" aria-hidden="true">
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--color-ink-muted)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-                    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-                  </svg>
-                </div>
-              )}
-              <div class="reveal layer-card t-card p-8 flex flex-col" style={`border-top:3px solid ${l.color};`}>
-                <span class="layer-num">{l.num}</span>
-                <p class="text-xs font-semibold mb-2" style={`color:${l.color}; letter-spacing:0.1em; text-transform:uppercase;`}>{l.layer}</p>
-                <h3 class="heading-md mb-1">{l.title}</h3>
-                <p class="text-xs mb-4" style="color:var(--color-ink-dim);">{l.sub}</p>
-                <p class="body-sm flex-1">{l.desc}</p>
-              </div>
-            </Fragment>
-          ))}
-        </div>
+      <div class="qa rv">
+        {faqItems.map((item, i) => (
+          <details open={i === 0}><summary><span class="q">Q.{String(i + 1).padStart(2, '0')}</span>{item.q}<i></i></summary><p class="a"><span>A.</span>{item.a}</p></details>
+        ))}
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- ========== DEMO ========== -->
-    <section id="demo-section" class="section-padding" style="background:var(--color-bg);">
-      <div class="max-w-2xl mx-auto px-6">
-        <div class="text-center mb-8 reveal">
-          <p class="section-label mb-4" style="text-transform:uppercase; letter-spacing:0.1em; color:var(--color-primary);">Live Demo</p>
-          <h2 class="heading-lg mb-2">AIを体験してみる</h2>
-          <p class="body-md" style="color:var(--color-ink-sub);">
-            このデモ自体が「御社に導入できるシステムの実物サンプル」です
-          </p>
+  <!-- 7 最後の相談の帯 -->
+  <section class="close">
+    <div class="wrap">
+      <div class="panel rv">
+        <p class="label">CONTACT</p>
+        <h2><span class="nb">まず<span class="p">、</span>30分。</span><br class="sp-br"><span class="nb">話を聞かせてください。</span></h2>
+        <p class="t">何をAIに任せて、何を人が担うか。今の仕事のお話をうかがいながら、一緒に整理します。</p>
+        <div class="cta">
+          <a class="btn btn-1" href="/contact">無料で相談する（30分）<span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
+          <a class="btn btn-2" href="https://lin.ee/ySjX76bl" target="_blank" rel="noopener">LINEで相談する</a>
         </div>
-        <DemoChat client:visible />
-        <p class="text-center mt-6 reveal" style="font-size:14px; color:var(--color-ink-sub);">
-          まず「うちはどれくらい損しているか」を数字にしてみる → <a href="https://calendly.com/daiki-sakaguchi1994/30min" target="_blank" rel="noopener noreferrer" style="color:var(--color-brand); text-decoration:underline; text-underline-offset:3px;">30分無料相談</a>
-        </p>
+        <p class="meta">オンライン ／ 30分 ／ 無料</p>
       </div>
-    </section>
-
-    <!-- ========== ABOUT ========== -->
-    <section class="section-padding" style="background:var(--color-bg);">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start reveal">
-
-          <!-- Left: Statement -->
-          <div>
-            <h2 class="heading-lg" style="font-size:clamp(24px,3.5vw,36px); line-height:1.4;">
-              私たちは、企業の課題を、<br/>
-              実用化可能なAIへと<br/>
-              迅速に変換します。
-            </h2>
-          </div>
-
-          <!-- Right: Description + partners -->
-          <div>
-            <p class="body-md mb-8" style="max-width:480px;">
-              AltShiftは、中小企業に特化したAIコンサルティング&エンジニアリング企業です。
-              お客様の競争優位性の中心となるAIソリューションの設計、構築、運用を行っています。
-            </p>
-            <div class="flex items-center gap-3">
-              <div style="width:8px; height:8px; border-radius:50%; background:var(--color-primary);"></div>
-              <span style="font-size:14px; font-weight:500; color:var(--color-ink-sub);">中小企業専門 × AI特化 × 福岡発全国対応</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== CLIENT LOGOS ========== -->
-    <section class="section-padding" style="background:var(--color-bg-subtle);">
-      <div class="max-w-6xl mx-auto px-6">
-        <div class="text-center mb-12 reveal">
-          <p class="section-label mb-4" style="text-transform:uppercase; letter-spacing:0.1em; color:var(--color-accent);">Clients</p>
-          <h2 class="heading-lg">福岡の中小企業4社で実装中。</h2>
-        </div>
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 stagger">
-          {[
-            { name: '軽貨物・ラストワンマイル配送' },
-            { name: '建設・リフォーム' },
-            { name: '住宅・店舗リノベーション' },
-            { name: 'コールセンター・採用支援' },
-          ].map(client => (
-            <div class="reveal" style="background:#FFFFFF; border:1px solid var(--color-border); border-radius:12px; padding:24px; display:flex; align-items:center; justify-content:center; min-height:120px;">
-              <p style="font-family:'Inter','Noto Sans JP',sans-serif; font-weight:700; font-size:16px; color:#595959; text-align:center; line-height:1.5;">
-                {client.name}
-              </p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== AIで、何ができるか ========== -->
-    <section style="background:var(--color-bg-elevated);">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8 section-padding">
-        <div class="text-center mb-12">
-          <p class="section-label mb-4 reveal" style="letter-spacing:0.1em;">導入技術</p>
-          <h2 class="heading-lg mb-6 reveal">AIで、何ができるか</h2>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 stagger" style="max-width:960px; margin:0 auto;">
-          {[
-            { icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>`, title: '24時間の自動応答', desc: '問い合わせや予約をAIが24時間対応。営業時間外の機会損失をなくします。', tech: 'Claude' },
-            { icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M12 2C6.48 2 2 5.82 2 10.5c0 2.93 1.95 5.5 4.86 7.04-.19.7-.68 2.6-.78 3-.13.52.19.51.4.37.17-.1 2.64-1.8 3.72-2.53.57.08 1.16.12 1.8.12 5.52 0 10-3.82 10-8.5S17.52 2 12 2z" stroke="currentColor" stroke-width="1.5"/></svg>`, title: '顧客とのやりとりを自動化', desc: 'LINEでの予約受付、リマインド、配信を自動化。手間なく顧客接点を増やせます。', tech: 'LINE API' },
-            { icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><path d="M9 3H5a2 2 0 00-2 2v4m6-6h10a2 2 0 012 2v4M9 3v18m0 0h10a2 2 0 002-2V9M9 21H5a2 2 0 01-2-2V9m0 0h18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>`, title: '手作業のルーティンをゼロに', desc: 'データ入力、レポート作成、通知送信など、繰り返し業務を自動で処理します。', tech: 'n8n, Google Apps Script' },
-            { icon: `<svg viewBox="0 0 24 24" width="28" height="28" fill="none"><circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="1.5"/><path d="M2 12h20M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10A15.3 15.3 0 0112 2z" stroke="currentColor" stroke-width="1.5"/></svg>`, title: '高速で見やすいWebサイト', desc: '検索にもAIにも見つかりやすい、表示速度の速いホームページを構築します。', tech: 'Next.js, Astro' },
-          ].map(c => (
-            <div class="reveal t-card p-6">
-              <div style="color:var(--color-brand); margin-bottom:12px;" set:html={c.icon} />
-              <h3 class="heading-sm mb-2">{c.title}</h3>
-              <p class="body-sm mb-3" style="color:var(--color-ink-sub);">{c.desc}</p>
-              <p style="font-size:11px; color:var(--color-ink-dim);">使用技術: {c.tech}</p>
-            </div>
-          ))}
-        </div>
-
-        <p class="body-sm text-center mt-8 reveal" style="color:var(--color-ink-sub);">
-          専門知識は不要です。ツールの選定から構築・運用まで、すべて当社が担当します。
-        </p>
-      </div>
-    </section>
-
-    <!-- ========== SUBSIDY SUPPORT ========== -->
-    <SubsidySection />
-
-    <!-- ========== CTA BANNER (navy) ========== -->
-    <section class="relative overflow-hidden" style="min-height:400px; display:flex; background:var(--color-navy);">
-
-      <div style="position:relative; z-index:10; max-width:1200px; margin:0 auto; padding:80px 48px; width:100%;">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
-          <div class="reveal">
-            <h2 class="heading-lg mb-4" style="color:#FFFFFF;">AIを競争優位性に変えよう。</h2>
-            <a href="/contact" class="neon-link">
-              お問い合わせ
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-              </svg>
-            </a>
-          </div>
-          <div class="reveal">
-            <h2 class="heading-lg mb-4" style="color:#FFFFFF;">AIの最前線で仕事をする。</h2>
-            <a href="/company" class="neon-link">
-              AltShiftについて
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-              </svg>
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== CASE STUDIES ========== -->
-    <section class="section-padding" style="background:var(--color-bg);">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="flex items-center justify-between mb-12 reveal">
-          <h2 class="heading-lg">導入事例</h2>
-          <a href="/case" class="neon-link">
-            すべて表示
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </a>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 stagger">
-          {[
-            { title: '建設・リフォーム × AltShift', tags: ['Web制作','SEO/GEO','LINE自動化'], image: '/images/cases/construction.png', desc: 'AI時代の検索対応Webサイト。SEO/GEO対策でGoogleとAIに選ばれるコンテンツを構築。', slug: '/case/sanei-reform', glow: 'bottom:16px; left:24px', objPos: 'center' },
-            { title: '軽貨物・ラストワンマイル × AltShift', tags: ['物流','AI業務自動化','LINE自動化'], image: '/images/cases/logistics.png', desc: '物流現場の属人化を解消。LINE Bot＋配車システムで業務をAI化。24時間自動受付を実現。', slug: '/cases/tyd-logistics', glow: 'top:16px; left:24px', objPos: 'center' },
-            { title: '住宅・店舗リノベーション × AltShift', tags: ['GEO最適化','SEO対策','HP制作'], image: '/images/cases/renovation.png', desc: 'Googleマップ上位表示とSEO対策を一貫支援。検索・地図双方からの集客基盤を構築。', slug: '/case/shinmei', glow: 'top:16px; right:20px', objPos: 'center right' },
-          ].map(c => (
-            <div class="reveal t-card overflow-hidden">
-              <div class="media-slot" style="aspect-ratio:16/9; position:relative;">
-                <img src={c.image} alt={c.title} loading="lazy" style={`width:100%;height:100%;object-fit:cover;object-position:${c.objPos || 'center'}`} />
-                <div class="teal-glow" style={c.glow}></div>
-              </div>
-              <div class="p-6">
-                <div class="flex flex-wrap gap-2 mb-3">
-                  {c.tags.map(t => <span class="tag">{t}</span>)}
-                </div>
-                <h3 class="heading-sm mb-2">{c.title}</h3>
-                <p class="body-sm mb-4">{c.desc}</p>
-                <a href={c.slug} class="neon-link" style="font-size:13px;">詳しく見る →</a>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== INSIGHTS (Cream background — Tomoro style) ========== -->
-    <section class="section-padding footer-cream">
-      <div class="max-w-7xl mx-auto px-6 lg:px-8">
-        <div class="flex items-center justify-between mb-12 reveal">
-          <h2 class="heading-lg">インサイト</h2>
-          <a href="#" class="neon-link" style="color:var(--color-ink);">
-            すべて表示
-            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-              <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-            </svg>
-          </a>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger">
-          {[
-            { date: '2026年5月20日', title: 'AI導入で中小企業が得られる3つの競争優位性', image: null },
-            { date: '2026年5月15日', title: 'SEO/GEO対策：AI検索時代に選ばれるWebサイトの条件', image: null },
-            { date: '2026年5月10日', title: 'LINE自動化で売上を伸ばす：導入事例と成果レポート', image: null },
-          ].map(a => (
-            <div class="reveal">
-              <!-- ARTICLE IMAGE SLOT -->
-              <div style="aspect-ratio:4/3; border-radius:12px; overflow:hidden; background:var(--color-bg-subtle); margin-bottom:16px; position:relative;">
-                {a.image
-                  ? <img src={a.image} alt={a.title} loading="lazy" style="width:100%;height:100%;object-fit:cover;" />
-                  : <div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;">
-                      <!-- Neon circle placeholder (Tomoro article style) -->
-                      <div style="width:120px;height:120px;border-radius:50%;background:rgba(27,94,190,0.15);filter:blur(20px);"></div>
-                    </div>
-                }
-                <span class="tag" style="position:absolute; top:12px; left:12px;">記事</span>
-              </div>
-              <p style="font-size:13px; font-weight:600; color:var(--color-brand); margin-bottom:8px;">{a.date}</p>
-              <h3 style="font-weight:700; font-size:17px; color:var(--color-ink); line-height:1.5;">{a.title}</h3>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== FAQ ========== -->
-    <section class="section-padding" style="background:var(--color-bg);">
-      <div class="max-w-3xl mx-auto">
-        <div class="mb-12 text-center reveal">
-          <h2 class="heading-lg">よくある質問</h2>
-        </div>
-
-        <div class="flex flex-col gap-3" id="faq-list">
-          {faqItems.map((item, i) => (
-            <div class="reveal faq-item">
-              <button
-                class="faq-btn w-full text-left px-6 py-5 flex items-center justify-between gap-4"
-                aria-expanded="false"
-                aria-controls={`faq-answer-${i}`}
-              >
-                <span style="font-weight:500; color:var(--color-ink);">{item.q}</span>
-                <svg class="faq-icon flex-shrink-0 transition-transform duration-200" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--color-ink-muted);">
-                  <polyline points="6 9 12 15 18 9"/>
-                </svg>
-              </button>
-              <div class="faq-answer hidden px-6 pb-5" id={`faq-answer-${i}`}>
-                <p class="body-sm">{item.a}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+    </div>
+  </section>
 
   </main>
-  <Footer />
+
+  <!-- 8 フッター -->
+  <footer class="site-foot">
+    <div class="wrap">
+      <div class="cols">
+        <div class="brand"><a class="logo" href="/"><i></i>altshift</a><p>人が決める。AIが動く。<br>福岡の中小企業のために、会社の中に入るエンジニア（FDE）です。</p></div>
+        <div><h4>SERVICES</h4><ul><li><a href="/service/ai-search">AI検索対策</a></li><li><a href="/service/ai-automation">AI業務自動化</a></li><li><a href="/service/ai-consulting">AI顧問</a></li></ul></div>
+        <div><h4>COMPANY</h4><ul><li><a href="/company">会社情報</a></li><li><a href="/pricing">料金</a></li><li><a href="/case">事例</a></li><li><a href="/contact">お問い合わせ</a></li></ul></div>
+        <div><h4>GUIDE</h4><ul><li><a href="/faq">よくある質問</a></li><li><a href="/glossary">AI・検索用語集</a></li><li><a href="https://note.com/daiki_and_ai" target="_blank" rel="noopener">note</a></li><li><a href="https://x.com/daiki_and_ai" target="_blank" rel="noopener">X</a></li></ul></div>
+      </div>
+      <div class="bottom"><span>© 2026 AltShift</span><a href="/law">特定商取引法に基づく表記</a></div>
+    </div>
+  </footer>
+
+</div>
 </Layout>
 
 <script>
-  document.querySelectorAll('.faq-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      const answer = btn.nextElementSibling as HTMLElement
-      const icon = btn.querySelector('.faq-icon') as HTMLElement
-      const isOpen = btn.getAttribute('aria-expanded') === 'true'
-      document.querySelectorAll('.faq-btn').forEach(b => {
-        b.setAttribute('aria-expanded', 'false')
-        ;(b.nextElementSibling as HTMLElement).classList.add('hidden')
-        ;(b.querySelector('.faq-icon') as HTMLElement).style.transform = 'rotate(0deg)'
-      })
-      if (!isOpen) {
-        btn.setAttribute('aria-expanded', 'true')
-        answer.classList.remove('hidden')
-        icon.style.transform = 'rotate(180deg)'
-      }
-    })
+  // 画面に入ったら、下から静かに出す
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('rv-on'); io.unobserve(e.target) } }), { rootMargin: '0px 0px -8% 0px' })
+  document.querySelectorAll('.rv').forEach((el) => io.observe(el))
+  // スマホのメニュー
+  const btn = document.querySelector('.tp .menu')
+  const menu = document.getElementById('sp-menu')
+  btn?.addEventListener('click', () => {
+    const open = btn.getAttribute('aria-expanded') !== 'true'
+    btn.setAttribute('aria-expanded', String(open))
+    btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く')
+    menu?.classList.toggle('open', open)
   })
 </script>
 
-<script>
-(function() {
-  'use strict';
+<style>
 
-  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-  // ─── Elements ───
-  const section     = document.getElementById('constellation');
-  const header      = document.getElementById('constellation-header');
-  const hubCore     = document.getElementById('constellation-core');
-  const hubBloom    = document.getElementById('constellation-bloom');
-  const convergeMsg = document.getElementById('constellation-msg');
-  const btobReveals = Array.from(document.querySelectorAll('.btob-section .reveal'));
-  const lineSvg     = document.getElementById('constellation-lines');
-  const canvas      = document.getElementById('constellation-particles') as HTMLCanvasElement;
-  const ctx         = canvas.getContext('2d')!;
-
-  const tiles = Array.from(document.querySelectorAll('.tile'));
-
-  // ─── Tier timing ───
-  const TIER_TIMING: Record<string, {moveStart:number;moveEnd:number;absorbStart:number;absorbEnd:number}> = {
-    bg:   { moveStart: 0.00, moveEnd: 0.40, absorbStart: 0.40, absorbEnd: 0.55 },
-    sub:  { moveStart: 0.02, moveEnd: 0.50, absorbStart: 0.50, absorbEnd: 0.65 },
-    main: { moveStart: 0.05, moveEnd: 0.60, absorbStart: 0.60, absorbEnd: 0.78 },
-  };
-
-  // ─── Parse tile data ───
-  const tileState = tiles.map(t => {
-    const el = t as HTMLElement;
-    const angle = parseFloat(el.dataset.angle!) * Math.PI / 180;
-    const dist  = parseFloat(el.dataset.dist!) / 100;
-    const speed = parseFloat(el.dataset.floatSpeed!);
-    const amp   = parseFloat(el.dataset.floatAmp!);
-    const tier  = el.dataset.tier!;
-    const timing = TIER_TIMING[tier];
-    const lineEl = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-    lineEl.setAttribute('stroke', tier === 'main' ? 'rgba(14,158,150,0.3)' :
-                                   tier === 'sub'  ? 'rgba(14,158,150,0.18)' :
-                                                     'rgba(14,158,150,0.08)');
-    lineEl.setAttribute('stroke-width', tier === 'main' ? '1.2' : tier === 'sub' ? '0.8' : '0.5');
-    lineEl.setAttribute('stroke-dasharray', tier === 'bg' ? '3 5' : '5 4');
-    lineSvg!.appendChild(lineEl);
-    return { el, angle, dist, speed, amp, tier, timing, lineEl };
-  });
-
-  // ─── Particles ───
-  let particles: {homeX:number;homeY:number;x:number;y:number;r:number;vx:number;vy:number;baseAlpha:number;tealness:number;pullDelay:number}[] = [];
-  function initParticles() {
-    canvas.width  = window.innerWidth;
-    canvas.height = window.innerHeight;
-    particles = [];
-    const count = Math.floor(canvas.width * canvas.height / 16000);
-    for (let i = 0; i < count; i++) {
-      const angle = Math.random() * Math.PI * 2;
-      const dist = 0.3 + Math.random() * 0.7;
-      particles.push({
-        homeX: canvas.width / 2 + Math.cos(angle) * dist * canvas.width * 0.5,
-        homeY: canvas.height / 2 + Math.sin(angle) * dist * canvas.height * 0.5,
-        x: 0, y: 0,
-        r: Math.random() * 1.6 + 0.5,
-        vx: 0, vy: 0,
-        baseAlpha: Math.random() * 0.18 + 0.06,
-        tealness: Math.random() * 0.5,
-        pullDelay: Math.random() * 0.15,
-      });
-    }
-    particles.forEach(p => { p.x = p.homeX; p.y = p.homeY; });
+  .tp {
+    --ease: cubic-bezier(0.32, 0.72, 0, 1);
+    --bg: #ffffff; --bg-2: #f7f8fa; --ink: #0a0a0a; --ink-2: #55585f; --ink-3: #6b6f76;
+    --line: rgba(10,10,10,.12); --hair: rgba(10,10,10,.07);
+    --accent: #1b5ebe; --accent-soft: rgba(27,94,190,.08);
+    --jp: "M PLUS 1", sans-serif; --latin: "Geist", sans-serif; --mono: "Geist Mono", ui-monospace, monospace;
   }
-  initParticles();
-  window.addEventListener('resize', initParticles);
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  .tp { background: var(--bg); color: var(--ink); font-family: var(--jp); font-size: 16px; line-height: 1.85; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  h1, h2, h3, .btn, .links, .eyebrow, .foot, .trust, .steps b, .svc b, .label { font-feature-settings: "palt"; }
+  .lead, h1, h2, p, li, small { word-break: auto-phrase; text-wrap: pretty; }
+  h1 .p, h2 .p { margin-right: -.4em; }
+  a { color: inherit; text-decoration: none; }
+  ul, ol { list-style: none; }
+  .nb { white-space: nowrap; }
+  .sp-br { display: none; }
+  .mono { font-family: var(--mono); letter-spacing: .02em; }
+  .wrap { width: min(1200px, 100% - clamp(32px, 8vw, 112px)); margin: 0 auto; }
 
-  function drawParticles(progress: number) {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    const cx = canvas.width / 2, cy = canvas.height / 2;
+  /* ナビ */
+  .nav { position: relative; z-index: 3; height: 76px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+  .logo { font-family: var(--latin); font-weight: 700; font-size: 21px; letter-spacing: -.045em; display: inline-flex; align-items: center; gap: 9px; min-height: 44px; }
+  .logo i { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); }
+  .links { display: flex; align-items: center; gap: 32px; font-size: 14px; color: var(--ink-2); }
+  .links a { min-height: 44px; display: inline-flex; align-items: center; transition: color .5s var(--ease); }
+  .links a:hover { color: var(--ink); }
+  .links .nav-cta { padding: 0 18px; background: var(--ink); color: #fff; border-radius: 999px; font-weight: 500; }
+  .menu { display: none; width: 44px; height: 44px; border: 1px solid var(--line); border-radius: 999px; background: #fff; flex-direction: column; align-items: center; justify-content: center; gap: 5px; }
+  .menu i { width: 16px; height: 1.5px; background: var(--ink); display: block; }
 
-    particles.forEach(p => {
-      const dx = cx - p.x, dy = cy - p.y;
-      const d = Math.sqrt(dx * dx + dy * dy) || 1;
+  /* ボタン（全節で共通） */
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; }
+  .btn { display: inline-flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 56px; border-radius: 999px; font-size: 16px; font-weight: 500; white-space: nowrap; transition: transform .6s var(--ease); }
+  .btn:active { transform: scale(.98); }
+  .btn-1 { padding: 0 8px 0 24px; background: var(--ink); color: #fff; }
+  .btn-1 .ic { width: 40px; height: 40px; border-radius: 50%; background: var(--accent); display: grid; place-items: center; transition: transform .6s var(--ease); }
+  .btn-1:hover .ic { transform: translate(3px, -1px) scale(1.04); }
+  .btn-2 { padding: 0 24px; border: 1px solid var(--line); background: rgba(255,255,255,.8); }
 
-      const pullRaw = Math.max(0, (progress - p.pullDelay) / (1 - p.pullDelay));
-      const pull = pullRaw * pullRaw;
+  /* 二重の枠（外の枠＋内の白い面） */
+  .shell { padding: 6px; border-radius: 22px; background: rgba(10,10,10,.03); box-shadow: 0 0 0 1px var(--hair); }
+  .core { background: #fff; border-radius: 16px; box-shadow: 0 30px 60px -48px rgba(10,10,10,.35); }
 
-      const proximityBoost = Math.min(3, 200 / d);
-      const force = pull * 0.025 * (1 + proximityBoost * pull);
+  /* ===== 1画面目（8） ===== */
+  .hero { position: relative; min-height: calc(100dvh - 76px); display: flex; flex-direction: column; overflow: hidden; }
+  .hero::before { content: ""; position: absolute; left: 50%; bottom: -40vh; width: 120vw; height: 72vh; transform: translateX(-50%); pointer-events: none; z-index: 0;
+    background: radial-gradient(40% 55% at 35% 50%, rgba(27,94,190,.20), transparent 70%), radial-gradient(38% 50% at 65% 55%, rgba(14,158,150,.15), transparent 70%), radial-gradient(30% 40% at 50% 40%, rgba(120,140,255,.13), transparent 70%); filter: blur(10px); }
+  .hero .main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: clamp(20px, 4vh, 48px) 0; position: relative; z-index: 2; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink-2); padding: 6px 16px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.7); }
+  .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
+  /* 見出し：太さを1段落とし、字間をゆるめ、大きく置く（落ち着いた言い切り） */
+  .hero h1 { font-weight: 700; letter-spacing: -.012em; line-height: 1.22; font-size: clamp(46px, 6.6vw, 96px); margin-top: clamp(14px, 2.4vh, 26px); }
+  .sub { font-size: clamp(19px, 1.75vw, 25px); font-weight: 700; line-height: 1.6; letter-spacing: .02em; margin-top: clamp(18px, 3vh, 30px); font-feature-settings: "palt"; }
+  .sub .p { margin-right: -.4em; }
+  .hero .lead { font-size: 16px; color: var(--ink-2); max-width: 46em; margin: 8px auto 0; }
+  .lead strong { color: var(--ink); font-weight: 700; }
+  .hero .cta { justify-content: center; margin-top: clamp(20px, 3.4vh, 34px); }
+  .trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; margin-top: 16px; font-size: 14px; color: var(--ink-2); }
+  .trust li { display: inline-flex; align-items: center; gap: 7px; }
+  .steps { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); width: min(940px, 100%); margin-top: clamp(28px, 4.6vh, 48px); }
+  .steps::before { content: ""; position: absolute; left: 12.5%; right: 12.5%; top: 6px; height: 1px; background: linear-gradient(90deg, var(--ink) 0 72%, transparent 72%), repeating-linear-gradient(90deg, var(--accent) 0 5px, transparent 5px 10px); }
+  .steps li { position: relative; padding: 0 10px; }
+  .steps li::before { content: ""; display: block; width: 13px; height: 13px; margin: 0 auto 12px; border-radius: 50%; background: #fff; border: 1.5px solid var(--ink); position: relative; z-index: 1; }
+  .steps li.end::before { border: 1.5px dashed var(--accent); background: var(--accent-soft); width: 15px; height: 15px; margin-top: -1px; }
+  .steps .n { display: block; font-size: 14px; color: var(--ink-3); }
+  .steps b { display: block; font-size: 17px; font-weight: 700; }
+  .steps small { display: block; font-size: 14px; color: var(--ink-2); line-height: 1.6; }
+  .steps .end b, .steps .end .n { color: var(--accent); }
+  .foot { position: relative; z-index: 2; display: flex; justify-content: center; align-items: center; min-height: 60px; border-top: 1px solid var(--hair); font-size: 14px; color: var(--ink-2); }
+  .foot b { font-family: var(--mono); font-weight: 500; color: var(--accent); letter-spacing: .06em; margin-right: 14px; }
 
-      p.vx += (dx / d) * force;
-      p.vy += (dy / d) * force;
+  /* ===== 2画面目以降の共通：節の見出し ===== */
+  .sec { padding: clamp(96px, 13vh, 150px) 0; position: relative; }
+  .sec-head { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 24px 64px; align-items: end; margin-bottom: clamp(40px, 6vh, 64px); }
+  .label { display: inline-flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 14px; color: var(--ink-3); letter-spacing: .06em; }
+  .label::before { content: ""; width: 18px; height: 1px; background: var(--accent); }
+  h2 { font-weight: 700; letter-spacing: -.012em; line-height: 1.3; font-size: clamp(32px, 4.2vw, 58px); margin-top: 14px; }
+  .sec-head p { color: var(--ink-2); max-width: 30em; }
 
-      if (pull < 0.3) {
-        p.vx += (Math.random() - 0.5) * 0.02 * (1 - pull * 3);
-        p.vy += (Math.random() - 0.5) * 0.02 * (1 - pull * 3);
-      }
+  /* ===== 2 3つの入口 ===== */
+  .svc { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .svc .shell { display: block; transition: transform .7s var(--ease); }
+  .svc .shell:hover { transform: translateY(-4px); }
+  .svc .core { height: 100%; display: flex; flex-direction: column; padding: 26px 26px 22px; }
+  .svc .n { font-size: 14px; color: var(--ink-3); }
+  .svc b { display: block; font-size: 26px; font-weight: 800; letter-spacing: -.02em; margin-top: 6px; }
+  .svc .what { color: var(--ink-2); margin-top: 8px; }
+  .svc ul { margin: 18px 0 22px; padding-top: 16px; border-top: 1px solid var(--hair); font-size: 14px; color: var(--ink-2); }
+  .svc li { display: flex; gap: 10px; line-height: 1.7; padding: 3px 0; }
+  .svc li::before { content: ""; flex: none; width: 5px; height: 5px; margin-top: .7em; border-radius: 50%; background: var(--accent); }
+  .svc .price { margin-top: auto; display: flex; justify-content: space-between; align-items: flex-end; gap: 12px; padding-top: 16px; border-top: 1px dashed var(--line); }
+  .svc .price small { display: block; font-size: 14px; color: var(--ink-3); }
+  .svc .price strong { display: block; font-size: 16px; font-weight: 700; }
+  .svc .price em { font-style: normal; font-family: var(--latin); font-weight: 600; font-size: 26px; letter-spacing: -.02em; }
+  .svc .arr { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; background: var(--accent-soft); flex: none; transition: transform .6s var(--ease), background .6s var(--ease); }
+  .svc .shell:hover .arr { transform: translate(2px, -2px); background: rgba(27,94,190,.14); }
+  .svc .badge { display: inline-block; margin-left: 8px; padding: 0 10px; border-radius: 999px; background: var(--accent); color: #fff; font-size: 14px; font-weight: 500; vertical-align: 4px; }
+  .note { margin-top: 22px; font-size: 14px; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: 4px 24px; }
 
-      p.x += p.vx;
-      p.y += p.vy;
-      p.vx *= 0.96;
-      p.vy *= 0.96;
+  /* ===== 3 FDE とは ===== */
+  .fde { background: var(--bg-2); }
+  .fde .grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(40px, 6vw, 96px); align-items: center; }
+  .fde h2 .q { color: var(--accent); }
+  .fde .body p + p { margin-top: 14px; }
+  .fde .body p { color: var(--ink-2); }
+  .cmp { margin-top: 32px; border-top: 1px solid var(--line); }
+  .cmp div { display: grid; grid-template-columns: 7em minmax(0, 1fr) minmax(0, 1fr); gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); font-size: 14px; align-items: baseline; }
+  .cmp .h { color: var(--ink-3); font-family: var(--mono); }
+  .cmp .h span:last-child { color: var(--accent); }
+  .cmp span:nth-child(2) { color: var(--ink-2); }
+  .cmp span:nth-child(3) { color: var(--ink); font-weight: 700; }
+  .cmp span:first-child { color: var(--ink-3); }
+  .term { background: #0a0a0a; color: #e8eaed; border-radius: 18px; overflow: hidden; font-family: var(--mono); font-size: 14px; line-height: 2; box-shadow: 0 50px 90px -50px rgba(10,10,10,.55), inset 0 1px 0 rgba(255,255,255,.08); }
+  .term-top { display: flex; justify-content: space-between; padding: 12px 20px; border-bottom: 1px solid rgba(255,255,255,.08); color: #9aa0a6; }
+  .term-top b { font-weight: 400; color: #e8eaed; display: inline-flex; align-items: center; gap: 8px; }
+  .term-top b i { width: 7px; height: 7px; border-radius: 50%; background: #3fd6b4; box-shadow: 0 0 10px #3fd6b4; }
+  .term-body { padding: 20px 22px 24px; }
+  .term-body p { display: flex; justify-content: space-between; gap: 14px; white-space: nowrap; }
+  .term-body .jp { font-family: var(--jp); }
+  .term .c { color: #9aa0a6; } .term .ok { color: #3fd6b4; } .term .run { color: #8fb8ff; }
+  .term .sub { color: #9aa0a6; padding-left: 1.6em; }
+  .term .sum { margin-top: 8px; padding-top: 8px; border-top: 1px dashed rgba(255,255,255,.14); color: #fff; }
+  .cur { display: inline-block; width: 8px; height: 16px; background: #e8eaed; vertical-align: -3px; animation: blink 1.1s steps(2, start) infinite; }
+  @keyframes blink { to { visibility: hidden; } }
+  .three { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0; margin-top: clamp(56px, 8vh, 88px); border-top: 1px solid var(--line); }
+  .three li { padding: 26px 28px 0 0; }
+  .three li + li { padding-left: 28px; border-left: 1px solid var(--line); }
+  .three .n { font-family: var(--mono); font-size: 14px; color: var(--accent); }
+  .three h3 { font-size: 21px; font-weight: 800; letter-spacing: -.01em; margin-top: 4px; }
+  .three p { font-size: 15px; color: var(--ink-2); margin-top: 6px; }
 
-      if (d < 30 && pull > 0.2) {
-        const respawnAngle = Math.random() * Math.PI * 2;
-        const respawnDist = 0.7 + Math.random() * 0.3;
-        p.x = cx + Math.cos(respawnAngle) * respawnDist * canvas.width * 0.5;
-        p.y = cy + Math.sin(respawnAngle) * respawnDist * canvas.height * 0.5;
-        p.vx = 0; p.vy = 0;
-      }
+  /* ===== 4 事例の枠 ===== */
+  .cases { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+  .case .core { padding: 22px 24px 24px; }
+  .case .top { display: flex; justify-content: space-between; align-items: center; font-size: 14px; color: var(--ink-3); }
+  .case .top span:last-child { padding: 0 10px; border: 1px solid var(--line); border-radius: 999px; }
+  .case dl { margin-top: 16px; }
+  .case dt { font-size: 14px; color: var(--ink-3); font-family: var(--mono); margin-top: 14px; }
+  .case dt:first-child { margin-top: 0; }
+  .case dd { margin-top: 6px; display: grid; gap: 7px; }
+  .case dd i { display: block; height: 10px; border-radius: 5px; background: #eef0f3; }
+  .case dd i.s { width: 62%; }
+  .case dt.res { color: var(--accent); }
+  .case dd.res i { background: var(--accent-soft); }
+  .cases-note { margin-top: 24px; display: flex; justify-content: space-between; align-items: center; gap: 24px; flex-wrap: wrap; }
+  .cases-note p { font-size: 15px; color: var(--ink-2); max-width: 40em; }
 
-      const glowIntensity = Math.min(1, pull * 1.5);
-      const alpha = p.baseAlpha + glowIntensity * 0.35;
-      const tealMix = p.tealness + glowIntensity * 0.5;
-      const r = Math.round(255 - tealMix * 241);
-      const g = Math.round(255 - tealMix * 97);
-      const b = Math.round(255 - tealMix * 105);
+  /* ===== 5 会社情報と代表のあいさつ ===== */
+  .about { background: var(--bg-2); }
+  .about .grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(40px, 6vw, 96px); align-items: start; }
+  .photo .core { overflow: hidden; aspect-ratio: 4 / 5; }
+  .photo img { width: 100%; height: 100%; object-fit: cover; object-position: center top; display: block; }
+  .photo figcaption { display: flex; justify-content: space-between; align-items: baseline; margin-top: 14px; padding: 0 6px; font-size: 14px; color: var(--ink-2); }
+  .photo figcaption b { font-size: 18px; color: var(--ink); font-weight: 700; }
+  .msg p { color: var(--ink-2); margin-top: 16px; max-width: 34em; }
+  .msg .sign { margin-top: 28px; color: var(--ink); font-size: 15px; }
+  .msg .sign b { font-size: 20px; font-weight: 700; margin-left: 12px; letter-spacing: .08em; }
+  .profile { margin-top: clamp(56px, 8vh, 88px); display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 48px; border-top: 1px solid var(--line); }
+  .profile div { display: grid; grid-template-columns: 7em minmax(0, 1fr); gap: 16px; padding: 16px 0; border-bottom: 1px solid var(--line); font-size: 15px; }
+  .profile dt { color: var(--ink-3); font-family: var(--mono); font-size: 14px; padding-top: 2px; }
+  .profile dd { color: var(--ink); }
 
-      if (d < 150 && pull > 0.15) {
-        const glowR = p.r * (2 + glowIntensity * 2);
-        const grad = ctx.createRadialGradient(p.x, p.y, 0, p.x, p.y, glowR);
-        grad.addColorStop(0, `rgba(${r},${g},${b},${alpha * 0.8})`);
-        grad.addColorStop(1, `rgba(14,158,150,0)`);
-        ctx.beginPath();
-        ctx.arc(p.x, p.y, glowR, 0, Math.PI * 2);
-        ctx.fillStyle = grad;
-        ctx.fill();
-      }
+  /* ===== 6 よくある質問 ===== */
+  .faq .grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr); gap: clamp(40px, 6vw, 96px); align-items: start; }
+  .faq .side p { color: var(--ink-2); margin-top: 18px; }
+  .faq .side a.more { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; margin-top: 18px; font-size: 15px; border-bottom: 1px solid var(--ink); }
+  .qa { border-top: 1px solid var(--line); }
+  .qa details { border-bottom: 1px solid var(--line); }
+  .qa summary { list-style: none; cursor: pointer; display: grid; grid-template-columns: 2.4em minmax(0, 1fr) 28px; align-items: center; gap: 8px; min-height: 64px; padding: 14px 0; font-size: 17px; font-weight: 700; }
+  .qa summary::-webkit-details-marker { display: none; }
+  .qa summary .q { font-family: var(--mono); font-size: 14px; font-weight: 500; color: var(--accent); }
+  .qa summary i { position: relative; width: 28px; height: 28px; border-radius: 50%; border: 1px solid var(--line); }
+  .qa summary i::before, .qa summary i::after { content: ""; position: absolute; left: 50%; top: 50%; width: 10px; height: 1.5px; background: var(--ink); transform: translate(-50%, -50%); transition: transform .5s var(--ease); }
+  .qa summary i::after { transform: translate(-50%, -50%) rotate(90deg); }
+  .qa details[open] summary i::after { transform: translate(-50%, -50%) rotate(0deg); }
+  .qa .a { display: grid; grid-template-columns: 2.4em minmax(0, 1fr) 28px; gap: 8px; padding: 0 0 22px; color: var(--ink-2); font-size: 15px; }
+  .qa .a span { font-family: var(--mono); font-size: 14px; color: var(--ink-3); }
 
-      ctx.beginPath();
-      ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-      ctx.fillStyle = `rgba(${r},${g},${b},${Math.min(1, alpha)})`;
-      ctx.fill();
-    });
+  /* ===== 7 最後の相談の帯 ===== */
+  .close { padding: 0 0 clamp(80px, 11vh, 120px); }
+  .panel { position: relative; overflow: hidden; border-radius: 28px; background: #0a0a0a; color: #fff; padding: clamp(56px, 8vw, 104px) clamp(28px, 6vw, 88px); text-align: center; box-shadow: inset 0 1px 0 rgba(255,255,255,.08); }
+  .panel::before { content: ""; position: absolute; left: 50%; bottom: -60%; width: 110%; height: 110%; transform: translateX(-50%); pointer-events: none;
+    background: radial-gradient(40% 50% at 35% 50%, rgba(27,94,190,.45), transparent 70%), radial-gradient(36% 46% at 65% 55%, rgba(14,158,150,.30), transparent 70%); filter: blur(12px); }
+  .panel > * { position: relative; }
+  .panel .label { color: #b7bcc4; justify-content: center; }
+  .panel h2 { color: #fff; font-size: clamp(32px, 4.4vw, 60px); }
+  .panel p.t { color: #c9cdd3; margin: 18px auto 0; max-width: 32em; }
+  .panel .cta { justify-content: center; margin-top: 34px; }
+  .panel .btn-1 { background: #fff; color: var(--ink); }
+  .panel .btn-2 { background: transparent; color: #fff; border-color: rgba(255,255,255,.28); }
+  .panel .meta { margin-top: 18px; font-size: 14px; color: #b7bcc4; font-family: var(--mono); letter-spacing: .04em; }
+
+  /* ===== 8 フッター ===== */
+  .site-foot { border-top: 1px solid var(--line); padding: 64px 0 32px; font-size: 14px; color: var(--ink-2); }
+  .site-foot .cols { display: grid; grid-template-columns: minmax(0, 4fr) repeat(3, minmax(0, 2fr)); gap: 40px; }
+  .site-foot .brand p { margin-top: 14px; max-width: 22em; line-height: 1.8; }
+  .site-foot h4 { font-family: var(--mono); font-size: 14px; font-weight: 500; color: var(--ink-3); letter-spacing: .06em; margin-bottom: 8px; }
+  .site-foot ul a { display: inline-flex; align-items: center; min-height: 44px; color: var(--ink); transition: color .4s var(--ease); }
+  .site-foot ul a:hover { color: var(--accent); }
+  .site-foot .bottom { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--hair); }
+  .site-foot .bottom a { display: inline-flex; align-items: center; min-height: 44px; }
+
+  .rise { opacity: 0; transform: translateY(18px); animation: rise 1s var(--ease) forwards; }
+  .d1 { animation-delay: .05s; } .d2 { animation-delay: .15s; } .d3 { animation-delay: .25s; } .d4 { animation-delay: .35s; } .d5 { animation-delay: .5s; }
+  @keyframes rise { to { opacity: 1; transform: none; } }
+  .rv { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+  .rv.rv-on { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .rise, .rv { animation: none; transition: none; opacity: 1; transform: none; } }
+
+  /* ===== スマホ ===== */
+  @media (max-width: 767px) {
+    .nav { height: 64px; }
+    .links { display: none; }
+    .menu { display: flex; }
+    .hero { min-height: calc(100dvh - 64px); }
+    .hero .main { justify-content: flex-start; padding: 22px 0 28px; }
+    .sp-br { display: inline; }
+    .hero h1 { font-size: 48px; }
+    .sub { font-size: 20px; margin-top: 16px; }
+    .cta { flex-direction: column; width: 100%; }
+    .btn { width: 100%; }
+    .btn-2 { justify-content: center; }
+    .trust { flex-direction: column; align-items: center; gap: 2px; }
+    .steps { grid-template-columns: 1fr; text-align: left; gap: 14px; }
+    .steps::before { left: 6px; right: auto; top: 8px; bottom: 30px; width: 1px; height: auto; background: linear-gradient(180deg, var(--ink) 0 70%, transparent 70%), repeating-linear-gradient(180deg, var(--accent) 0 5px, transparent 5px 10px); }
+    .steps li { display: grid; grid-template-columns: 13px 1fr; column-gap: 14px; padding: 0; }
+    .steps li::before { margin: 6px 0 0; grid-row: span 3; }
+    .steps li.end::before { margin: 5px 0 0 -1px; }
+    .foot { flex-direction: column; text-align: center; padding: 14px 0; }
+    .foot b { display: block; margin: 0 0 2px; }
+
+    .sec { padding: 80px 0; }
+    .sec-head { grid-template-columns: 1fr; margin-bottom: 32px; }
+    h2 { font-size: 30px; }
+    .svc, .cases { grid-template-columns: 1fr; gap: 12px; }
+    .svc .core { padding: 22px 20px 18px; }
+    .svc b { font-size: 24px; }
+    .fde .grid { grid-template-columns: 1fr; }
+    .cmp div { grid-template-columns: 5.5em minmax(0, 1fr) minmax(0, 1fr); gap: 10px; }
+    .term-body { padding: 16px 16px 18px; }
+    .term-top, .term-body { font-size: 14px; }
+    .three { grid-template-columns: 1fr; }
+    .three li, .three li + li { padding: 22px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+    .cases-note .btn { width: 100%; }
+    .about .grid, .faq .grid { grid-template-columns: 1fr; }
+    .photo { max-width: 320px; }
+    .profile { grid-template-columns: 1fr; }
+    .profile div { grid-template-columns: 6em minmax(0, 1fr); }
+    .qa summary { font-size: 16px; grid-template-columns: 2em minmax(0, 1fr) 28px; }
+    .qa .a { grid-template-columns: 2em minmax(0, 1fr); }
+    .panel { border-radius: 20px; text-align: left; }
+    .panel .label { justify-content: flex-start; }
+    .site-foot .cols { grid-template-columns: 1fr 1fr; }
+    .site-foot .brand { grid-column: 1 / -1; }
+  }
+  @media (max-width: 767px) and (max-height: 700px) {
+    .hero .main { padding-top: 14px; }
+    .hero h1 { font-size: 44px; }
+    .hero .lead { font-size: 16px; line-height: 1.75; }
   }
 
-  // ─── Easing ───
-  function easeOutCubic(t: number) {
-    return 1 - Math.pow(1 - t, 3);
-  }
-  function easeOutQuart(t: number) {
-    return 1 - Math.pow(1 - t, 4);
-  }
-
-  // ─── Main update ───
-  let currentProgress = 0;
-  const now = () => performance.now() / 1000;
-
-  function update(progress: number) {
-    currentProgress = progress;
-    const t = now();
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-    const cx = vw / 2, cy = vh / 2;
-
-    // Header fade
-    header!.style.opacity = String(Math.max(0, 1 - progress * 5));
-
-    // All tiles converged?
-    const allConverged = progress >= 0.80;
-
-    // Tiles
-    tileState.forEach((td, i) => {
-      const { moveStart, moveEnd, absorbStart, absorbEnd } = td.timing;
-
-      const rawMoveP = Math.max(0, Math.min(1, (progress - moveStart) / (moveEnd - moveStart)));
-      const moveP = easeOutCubic(rawMoveP);
-
-      const rawAbsorbP = Math.max(0, Math.min(1, (progress - absorbStart) / (absorbEnd - absorbStart)));
-      const absorbP = easeOutQuart(rawAbsorbP);
-
-      const isNarrow = vw < 768;
-      const maxRX = isNarrow ? vw * 0.46 : Math.min(vw, vh) * 0.55;
-      const maxRY = isNarrow ? vh * 0.30 : Math.min(vw, vh) * 0.55;
-      const startX = Math.cos(td.angle) * td.dist * maxRX;
-      const startY = Math.sin(td.angle) * td.dist * maxRY;
-      let curX = startX * (1 - moveP);
-      let curY = startY * (1 - moveP);
-
-      if (!reduced && rawMoveP < 0.6) {
-        const floatStrength = 1 - rawMoveP * 1.67;
-        const phase = t * (2 * Math.PI / td.speed) + i * 1.3;
-        curY += Math.sin(phase) * td.amp * floatStrength;
-        curX += Math.cos(phase * 0.7) * td.amp * 0.35 * floatStrength;
-      }
-
-      const screenX = cx + curX - td.el.offsetWidth / 2;
-      const screenY = cy + curY - td.el.offsetHeight / 2;
-
-      const scale = 1 - absorbP * 0.6;
-      const opacity = 1 - absorbP;
-      td.el.style.transform = `translate(${screenX}px, ${screenY}px) scale(${Math.max(0.3, scale)})`;
-      td.el.style.opacity = String(Math.max(0, opacity));
-
-      // Line
-      const lineStartP = moveStart + 0.05;
-      const lineP = Math.max(0, Math.min(1, (progress - lineStartP) / (absorbEnd - lineStartP)));
-      const tileCX = cx + curX, tileCY = cy + curY;
-      td.lineEl.setAttribute('x1', String(tileCX));
-      td.lineEl.setAttribute('y1', String(tileCY));
-      td.lineEl.setAttribute('x2', String(cx));
-      td.lineEl.setAttribute('y2', String(cy));
-      const lineFade = lineP < 0.7 ? lineP / 0.7 : Math.max(0, 1 - (lineP - 0.7) / 0.3);
-      td.lineEl.setAttribute('stroke-opacity', String(lineFade * (td.tier === 'main' ? 0.5 : td.tier === 'sub' ? 0.3 : 0.15)));
-    });
-
-    // Hub glow
-    const glowP = Math.max(0, Math.min(1, (progress - 0.05) / 0.70));
-    const glowSize = 20 + glowP * 35;
-    const glowAlpha = 0.1 + glowP * 0.3;
-    hubCore!.style.boxShadow = `0 0 ${glowSize}px rgba(14,158,150,${glowAlpha})`;
-    hubBloom!.style.opacity = String(glowP * 0.6);
-
-    // Hub pulse on full convergence
-    if (allConverged) {
-      const pulseRaw = Math.min(1, (progress - 0.80) / 0.15);
-      const pulse = easeOutQuart(pulseRaw);
-      hubCore!.style.transform = `scale(${1 + pulse * 0.15})`;
-      hubCore!.style.boxShadow = `0 0 ${50 + pulse * 50}px rgba(14,158,150,${0.35 + pulse * 0.25}), 0 0 ${100 + pulse * 60}px rgba(14,158,150,${0.12 + pulse * 0.15})`;
-      hubBloom!.style.opacity = String(0.5 + pulse * 0.5);
-      hubBloom!.style.transform = `scale(${1 + pulse * 0.4})`;
-    } else {
-      hubCore!.style.transform = 'scale(1)';
-      hubBloom!.style.transform = 'scale(1)';
-    }
-
-    // Converge message
-    const msgP = Math.max(0, Math.min(1, (progress - 0.80) / 0.10));
-    convergeMsg!.style.opacity = String(easeOutQuart(msgP));
-
-    // Particles
-    if (!reduced) drawParticles(progress);
-
-    // BtoB reveals
-    btobReveals.forEach(el => {
-      const r = el.getBoundingClientRect();
-      if (r.top < vh * 0.88) el.classList.add('visible');
-    });
+  /* 共通の CSS が見出しの書体を決めているので、このページの書体に戻す */
+  .tp h1, .tp h2, .tp h3, .tp h4 { font-family: var(--jp); color: inherit; }
+  .tp h4 { font-family: var(--mono); }
+  /* スマホのメニュー */
+  .menu i { transition: transform .5s var(--ease); }
+  .menu[aria-expanded="true"] i:first-child { transform: translateY(3.25px) rotate(45deg); }
+  .menu[aria-expanded="true"] i:last-child { transform: translateY(-3.25px) rotate(-45deg); }
+  .sp-menu { display: none; }
+  @media (max-width: 767px) {
+    .sp-menu { position: absolute; z-index: 20; left: 0; right: 0; top: 64px; padding: 8px 16px 20px; background: rgba(255,255,255,.97); border-bottom: 1px solid var(--line); box-shadow: 0 30px 60px -40px rgba(10,10,10,.35); }
+    .sp-menu.open { display: block; }
+    .sp-menu a { display: flex; align-items: center; min-height: 52px; border-bottom: 1px solid var(--hair); font-size: 16px; }
+    .sp-menu a.nav-cta { justify-content: center; margin-top: 14px; border: 0; border-radius: 999px; background: var(--ink); color: #fff; font-weight: 500; }
   }
 
-  // ─── Scroll ───
-  let ticking = false;
-  function onScroll() {
-    if (ticking) return;
-    ticking = true;
-    requestAnimationFrame(() => {
-      const rect = section!.getBoundingClientRect();
-      const scrollable = section!.offsetHeight - window.innerHeight;
-      const scrolled = -rect.top;
-      const progress = Math.max(0, Math.min(1, scrolled / scrollable));
-      update(progress);
-      ticking = false;
-    });
-  }
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll);
-
-  // ─── Render loop ───
-  function loop() {
-    if (!reduced) update(currentProgress);
-    requestAnimationFrame(loop);
-  }
-  requestAnimationFrame(() => {
-    update(0);
-    if (!reduced) loop();
-  });
-
-})();
-</script>
+</style>

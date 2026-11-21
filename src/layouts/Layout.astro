@@ -49,6 +49,7 @@ const ogImageURL = new URL(ogImage, 'https://altshift.jp').href
       href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700;900&family=Inter:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <slot name="head" />
 
     {schemaData && (
       <Fragment set:html={`<script type="application/ld+json">${JSON.stringify(schemaData)}</script>`} />
@@ -146,7 +147,7 @@ const ogImageURL = new URL(ogImage, 'https://altshift.jp').href
 
       // 下部固定バー: ヒーローが見えている間は非表示
       const mobileCta = document.getElementById('mobile-cta');
-      const hero = document.querySelector('.hero-gradient');
+      const hero = document.querySelector('.hero-gradient, [data-hero]');
       if (mobileCta && hero) {
         const heroObs = new IntersectionObserver(([entry]) => {
           mobileCta.classList.toggle('is-hidden', entry.isIntersecting);
