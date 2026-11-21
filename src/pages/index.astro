@@ -240,6 +240,8 @@ const faqSchema = {
 <script>
   // 画面に入ったら、下から静かに出す
   const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('rv-on'); io.unobserve(e.target) } }), { rootMargin: '0px 0px -8% 0px' })
+  // JavaScript が動いたときだけ、隠してから出す（動かなくても本文は見える）
+  document.querySelector('.tp')?.classList.add('rv-ready')
   document.querySelectorAll('.rv').forEach((el) => io.observe(el))
 </script>
 
@@ -450,9 +452,9 @@ const faqSchema = {
   .rise { opacity: 0; transform: translateY(18px); animation: rise 1s var(--ease) forwards; }
   .d1 { animation-delay: .05s; } .d2 { animation-delay: .15s; } .d3 { animation-delay: .25s; } .d4 { animation-delay: .35s; } .d5 { animation-delay: .5s; }
   @keyframes rise { to { opacity: 1; transform: none; } }
-  .rv { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
-  .rv.rv-on { opacity: 1; transform: none; }
-  @media (prefers-reduced-motion: reduce) { .rise, .rv { animation: none; transition: none; opacity: 1; transform: none; } }
+  .tp.rv-ready .rv { opacity: 0; transform: translateY(28px); transition: opacity 1s var(--ease), transform 1s var(--ease); }
+  .tp.rv-ready .rv.rv-on { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .rise, .tp.rv-ready .rv { animation: none; transition: none; opacity: 1; transform: none; } }
 
   /* ===== スマホ ===== */
   @media (max-width: 767px) {
