@@ -72,13 +72,36 @@ const schemaData = {
     <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
       <div class="max-w-5xl mx-auto px-6 lg:px-8">
 
-        <div class="mb-20 reveal">
+        <div class="mb-16 reveal svc-head">
           <a href="/service" class="text-xs font-semibold mb-4 inline-flex items-center" style="color:var(--color-brand); letter-spacing:0.05em; min-height:44px;">← サービス一覧</a>
-          <p class="service-num mb-4">01</p>
-          <p class="section-label mb-3" style="letter-spacing:0.1em; color:var(--color-accent);">集客を増やしたい方へ</p>
-          <h1 class="heading-hero" style="font-size:clamp(30px,4.4vw,52px);">AI検索対策</h1>
-          <p class="heading-md mt-4" style="font-weight:600; line-height:1.6;">ChatGPT・Google・地図で、<br class="md:hidden"/>御社の名前が出る状態へ。</p>
-          <div class="body-lg mt-6 flex flex-col gap-4" style="max-width:700px;">
+          <h1 class="svc-h1">
+            <span class="svc-eyebrow"><i></i>01　AI検索対策<span class="svc-for">集客を増やしたい方へ</span></span>
+            <span class="svc-title"><span class="nb">お客様は、もう</span><span class="nb">AIに聞いています。</span><br/><span class="nb">その答えに、</span><span class="nb">御社の名前を。</span></span>
+          </h1>
+          <p class="svc-lead"><strong>月に30分、話すだけ。</strong>取材も、執筆も、ホームページの手直しも、こちらで行います。<br class="hidden md:inline"/>毎月2本の記事が、御社の名前で残ります。</p>
+
+          <a href="/contact" class="svc-cta"><span>いまAIが御社をどう答えるか、30分で確かめる</span><i aria-hidden="true">→</i></a>
+          <p class="svc-next">無料・オンライン。その場で一緒にAIに聞いてみます。相談だけで終わって大丈夫です。</p>
+
+          <figure class="svc-vis">
+            <figcaption class="svc-note">画面はイメージ（見本）</figcaption>
+            <p class="svc-q">福岡で、雨漏りに強い工務店は？</p>
+            <p class="svc-a">福岡市で雨漏りの修理に強い会社としては、<mark>○○工務店</mark> があります。築30年以上の木造の事例を、自社の記事でくわしく公開しており…</p>
+            <p class="svc-sub">毎月、届くもの</p>
+            <ul class="svc-three">
+              <li><b>2本</b>御社の名義の記事（確認のうえ公開）</li>
+              <li><b>1回</b>ホームページと地図の情報の点検・更新</li>
+              <li><b>1通</b>AIが御社をどう答えたかの報告</li>
+            </ul>
+          </figure>
+
+          <p class="svc-promise">AIに必ず名前が出る、とは約束しません。約束するのは、毎月2本の記事と、毎月の報告です。</p>
+        </div>
+
+        <!-- くわしい説明（もとの頭の文。略語の説明はここ） -->
+        <div class="reveal mb-12" style="max-width:760px;">
+          <h2 class="heading-lg mb-6" style="font-size:clamp(22px,3vw,32px); line-height:1.5;">AI検索対策とは</h2>
+          <div class="body-md flex flex-col gap-4">
             <p>Google検索で順位を競う時代から、ChatGPT・Gemini・Perplexity・Google AI OverviewsなどのAIが「おすすめの会社」を直接答える時代へ移りつつあります。</p>
             <p>AI検索対策では、従来の<strong>SEO</strong>（Google検索）と<strong>MEO</strong>（Googleマップ）に加えて、AIの回答で推薦されるための<strong>AEO</strong>（回答エンジン最適化）・<strong>GEO</strong>（生成エンジン最適化）・<strong>LLMO</strong>（大規模言語モデル最適化）・<strong>AIO</strong>（AI最適化）に一括で対応します。</p>
           </div>
@@ -167,3 +190,37 @@ const schemaData = {
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .svc-h1 { display: block; font-weight: 700; }
+  .svc-eyebrow { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; line-height: 1.6; color: var(--color-ink-sub); padding: 6px 16px; border: 1px solid var(--color-border); border-radius: 999px; margin: 8px 0 20px; }
+  .svc-eyebrow i { width: 6px; height: 6px; border-radius: 50%; background: var(--color-brand); }
+  .svc-for { padding-left: 10px; border-left: 1px solid var(--color-border); }
+  .svc-title { display: block; font-size: clamp(27px, 4.4vw, 50px); line-height: 1.3; letter-spacing: -0.012em; color: var(--color-ink); }
+  .svc-title .nb { display: inline-block; }
+  .svc-lead { font-size: 17px; line-height: 1.9; color: var(--color-ink-sub); margin-top: 20px; max-width: 720px; }
+  .svc-lead strong { color: var(--color-ink); font-weight: 700; }
+  .svc-vis { background: var(--color-bg-subtle); border-radius: 16px; padding: 20px; margin: 32px 0 0; max-width: 760px; }
+  .svc-note, .svc-sub { font-size: 12px; color: var(--color-ink-dim); }
+  .svc-note { text-align: right; }
+  .svc-q { width: fit-content; max-width: 90%; margin: 8px 0 0 auto; background: var(--color-ink); color: #fff; font-size: 15px; line-height: 1.7; padding: 10px 16px; border-radius: 16px 16px 4px 16px; }
+  .svc-a { max-width: 620px; width: 92%; margin-top: 10px; background: #fff; color: var(--color-ink); font-size: 15px; line-height: 1.8; padding: 12px 16px; border-radius: 16px 16px 16px 4px; box-shadow: 0 0 0 1px var(--color-border-card); }
+  .svc-a mark { background: rgba(27,94,190,0.12); color: var(--color-brand); font-weight: 700; padding: 1px 6px; border-radius: 6px; }
+  .svc-sub { margin-top: 20px; }
+  .svc-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 8px; }
+  .svc-three li { background: #fff; border-radius: 12px; padding: 14px; font-size: 14px; line-height: 1.7; color: var(--color-ink); box-shadow: 0 0 0 1px var(--color-border-card); }
+  .svc-three b { display: block; font-family: 'Geist', 'M PLUS 1', sans-serif; font-size: 24px; line-height: 1.3; color: var(--color-brand); }
+  .svc-cta { margin-top: 28px; display: inline-flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 56px; background: var(--color-ink); color: #fff; font-size: 16px; font-weight: 500; line-height: 1.5; padding: 8px 8px 8px 24px; border-radius: 999px; text-decoration: none; transition: transform 0.3s ease; }
+  .svc-cta:hover { transform: translateY(-2px); }
+  .svc-cta i { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--color-brand); display: grid; place-items: center; font-style: normal; }
+  .svc-next { font-size: 14px; color: var(--color-ink-sub); margin-top: 12px; }
+  .svc-promise { font-size: 14px; line-height: 1.8; color: var(--color-ink-sub); border-top: 1px solid var(--color-border); margin-top: 20px; padding-top: 14px; max-width: 760px; }
+  @media (max-width: 640px) {
+    .svc-lead { font-size: 16px; }
+    .svc-three { grid-template-columns: 1fr; }
+    .svc-three li { display: flex; align-items: baseline; gap: 12px; }
+    .svc-three b { flex-shrink: 0; font-size: 20px; }
+    .svc-cta { display: flex; border-radius: 28px; padding: 12px 12px 12px 20px; font-size: 15px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .svc-cta { transition: none; } .svc-cta:hover { transform: none; } }
+</style>
