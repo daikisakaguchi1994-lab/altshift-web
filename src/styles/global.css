@@ -4,7 +4,7 @@
 @theme {
   /* --- 60% 中立面 --- */
   --color-bg: #FFFFFF;
-  --color-bg-subtle: #F5F7FA;          /* カード・セクション区切り */
+  --color-bg-subtle: #F7F8FA;          /* カード・セクション区切り */
   --color-bg-card: #FFFFFF;
   --color-bg-elevated: #F4F4F4;
 
@@ -12,43 +12,43 @@
   --color-brand: #1B5EBE;              /* メイン青：ナビ・見出し・リンク・図の基調 */
   --color-brand-dark: #164C99;         /* ホバー用 */
   --color-brand-light: #E8F0FB;        /* 背景用 */
-  --color-navy: #0F2F5B;               /* ヒーロー背景・フッター・濃い面 */
+  --color-navy: #0A0A0A;               /* ヒーロー背景・フッター・濃い面 */
 
   /* --- 10% アクセント --- */
-  --color-accent: #0E9E96;             /* ティール：アイコン・強調下線・3step到達点 */
-  --color-gold: #C8A15A;               /* 小面積限定・ベタ塗り禁止：ロゴ細部・区切り線・バッジのみ */
+  --color-accent: #1B5EBE;             /* ティール：アイコン・強調下線・3step到達点 */
+  --color-gold: #1B5EBE;               /* 小面積限定・ベタ塗り禁止：ロゴ細部・区切り線・バッジのみ */
 
   /* --- 5% CTA暖色 --- */
-  --color-cta: #0B7D77;                /* 主要ボタンのみ（深teal統一） */
-  --color-cta-dark: #096661;           /* ホバー用 */
+  --color-cta: #0A0A0A;                /* 主要ボタンのみ（深teal統一） */
+  --color-cta-dark: #2B2B2B;           /* ホバー用 */
 
   /* --- テキスト --- */
-  --color-text: #1F2933;               /* 本文・見出し（純黒回避のチャコール） */
-  --color-ink: #1F2933;                /* 互換エイリアス */
-  --color-ink-sub: rgba(31,41,51,0.6);
-  --color-ink-dim: rgba(31,41,51,0.3);
-  --color-ink-muted: #6B6B6B;
-  --color-muted: #6B6B6B;
+  --color-text: #0A0A0A;               /* 本文・見出し（純黒回避のチャコール） */
+  --color-ink: #0A0A0A;                /* 互換エイリアス */
+  --color-ink-sub: #55585F;
+  --color-ink-dim: #6B6F76;
+  --color-ink-muted: #6B6F76;
+  --color-muted: #6B6F76;
 
   /* --- ボーダー --- */
-  --color-border: #E5E5E5;
-  --color-line: #E5E5E5;
-  --color-border-card: rgba(26,26,26,0.08);
+  --color-border: #E2E2E3;
+  --color-line: #E2E2E3;
+  --color-border-card: rgba(10,10,10,0.08);
 
   /* --- 互換（段階的に廃止予定） --- */
   --color-primary: #1B5EBE;            /* → --color-brand */
   --color-primary-dark: #164C99;       /* → --color-brand-dark */
   --color-primary-light: #E8F0FB;      /* → --color-brand-light */
-  --color-secondary: #C8A15A;          /* → --color-gold */
-  --color-secondary-light: #FAF5E8;    /* → 廃止予定 */
-  --color-dark-text: #1F2933;          /* → --color-text */
-  --color-footer-bg: #0F2F5B;         /* → --color-navy */
+  --color-secondary: #1B5EBE;          /* → --color-gold */
+  --color-secondary-light: #F7F8FA;    /* → 廃止予定 */
+  --color-dark-text: #0A0A0A;          /* → --color-text */
+  --color-footer-bg: #0A0A0A;         /* → --color-navy */
 }
 
 html { scroll-behavior: smooth; }
 
 body {
-  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  font-family: 'M PLUS 1', sans-serif;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   color: var(--color-ink);
@@ -63,11 +63,11 @@ main {
 }
 
 h1, h2, h3 {
-  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  font-family: 'M PLUS 1', sans-serif;
 }
-h1 { font-weight: 800; line-height: 1.1; letter-spacing: -0.02em; }
-h2 { font-weight: 700; line-height: 1.2; letter-spacing: -0.015em; }
-h3 { font-weight: 600; line-height: 1.3; }
+h1 { font-weight: 700; line-height: 1.22; letter-spacing: -0.012em; }
+h2 { font-weight: 700; line-height: 1.3; letter-spacing: -0.012em; }
+h3 { font-weight: 700; line-height: 1.4; letter-spacing: -0.012em; }
 
 /* ===== Hero ===== */
 
@@ -153,10 +153,10 @@ h3 { font-weight: 600; line-height: 1.3; }
 /* ===== Typography ===== */
 /* h1 level */
 .heading-hero {
-  font-weight: 800;
+  font-weight: 700;
   font-size: clamp(1.875rem, 5vw, 4rem);
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.22;
+  letter-spacing: -0.012em;
   color: var(--color-ink);
 }
 
@@ -164,25 +164,26 @@ h3 { font-weight: 600; line-height: 1.3; }
 .heading-lg {
   font-weight: 700;
   font-size: clamp(1.875rem, 3.5vw, 2.5rem);
-  line-height: 1.2;
-  letter-spacing: -0.015em;
+  line-height: 1.3;
+  letter-spacing: -0.012em;
   color: var(--color-ink);
 }
 
 /* h3 level */
 .heading-md {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 22px;
-  line-height: 1.3;
-  letter-spacing: -0.02em;
+  line-height: 1.4;
+  letter-spacing: -0.012em;
   color: var(--color-ink);
 }
 
 /* h3 small level */
 .heading-sm {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 17px;
-  line-height: 1.3;
+  line-height: 1.4;
+  letter-spacing: -0.012em;
   color: var(--color-ink);
 }
 
@@ -208,14 +209,14 @@ h3 { font-weight: 600; line-height: 1.3; }
 
 .body-sm {
   font-size: 14px;
-  font-weight: 300;
+  font-weight: 400;
   line-height: 1.9;
   color: var(--color-ink-sub);
 }
 
 /* Service number (01-04) — primary blue on light bg */
 .service-num {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 800;
   font-size: clamp(36px, 5vw, 52px);
   letter-spacing: -0.04em;
@@ -224,14 +225,14 @@ h3 { font-weight: 600; line-height: 1.3; }
 }
 
 .section-label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 600;
   font-size: 14px;
   color: var(--color-ink-sub);
 }
 
 .ghost-text {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 800;
   font-size: clamp(60px, 10vw, 120px);
   letter-spacing: -0.05em;
@@ -247,7 +248,7 @@ h3 { font-weight: 600; line-height: 1.3; }
 .t-card {
   background: var(--color-bg-card);
   border: 1px solid var(--color-border-card);
-  border-radius: 12px;
+  border-radius: 16px;
   transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 .t-card:hover {
@@ -271,7 +272,7 @@ h3 { font-weight: 600; line-height: 1.3; }
   box-shadow: 0 8px 24px rgba(0,0,0,0.06);
 }
 .layer-num {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 800;
   font-size: clamp(28px, 3.5vw, 36px);
   color: #0E9E96;
@@ -310,14 +311,15 @@ h3 { font-weight: 600; line-height: 1.3; }
   font-weight: 700;
   font-size: 16px;
   padding: 14px 28px;
-  border-radius: 8px;
+  min-height: 52px;
+  border-radius: 999px;
   text-decoration: none;
   transition: background 0.15s ease, transform 0.2s ease, box-shadow 0.2s ease;
 }
 .btn-primary:hover {
   background: var(--color-cta-dark);
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(11,125,119,0.25);
+  box-shadow: 0 6px 16px rgba(10,10,10,0.18);
 }
 .btn-primary:hover svg {
   transform: translateX(4px);
@@ -338,7 +340,7 @@ h3 { font-weight: 600; line-height: 1.3; }
   font-weight: 700;
   font-size: 16px;
   padding: 14px 28px;
-  border-radius: 8px;
+  border-radius: 999px;
   text-decoration: none;
   transition: background 0.2s ease, transform 0.15s ease;
 }
@@ -353,7 +355,7 @@ h3 { font-weight: 600; line-height: 1.3; }
   font-size: 13px;
   font-weight: 600;
   padding: 10px 20px;
-  border-radius: 6px;
+  border-radius: 999px;
   gap: 6px;
 }
 
@@ -368,7 +370,7 @@ h3 { font-weight: 600; line-height: 1.3; }
   font-weight: 700;
   font-size: 14px;
   padding: 8px 20px;
-  border-radius: 6px;
+  border-radius: 999px;
   text-decoration: none;
   transition: background 0.15s ease;
 }
@@ -382,7 +384,7 @@ h3 { font-weight: 600; line-height: 1.3; }
   align-items: center;
   gap: 4px;
   background: transparent;
-  color: #6B7280;
+  color: #55585F;
   border: none;
   font-weight: 600;
   font-size: 15px;
@@ -391,7 +393,7 @@ h3 { font-weight: 600; line-height: 1.3; }
   transition: color 0.2s ease;
 }
 .btn-secondary-ghost:hover {
-  color: #0B7D77;
+  color: var(--color-brand);
 }
 .btn-secondary-ghost svg {
   transition: transform 0.2s ease;
@@ -411,7 +413,7 @@ h3 { font-weight: 600; line-height: 1.3; }
   font-weight: 700;
   font-size: 14px;
   padding: 12px 24px;
-  border-radius: 8px;
+  border-radius: 999px;
   text-decoration: none;
   transition: filter 0.15s ease;
 }
@@ -429,7 +431,7 @@ h3 { font-weight: 600; line-height: 1.3; }
   font-weight: 600;
   font-size: 14px;
   padding: 14px 28px;
-  border-radius: 8px;
+  border-radius: 999px;
   border: 1px solid var(--color-border);
   text-decoration: none;
   transition: all 0.2s ease;
@@ -505,7 +507,7 @@ h3 { font-weight: 600; line-height: 1.3; }
   padding: 4px 10px;
   background: var(--color-brand);
   color: #FFFFFF;
-  border-radius: 4px;
+  border-radius: 999px;
 }
 
 .tag-outline {
@@ -514,7 +516,7 @@ h3 { font-weight: 600; line-height: 1.3; }
   padding: 4px 10px;
   border: 1px solid var(--color-border);
   color: var(--color-ink-sub);
-  border-radius: 4px;
+  border-radius: 999px;
 }
 
 /* ===== Section spacing ===== */
@@ -575,7 +577,7 @@ h3 { font-weight: 600; line-height: 1.3; }
 
 /* ===== Number counter ===== */
 .number-value {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 900;
   font-size: clamp(40px, 6vw, 64px);
   letter-spacing: -0.04em;
@@ -729,7 +731,7 @@ input:focus, textarea:focus, select:focus {
   color: var(--color-brand);
 }
 .tech-name {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 700;
   font-size: 15px;
   color: var(--color-ink);
@@ -737,7 +739,7 @@ input:focus, textarea:focus, select:focus {
   line-height: 1.2;
 }
 .tech-sub {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 400;
   font-size: 11px;
   color: var(--color-ink-dim);
@@ -840,7 +842,7 @@ input:focus, textarea:focus, select:focus {
   white-space: nowrap;
 }
 .constellation-header .label {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 600;
   font-size: 13px;
   text-transform: uppercase;
@@ -1061,7 +1063,7 @@ input:focus, textarea:focus, select:focus {
 }
 .section-watermark {
   display: block;
-  font-family: 'Inter', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 800;
   font-size: clamp(48px, 8vw, 72px);
   letter-spacing: 0.08em;
@@ -1208,7 +1210,7 @@ input:focus, textarea:focus, select:focus {
   border-top: none;
 }
 .service-card-num {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 800;
   font-size: clamp(28px, 3.5vw, 36px);
   color: #0E9E96;
@@ -1232,7 +1234,7 @@ input:focus, textarea:focus, select:focus {
   max-width: 600px;
 }
 .service-price {
-  font-family: 'Inter', 'Noto Sans JP', sans-serif;
+  font-family: 'M PLUS 1', sans-serif;
   font-weight: 800;
   font-size: clamp(1.3rem, 3vw, 1.6rem);
   color: #1A1A2E;
@@ -1384,7 +1386,7 @@ input:focus, textarea:focus, select:focus {
   margin-bottom: 12px;
 }
 .compare-amount {
-  font-family: 'Inter', sans-serif;
+  font-family: 'Geist', sans-serif;
   font-weight: 800;
   font-size: clamp(2rem, 4vw, 2.75rem);
   line-height: 1.1;
