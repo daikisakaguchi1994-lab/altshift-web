@@ -55,13 +55,43 @@ const schemaData = {
     <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
       <div class="max-w-5xl mx-auto px-6 lg:px-8">
 
-        <div class="mb-20 reveal">
+        <div class="mb-16 reveal svc-head">
           <a href="/service" class="text-xs font-semibold mb-4 inline-flex items-center" style="color:var(--color-brand); letter-spacing:0.05em; min-height:44px;">← サービス一覧</a>
-          <p class="service-num mb-4">03</p>
-          <p class="section-label mb-3" style="letter-spacing:0.1em; color:var(--color-accent);">まとめて任せたい方へ</p>
-          <h1 class="heading-hero" style="font-size:clamp(30px,4.4vw,52px);">AI顧問</h1>
-          <p class="heading-md mt-4" style="font-weight:600; line-height:1.6;">集客と業務の両方を、<br class="md:hidden"/>毎月まとめて任せる。</p>
-          <div class="body-lg mt-6 flex flex-col gap-4" style="max-width:700px;">
+          <h1 class="svc-h1">
+            <span class="svc-eyebrow"><i></i>03　AI顧問<span class="svc-for">まとめて任せたい方へ</span></span>
+            <span class="svc-title"><span class="nb">AIのことを、</span><span class="nb">ひとりで抱えない。</span><br/><span class="nb">毎月、隣で</span><span class="nb">一緒に決める人を。</span></span>
+          </h1>
+          <p class="svc-lead"><strong>集客も、手作業も、社員の方の使い方も。</strong><br class="hidden md:inline"/>毎月の見直しで、次の月にやることを一緒に決めます。<br class="hidden md:inline"/>AI検索対策の内容は、すべて含みます。</p>
+
+          <a href="/contact" class="svc-cta"><span><span class="nb">いま一番の困りごとを、</span><span class="nb">30分で整理する</span></span><i aria-hidden="true">→</i></a>
+          <p class="svc-next">無料・オンライン。集客と業務の困りごとを、まとめてお聞きします。相談だけで終わって大丈夫です。</p>
+
+          <figure class="svc-vis">
+            <figcaption class="svc-note">画面はイメージ（見本）</figcaption>
+            <div class="svc-sheet">
+              <p class="svc-sheet-h">今月やること<span>毎月の見直しで決めたこと</span></p>
+              <ul>
+                <li><span class="svc-chip">集客</span>記事2本のテーマを決める（雨漏りの相談事例／築30年の外壁）</li>
+                <li><span class="svc-chip">業務</span>見積もりの返事の下書きを、LINEで試す</li>
+                <li><span class="svc-chip">社内</span>社員の方向けの、AIの使い方の研修（1回目）</li>
+                <li><span class="svc-chip svc-chip-sub">報告</span>先月、AIが御社をどう答えたか</li>
+              </ul>
+            </div>
+            <p class="svc-sub">毎月、こう進みます</p>
+            <ul class="svc-three">
+              <li><b>2本</b>御社の名義の記事（AI検索対策の内容をすべて含みます）</li>
+              <li><b>毎月</b>結果を見て、次の月にやることを決める見直し</li>
+              <li><b>チャット</b>打ち合わせの合間の相談も、チャットで受けます</li>
+            </ul>
+          </figure>
+          <p class="svc-promise">売上が上がる、とは先に約束しません。約束するのは、毎月2本の記事と報告、そして毎月の見直しです。</p>
+        </div>
+
+        <!-- くわしい説明（もとの頭の文。CAIO の説明はここ。文は変えていない） -->
+        <div class="reveal mb-16" style="max-width:760px;">
+          <h2 class="heading-lg mb-6" style="font-size:clamp(22px,3vw,32px); line-height:1.5;">AI顧問とは</h2>
+          <p class="heading-sm mb-4" style="line-height:1.6;">集客と業務の両方を、毎月まとめて任せる。</p>
+          <div class="body-md flex flex-col gap-4">
             <p>経営者の右腕となる<strong>外部CAIO（最高AI責任者）</strong>的な伴走パートナーとして、AIの活用を経営の視点で進めます。</p>
             <p>社内の業務の自動化（守り）と、<a href="/service/ai-search" class="blue-link" style="display:inline;">AI検索対策</a>による集客・広報の発信（攻め）を標準で含め、毎月まとめて支援します。</p>
           </div>
@@ -141,3 +171,41 @@ const schemaData = {
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .svc-h1 { display: block; font-weight: 700; }
+  .svc-eyebrow { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; line-height: 1.6; color: var(--color-ink-sub); padding: 6px 16px; border: 1px solid var(--color-border); border-radius: 999px; margin: 8px 0 20px; }
+  .svc-eyebrow i { width: 6px; height: 6px; border-radius: 50%; background: var(--color-brand); }
+  .svc-for { padding-left: 10px; border-left: 1px solid var(--color-border); }
+  .svc-title { display: block; font-size: clamp(27px, 4.4vw, 50px); line-height: 1.3; letter-spacing: -0.012em; color: var(--color-ink); }
+  .svc-title .nb, .svc-cta .nb { display: inline-block; }
+  .svc-lead { font-size: 17px; line-height: 1.9; color: var(--color-ink-sub); margin-top: 20px; max-width: 720px; }
+  .svc-lead strong { color: var(--color-ink); font-weight: 700; }
+  .svc-vis { background: var(--color-bg-subtle); border-radius: 16px; padding: 20px; margin: 32px 0 0; max-width: 760px; }
+  .svc-note, .svc-sub { font-size: 12px; color: var(--color-ink-dim); }
+  .svc-note { text-align: right; }
+  .svc-sheet { margin-top: 8px; background: #fff; border-radius: 12px; padding: 16px 18px; box-shadow: 0 0 0 1px var(--color-border-card); }
+  .svc-sheet-h { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; font-size: 16px; font-weight: 700; line-height: 1.6; color: var(--color-ink); padding-bottom: 10px; border-bottom: 1px solid var(--color-border); }
+  .svc-sheet-h span { font-size: 12px; font-weight: 400; color: var(--color-ink-dim); }
+  .svc-sheet li { display: flex; align-items: baseline; gap: 12px; font-size: 15px; line-height: 1.7; color: var(--color-ink); padding: 10px 0; border-bottom: 1px solid var(--color-border); }
+  .svc-sheet li:last-child { border-bottom: 0; padding-bottom: 0; }
+  .svc-chip { flex-shrink: 0; min-width: 44px; text-align: center; font-size: 12px; font-weight: 700; line-height: 1.6; color: var(--color-brand); background: rgba(27,94,190,0.12); padding: 1px 8px; border-radius: 6px; }
+  .svc-chip-sub { color: var(--color-ink-sub); background: var(--color-bg-subtle); }
+  .svc-sub { margin-top: 20px; }
+  .svc-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 8px; }
+  .svc-three li { background: #fff; border-radius: 12px; padding: 14px; font-size: 14px; line-height: 1.7; color: var(--color-ink); box-shadow: 0 0 0 1px var(--color-border-card); }
+  .svc-three b { display: block; font-family: 'Geist', 'M PLUS 1', sans-serif; font-size: 22px; line-height: 1.4; color: var(--color-brand); }
+  .svc-cta { margin-top: 28px; display: inline-flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 56px; background: var(--color-ink); color: #fff; font-size: 16px; font-weight: 500; line-height: 1.5; padding: 8px 8px 8px 24px; border-radius: 999px; text-decoration: none; transition: transform 0.3s ease; }
+  .svc-cta:hover { transform: translateY(-2px); }
+  .svc-cta i { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--color-brand); display: grid; place-items: center; font-style: normal; }
+  .svc-next { font-size: 14px; color: var(--color-ink-sub); margin-top: 12px; }
+  .svc-promise { font-size: 14px; line-height: 1.8; color: var(--color-ink-sub); border-top: 1px solid var(--color-border); margin-top: 20px; padding-top: 14px; max-width: 760px; }
+  @media (max-width: 640px) {
+    .svc-lead { font-size: 16px; }
+    .svc-three { grid-template-columns: 1fr; }
+    .svc-three li { display: flex; align-items: baseline; gap: 12px; }
+    .svc-three b { flex-shrink: 0; font-size: 18px; min-width: 76px; }
+    .svc-cta { display: flex; border-radius: 28px; padding: 12px 12px 12px 20px; font-size: 15px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .svc-cta { transition: none; } .svc-cta:hover { transform: none; } }
+</style>
