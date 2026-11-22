@@ -94,53 +94,126 @@ const schemaData = {
               <li><b>1通</b>AIが御社をどう答えたかの報告</li>
             </ul>
           </figure>
+          <script is:inline>
+            (function () {
+              var v = document.querySelector('.svc-vis');
+              if (v && 'IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) v.classList.add('is-ready');
+            })();
+          </script>
 
           <p class="svc-promise">AIに必ず名前が出る、とは約束しません。約束するのは、毎月2本の記事と、毎月の報告です。</p>
         </div>
 
-        <!-- くわしい説明（もとの頭の文。略語の説明はここ） -->
-        <div class="reveal mb-12" style="max-width:760px;">
-          <h2 class="heading-lg mb-6" style="font-size:clamp(22px,3vw,32px); line-height:1.5;">AI検索対策とは</h2>
-          <div class="body-md flex flex-col gap-4">
-            <p>Google検索で順位を競う時代から、ChatGPT・Gemini・Perplexity・Google AI OverviewsなどのAIが「おすすめの会社」を直接答える時代へ移りつつあります。</p>
-            <p>AI検索対策では、従来の<strong>SEO</strong>（Google検索）と<strong>MEO</strong>（Googleマップ）に加えて、AIの回答で推薦されるための<strong>AEO</strong>（回答エンジン最適化）・<strong>GEO</strong>（生成エンジン最適化）・<strong>LLMO</strong>（大規模言語モデル最適化）・<strong>AIO</strong>（AI最適化）に一括で対応します。</p>
+        <!-- 自分で確かめる（試せる質問） -->
+        <div class="reveal mb-16 ais-block" id="try">
+          <h2 class="ais-h2">まず、ご自分で確かめられます。</h2>
+          <p class="ais-lead">下の質問を、ChatGPT などにそのまま貼ってみてください。</p>
+          <div class="ais-try">
+            <div class="ais-fields">
+              <label>地域<input type="text" data-k="area" placeholder="福岡市" autocomplete="off" /></label>
+              <label>業種<input type="text" data-k="job" placeholder="工務店" autocomplete="off" /></label>
+              <label>会社名<input type="text" data-k="name" placeholder="○○工務店" autocomplete="off" /></label>
+            </div>
+            <ol class="ais-prompts">
+              <li><p data-t="[area]で、[job]のおすすめの会社を教えてください。">福岡市で、工務店のおすすめの会社を教えてください。</p><button type="button" class="ais-copy">コピー</button></li>
+              <li><p data-t="[name]は、どんな会社ですか？強みと所在地を教えてください。">○○工務店は、どんな会社ですか？強みと所在地を教えてください。</p><button type="button" class="ais-copy">コピー</button></li>
+              <li><p data-t="[area]の[job]を選ぶとき、何を比べればよいですか？会社名も挙げてください。">福岡市の工務店を選ぶとき、何を比べればよいですか？会社名も挙げてください。</p><button type="button" class="ais-copy">コピー</button></li>
+            </ol>
+            <p class="ais-live" aria-live="polite"></p>
           </div>
-          <p class="text-sm mt-4" style="color:var(--color-ink-sub);">言葉の意味は <a href="/glossary" class="blue-link" style="display:inline;">AI・検索用語集</a> でくわしく説明しています。</p>
+          <p class="ais-after">名前が出ない。内容が違う。そのときは、<a href="/contact" class="blue-link" style="display:inline;">30分で一緒に原因を見ます</a>。</p>
         </div>
 
-        <!-- 積み上がる資産 -->
-        <div class="reveal t-card p-8 md:p-10 mb-12" style="background:var(--color-bg-subtle);">
-          <h2 class="heading-lg mb-6" style="font-size:clamp(22px,3vw,32px); line-height:1.5;">掛け捨ての広告費を、<br/>毎月積み上がる「集客の資産」に変える。</h2>
-          <ul class="flex flex-col gap-4">
-            {[
-              'リスティング広告や求人広告は、出稿を止めると流入も止まりやすい「掛け捨て」のコストです。',
-              'AI検索対策では、ホームページ（公式の一次情報）と、毎月2本の事実にもとづくnote記事（外の場所での発信）を連動させ、第三者に紹介・引用される（サイテーション）きっかけを増やします。',
-              '記事はお客様の名義で公開するため、ご契約を終えたあともお客様の情報として残り、続けるほど、検索エンジンとAIに見つけてもらうための材料が積み上がります。',
-              '毎月の取材の対話から業務のボトルネックも見えてくるため、AI業務自動化へもつなげやすくなります。',
-            ].map(t => (
-              <li class="flex items-start gap-3 body-md">
-                <div style="width:6px; height:6px; border-radius:50%; background:var(--color-brand); flex-shrink:0; margin-top:12px;"></div>
-                <span>{t}</span>
-              </li>
-            ))}
-          </ul>
+        <!-- 辻褄（エンティティ・E-E-A-T）：図で見せ、もとの文は「くわしく見る」に残す -->
+        <div class="reveal mb-16 ais-block">
+          <h2 class="ais-h2">AIに「同じ会社」と分かってもらい、<br class="hidden md:inline"/>「信頼できる」と判断してもらう。</h2>
+          <figure class="ais-ba">
+            <table>
+              <thead>
+                <tr><td></td><th scope="col">頼む前</th><th scope="col" class="is-after">頼んだあと</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">ホームページ</th><td>社名だけ</td><td class="is-after">社名・住所・強み</td></tr>
+                <tr><th scope="row">地図</th><td>前の住所のまま</td><td class="is-after">今の住所</td></tr>
+                <tr><th scope="row">記事</th><td>なし</td><td class="is-after">毎月2本、事例を公開</td></tr>
+                <tr class="ais-ba-ai"><th scope="row">AIから見ると</th><td>どの会社か、決めにくい</td><td class="is-after">同じ会社だと、照らし合わせやすい</td></tr>
+              </tbody>
+            </table>
+            <figcaption class="svc-note">図はイメージ（見本）</figcaption>
+          </figure>
+          <details class="ais-more">
+            <summary>くわしく見る</summary>
+            <div class="body-md flex flex-col gap-4 ais-more-body">
+              <p>AIは、ネット上のさまざまな情報を照らし合わせて答えを作ります。社名・所在地・事業内容がページごとにばらばらだと、別の会社と取り違えられることがあります（<a href="/glossary#entity" class="blue-link" style="display:inline;">エンティティ</a>の認識）。</p>
+              <p>また、現場の経験や実績にもとづく一次情報ほど、信頼できる情報として評価されやすくなります（<a href="/glossary#eeat" class="blue-link" style="display:inline;">E-E-A-T</a>）。</p>
+              <p>月1回のオンライン取材（30〜45分）をもとに、時事トレンドや最新の検索動向に合わせて、ホームページ・note・Googleマップの情報の整合性を毎月アップデートします。</p>
+            </div>
+          </details>
         </div>
 
-        <!-- 辻褄（エンティティ・E-E-A-T） -->
-        <div class="reveal mb-20" style="max-width:760px;">
-          <h2 class="heading-lg mb-6" style="font-size:clamp(22px,3vw,32px); line-height:1.5;">AIに「同じ会社」と分かってもらい、<br/>「信頼できる」と判断してもらう。</h2>
-          <div class="body-md flex flex-col gap-4">
-            <p>AIは、ネット上のさまざまな情報を照らし合わせて答えを作ります。社名・所在地・事業内容がページごとにばらばらだと、別の会社と取り違えられることがあります（<a href="/glossary#entity" class="blue-link" style="display:inline;">エンティティ</a>の認識）。</p>
-            <p>また、現場の経験や実績にもとづく一次情報ほど、信頼できる情報として評価されやすくなります（<a href="/glossary#eeat" class="blue-link" style="display:inline;">E-E-A-T</a>）。</p>
-            <p>月1回のオンライン取材（30〜45分）をもとに、時事トレンドや最新の検索動向に合わせて、ホームページ・note・Googleマップの情報の整合性を毎月アップデートします。</p>
-          </div>
+        <!-- 毎月の流れ（社長がやること） -->
+        <div class="reveal mb-16 ais-block">
+          <h2 class="ais-h2">社長がやるのは、2つだけ。</h2>
+          <figure class="ais-flow">
+            <ol class="ais-you">
+              <li><b>1</b><span>月に1回、30〜45分話す</span></li>
+              <li><b>2</b><span>できた記事を確認する</span></li>
+            </ol>
+            <div class="ais-we">
+              <p>あとは、こちらで</p>
+              <ul>
+                <li>取材の整理</li>
+                <li>記事の執筆</li>
+                <li>ホームページと地図の更新</li>
+                <li>AIでの出方の確認と報告</li>
+              </ul>
+            </div>
+          </figure>
+        </div>
+
+        <!-- 積み上がる資産：図で見せ、もとの文は「くわしく見る」に残す -->
+        <div class="reveal mb-16 ais-block">
+          <h2 class="ais-h2">掛け捨ての広告費を、<br/>毎月積み上がる「集客の資産」に変える。</h2>
+          <figure class="ais-stack">
+            <div class="ais-stack-row">
+              <p class="ais-stack-t">広告<span>止めると、表示も止まる</span></p>
+              <div class="ais-bars ais-bars-ad" aria-hidden="true">
+                {Array.from({ length: 12 }).map((_, i) => <span class={i > 5 ? 'off' : ''}></span>)}
+              </div>
+              <p class="ais-stack-n"><span>掲載中</span><span>止めたあと</span></p>
+            </div>
+            <div class="ais-stack-row">
+              <p class="ais-stack-t">記事<span>毎月2本ずつ。やめても残る</span></p>
+              <div class="ais-bars ais-bars-art" aria-hidden="true">
+                {Array.from({ length: 12 }).map((_, i) => <span style={`height:${Math.round(((i + 1) / 12) * 100)}%`}></span>)}
+              </div>
+              <p class="ais-stack-n"><span>1か月 2本</span><span>1年 24本</span></p>
+            </div>
+            <figcaption class="svc-note">図はイメージ</figcaption>
+          </figure>
+          <details class="ais-more">
+            <summary>くわしく見る</summary>
+            <ul class="flex flex-col gap-4 ais-more-body">
+              {[
+                'リスティング広告や求人広告は、出稿を止めると流入も止まりやすい「掛け捨て」のコストです。',
+                'AI検索対策では、ホームページ（公式の一次情報）と、毎月2本の事実にもとづくnote記事（外の場所での発信）を連動させ、第三者に紹介・引用される（サイテーション）きっかけを増やします。',
+                '記事はお客様の名義で公開するため、ご契約を終えたあともお客様の情報として残り、続けるほど、検索エンジンとAIに見つけてもらうための材料が積み上がります。',
+                '毎月の取材の対話から業務のボトルネックも見えてくるため、AI業務自動化へもつなげやすくなります。',
+              ].map(t => (
+                <li class="flex items-start gap-3 body-md">
+                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-brand); flex-shrink:0; margin-top:12px;"></div>
+                  <span>{t}</span>
+                </li>
+              ))}
+            </ul>
+          </details>
         </div>
 
         <!-- 料金と内容 -->
         <div class="mb-20" id="price">
           <h2 class="heading-lg text-center mb-10 reveal">料金と内容</h2>
           <div class="reveal t-card p-8 md:p-10" style="border-color:rgba(27,94,190,0.25); max-width:760px; margin:0 auto;">
-            <div class="flex flex-col md:flex-row md:items-end gap-4 md:gap-10 mb-8">
+            <div class="flex flex-col md:flex-row md:items-end gap-4 md:gap-10 mb-6">
               <div>
                 <p class="text-sm font-semibold" style="color:var(--color-accent);">先着10社・特別モニター価格</p>
                 <p style="color:var(--color-ink);"><span class="number-value" style="font-size:clamp(32px,8vw,44px); color:var(--color-brand); white-space:nowrap;">55,000</span><span class="text-sm" style="white-space:nowrap;">円／月（税込）</span></p>
@@ -150,28 +223,41 @@ const schemaData = {
                 <p style="color:var(--color-ink-sub);"><span class="number-value" style="font-size:24px; white-space:nowrap;">88,000</span><span class="text-sm" style="white-space:nowrap;">円／月（税込）</span></p>
               </div>
             </div>
-            <ul class="flex flex-col gap-3 mb-6">
-              {includes.map(item => (
-                <li class="flex items-start gap-2 text-sm" style="color:var(--color-ink);">
-                  <div style="width:6px; height:6px; border-radius:50%; background:var(--color-brand); flex-shrink:0; margin-top:7px;"></div>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            <p class="text-xs" style="color:var(--color-ink-sub); line-height:1.8;">※特別モニター価格は、記事の末尾に「編集・AEO最適化：AltShift」のクレジットを掲載させていただく条件です（完全非公開・黒子での対応は別途オプション）。ホームページの作り直しが必要な場合は、<a href="/service/web-seo" class="blue-link" style="display:inline;">Web制作</a>を別途お見積もりします。</p>
+            <p class="ais-price-sum">毎月：取材1回・記事2本・点検と更新・出方の報告</p>
+            <details class="ais-more mb-6">
+              <summary>含まれる内容（6つ）を見る</summary>
+              <ul class="flex flex-col gap-3 ais-more-body">
+                {includes.map(item => (
+                  <li class="flex items-start gap-2 text-sm" style="color:var(--color-ink);">
+                    <div style="width:6px; height:6px; border-radius:50%; background:var(--color-brand); flex-shrink:0; margin-top:7px;"></div>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </details>
+            <p class="text-xs" style="color:var(--color-ink-sub); line-height:1.8;">※特別モニター価格は、記事の末尾に「編集・AEO最適化：AltShift」のクレジットを掲載させていただく条件です（完全非公開・黒子での対応は別途オプション）。</p>
+            <p class="text-xs" style="color:var(--color-ink-sub); line-height:1.8;">ホームページの作り直しが必要な場合は、<a href="/service/web-seo" class="blue-link" style="display:inline;">Web制作</a>を別途お見積もりします。</p>
           </div>
           <p class="body-sm text-center mt-6 reveal" style="color:var(--color-ink-sub);">業務の自動化までまとめて任せたい方は、AI検索対策を標準で含む <a href="/service/ai-consulting" class="blue-link" style="display:inline;">AI顧問</a> をご覧ください。</p>
         </div>
 
-        <!-- FAQ -->
+        <!-- くわしい説明・よくある質問（答えは開いて読む。文はもとのまま） -->
         <div class="mb-20" style="max-width:760px; margin-left:auto; margin-right:auto;">
           <h2 class="heading-lg text-center mb-10 reveal">よくある質問</h2>
-          <div class="flex flex-col gap-4">
-            {faqItems.map(item => (
-              <div class="reveal t-card p-6 md:p-8">
-                <h3 class="heading-sm mb-3" style="line-height:1.6;">Q. {item.q}</h3>
-                <p class="body-sm" style="line-height:1.9;">{item.a}</p>
+          <div class="reveal">
+            <details class="ais-faq">
+              <summary><h3>AI検索対策とは（言葉の説明）</h3></summary>
+              <div class="body-sm flex flex-col gap-4" style="line-height:1.9;">
+                <p>Google検索で順位を競う時代から、ChatGPT・Gemini・Perplexity・Google AI OverviewsなどのAIが「おすすめの会社」を直接答える時代へ移りつつあります。</p>
+                <p>AI検索対策では、従来の<strong>SEO</strong>（Google検索）と<strong>MEO</strong>（Googleマップ）に加えて、AIの回答で推薦されるための<strong>AEO</strong>（回答エンジン最適化）・<strong>GEO</strong>（生成エンジン最適化）・<strong>LLMO</strong>（大規模言語モデル最適化）・<strong>AIO</strong>（AI最適化）に一括で対応します。</p>
+                <p>言葉の意味は <a href="/glossary" class="blue-link" style="display:inline;">AI・検索用語集</a> でくわしく説明しています。</p>
               </div>
+            </details>
+            {faqItems.map(item => (
+              <details class="ais-faq">
+                <summary><h3>Q. {item.q}</h3></summary>
+                <p class="body-sm" style="line-height:1.9;">{item.a}</p>
+              </details>
             ))}
           </div>
           <p class="body-sm text-center mt-6 reveal"><a href="/faq" class="blue-link" style="display:inline;">ほかの質問を見る</a></p>
@@ -223,4 +309,142 @@ const schemaData = {
     .svc-cta { display: flex; border-radius: 28px; padding: 12px 12px 12px 20px; font-size: 15px; }
   }
   @media (prefers-reduced-motion: reduce) { .svc-cta { transition: none; } .svc-cta:hover { transform: none; } }
+
+  /* ── 見本の画面の動き（最初に見えたときの1回だけ） ── */
+  .svc-vis.is-ready .svc-q, .svc-vis.is-ready .svc-a { opacity: 0; transform: translateY(8px); }
+  .svc-vis.is-ready.is-in .svc-q { animation: svc-pop 0.5s ease forwards; }
+  .svc-vis.is-ready.is-in .svc-a { animation: svc-pop 0.6s ease 0.8s forwards; }
+  .svc-vis.is-ready.is-in .svc-a mark { animation: svc-mark 0.6s ease 1.6s both; }
+  @keyframes svc-pop { to { opacity: 1; transform: none; } }
+  @keyframes svc-mark { from { background-color: transparent; color: var(--color-ink); } }
+
+  /* ── 下の節（少ない文字と図で伝える） ── */
+  .ais-block { max-width: 760px; }
+  .ais-h2 { font-size: clamp(22px, 3vw, 32px); line-height: 1.5; font-weight: 700; letter-spacing: -0.012em; color: var(--color-ink); }
+  .ais-lead { font-size: 16px; line-height: 1.8; color: var(--color-ink-sub); margin-top: 10px; }
+  .ais-try { margin-top: 20px; background: var(--color-bg-subtle); border-radius: 16px; padding: 20px; }
+  .ais-fields { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+  .ais-fields label { display: flex; flex-direction: column; gap: 4px; font-size: 12px; color: var(--color-ink-dim); }
+  .ais-fields input { width: 100%; min-height: 44px; font-size: 16px; color: var(--color-ink); background: #fff; border: 1px solid var(--color-border); border-radius: 10px; padding: 8px 12px; }
+  .ais-fields input:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 1px; }
+  .ais-prompts { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+  .ais-prompts li { display: flex; align-items: center; justify-content: space-between; gap: 12px; background: #fff; border-radius: 12px; padding: 10px 10px 10px 16px; box-shadow: 0 0 0 1px var(--color-border-card); }
+  .ais-prompts p { font-size: 15px; line-height: 1.7; color: var(--color-ink); }
+  .ais-copy { flex-shrink: 0; min-width: 84px; min-height: 44px; font-size: 13px; font-weight: 500; color: #fff; background: var(--color-ink); border-radius: 999px; padding: 0 14px; cursor: pointer; }
+  .ais-copy.is-done { background: var(--color-brand); }
+  .ais-live { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .ais-after { font-size: 15px; line-height: 1.8; color: var(--color-ink-sub); margin-top: 14px; }
+
+
+  .ais-ba { margin-top: 20px; }
+  .ais-ba table { width: 100%; border-collapse: separate; border-spacing: 0; font-size: 14px; line-height: 1.6; color: var(--color-ink); }
+  .ais-ba th, .ais-ba td { padding: 10px 12px; text-align: left; vertical-align: top; border-bottom: 1px solid var(--color-border); font-weight: 400; }
+  .ais-ba thead th { font-size: 12px; font-weight: 700; color: var(--color-ink-sub); border-bottom: 0; padding-bottom: 6px; }
+  .ais-ba thead td { border-bottom: 0; }
+  .ais-ba tbody th { width: 28%; font-size: 12px; color: var(--color-ink-dim); }
+  .ais-ba td:not(.is-after) { color: var(--color-ink-sub); }
+  .ais-ba .is-after { background: rgba(27,94,190,0.07); font-weight: 500; }
+  .ais-ba thead .is-after { color: var(--color-brand); border-radius: 12px 12px 0 0; }
+  .ais-ba tbody tr:last-child th, .ais-ba tbody tr:last-child td { border-bottom: 0; }
+  .ais-ba tbody tr:last-child .is-after { border-radius: 0 0 12px 12px; }
+  .ais-ba-ai td { font-weight: 700; color: var(--color-ink); }
+  .ais-ba-ai td.is-after { color: var(--color-brand); font-weight: 700; }
+  .ais-ba figcaption { margin-top: 8px; }
+  .ais-stack figcaption { grid-column: 1 / -1; }
+
+  .ais-flow { display: grid; grid-template-columns: 1.1fr 1fr; gap: 12px; margin-top: 20px; }
+  .ais-you { display: flex; flex-direction: column; gap: 10px; }
+  .ais-you li { flex: 1; display: flex; align-items: center; gap: 14px; background: var(--color-ink); color: #fff; border-radius: 16px; padding: 16px 18px; font-size: 16px; font-weight: 500; line-height: 1.6; }
+  .ais-you b { flex-shrink: 0; width: 32px; height: 32px; border-radius: 50%; background: var(--color-brand); display: grid; place-items: center; font-family: 'Geist', sans-serif; font-size: 16px; }
+  .ais-we { background: var(--color-bg-subtle); border-radius: 16px; padding: 16px 18px; }
+  .ais-we p { font-size: 12px; font-weight: 700; color: var(--color-ink-sub); }
+  .ais-we ul { margin-top: 8px; display: flex; flex-direction: column; gap: 6px; }
+  .ais-we li { position: relative; padding-left: 14px; font-size: 14px; line-height: 1.6; color: var(--color-ink); }
+  .ais-we li::before { content: ''; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; border-radius: 50%; background: var(--color-brand); }
+
+  .ais-stack { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-top: 20px; }
+  .ais-stack-row { background: var(--color-bg-subtle); border-radius: 16px; padding: 16px; }
+  .ais-stack-t { font-size: 16px; font-weight: 700; line-height: 1.6; color: var(--color-ink); }
+  .ais-stack-t span { display: block; font-size: 13px; font-weight: 400; color: var(--color-ink-sub); }
+  .ais-bars { display: flex; align-items: flex-end; gap: 4px; height: 96px; margin-top: 12px; border-bottom: 1px solid var(--color-border); }
+  .ais-bars span { flex: 1; border-radius: 3px 3px 0 0; }
+  .ais-bars-ad span { height: 45%; background: #9A9DA3; }
+  .ais-bars-ad span.off { height: 0; }
+  .ais-bars-art span { background: var(--color-brand); }
+  .ais-stack-n { display: flex; justify-content: space-between; font-size: 12px; color: var(--color-ink-dim); margin-top: 6px; }
+
+  .ais-price-sum { font-size: 15px; font-weight: 500; line-height: 1.7; color: var(--color-ink); }
+  .ais-more { margin-top: 14px; border-top: 1px solid var(--color-border); border-bottom: 1px solid var(--color-border); }
+  .ais-more > summary, .ais-faq > summary { display: flex; align-items: center; justify-content: space-between; gap: 16px; cursor: pointer; list-style: none; }
+  .ais-more > summary { min-height: 48px; font-size: 14px; font-weight: 500; color: var(--color-ink-sub); }
+  .ais-more > summary::-webkit-details-marker, .ais-faq > summary::-webkit-details-marker { display: none; }
+  .ais-more > summary::after, .ais-faq > summary::after { content: '＋'; flex-shrink: 0; font-size: 16px; color: var(--color-brand); }
+  .ais-more[open] > summary::after, .ais-faq[open] > summary::after { content: '－'; }
+  .ais-more-body { padding: 4px 0 18px; }
+  .ais-faq { border-bottom: 1px solid var(--color-border); }
+  .ais-faq:first-of-type { border-top: 1px solid var(--color-border); }
+  .ais-faq > summary { min-height: 60px; padding: 14px 0; }
+  .ais-faq h3 { font-size: 16px; font-weight: 700; line-height: 1.6; color: var(--color-ink); }
+  .ais-faq > p, .ais-faq > div { padding-bottom: 20px; }
+  .ais-more > summary:focus-visible, .ais-faq > summary:focus-visible { outline: 2px solid var(--color-brand); outline-offset: 2px; }
+
+  @media (max-width: 640px) {
+    .ais-fields { grid-template-columns: 1fr 1fr; }
+    .ais-fields label:last-child { grid-column: 1 / -1; }
+    .ais-prompts li { padding: 10px 8px 10px 14px; gap: 8px; }
+    .ais-prompts p { font-size: 14px; }
+    .ais-copy { min-width: 64px; padding: 0 10px; }
+    .ais-flow { grid-template-columns: 1fr; }
+    .ais-stack { gap: 8px; }
+    .ais-stack-row { padding: 12px; }
+    .ais-stack-t { font-size: 15px; }
+    .ais-stack-t span { font-size: 12px; }
+    .ais-bars { height: 72px; gap: 3px; }
+    .ais-ba th, .ais-ba td { padding: 9px 8px; }
+    .ais-ba tbody th { width: 30%; padding-left: 0; white-space: nowrap; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .svc-vis.is-ready .svc-q, .svc-vis.is-ready .svc-a { opacity: 1; transform: none; animation: none; }
+    .svc-vis.is-ready.is-in .svc-a mark { animation: none; }
+  }
 </style>
+
+<script>
+  // 見本の画面：最初に見えたときに1回だけ、質問 → 答えの順に出す
+  const vis = document.querySelector('.svc-vis.is-ready');
+  if (vis) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => { if (en.isIntersecting) { vis.classList.add('is-in'); io.disconnect(); } });
+    }, { threshold: 0.35 });
+    io.observe(vis);
+  }
+
+  // 試せる質問：地域・業種・会社名を入れると文が変わり、ボタンでコピーできる（入力はどこにも送らない）
+  const root = document.querySelector('.ais-try');
+  if (root) {
+    const vals = { area: '', job: '', name: '' };
+    const defs = { area: '福岡市', job: '工務店', name: '○○工務店' };
+    const lines = Array.from(root.querySelectorAll('[data-t]'));
+    const render = () => lines.forEach((el) => {
+      el.textContent = (el.getAttribute('data-t') || '').replace(/\[(\w+)\]/g, (_, k) => vals[k] || defs[k] || '');
+    });
+    root.querySelectorAll('input[data-k]').forEach((input) => {
+      input.addEventListener('input', () => { vals[input.getAttribute('data-k')] = input.value.trim(); render(); });
+    });
+    const live = root.querySelector('.ais-live');
+    root.querySelectorAll('.ais-copy').forEach((btn) => {
+      btn.addEventListener('click', async () => {
+        const text = btn.parentElement.querySelector('[data-t]').textContent || '';
+        try { await navigator.clipboard.writeText(text); }
+        catch (err) {
+          const ta = document.createElement('textarea');
+          ta.value = text; document.body.appendChild(ta); ta.select();
+          document.execCommand('copy'); ta.remove();
+        }
+        btn.textContent = 'コピーしました'; btn.classList.add('is-done');
+        if (live) live.textContent = 'コピーしました';
+        setTimeout(() => { btn.textContent = 'コピー'; btn.classList.remove('is-done'); if (live) live.textContent = ''; }, 2000);
+      });
+    });
+  }
+</script>
