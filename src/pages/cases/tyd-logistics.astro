@@ -56,15 +56,7 @@ const schemaData = {
     <!-- ========== KEY NUMBERS (Tomoro式) ========== -->
     <section style="background:var(--color-bg); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
       <div class="max-w-5xl mx-auto px-6 lg:px-8 py-20">
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center stagger">
-          <div class="reveal">
-            <p class="font-bold" style="font-size:clamp(48px,7vw,80px); color:var(--color-primary); line-height:1; letter-spacing:-0.03em;">●●<span class="text-2xl">週間</span></p>
-            <p class="text-sm mt-2" style="color:var(--color-ink-dim);">本番投入までの期間</p>
-          </div>
-          <div class="reveal">
-            <p class="font-bold" style="font-size:clamp(48px,7vw,80px); color:var(--color-primary); line-height:1; letter-spacing:-0.03em;">●●<span class="text-2xl">%</span></p>
-            <p class="text-sm mt-2" style="color:var(--color-ink-dim);">業務工数削減率</p>
-          </div>
+        <div class="grid grid-cols-1 gap-8 text-center stagger">
           <div class="reveal">
             <p class="font-bold" style="font-size:clamp(48px,7vw,80px); color:var(--color-primary); line-height:1; letter-spacing:-0.03em;">24<span class="text-2xl">時間</span></p>
             <p class="text-sm mt-2" style="color:var(--color-ink-dim);">稼働継続時間</p>
@@ -174,56 +166,6 @@ const schemaData = {
       </div>
     </section>
 
-    <!-- ========== TIMELINE & COST ========== -->
-    <section class="section-padding" style="background:var(--color-bg); border-top:1px solid var(--color-border);">
-      <div class="max-w-3xl mx-auto px-6 lg:px-8">
-        <h2 class="heading-lg text-center mb-12 reveal">実装期間とコスト</h2>
-        <div class="reveal t-card p-8">
-          <div class="flex flex-col gap-5">
-            <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
-              <p class="text-sm font-semibold" style="color:var(--color-ink);">開発期間</p>
-              <p class="text-lg font-bold" style="color:var(--color-primary);">●●週間</p>
-            </div>
-            <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
-              <p class="text-sm font-semibold" style="color:var(--color-ink);">開発体制</p>
-              <p class="text-sm font-bold" style="color:var(--color-ink);">AltShift代表 + Claude Code活用</p>
-            </div>
-            <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
-              <p class="text-sm font-semibold" style="color:var(--color-ink);">初期費用</p>
-              <p class="text-sm font-bold" style="color:var(--color-ink);">●●万円</p>
-            </div>
-            <div class="flex items-center justify-between py-3">
-              <p class="text-sm font-semibold" style="color:var(--color-ink);">月額保守</p>
-              <p class="text-sm font-bold" style="color:var(--color-ink);">●●万円/月</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- ========== SUBSIDY (conditional) ========== -->
-    <section class="section-padding" style="background:var(--color-bg);" id="subsidy-section">
-      <div class="max-w-3xl mx-auto px-6 lg:px-8">
-        <h2 class="heading-lg text-center mb-12 reveal">補助金活用情報</h2>
-        <div class="reveal t-card p-8" style="border-color:rgba(27,94,190,0.2); background:rgba(27,94,190,0.03);">
-          <div class="flex flex-col gap-4">
-            <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
-              <p class="text-sm font-semibold" style="color:var(--color-ink);">利用補助金</p>
-              <p class="text-sm font-bold" style="color:var(--color-primary);">●●補助金</p>
-            </div>
-            <div class="flex items-center justify-between py-3" style="border-bottom:1px solid var(--color-border);">
-              <p class="text-sm font-semibold" style="color:var(--color-ink);">補助率</p>
-              <p class="text-sm font-bold" style="color:var(--color-primary);">●●</p>
-            </div>
-            <div class="flex items-center justify-between py-3">
-              <p class="text-sm font-semibold" style="color:var(--color-ink);">お客様負担額（税別）</p>
-              <p class="text-lg font-bold" style="color:var(--color-primary);">●●万円</p>
-            </div>
-          </div>
-          <p class="text-xs mt-4" style="color:var(--color-ink-dim);">※補助金未活用の場合、このセクションは非表示になります。後日情報が確定次第更新します。</p>
-        </div>
-      </div>
-    </section>
 
     <!-- ========== LEARNINGS ========== -->
     <section class="section-padding" style="background:var(--color-bg); border-top:1px solid var(--color-border);">
