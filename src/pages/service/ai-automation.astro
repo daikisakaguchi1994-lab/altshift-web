@@ -46,13 +46,41 @@ const schemaData = {
     <section class="section-padding" style="background:var(--color-bg); padding-top:140px;">
       <div class="max-w-5xl mx-auto px-6 lg:px-8">
 
-        <div class="mb-20 reveal">
+        <div class="mb-16 reveal svc-head">
           <a href="/service" class="text-xs font-semibold mb-4 inline-flex items-center" style="color:var(--color-brand); letter-spacing:0.05em; min-height:44px;">← サービス一覧</a>
-          <p class="service-num mb-4">02</p>
-          <p class="section-label mb-3" style="letter-spacing:0.1em; color:var(--color-accent);">手作業を減らしたい方へ</p>
-          <h1 class="heading-hero" style="font-size:clamp(30px,4.4vw,52px);">AI業務自動化</h1>
-          <p class="heading-md mt-4" style="font-weight:600; line-height:1.6;">見積もり・日報・問い合わせの<br class="md:hidden"/>手作業を減らす。</p>
-          <div class="body-lg mt-6 flex flex-col gap-4" style="max-width:700px;">
+          <h1 class="svc-h1">
+            <span class="svc-eyebrow"><i></i>02　AI業務自動化<span class="svc-for">手作業を減らしたい方へ</span></span>
+            <span class="svc-title"><span class="nb">見積もりも、</span><span class="nb">日報も、</span><span class="nb">返事も。</span><br/><span class="nb">毎日の手作業を、</span><span class="nb">ひとつずつ手放す。</span></span>
+          </h1>
+          <p class="svc-lead"><strong>減らしたい作業を、ひとつ教えてください。</strong><br class="hidden md:inline"/>今の道具（LINE・スプレッドシートなど）のまま、AIが下書きまで済ませる形にします。<br class="hidden md:inline"/>金額は、始める前にお出しします。</p>
+
+          <a href="/contact" class="svc-cta"><span>どの作業から減らせるか、30分で一緒に見る</span><i aria-hidden="true">→</i></a>
+          <p class="svc-next">無料・オンライン。いま時間を取られている作業をお聞きします。相談だけで終わって大丈夫です。</p>
+
+          <figure class="svc-vis">
+            <figcaption class="svc-note">画面はイメージ（見本）</figcaption>
+            <p class="svc-who">お客様からの問い合わせ</p>
+            <p class="svc-in">来週、外壁の塗り替えの見積もりをお願いできますか？</p>
+            <div class="svc-draft">
+              <p class="svc-tag">AIが用意した返事の下書き</p>
+              <p>お問い合わせありがとうございます。外壁の塗り替えのお見積もりですね。来週は ○日（火）の午後、○日（木）の午前に伺えます。ご都合はいかがでしょうか。</p>
+              <p class="svc-send"><span>確認して送るだけ</span></p>
+            </div>
+            <p class="svc-sub">頼むと、こう進みます</p>
+            <ul class="svc-three">
+              <li><b>1つから</b>見積もり・日報・返事など、ひとつの作業から始められます</li>
+              <li><b>先に金額</b>範囲と金額を、始める前にお出しします</li>
+              <li><b>定着まで</b>社員の方が自分で回せるところまで付き合います</li>
+            </ul>
+          </figure>
+          <p class="svc-promise">何時間減る、とは先に約束しません。約束するのは、始める前の金額と、社員の方が自分で回せるまでのお手伝いです。</p>
+        </div>
+
+        <!-- くわしい説明（もとの頭の文） -->
+        <div class="reveal mb-20" style="max-width:760px;">
+          <h2 class="heading-lg mb-6" style="font-size:clamp(22px,3vw,32px); line-height:1.5;">AI業務自動化とは</h2>
+          <p class="heading-sm mb-4" style="line-height:1.6;">見積もり・日報・問い合わせの手作業を減らす。</p>
+          <div class="body-md flex flex-col gap-4">
             <p>毎日くり返している手作業を、AIと今の道具（LINE・スプレッドシートなど）で減らす仕組みをつくります。</p>
             <p>単発の業務自動化から、<strong>AI内製化</strong>パッケージ、<strong>AI活用研修</strong>、カスタムシステム開発まで、御社の業務に合わせて組み立てます。</p>
           </div>
@@ -123,3 +151,40 @@ const schemaData = {
   </main>
   <Footer />
 </Layout>
+
+<style>
+  .svc-h1 { display: block; font-weight: 700; }
+  .svc-eyebrow { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 13px; font-weight: 500; letter-spacing: 0.04em; line-height: 1.6; color: var(--color-ink-sub); padding: 6px 16px; border: 1px solid var(--color-border); border-radius: 999px; margin: 8px 0 20px; }
+  .svc-eyebrow i { width: 6px; height: 6px; border-radius: 50%; background: var(--color-brand); }
+  .svc-for { padding-left: 10px; border-left: 1px solid var(--color-border); }
+  .svc-title { display: block; font-size: clamp(27px, 4.4vw, 50px); line-height: 1.3; letter-spacing: -0.012em; color: var(--color-ink); }
+  .svc-title .nb { display: inline-block; }
+  .svc-lead { font-size: 17px; line-height: 1.9; color: var(--color-ink-sub); margin-top: 20px; max-width: 720px; }
+  .svc-lead strong { color: var(--color-ink); font-weight: 700; }
+  .svc-vis { background: var(--color-bg-subtle); border-radius: 16px; padding: 20px; margin: 32px 0 0; max-width: 760px; }
+  .svc-note, .svc-sub, .svc-who { font-size: 12px; color: var(--color-ink-dim); }
+  .svc-note { text-align: right; }
+  .svc-who { margin-top: 4px; }
+  .svc-in { width: fit-content; max-width: 90%; margin-top: 6px; background: #fff; color: var(--color-ink); font-size: 15px; line-height: 1.7; padding: 10px 16px; border-radius: 16px 16px 16px 4px; box-shadow: 0 0 0 1px var(--color-border-card); }
+  .svc-draft { max-width: 620px; width: 92%; margin: 12px 0 0 auto; background: #fff; color: var(--color-ink); font-size: 15px; line-height: 1.8; padding: 12px 16px 14px; border-radius: 16px 16px 4px 16px; border: 1.5px dashed rgba(27,94,190,0.45); }
+  .svc-tag { display: inline-block; font-size: 12px; font-weight: 700; line-height: 1.6; color: var(--color-brand); background: rgba(27,94,190,0.12); padding: 1px 8px; border-radius: 6px; margin-bottom: 6px; }
+  .svc-send { text-align: right; margin-top: 10px; }
+  .svc-send span { display: inline-block; font-size: 13px; font-weight: 500; line-height: 1.6; color: #fff; background: var(--color-ink); padding: 5px 14px; border-radius: 999px; }
+  .svc-sub { margin-top: 20px; }
+  .svc-three { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-top: 8px; }
+  .svc-three li { background: #fff; border-radius: 12px; padding: 14px; font-size: 14px; line-height: 1.7; color: var(--color-ink); box-shadow: 0 0 0 1px var(--color-border-card); }
+  .svc-three b { display: block; font-family: 'Geist', 'M PLUS 1', sans-serif; font-size: 22px; line-height: 1.4; color: var(--color-brand); }
+  .svc-cta { margin-top: 28px; display: inline-flex; align-items: center; justify-content: space-between; gap: 14px; min-height: 56px; background: var(--color-ink); color: #fff; font-size: 16px; font-weight: 500; line-height: 1.5; padding: 8px 8px 8px 24px; border-radius: 999px; text-decoration: none; transition: transform 0.3s ease; }
+  .svc-cta:hover { transform: translateY(-2px); }
+  .svc-cta i { flex-shrink: 0; width: 40px; height: 40px; border-radius: 50%; background: var(--color-brand); display: grid; place-items: center; font-style: normal; }
+  .svc-next { font-size: 14px; color: var(--color-ink-sub); margin-top: 12px; }
+  .svc-promise { font-size: 14px; line-height: 1.8; color: var(--color-ink-sub); border-top: 1px solid var(--color-border); margin-top: 20px; padding-top: 14px; max-width: 760px; }
+  @media (max-width: 640px) {
+    .svc-lead { font-size: 16px; }
+    .svc-three { grid-template-columns: 1fr; }
+    .svc-three li { display: flex; align-items: baseline; gap: 12px; }
+    .svc-three b { flex-shrink: 0; font-size: 18px; min-width: 76px; }
+    .svc-cta { display: flex; border-radius: 28px; padding: 12px 12px 12px 20px; font-size: 15px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .svc-cta { transition: none; } .svc-cta:hover { transform: none; } }
+</style>
