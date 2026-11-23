@@ -81,9 +81,9 @@ const monthly = [
 ]
 
 const reasons = [
-  { t: '掛け捨てにしない', d: '記事は御社の名義で公開。ご契約を終えても、御社の情報として残ります。' },
-  { t: 'SEO・MEO・AIを一括で', d: '窓口はひとつ。月額もひとつ。ばらばらに頼む手間がありません。' },
-  { t: '結果を、毎月見せる', d: 'AIが御社をどう答えたかを、毎月確かめて報告します。' },
+  { t: '広告を止めても、残る', d: '記事は御社の名義で公開。ご契約を終えても、御社の情報として残ります。' },
+  { t: '何をすればいいか、迷わない', d: '検索・地図・AIの対策を、まとめてお任せ。窓口はひとつです。' },
+  { t: '何をしたかが、毎月見える', d: 'AIが御社をどう答えたかを、毎月確かめて報告します。' },
 ]
 
 const flow = [
@@ -183,43 +183,11 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
       </div>
     </section>
 
-    <!-- 4 サービス内容：毎月すること -->
-    <section class="sec" id="service">
+    <!-- 4 解決できること（もとの「3つの特長」） -->
+    <section class="sec" id="reason">
       <div class="wrap">
         <div class="sec-head rv">
-          <div><p class="label"><span class="mono">03</span>サービス内容・ご利用の流れ</p><h2>毎月<span class="p">、</span>ここまで<br class="sp-br"/>代行します<span class="p">。</span></h2></div>
-          <p>社長にお願いするのは、話すことと、できた記事の確認だけです。</p>
-        </div>
-        <ul class="monthly">
-          {monthly.map((m, i) => (
-            <li class="shell rv"><div class="core">
-              <span class="mono n">{String(i + 1).padStart(2, '0')}</span>
-              <small>{m.k}</small>
-              <b>{m.pre}<em>{m.n}</em>{m.post}</b>
-              <p>{m.d}</p>
-            </div></li>
-          ))}
-        </ul>
-        <div class="roles rv" role="img" aria-label="役割の分担。社長は、話すことと確認すること。AltShift は、整理・執筆・更新・点検・報告。">
-          <div class="you"><small>社長</small><b>話す・確認する</b></div>
-          <div class="we"><small>AltShift</small><b>整理・執筆・更新・点検・報告</b></div>
-        </div>
-        <div class="flow rv">
-          <h3>ご利用の流れ</h3>
-          <ol class="steps">
-            {flow.map((s, i) => (
-              <li><span class="n mono">STEP {i + 1}</span><b>{s.t}</b><small>{s.d}</small></li>
-            ))}
-          </ol>
-        </div>
-      </div>
-    </section>
-
-    <!-- 5 3つの特長 -->
-    <section class="sec tint" id="reason">
-      <div class="wrap">
-        <div class="sec-head rv">
-          <div><p class="label"><span class="mono">04</span>3つの特長</p><h2>掛け捨ての広告費を<span class="p">、</span><br/>積み上がる資産に<span class="p">。</span></h2></div>
+          <div><p class="label"><span class="mono">03</span>解決できること</p><h2>紹介と広告だけに<span class="p">、</span><br/>頼らない集客へ<span class="p">。</span></h2></div>
           <p>広告は、止めると表示も止まります。記事は、止めても残ります。</p>
         </div>
         <div class="reason-grid">
@@ -256,6 +224,38 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
             <li>毎月の取材の対話から業務のボトルネックも見えてくるため、AI業務自動化へもつなげやすくなります。</li>
           </ul>
         </details>
+      </div>
+    </section>
+
+    <!-- 5 サービス内容：毎月すること -->
+    <section class="sec tint" id="service">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <div><p class="label"><span class="mono">04</span>サービス内容・ご利用の流れ</p><h2>毎月<span class="p">、</span>ここまで<br class="sp-br"/>代行します<span class="p">。</span></h2></div>
+          <p>社長にお願いするのは、話すことと、できた記事の確認だけです。</p>
+        </div>
+        <ul class="monthly">
+          {monthly.map((m, i) => (
+            <li class="shell rv"><div class="core">
+              <span class="mono n">{String(i + 1).padStart(2, '0')}</span>
+              <small>{m.k}</small>
+              <b>{m.pre}<em>{m.n}</em>{m.post}</b>
+              <p>{m.d}</p>
+            </div></li>
+          ))}
+        </ul>
+        <div class="roles rv" role="img" aria-label="役割の分担。社長は、話すことと確認すること。AltShift は、整理・執筆・更新・点検・報告。">
+          <div class="you"><small>社長</small><b>話す・確認する</b></div>
+          <div class="we"><small>AltShift</small><b>整理・執筆・更新・点検・報告</b></div>
+        </div>
+        <div class="flow rv">
+          <h3>ご利用の流れ</h3>
+          <ol class="steps">
+            {flow.map((s, i) => (
+              <li><span class="n mono">STEP {i + 1}</span><b>{s.t}</b><small>{s.d}</small></li>
+            ))}
+          </ol>
+        </div>
       </div>
     </section>
 
