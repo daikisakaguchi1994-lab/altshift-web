@@ -67,17 +67,10 @@ const worries = [
   '記事やSNSを続ける時間も、人もいない',
 ]
 
-// AI が参考にする3つの情報（仕組みの図）
-const sources = [
-  { icon: 'web', t: 'ホームページ', d: '公式の情報。社名・住所・強み' },
-  { icon: 'doc', t: '記事（note）', d: '現場の事例を、毎月2本' },
-  { icon: 'pin', t: 'Googleマップ', d: '住所・営業時間・口コミ' },
-]
-
 const terms = [
-  { t: 'SEO', d: 'Google検索で見つけてもらう' },
-  { t: 'MEO', d: 'Googleマップで見つけてもらう' },
-  { t: 'LLMO・AIO', d: 'AIの答えに出やすくする' },
+  { t: 'SEO', d: 'Google検索で、見つけてもらいやすくなる' },
+  { t: 'MEO', d: 'Googleマップで、見つけてもらいやすくなる' },
+  { t: 'LLMO・AIO', d: 'AIに、見つけてもらいやすくなる' },
 ]
 
 const monthly = [
@@ -107,12 +100,6 @@ const planTicks = [
 
 const arrow = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7M9 7h8v8"/></svg>'
 const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b5ebe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m5 12 5 5 9-10"/></svg>'
-const icons = {
-  web: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1b5ebe" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="3"/><path d="M3 9h18M7 6.5h.01M10 6.5h.01"/></svg>',
-  doc: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1b5ebe" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/></svg>',
-  pin: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#1b5ebe" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 21s7-6.2 7-11.5A7 7 0 0 0 5 9.5C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>',
-}
-const spark = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#8fb8ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v4M12 17v4M3 12h4M17 12h4M6 6l2.5 2.500M15.5 15.5 18 18M18 6l-2.5 2.500M8.5 15.5 6 18"/></svg>'
 ---
 
 <Layout
@@ -169,41 +156,17 @@ const spark = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" strok
       </div>
     </section>
 
-    <!-- 3 AI検索対策とは：仕組みを1枚の図で -->
+    <!-- 3 AI検索対策とは：3つの場所を一言で -->
     <section class="sec tint" id="about">
       <div class="wrap">
         <div class="sec-head rv">
-          <div><p class="label"><span class="mono">02</span>AI検索対策（LLMO）とは</p><h2>AIは<span class="p">、</span>3つの情報を<br class="sp-br"/>見て答えます<span class="p">。</span></h2></div>
-          <p>その3つを毎月整えて、AIの答えに出やすくする。それが、AI検索対策（LLMO・AIO）です。</p>
+          <div><p class="label"><span class="mono">02</span>AI検索対策（LLMO）とは</p><h2>どこで探されても<span class="p">、</span><br class="sp-br"/>御社が見つかる<span class="p">。</span></h2></div>
+          <p>お客様が探す3つの場所を、まとめて整えます。</p>
         </div>
-
-        <figure class="mech rv">
-          <ul class="mech-src">
-            {sources.map(s => (
-              <li><span class="mi" set:html={icons[s.icon]}></span><div><b>{s.t}</b><span>{s.d}</span></div></li>
-            ))}
-          </ul>
-          <svg class="join" viewBox="0 0 56 240" preserveAspectRatio="none" aria-hidden="true"><path d="M0 40 C30 40 26 120 56 120"/><path d="M0 120 H56"/><path d="M0 200 C30 200 26 120 56 120"/></svg>
-          <span class="down" aria-hidden="true"></span>
-          <div class="mech-ai">
-            <span set:html={spark}></span>
-            <b>AI</b>
-            <small>ChatGPT・Gemini・<br/>Google など</small>
-          </div>
-          <svg class="to" viewBox="0 0 40 12" aria-hidden="true"><path d="M0 6h36M31 1.5 36 6l-5 4.5"/></svg>
-          <span class="down" aria-hidden="true"></span>
-          <div class="shell mech-ans"><div class="core">
-            <small>AIの答え</small>
-            <p>「…としては、<mark>○○工務店</mark>があります」</p>
-            <span class="ok"><span set:html={tick}></span>御社の名前が、答えの中に</span>
-          </div></div>
-          <figcaption>図はイメージ（見本）</figcaption>
-        </figure>
 
         <ul class="terms rv">
           {terms.map(t => (<li><b>{t.t}</b><span>{t.d}</span></li>))}
         </ul>
-        <p class="terms-sum rv">この3つを、<strong>ひとつの月額でまとめて</strong>行います。</p>
 
         <details class="more rv">
           <summary>くわしく見る</summary>
@@ -451,7 +414,7 @@ const spark = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" strok
   .eyebrow .for { padding-left: 10px; border-left: 1px solid var(--line); }
   .title { display: block; font-size: clamp(30px, 4.1vw, 56px); line-height: 1.28; letter-spacing: -.012em; margin-top: clamp(16px, 2.4vh, 24px); }
   .lead { font-size: 17px; color: var(--ink-2); margin-top: clamp(16px, 2.6vh, 24px); max-width: 33em; }
-  .lead strong, .terms-sum strong { color: var(--ink); font-weight: 700; }
+  .lead strong { color: var(--ink); font-weight: 700; }
   .hero .cta { margin-top: clamp(22px, 3.4vh, 32px); }
   .micro { margin-top: 12px; font-size: 14px; color: var(--ink-2); line-height: 1.7; }
 
@@ -499,32 +462,12 @@ const spark = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" strok
   .next { margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--line); font-size: 15px; font-weight: 500; }
 
   /* ===== 3 仕組みの図 ===== */
-  .mech { display: grid; grid-template-columns: minmax(0, 1.2fr) 56px minmax(0, .62fr) 40px minmax(0, 1fr); align-items: center; }
-  .mech-src { display: grid; gap: 12px; }
-  .mech-src li { display: flex; align-items: center; gap: 14px; min-height: 76px; padding: 14px 18px; background: #fff; border-radius: 16px; box-shadow: 0 0 0 1px var(--hair), 0 20px 40px -36px rgba(10,10,10,.4); }
-  .mi { flex: none; width: 40px; height: 40px; border-radius: 12px; background: var(--accent-soft); display: grid; place-items: center; }
-  .mech-src b { display: block; font-size: 17px; font-weight: 700; line-height: 1.5; }
-  .mech-src span:not(.mi) { display: block; font-size: 14px; color: var(--ink-2); line-height: 1.6; }
-  .join { align-self: stretch; width: 56px; height: 100%; min-height: 240px; }
-  .join path, .to path { fill: none; stroke: var(--accent); stroke-width: 1.5; vector-effect: non-scaling-stroke; stroke-linecap: round; stroke-linejoin: round; opacity: .55; }
-  .to { width: 40px; height: 12px; }
-  .down { display: none; }
-  .mech-ai { background: #0a0a0a; color: #fff; border-radius: 20px; padding: 24px 12px; text-align: center; display: grid; justify-items: center; gap: 4px; box-shadow: 0 40px 70px -44px rgba(10,10,10,.6), inset 0 1px 0 rgba(255,255,255,.08); }
-  .mech-ai b { font-family: var(--latin); font-size: 34px; font-weight: 700; letter-spacing: -.02em; line-height: 1.2; }
-  .mech-ai small { font-size: 14px; color: #b7bcc4; line-height: 1.6; }
-  .mech-ans .core { padding: 20px 20px 18px; }
-  .mech-ans small { display: block; font-size: 14px; color: var(--ink-3); }
-  .mech-ans p { font-size: 17px; font-weight: 500; line-height: 1.8; margin-top: 6px; }
-  .ok { display: inline-flex; align-items: center; gap: 6px; margin-top: 12px; font-size: 14px; font-weight: 700; color: var(--accent); }
-  .ok span { display: inline-grid; }
-  .mech figcaption, .stack figcaption { font-size: 12px; color: var(--ink-3); }
-  .mech figcaption { grid-column: 1 / -1; margin-top: 14px; text-align: right; }
+  .stack figcaption { font-size: 12px; color: var(--ink-3); }
   .terms { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: clamp(28px, 4vh, 44px); border-top: 1px solid var(--line); }
-  .terms li { padding: 18px 24px 0 0; }
+  .terms li { padding: 28px 24px 4px 0; }
   .terms li + li { padding-left: 24px; border-left: 1px solid var(--line); }
-  .terms b { display: block; font-family: var(--latin); font-size: 22px; font-weight: 700; letter-spacing: -.01em; line-height: 1.4; color: var(--accent); }
-  .terms span { display: block; font-size: 15px; color: var(--ink-2); line-height: 1.7; }
-  .terms-sum { margin-top: 22px; font-size: 17px; color: var(--ink-2); }
+  .terms b { display: block; font-family: var(--latin); font-size: clamp(24px, 2.4vw, 30px); font-weight: 700; letter-spacing: -.01em; line-height: 1.4; color: var(--accent); }
+  .terms span { display: block; margin-top: 6px; font-size: 17px; color: var(--ink); line-height: 1.7; word-break: keep-all; overflow-wrap: anywhere; }
 
   /* ===== 4 サービス内容 ===== */
   .monthly { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
@@ -633,13 +576,6 @@ const spark = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" strok
   @media (max-width: 959px) {
     .hero-grid { grid-template-columns: 1fr; }
     .worry-grid, .reason-grid { grid-template-columns: 1fr; }
-    .mech { grid-template-columns: 1fr; justify-items: stretch; gap: 0; }
-    .join, .to { display: none; }
-    .down { display: block; width: 1.5px; height: 28px; margin: 6px auto; background: var(--accent); opacity: .55; position: relative; }
-    .down::after { content: ""; position: absolute; left: 50%; bottom: 0; width: 8px; height: 8px; border-right: 1.5px solid var(--accent); border-bottom: 1.5px solid var(--accent); transform: translate(-50%, 0) rotate(45deg); }
-    .mech-ai { grid-template-columns: auto auto 1fr; align-items: center; justify-items: start; gap: 12px; padding: 16px 20px; text-align: left; }
-    .mech-ai small br { display: none; }
-    .mech figcaption { text-align: left; }
   }
 
   /* ===== スマホ ===== */
@@ -655,10 +591,10 @@ const spark = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" strok
     h2 { font-size: clamp(28px, 5vw, 36px); }
     .worries li { padding: 16px 0; font-size: 17px; }
     .prompt { font-size: 16px; padding: 6px 12px; }
-    .mech-src li { min-height: 68px; padding: 12px 14px; }
     .terms { grid-template-columns: 1fr; }
-    .terms li, .terms li + li { display: grid; grid-template-columns: 6.4em minmax(0, 1fr); align-items: baseline; gap: 8px; padding: 12px 0; border-left: 0; border-bottom: 1px solid var(--line); }
-    .terms b { font-size: 18px; }
+    .terms li, .terms li + li { display: grid; grid-template-columns: 1fr; gap: 2px; padding: 18px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+    .terms b { font-size: 22px; }
+    .terms span { font-size: 16px; margin-top: 0; }
     .monthly { grid-template-columns: 1fr; gap: 10px; }
     .monthly .core { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; align-items: center; padding: 16px 18px; }
     .monthly .n { display: none; }
