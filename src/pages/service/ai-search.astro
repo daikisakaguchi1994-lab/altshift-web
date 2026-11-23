@@ -61,14 +61,6 @@ const schemaData = {
 
 // よくある質問の構造化データ（FAQPage）は /faq とトップにだけ出す（同じ質問を重ねないため）
 
-// 1画面目の下の「数字の帯」
-const facts = [
-  { k: '月額（先着10社）', pre: '', n: '55,000', post: '円〜', s: '税込。通常は 88,000円' },
-  { k: '御社の名義の記事', pre: '月', n: '2', post: '本', s: '確認のうえ公開' },
-  { k: '社長の時間', pre: '月', n: '30〜45', post: '分', s: 'オンラインで話すだけ' },
-  { k: '対応エリア', pre: '', n: '全国', post: '', s: 'すべてオンライン' },
-]
-
 const worries = [
   'ChatGPT に聞いても、自社の名前が出てこない',
   '広告を止めると、問い合わせも止まる',
@@ -132,7 +124,7 @@ const spark = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" strok
 <div class="sp">
   <main>
 
-    <!-- 1 最初の画面：だれの・何を・いくらで・次に何をするか -->
+    <!-- 1 最初の画面：だれの・何を・次に何をするか -->
     <section class="hero">
       <div class="wrap">
         <a href="/service" class="back">← サービス一覧</a>
@@ -149,35 +141,7 @@ const spark = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" strok
             </div>
             <p class="micro">オンライン・無料。その場で、AIに御社のことを聞いてみます。相談だけで終わって大丈夫です。</p>
           </div>
-
-          <figure class="mock">
-            <div class="shell"><div class="core">
-              <div class="mock-top"><b><i></i>AIアシスタント</b><span>画面はイメージ（見本）</span></div>
-              <div class="mock-body">
-                <p class="q">福岡で、雨漏りに強い工務店は？</p>
-                <div class="a">
-                  <p>福岡市で雨漏りの修理に強い会社としては、<mark>○○工務店</mark>があります。築30年以上の木造の事例を、自社の記事でくわしく公開しています。</p>
-                  <div class="src">
-                    <small>参考にした情報</small>
-                    <ul><li>ホームページ</li><li>note の記事</li><li>Googleマップ</li></ul>
-                  </div>
-                </div>
-              </div>
-            </div></div>
-          </figure>
-          <script is:inline>
-            (function () {
-              var v = document.querySelector('.sp .mock');
-              if (v && 'IntersectionObserver' in window && !matchMedia('(prefers-reduced-motion: reduce)').matches) v.classList.add('is-ready');
-            })();
-          </script>
         </div>
-
-        <ul class="facts">
-          {facts.map(f => (
-            <li><small>{f.k}</small><b>{f.pre}<em>{f.n}</em>{f.post}</b><span>{f.s}</span></li>
-          ))}
-        </ul>
       </div>
     </section>
 
@@ -412,13 +376,6 @@ const spark = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" strok
     const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('rv-on'); io.unobserve(e.target); } }), { rootMargin: '0px 0px -8% 0px' });
     sp.classList.add('rv-ready');
     sp.querySelectorAll('.rv').forEach((el) => io.observe(el));
-
-    // 見本の画面：最初に見えたときに1回だけ、質問 → 答え → 参考にした情報 の順に出す
-    const mock = sp.querySelector('.mock.is-ready');
-    if (mock) {
-      const mo = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { mock.classList.add('is-in'); mo.disconnect(); } }), { threshold: 0.35 });
-      mo.observe(mock);
-    }
   }
 
   // セルフチェック：地域と業種を書きかえて、質問をコピーできる（入力はどこにも送らない）
@@ -487,7 +444,7 @@ const spark = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" strok
     background: radial-gradient(40% 55% at 45% 50%, rgba(27,94,190,.13), transparent 70%), radial-gradient(34% 46% at 70% 60%, rgba(14,158,150,.10), transparent 70%); filter: blur(10px); }
   .hero .wrap { position: relative; z-index: 1; }
   .back { display: inline-flex; align-items: center; min-height: 44px; font-size: 14px; font-weight: 500; color: var(--accent); letter-spacing: .04em; }
-  .hero-grid { display: grid; grid-template-columns: minmax(0, 1.08fr) minmax(0, .92fr); gap: clamp(32px, 5vw, 72px); align-items: center; margin-top: 6px; }
+  .hero-grid { display: grid; grid-template-columns: minmax(0, 1fr); margin-top: 6px; }
   .hero h1 { display: block; font-weight: 700; }
   .eyebrow { display: inline-flex; align-items: center; flex-wrap: wrap; gap: 10px; font-size: 14px; font-weight: 500; line-height: 1.6; color: var(--ink-2); padding: 6px 16px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.7); }
   .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
@@ -498,38 +455,8 @@ const spark = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" strok
   .hero .cta { margin-top: clamp(22px, 3.4vh, 32px); }
   .micro { margin-top: 12px; font-size: 14px; color: var(--ink-2); line-height: 1.7; }
 
-  /* 見本の画面 */
-  .mock .core { overflow: hidden; }
-  .mock-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 12px 18px; border-bottom: 1px solid var(--hair); font-size: 14px; color: var(--ink-3); }
-  .mock-top b { display: inline-flex; align-items: center; gap: 8px; font-weight: 500; color: var(--ink); }
-  .mock-top b i { width: 8px; height: 8px; border-radius: 50%; background: #3fd6b4; }
-  .mock-top span { font-size: 12px; }
-  .mock-body { padding: 20px 18px 22px; background: linear-gradient(180deg, #fff, var(--bg-2)); }
-  .mock .q { width: fit-content; max-width: 88%; margin-left: auto; background: var(--ink); color: #fff; font-size: 15px; line-height: 1.7; padding: 10px 16px; border-radius: 18px 18px 4px 18px; }
-  .mock .a { margin-top: 14px; max-width: 94%; background: #fff; border-radius: 18px 18px 18px 4px; box-shadow: 0 0 0 1px var(--hair), 0 18px 36px -28px rgba(10,10,10,.4); padding: 14px 16px 12px; }
-  .mock .a p { font-size: 15px; line-height: 1.85; }
-  .src { margin-top: 12px; padding-top: 10px; border-top: 1px dashed var(--line); }
-  .src small { display: block; font-size: 12px; color: var(--ink-3); }
-  .src ul { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
-  .src li { font-size: 12px; line-height: 1.6; padding: 3px 10px; border-radius: 999px; background: var(--accent-soft); color: var(--accent); font-weight: 500; }
-  .mock.is-ready .q, .mock.is-ready .a, .mock.is-ready .src li { opacity: 0; transform: translateY(8px); }
-  .mock.is-ready.is-in .q { animation: pop .5s var(--ease) forwards; }
-  .mock.is-ready.is-in .a { animation: pop .6s var(--ease) .8s forwards; }
-  .mock.is-ready.is-in .src li { animation: pop .5s var(--ease) forwards; }
-  .mock.is-ready.is-in .src li:nth-child(1) { animation-delay: 1.5s; }
-  .mock.is-ready.is-in .src li:nth-child(2) { animation-delay: 1.65s; }
-  .mock.is-ready.is-in .src li:nth-child(3) { animation-delay: 1.8s; }
   @keyframes pop { to { opacity: 1; transform: none; } }
 
-  /* 数字の帯 */
-  .facts { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: clamp(40px, 6vh, 64px); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
-  .facts li { padding: 20px 24px 22px 0; }
-  .facts li + li { padding-left: 24px; border-left: 1px solid var(--line); }
-  .facts small { display: block; font-size: 14px; color: var(--ink-3); line-height: 1.6; }
-  .facts b { display: block; font-size: 17px; font-weight: 700; line-height: 1.3; margin-top: 4px; white-space: nowrap; }
-  .facts em { font-style: normal; font-family: var(--latin); font-weight: 600; font-size: clamp(28px, 3vw, 40px); letter-spacing: -.02em; color: var(--accent); margin: 0 2px; }
-  .facts li:last-child em { font-family: var(--jp); font-weight: 700; letter-spacing: 0; margin: 0; }
-  .facts span { display: block; font-size: 14px; color: var(--ink-2); line-height: 1.6; margin-top: 4px; }
 
   /* ===== 節の共通 ===== */
   .sec { padding: clamp(80px, 11vh, 128px) 0; position: relative; }
@@ -705,7 +632,6 @@ const spark = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" strok
   /* ===== タブレット（縦に重ねる所） ===== */
   @media (max-width: 959px) {
     .hero-grid { grid-template-columns: 1fr; }
-    .mock { max-width: 560px; }
     .worry-grid, .reason-grid { grid-template-columns: 1fr; }
     .mech { grid-template-columns: 1fr; justify-items: stretch; gap: 0; }
     .join, .to { display: none; }
@@ -724,12 +650,6 @@ const spark = '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" strok
     .lead { font-size: 16px; }
     .cta { flex-direction: column; width: 100%; }
     .btn { width: 100%; }
-    .facts { grid-template-columns: repeat(2, minmax(0, 1fr)); margin-top: 36px; }
-    .facts li { padding: 16px 12px 16px 0; }
-    .facts li + li { padding-left: 0; border-left: 0; }
-    .facts li:nth-child(even) { padding-left: 16px; border-left: 1px solid var(--line); }
-    .facts li:nth-child(n+3) { border-top: 1px solid var(--line); }
-    .facts em { font-size: 30px; }
     .sec { padding: 64px 0; }
     .sec-head { grid-template-columns: 1fr; margin-bottom: 28px; }
     h2 { font-size: clamp(28px, 5vw, 36px); }
