@@ -61,10 +61,11 @@ const schemaData = {
 
 // よくある質問の構造化データ（FAQPage）は /faq とトップにだけ出す（同じ質問を重ねないため）
 
+// お悩み → ここで解決できること（調査で多かった経営者の言葉に合わせる）
 const worries = [
-  'ChatGPT に聞いても、自社の名前が出てこない',
-  '広告を止めると、問い合わせも止まる',
-  '記事やSNSを続ける時間も、人もいない',
+  { q: 'AIで探す人が増えたと聞く。うちは、どう出ているのか分からない', a: '無料診断で、その場でAIに御社のことを聞き、一緒に確かめます。' },
+  { q: '紹介と広告に頼っていて、この先が読めない', a: '記事が御社の名義で積み上がります。検索・地図・AIで、見つけてもらいやすくなります。' },
+  { q: '何をすればいいか分からない。続ける時間も、人もいない', a: '月1回、30〜45分お話しいただくだけ。記事づくりも更新も、こちらで進めます。' },
 ]
 
 const terms = [
@@ -132,7 +133,7 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
       </div>
     </section>
 
-    <!-- 2 お悩み ＋ 30秒セルフチェック -->
+    <!-- 2 お悩み → ここで解決できること ＋ 30秒セルフチェック -->
     <section class="sec" id="check">
       <div class="wrap">
         <div class="sec-head rv">
@@ -141,7 +142,7 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
         </div>
         <div class="worry-grid">
           <ul class="worries rv">
-            {worries.map(w => (<li><span class="ck" set:html={tick}></span>{w}</li>))}
+            {worries.map(w => (<li><span class="ck" set:html={tick}></span><div><p class="w-q">{w.q}</p><p class="w-a">{w.a}</p></div></li>))}
           </ul>
           <div class="shell rv selfcheck"><div class="core">
             <p class="tag">30秒でできる　セルフチェック</p>
@@ -446,7 +447,10 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
   /* ===== 2 お悩み＋セルフチェック ===== */
   .worry-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(24px, 4vw, 56px); align-items: center; }
   .worries { border-top: 1px solid var(--line); }
-  .worries li { display: flex; align-items: center; gap: 14px; padding: 20px 0; border-bottom: 1px solid var(--line); font-size: clamp(17px, 1.6vw, 20px); font-weight: 700; line-height: 1.6; }
+  .worries li { display: flex; align-items: flex-start; gap: 14px; padding: 20px 0; border-bottom: 1px solid var(--line); font-size: clamp(17px, 1.6vw, 20px); font-weight: 700; line-height: 1.6; }
+  .worries .ck { margin-top: 1px; }
+  .w-a { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 8px; margin-top: 6px; font-size: 15px; font-weight: 500; color: var(--ink-2); line-height: 1.75; }
+  .w-a::before { content: "→"; color: var(--accent); font-weight: 700; }
   .ck { flex: none; width: 32px; height: 32px; border-radius: 50%; background: var(--accent-soft); display: grid; place-items: center; }
   .selfcheck .core { padding: clamp(22px, 3vw, 32px); }
   .tag { display: inline-block; font-size: 14px; font-weight: 700; color: var(--accent); background: var(--accent-soft); padding: 2px 12px; border-radius: 999px; }
