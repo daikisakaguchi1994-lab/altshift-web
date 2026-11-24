@@ -66,6 +66,7 @@ const faqSchema = {
       <a class="fan-c f4" href="/service/ai-consulting"><i></i><span class="fan-t"><small class="mono">AI顧問</small>「AIのことは、任せてあります」<br><em class="fan-more">くわしく見る</em></span></a>
       <a class="fan-c f5" href="#intro"><i></i><span class="fan-t"><small class="mono">MISSION</small>社長に、余白の時間<br><em class="fan-more">くわしく見る</em></span></a>
     </div>
+    <p class="fan-note">画像はイメージです</p>
   </section>
 
   <!-- 1b はじめに：1画面目から移した説明・安心の3点・流れ・MISSION（文言はそのまま） -->
@@ -345,7 +346,10 @@ const faqSchema = {
   /* 仮の色の面（手順3で絵に替える） */
   .f1 i { background: linear-gradient(140deg, #39424f, #1b222c); }
   .f2 i { background: linear-gradient(140deg, #2f6fd0, #173f86); }
-  .f3 i { background: linear-gradient(140deg, #4f8ff0, #1b5ebe); }
+  .f3 i { background: linear-gradient(180deg, rgba(6,12,28,.72) 0%, rgba(6,12,28,.56) 32%, rgba(6,12,28,0) 64%), #1b5ebe url("/images/top/hero-center.webp") center / cover no-repeat; }
+  .fan-c.f3 .fan-t { top: 9%; text-shadow: 0 1px 14px rgba(5,10,25,.55); }
+  /* 生成した絵のことわり書き */
+  .fan-note { position: absolute; right: 14px; bottom: 10px; z-index: 7; margin: 0; padding: 2px 8px; border-radius: 999px; font-size: 11px; line-height: 1.6; color: rgba(255,255,255,.82); background: rgba(5,8,14,.5); pointer-events: none; }
   .f4 i { background: linear-gradient(140deg, #5562c9, #2a3384); }
   .f5 i { background: linear-gradient(140deg, #6b7686, #303947); }
   .hero .eyebrow { color: rgba(255,255,255,.78); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.06); }
