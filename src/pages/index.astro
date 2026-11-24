@@ -51,19 +51,27 @@ const faqSchema = {
   <section class="hero" data-hero>
     <div class="wrap main">
       <p class="eyebrow rise d1"><span class="dot"></span>福岡の中小企業のための、AIエンジニア</p>
-      <h1 class="rise d2"><span class="nb">人が決める。</span><br><span class="nb">AIが動く。</span></h1>
+      <h1 class="rise d2"><span class="nb">人が決める。</span><br><span class="nb hl">AIが動く。</span></h1>
       <p class="sub rise d3"><span class="nb">決めるのは<span class="p">、</span>社長。</span><br class="sp-br"><span class="nb">AIを動かすのは<span class="p">、</span>私たちです。</span></p>
-      <p class="lead rise d3"><strong>会社の中に入るエンジニア（FDE）</strong>が、社長の隣で、抱えすぎた仕事をAIの仕組みにします。</p>
       <div class="cta rise d4">
         <a class="btn btn-1" href="/contact">無料で相談する（30分）<span class="ic"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17 17 7M9 7h8v8"/></svg></span></a>
-        <a class="btn btn-2" href="#svc">サービスを見る</a>
+        <a class="btn btn-2" href="#svc">サービスを見る<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m9 6 6 6-6 6"/></svg></a>
       </div>
-      <ul class="trust rise d4">
+    </div>
+    <!-- 手順2で、ここに5枚のカードを置く -->
+    <div class="stage" aria-hidden="true"></div>
+  </section>
+
+  <!-- 1b はじめに：1画面目から移した説明・安心の3点・流れ・MISSION（文言はそのまま） -->
+  <section class="intro" id="intro">
+    <div class="wrap intro-in">
+      <p class="lead rv"><strong>会社の中に入るエンジニア（FDE）</strong>が、社長の隣で、抱えすぎた仕事をAIの仕組みにします。</p>
+      <ul class="trust rv">
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b5ebe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>オンラインで全国対応</li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b5ebe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>最低3か月、その後は月ごと</li>
         <li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1b5ebe" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12 5 5 9-10"/></svg>福岡市が拠点・代表 坂口 大樹</li>
       </ul>
-      <ol class="steps rise d5" aria-label="ご相談からの流れ">
+      <ol class="steps rv" aria-label="ご相談からの流れ">
         <li><span class="n mono">01</span><b>無料相談</b><small>30分・オンライン</small></li>
         <li><span class="n mono">02</span><b>仕事の棚卸し</b><small>社長に集まる仕事を洗い出す</small></li>
         <li><span class="n mono">03</span><b>AIの仕組みにする</b><small>FDE が会社の中で</small></li>
@@ -291,17 +299,30 @@ const faqSchema = {
   .core { background: #fff; border-radius: 16px; box-shadow: 0 30px 60px -48px rgba(10,10,10,.35); }
 
   /* ===== 1画面目（8） ===== */
-  .hero { position: relative; min-height: calc(100dvh - 76px); margin-top: 76px; display: flex; flex-direction: column; overflow: hidden; }
-  .hero::before { content: ""; position: absolute; left: 50%; bottom: -40vh; width: 120vw; height: 72vh; transform: translateX(-50%); pointer-events: none; z-index: 0;
-    background: radial-gradient(40% 55% at 35% 50%, rgba(27,94,190,.20), transparent 70%), radial-gradient(38% 50% at 65% 55%, rgba(14,158,150,.15), transparent 70%), radial-gradient(30% 40% at 50% 40%, rgba(120,140,255,.13), transparent 70%); filter: blur(10px); }
-  .hero .main { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: clamp(20px, 4vh, 48px) 0; position: relative; z-index: 2; }
+  /* 1画面目だけ濃い地（黒 → 濃紺。自社の青の色相）。下の節は白のまま */
+  .hero { position: relative; min-height: calc(86dvh - 76px); margin-top: 76px; display: flex; flex-direction: column; overflow: hidden; color: #fff;
+    background: radial-gradient(70% 55% at 50% 112%, rgba(27,94,190,.42), transparent 72%), linear-gradient(180deg, #05070c 0%, #070d1a 44%, #0b1a36 100%); }
+  /* 細かいざらつき */
+  .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: .14;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  .hero .main { display: flex; flex-direction: column; align-items: center; text-align: center; padding: clamp(40px, 9vh, 96px) 0 0; position: relative; z-index: 2; }
+  .hero .stage { flex: 1; min-height: clamp(160px, 26vh, 300px); position: relative; z-index: 1; }
+  .hero .eyebrow { color: rgba(255,255,255,.78); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.06); }
+  .hero h1 .hl { display: inline-block; margin-top: .14em; padding: .02em .26em .06em; border-radius: .2em; color: #a9c9ff; background: rgba(27,94,190,.26); box-shadow: inset 0 0 0 1px rgba(140,180,255,.34); }
+  .hero .sub { color: rgba(255,255,255,.86); }
+  .hero .btn-1 { background: #fff; color: var(--ink); }
+  .hero .btn-2 { padding: 0 14px; gap: 6px; border: 0; background: transparent; color: #fff; justify-content: center; transition: opacity .3s var(--ease); }
+  .hero .btn-2:hover { opacity: .7; }
+  /* はじめに（1画面目から移した要素） */
+  .intro { background: var(--bg); }
+  .intro-in { display: flex; flex-direction: column; align-items: center; text-align: center; padding: clamp(56px, 9vh, 96px) 0 clamp(40px, 6vh, 64px); }
   .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink-2); padding: 6px 16px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.7); }
   .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
   /* 見出し：太さを1段落とし、字間をゆるめ、大きく置く（落ち着いた言い切り） */
-  .hero h1 { font-weight: 700; letter-spacing: -.012em; line-height: 1.22; font-size: clamp(46px, 6.6vw, 96px); margin-top: clamp(14px, 2.4vh, 26px); }
+  .hero h1 { font-weight: 700; letter-spacing: -.012em; line-height: 1.22; font-size: clamp(46px, 5.8vw, 84px); margin-top: clamp(14px, 2.4vh, 26px); }
   .sub { font-size: clamp(19px, 1.75vw, 25px); font-weight: 700; line-height: 1.6; letter-spacing: .02em; margin-top: clamp(18px, 3vh, 30px); font-feature-settings: "palt"; }
   .sub .p { margin-right: -.4em; }
-  .hero .lead { font-size: 16px; color: var(--ink-2); max-width: 46em; margin: 8px auto 0; }
+  .intro .lead { font-size: 17px; color: var(--ink-2); max-width: 46em; margin: 0 auto; }
   .lead strong { color: var(--ink); font-weight: 700; }
   .hero .cta { justify-content: center; margin-top: clamp(20px, 3.4vh, 34px); }
   .trust { display: flex; flex-wrap: wrap; justify-content: center; gap: 6px 22px; margin-top: 16px; font-size: 14px; color: var(--ink-2); }
@@ -461,8 +482,9 @@ const faqSchema = {
     .nav { height: 64px; }
     .links { display: none; }
     .menu { display: flex; }
-    .hero { min-height: calc(100dvh - 64px); margin-top: 64px; }
-    .hero .main { justify-content: flex-start; padding: 22px 0 28px; }
+    .hero { min-height: calc(86dvh - 64px); margin-top: 64px; }
+    .hero .main { padding: 36px 0 0; }
+    .hero .btn-2 { min-height: 48px; }
     .sp-br { display: inline; }
     .hero h1 { font-size: 48px; }
     .sub { font-size: 20px; margin-top: 16px; }
@@ -503,9 +525,9 @@ const faqSchema = {
     .site-foot .brand { grid-column: 1 / -1; }
   }
   @media (max-width: 767px) and (max-height: 700px) {
-    .hero .main { padding-top: 14px; }
+    .hero .main { padding-top: 22px; }
     .hero h1 { font-size: 44px; }
-    .hero .lead { font-size: 16px; line-height: 1.75; }
+    .intro .lead { font-size: 16px; line-height: 1.75; }
   }
 
   /* 共通の CSS が見出しの書体を決めているので、このページの書体に戻す */
