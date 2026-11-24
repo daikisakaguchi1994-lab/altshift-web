@@ -68,6 +68,14 @@ const worries = [
   { q: '何をすればいいか分からない。続ける時間も、人もいない', a: '月1回、30〜45分お話しいただくだけ。記事づくりも更新も、こちらで進めます。' },
 ]
 
+// いま起きていること（総務省『令和8年版 情報通信白書』2026年7月公表。2026年1〜2月・15〜69歳 1,236人）
+// 1つ目は20〜69歳で前年と比べた数字（白書の脚注）。3つ目は「AIのみ 2.6＋主にAI 9.2＋AIは補助的 22.1」の合計
+const nowFacts = [
+  { k: '生成AIを使ったことがある人', n: '52.2', d: '1年前は 26.7%。約2倍になりました。' },
+  { k: '50代で、生成AIを使ったことがある人', n: '44.2', d: '1年前は 19.9%。40代は 49.0% です。' },
+  { k: '住宅・車・保険などの購入を検討するとき、AIを使う人', n: '33.9', d: '約3人に1人。補助的な使い方も含みます。' },
+]
+
 const terms = [
   { t: 'SEO', d: 'Google検索で、見つけてもらいやすくなる' },
   { t: 'MEO', d: 'Googleマップで、見つけてもらいやすくなる' },
@@ -157,11 +165,38 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
       </div>
     </section>
 
-    <!-- 3 AI検索対策とは：3つの場所を一言で -->
+    <!-- 3 いま起きていること：公的な統計 → 自分事 → 無料診断。下に「AI検索対策とは」（3つの場所） -->
     <section class="sec tint" id="about">
       <div class="wrap">
         <div class="sec-head rv">
-          <div><p class="label"><span class="mono">02</span>AI検索対策（LLMO）とは</p><h2>どこで探されても<span class="p">、</span><br class="sp-br"/>御社が見つかる<span class="p">。</span></h2></div>
+          <div><p class="label"><span class="mono">02</span>いま起きていること</p><h2><span class="nb">生成AIを使った人は<span class="p">、</span></span><br class="sp-br"/><span class="nb">1年で約2倍に<span class="p">。</span></span></h2></div>
+          <p>総務省の調査です。お客様が情報を集める方法に、AIが加わりました。</p>
+        </div>
+
+        <ul class="now rv">
+          {nowFacts.map(f => (<li><p class="now-k">{f.k}</p><p class="now-n"><b>{f.n}</b><span>%</span></p><p class="now-d">{f.d}</p></li>))}
+        </ul>
+        <div class="src rv">
+          <p>出典：<a href="https://www.soumu.go.jp/johotsusintokei/whitepaper/ja/r08/html/nd111110.html" target="_blank" rel="noopener">総務省『令和8年版 情報通信白書』</a>（2026年7月公表）</p>
+          <p>2026年1〜2月のインターネット調査。15〜69歳の1,236人が回答。</p>
+          <p>1つ目は、前年と同じ20〜69歳で比べた数字です。3つ目は「AIを使う」と答えた3つの選択肢の合計です（当社で計算）。</p>
+        </div>
+
+        <div class="you shell rv"><div class="core">
+          <div class="you-t">
+            <h3><span class="nb">御社のお客様にも<span class="p">、</span></span><span class="nb">問い合わせの前に</span><span class="nb">AIへ聞く方が<span class="p">、</span></span><span class="nb">いるかもしれません<span class="p">。</span></span></h3>
+            <p>そのとき、AIは御社のことをどう答えているでしょうか。</p>
+            <p>対策は、記事を積み上げていく形です。すぐには変わりません。だからこそ、早めに一度、いまの出方を確かめておくことをおすすめします。</p>
+          </div>
+          <div class="you-cta">
+            <a class="btn btn-1" href="/contact">AI検索の無料診断（30分）<span class="ic" set:html={arrow}></span></a>
+            <p class="micro">オンライン・無料。相談だけで終わって大丈夫です。</p>
+          </div>
+        </div></div>
+
+        <div class="what rv">
+          <p class="label">AI検索対策（LLMO）とは</p>
+          <h3>どこで探されても<span class="p">、</span><span class="nb">御社が見つかる<span class="p">。</span></span></h3>
           <p>お客様が探す3つの場所を、まとめて整えます。</p>
         </div>
 
@@ -467,6 +502,24 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
 
   /* ===== 3 仕組みの図 ===== */
   .stack figcaption { font-size: 12px; color: var(--ink-3); }
+  .now { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); }
+  .now li { padding: 28px 24px 4px 0; }
+  .now li + li { padding-left: 24px; border-left: 1px solid var(--line); }
+  .now-k { font-size: 15px; font-weight: 700; line-height: 1.6; min-height: 3.2em; }
+  .now-n { margin-top: 4px; font-family: var(--latin); color: var(--accent); line-height: 1.1; }
+  .now-n b { font-size: clamp(48px, 5.6vw, 72px); font-weight: 700; letter-spacing: -.03em; }
+  .now-n span { margin-left: 3px; font-size: clamp(20px, 2vw, 26px); font-weight: 700; }
+  .now-d { margin-top: 8px; font-size: 15px; color: var(--ink-2); line-height: 1.7; }
+  .src { margin-top: 20px; display: grid; gap: 2px; font-size: 13px; color: var(--ink-3); line-height: 1.7; }
+  .src a { color: inherit; border-bottom: 1px solid var(--line); }
+  .you { margin-top: clamp(32px, 5vh, 48px); }
+  .you .core { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 48px; align-items: center; padding: clamp(24px, 3.2vw, 40px); }
+  .you h3 { font-size: clamp(20px, 2.1vw, 26px); font-weight: 700; line-height: 1.5; }
+  .you-t p { margin-top: 10px; font-size: 16px; color: var(--ink-2); max-width: 34em; }
+  .you-cta .micro { max-width: 20em; }
+  .what { margin-top: clamp(48px, 7vh, 72px); }
+  .what h3 { margin-top: 10px; font-size: clamp(22px, 2.4vw, 30px); font-weight: 700; line-height: 1.5; }
+  .what h3 + p { margin-top: 6px; color: var(--ink-2); }
   .terms { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: clamp(28px, 4vh, 44px); border-top: 1px solid var(--line); }
   .terms li { padding: 28px 24px 4px 0; }
   .terms li + li { padding-left: 24px; border-left: 1px solid var(--line); }
@@ -595,6 +648,10 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
     h2 { font-size: clamp(28px, 5vw, 36px); }
     .worries li { padding: 16px 0; font-size: 17px; }
     .prompt { font-size: 16px; padding: 6px 12px; }
+    .now { grid-template-columns: 1fr; }
+    .now li, .now li + li { padding: 20px 0; border-left: 0; border-bottom: 1px solid var(--line); }
+    .now-k { min-height: 0; }
+    .you .core { grid-template-columns: 1fr; }
     .terms { grid-template-columns: 1fr; }
     .terms li, .terms li + li { display: grid; grid-template-columns: 1fr; gap: 2px; padding: 18px 0; border-left: 0; border-bottom: 1px solid var(--line); }
     .terms b { font-size: 22px; }
