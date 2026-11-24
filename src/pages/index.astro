@@ -60,11 +60,11 @@ const faqSchema = {
     </div>
     <!-- 5枚のカード（いまは色の面。言葉は仮。絵は手順3、動きは手順4） -->
     <div class="stage">
-      <a class="fan-c f1" href="/service/ai-automation"><i></i><span class="fan-t"><small class="mono">AI業務自動化</small>日報が、書かなくても上がる</span></a>
-      <a class="fan-c f2" href="/service/ai-automation"><i></i><span class="fan-t"><small class="mono">AI業務自動化</small>見積もりが、もう出ている</span></a>
-      <a class="fan-c f3" href="/service/ai-search"><i></i><span class="fan-t"><small class="mono">AI検索対策</small>「AIで見て、連絡しました」</span></a>
-      <a class="fan-c f4" href="/service/ai-consulting"><i></i><span class="fan-t"><small class="mono">AI顧問</small>「AIのことは、任せてあります」</span></a>
-      <a class="fan-c f5" href="#intro"><i></i><span class="fan-t"><small class="mono">MISSION</small>社長に、余白の時間</span></a>
+      <a class="fan-c f1" href="/service/ai-automation"><i></i><span class="fan-t"><small class="mono">AI業務自動化</small>日報が、書かなくても上がる<br><em class="fan-more">くわしく見る</em></span></a>
+      <a class="fan-c f2" href="/service/ai-automation"><i></i><span class="fan-t"><small class="mono">AI業務自動化</small>見積もりが、もう出ている<br><em class="fan-more">くわしく見る</em></span></a>
+      <a class="fan-c f3" href="/service/ai-search"><i></i><span class="fan-t"><small class="mono">AI検索対策</small>「AIで見て、連絡しました」<br><em class="fan-more">くわしく見る</em></span></a>
+      <a class="fan-c f4" href="/service/ai-consulting"><i></i><span class="fan-t"><small class="mono">AI顧問</small>「AIのことは、任せてあります」<br><em class="fan-more">くわしく見る</em></span></a>
+      <a class="fan-c f5" href="#intro"><i></i><span class="fan-t"><small class="mono">MISSION</small>社長に、余白の時間<br><em class="fan-more">くわしく見る</em></span></a>
     </div>
   </section>
 
@@ -318,12 +318,24 @@ const faqSchema = {
   .fan-c + .fan-c { margin-left: calc(var(--u) * -3.4); }
   .fan-c i { display: block; width: 100%; height: 100%; border-radius: 16px; }
   .fan-t { position: absolute; left: 0; right: 0; top: 34%; padding: 0 12%; text-align: center; color: #fff; font-weight: 700; font-size: clamp(14px, calc(var(--u) * 1.3), 21px); line-height: 1.5; font-feature-settings: "palt"; }
+  .fan-t em { font-style: normal; }
   .fan-t small { display: block; margin-bottom: 4px; font-size: 12px; font-weight: 500; letter-spacing: .06em; opacity: .82; }
-  .f1 { width: calc(var(--u) * 25); z-index: 1; transform: translateY(33%) rotate(-5deg); }
-  .f2 { width: calc(var(--u) * 23); z-index: 2; transform: translateY(26%) rotate(2.5deg); }
-  .f3 { width: calc(var(--u) * 30); z-index: 3; transform: translateY(15%) rotate(-.6deg); }
-  .f4 { width: calc(var(--u) * 23); z-index: 2; transform: translateY(28%) rotate(-2.5deg); }
-  .f5 { width: calc(var(--u) * 25); z-index: 1; transform: translateY(35%) rotate(4deg); }
+  .f1 { width: calc(var(--u) * 25); z-index: 1; --ty: 33%; --rot: -5deg; --d: .34s; }
+  .f2 { width: calc(var(--u) * 23); z-index: 2; --ty: 26%; --rot: 2.5deg; --d: .18s; }
+  .f3 { width: calc(var(--u) * 30); z-index: 3; --ty: 15%; --rot: -.6deg; --d: .08s; }
+  .f4 { width: calc(var(--u) * 23); z-index: 2; --ty: 28%; --rot: -2.5deg; --d: .24s; }
+  .f5 { width: calc(var(--u) * 25); z-index: 1; --ty: 35%; --rot: 4deg; --d: .4s; }
+  /* 動き：登場は下からせり上がる（色は変えない）。載せた1枚はまっすぐになって手前へ、ほかは色が抜ける */
+  .fan-c { transform: translateY(var(--ty)) rotate(var(--rot)); transition: transform .7s var(--ease), box-shadow .3s var(--ease); animation: fan-in 1.05s var(--ease) var(--d) backwards; }
+  .fan-c i { transition: filter .3s var(--ease); }
+  @keyframes fan-in { from { transform: translateY(calc(var(--ty) + 85%)) rotate(var(--rot)); } }
+  .fan-more { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; font-size: 13px; font-weight: 500; opacity: 0; transition: opacity .25s var(--ease); border-bottom: 1px solid rgba(255,255,255,.7); }
+  @media (hover: hover) and (pointer: fine) {
+    .fan-c:hover, .fan-c:focus-visible { --rot: 0deg; z-index: 6; box-shadow: 0 40px 70px -24px rgba(0,0,0,.85); }
+    .fan-c:hover .fan-more, .fan-c:focus-visible .fan-more { opacity: 1; }
+    .stage:has(.fan-c:hover) .fan-c:not(:hover) i, .stage:has(.fan-c:focus-visible) .fan-c:not(:focus-visible) i { filter: grayscale(1) brightness(.92); }
+  }
+  @media (prefers-reduced-motion: reduce) { .fan-c { animation: none; transition: none; } .fan-c i, .fan-more { transition: none; } }
   /* 中央以外は字を少し小さく1行に。両端は、画面の中に残る側へ字を寄せる */
   .fan-c:not(.f3) .fan-t { padding: 0 5%; white-space: nowrap; font-size: clamp(13px, calc(var(--u) * 1.12), 19px); }
   .fan-c.f1 .fan-t { padding-left: 34%; padding-right: 12%; }
@@ -517,10 +529,10 @@ const faqSchema = {
     .hero .stage { --u: 1vw; height: 52vw; margin-top: 30px; }
     .f1, .f5 { display: none; }
     .f2, .f4 { width: 62vw; }
-    .f3 { width: 76vw; transform: translateY(12%) rotate(-.6deg); }
+    .f3 { width: 76vw; --ty: 12%; }
     .hero .stage .f2 { margin-left: 0; }
-    .f2 { transform: translateY(20%) rotate(-4deg); }
-    .f4 { transform: translateY(22%) rotate(4deg); }
+    .f2 { --ty: 20%; --rot: -4deg; }
+    .f4 { --ty: 22%; --rot: 4deg; }
     .fan-c + .fan-c { margin-left: -6vw; }
     .fan-c { padding: 5px; border-radius: 18px; }
     .fan-c i { border-radius: 13px; }
