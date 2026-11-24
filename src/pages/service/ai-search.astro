@@ -97,6 +97,13 @@ const reasons = [
   { t: '信用が、AIと検索に伝わる', d: 'AIも検索も、確かな情報を手がかりに答えます。' },
 ]
 
+// 無料診断：すること → 分かること → お渡しする物
+const diag = [
+  { t: 'その場で、AIに聞く', d: 'お客様が聞きそうな質問を、ChatGPT などに入力します。' },
+  { t: '出方を、一緒に見る', d: '御社の名前が出るか。どう紹介されるか。出ないときは、考えられる理由も見ます。' },
+  { t: '結果を、1枚でお渡しする', d: '聞いた質問・出方・気づいた点を、診断のあとにまとめてお渡しします。' },
+]
+
 const flow = [
   { t: '無料診断', d: '30分・オンライン。AIでの出方を一緒に確認' },
   { t: 'お申し込み', d: '最低3か月。その後は1か月ごと' },
@@ -292,11 +299,41 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
       </div>
     </section>
 
-    <!-- 6 料金プラン -->
+    <!-- 6 まずは無料診断：すること・分かること・お渡しする1枚 -->
+    <section class="sec" id="diagnosis">
+      <div class="wrap">
+        <div class="sec-head rv">
+          <div><p class="label"><span class="mono">05</span>まずは無料診断</p><h2><span class="nb">30分で<span class="p">、</span></span><br class="sp-br"/><span class="nb">いまの出方が分かる<span class="p">。</span></span></h2></div>
+          <p>オンライン・無料。相談だけで終わって大丈夫です。</p>
+        </div>
+        <div class="reason-grid">
+          <ol class="reasons rv">
+            {diag.map((r, i) => (
+              <li><span class="mono n">{String(i + 1).padStart(2, '0')}</span><div><h3>{r.t}</h3><p>{r.d}</p></div></li>
+            ))}
+          </ol>
+          <figure class="sheet shell rv"><div class="core">
+            <p class="sheet-h"><span class="tag">お渡しする1枚</span><span class="mono">AI検索の診断メモ</span></p>
+            <dl>
+              <div><dt>聞いた質問</dt><dd>「福岡市で、おすすめの工務店を教えてください」</dd></div>
+              <div><dt>御社の名前</dt><dd class="chips"><span>出た</span><span>出なかった</span></dd></div>
+              <div><dt>紹介のされ方</dt><dd class="ln" aria-hidden="true"><i></i><i></i></dd></div>
+              <div><dt>気づいた点</dt><dd class="pts" aria-hidden="true"><span class="mono">1</span><i></i><span class="mono">2</span><i></i><span class="mono">3</span><i></i></dd></div>
+            </dl>
+            <figcaption>図はイメージ</figcaption>
+          </div></figure>
+        </div>
+        <div class="cta diag-cta rv">
+          <a class="btn btn-1" href="/contact">AI検索の無料診断（30分）<span class="ic" set:html={arrow}></span></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7 料金プラン -->
     <section class="sec tint" id="price">
       <div class="wrap">
         <div class="sec-head rv">
-          <div><p class="label"><span class="mono">05</span>料金プラン</p><h2>料金は<span class="p">、</span>月額ひとつ<span class="p">。</span></h2></div>
+          <div><p class="label"><span class="mono">06</span>料金プラン</p><h2>料金は<span class="p">、</span>月額ひとつ<span class="p">。</span></h2></div>
           <p>取材・記事・更新・レポートまで、すべて含みます。</p>
         </div>
         <div class="shell plan rv"><div class="core">
@@ -332,7 +369,7 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
     <section class="sec faq" id="faq">
       <div class="wrap grid">
         <div class="side rv">
-          <p class="label"><span class="mono">06</span>FAQ</p>
+          <p class="label"><span class="mono">07</span>FAQ</p>
           <h2>よくある質問</h2>
           <p>ほかにも気になることがあれば、無料診断でそのままお聞きください。</p>
           <a class="more-link" href="/faq">ほかの質問を見る<span set:html={arrow}></span></a>
@@ -542,6 +579,24 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
   .reasons .n { font-size: 14px; color: var(--accent); padding-top: 5px; }
   .reasons h3 { font-size: clamp(19px, 1.8vw, 22px); font-weight: 700; line-height: 1.5; }
   .reasons p { font-size: 15px; color: var(--ink-2); margin-top: 4px; line-height: 1.75; }
+  .sheet .core { padding: 24px 24px 16px; }
+  .sheet-h { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 8px 12px; }
+  .sheet-h .mono { font-size: 13px; color: var(--ink-3); }
+  .sheet dl { margin-top: 14px; border-top: 1px solid var(--hair); }
+  .sheet dl > div { display: grid; grid-template-columns: 6.5em minmax(0, 1fr); gap: 12px; align-items: center; padding: 14px 0; border-bottom: 1px solid var(--hair); }
+  .sheet dt { font-size: 14px; color: var(--ink-3); line-height: 1.6; }
+  .sheet dd { font-size: 15px; font-weight: 500; line-height: 1.7; }
+  .sheet .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+  .sheet .chips span { display: inline-flex; align-items: center; min-height: 28px; padding: 0 12px; border: 1px solid var(--line); border-radius: 999px; font-size: 13px; }
+  .sheet .ln { display: grid; gap: 8px; }
+  .sheet .ln i, .sheet .pts i { display: block; height: 8px; border-radius: 4px; background: rgba(10,10,10,.08); }
+  .sheet .ln i:last-child { width: 62%; }
+  .sheet .pts { display: grid; grid-template-columns: 1.4em minmax(0, 1fr); gap: 10px 0; align-items: center; }
+  .sheet .pts .mono { font-size: 13px; color: var(--accent); }
+  .sheet .pts i:nth-of-type(2) { width: 78%; }
+  .sheet .pts i:nth-of-type(3) { width: 54%; }
+  .sheet figcaption { margin-top: 12px; text-align: right; font-size: 12px; color: var(--ink-3); }
+  .diag-cta { margin-top: clamp(28px, 4vh, 40px); }
   .stack .core { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 0 24px; padding: 24px 24px 16px; }
   .stack-t { font-size: 19px; font-weight: 700; line-height: 1.5; }
   .stack-t span { display: block; font-size: 14px; font-weight: 400; color: var(--ink-2); }
@@ -653,6 +708,8 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
     .cycle .core { padding: 18px 20px 20px; }
     .cycle h3 { margin-top: 10px; }
     .stack .core { gap: 0 14px; padding: 18px 16px 14px; }
+    .sheet .core { padding: 18px 16px 14px; }
+    .sheet dl > div { grid-template-columns: 5.6em minmax(0, 1fr); gap: 10px; }
     .stack-t { font-size: 17px; }
     .bars { height: 96px; gap: 3px; }
     .flow { grid-template-columns: 1fr; gap: 16px; }
