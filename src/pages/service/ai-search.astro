@@ -88,10 +88,11 @@ const monthly = [
   { k: '点検・レポート', pre: '月', n: '1', post: '回', d: 'ホームページと地図を更新。AIでの出方を報告。' },
 ]
 
+// 残る → 信用になる → AIと検索に伝わる（毎月の固定費を、残るものへ）
 const reasons = [
-  { t: '広告を止めても、残る', d: '記事は御社の名義で公開。ご契約を終えても、御社の情報として残ります。' },
-  { t: '何をすればいいか、迷わない', d: '検索・地図・AIの対策を、まとめてお任せ。窓口はひとつです。' },
-  { t: '何をしたかが、毎月見える', d: 'AIが御社をどう答えたかを、毎月確かめて報告します。' },
+  { t: '記事は、残る', d: '御社の名義で公開します。ご契約を終えても、御社の情報として残ります。' },
+  { t: '残った事実が、信用になる', d: '何をしてきた会社かが、読めば分かるようになります。' },
+  { t: '信用が、AIと検索に伝わる', d: 'AIも検索も、確かな情報を手がかりに答えます。' },
 ]
 
 const flow = [
@@ -222,8 +223,8 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
     <section class="sec" id="reason">
       <div class="wrap">
         <div class="sec-head rv">
-          <div><p class="label"><span class="mono">03</span>解決できること</p><h2>紹介と広告だけに<span class="p">、</span><br/>頼らない集客へ<span class="p">。</span></h2></div>
-          <p>広告は、止めると表示も止まります。記事は、止めても残ります。</p>
+          <div><p class="label"><span class="mono">03</span>解決できること</p><h2><span class="nb">毎月の固定費を<span class="p">、</span></span><br/><span class="nb">残るものへ<span class="p">。</span></span></h2></div>
+          <p>広告は、止めると止まります。SNSの投稿は、流れていきます。記事は、残ります。</p>
         </div>
         <div class="reason-grid">
           <ol class="reasons rv">
