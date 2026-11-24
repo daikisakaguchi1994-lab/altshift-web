@@ -343,6 +343,8 @@ const faqSchema = {
   .fan-c.f5 .fan-t { padding-right: 34%; padding-left: 12%; }
   .fan-c.f2 .fan-t { padding-right: 15%; }
   .fan-c.f4 .fan-t { padding-left: 15%; }
+  @media (min-width: 768px) and (max-width: 1159px) { .fan-c:not(.f3) .fan-t { white-space: normal; word-break: keep-all; line-break: strict; line-height: 1.4; } .fan-c.f3 .fan-t { padding: 0 6%; white-space: nowrap; } }
+  @media (min-width: 768px) and (max-width: 900px) { .fan-c:not(.f3) .fan-t { font-size: 12px; } }
   /* 5枚の絵（生成画像）。上から濃紺の膜を重ねて、字を読めるようにする */
   .f1 i { background: linear-gradient(180deg, rgba(6,12,28,.72) 0%, rgba(6,12,28,.56) 32%, rgba(6,12,28,0) 64%), #1b222c url("/images/top/hero-daily.webp") center / cover no-repeat; }
   .f2 i { background: linear-gradient(180deg, rgba(6,12,28,.72) 0%, rgba(6,12,28,.56) 32%, rgba(6,12,28,0) 64%), #173f86 url("/images/top/hero-estimate.webp") center / cover no-repeat; }
@@ -542,6 +544,8 @@ const faqSchema = {
     .fan-c i { border-radius: 13px; }
     .fan-t { font-size: 16px; }
     .f2 .fan-t, .f4 .fan-t { visibility: hidden; }
+    .fan-c.f3 .fan-t { padding: 0 6%; white-space: nowrap; }
+    .fan-note { right: calc(12vw + 9px); bottom: 9px; padding: 1px 7px; font-size: 10px; }
     .sp-br { display: inline; }
     .hero h1 { font-size: 48px; }
     .sub { font-size: 20px; margin-top: 16px; }
