@@ -82,10 +82,12 @@ const terms = [
   { t: 'LLMO・AIO', d: 'AIに、見つけてもらいやすくなる' },
 ]
 
-const monthly = [
-  { k: '取材', pre: '月', n: '1', post: '回', d: '30〜45分。オンラインで話すだけ。' },
-  { k: '記事', pre: '月', n: '2', post: '本', d: '御社の名義で公開。確認のうえで。' },
-  { k: '点検・レポート', pre: '月', n: '1', post: '回', d: 'ホームページと地図を更新。AIでの出方を報告。' },
+// 毎月の進み方（社長がすることは2つ。回数・本数は文の中に普通の大きさで書く）
+const cycle = [
+  { you: true, t: '話す', d: '月に1回、オンラインで<span class="nb">30〜45分</span>。お話しいただくだけです。' },
+  { you: false, t: '記事にする', d: 'お話を整理して、記事を2本書きます。' },
+  { you: true, t: '確かめる', d: 'できた記事を読んで、確かめていただきます。' },
+  { you: false, t: '公開して、報告する', d: '御社の名義で公開。ホームページと地図を更新し、AIでの出方を毎月報告します。' },
 ]
 
 // 残る → 信用になる → AIと検索に伝わる（毎月の固定費を、残るものへ）
@@ -267,23 +269,18 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
     <section class="sec tint" id="service">
       <div class="wrap">
         <div class="sec-head rv">
-          <div><p class="label"><span class="mono">04</span>サービス内容・ご利用の流れ</p><h2>毎月<span class="p">、</span>ここまで<br class="sp-br"/>代行します<span class="p">。</span></h2></div>
-          <p>社長にお願いするのは、話すことと、できた記事の確認だけです。</p>
+          <div><p class="label"><span class="mono">04</span>サービス内容・ご利用の流れ</p><h2><span class="nb">社長がすることは<span class="p">、</span></span><br class="sp-br"/><span class="nb">2つだけ<span class="p">。</span></span></h2></div>
+          <p>話すことと、できた記事を確かめること。あとは、こちらで進めます。</p>
         </div>
-        <ul class="monthly">
-          {monthly.map((m, i) => (
-            <li class="shell rv"><div class="core">
-              <span class="mono n">{String(i + 1).padStart(2, '0')}</span>
-              <small>{m.k}</small>
-              <b>{m.pre}<em>{m.n}</em>{m.post}</b>
-              <p>{m.d}</p>
+        <ol class="cycle" aria-label="毎月の進み方">
+          {cycle.map((c, i) => (
+            <li class={c.you ? 'shell rv is-you' : 'shell rv'}><div class="core">
+              <div class="cy-top"><span class="mono n">{String(i + 1).padStart(2, '0')}</span><span class="by">{c.you ? '社長' : 'AltShift'}</span></div>
+              <h3>{c.t}</h3>
+              <p set:html={c.d}></p>
             </div></li>
           ))}
-        </ul>
-        <div class="roles rv" role="img" aria-label="役割の分担。社長は、話すことと確認すること。AltShift は、整理・執筆・更新・点検・報告。">
-          <div class="you"><small>社長</small><b>話す・確認する</b></div>
-          <div class="we"><small>AltShift</small><b>整理・執筆・更新・点検・報告</b></div>
-        </div>
+        </ol>
         <div class="flow rv">
           <h3>ご利用の流れ</h3>
           <ol class="steps">
@@ -528,21 +525,15 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
   .terms span { display: block; margin-top: 6px; font-size: 17px; color: var(--ink); line-height: 1.7; word-break: keep-all; overflow-wrap: anywhere; }
 
   /* ===== 4 サービス内容 ===== */
-  .monthly { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-  .monthly .core { height: 100%; padding: 24px 26px 26px; }
-  .monthly .n { display: block; font-size: 14px; color: var(--ink-3); }
-  .monthly small { display: block; font-size: 15px; font-weight: 700; margin-top: 10px; }
-  .monthly b { display: block; font-size: 20px; font-weight: 700; line-height: 1.2; margin-top: 2px; }
-  .monthly em { font-style: normal; font-family: var(--latin); font-weight: 600; font-size: clamp(48px, 5vw, 64px); letter-spacing: -.03em; color: var(--accent); margin: 0 4px; }
-  .monthly p { margin-top: 12px; padding-top: 14px; border-top: 1px solid var(--hair); font-size: 15px; color: var(--ink-2); line-height: 1.75; }
-  .roles { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2.4fr); gap: 6px; margin-top: 16px; }
-  .roles > div { padding: 16px 22px; border-radius: 16px; }
-  .roles small { display: block; font-size: 14px; line-height: 1.6; }
-  .roles b { display: block; font-size: 17px; font-weight: 700; line-height: 1.6; }
-  .roles .you { background: #fff; box-shadow: inset 0 0 0 1px var(--line); }
-  .roles .you small { color: var(--ink-3); }
-  .roles .we { background: var(--accent); color: #fff; }
-  .roles .we small { color: rgba(255,255,255,.82); }
+  .cycle { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+  .cycle .core { height: 100%; padding: 22px 22px 24px; }
+  .cycle .is-you { box-shadow: 0 0 0 1.5px var(--accent); }
+  .cy-top { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+  .cycle .n { font-size: 14px; color: var(--ink-3); }
+  .cycle .by { display: inline-flex; align-items: center; min-height: 26px; padding: 0 12px; border-radius: 999px; font-size: 13px; font-weight: 700; line-height: 1; background: rgba(10,10,10,.05); color: var(--ink-2); }
+  .cycle .is-you .by { background: var(--accent); color: #fff; }
+  .cycle h3 { margin-top: 16px; font-size: clamp(19px, 1.8vw, 22px); font-weight: 700; line-height: 1.5; }
+  .cycle p { margin-top: 8px; font-size: 15px; color: var(--ink-2); line-height: 1.75; }
 
   /* ===== 5 3つの特長 ===== */
   .reason-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
@@ -634,6 +625,7 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
   @media (max-width: 959px) {
     .hero-grid { grid-template-columns: 1fr; }
     .worry-grid, .reason-grid { grid-template-columns: 1fr; }
+    .cycle { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   }
 
   /* ===== スマホ ===== */
@@ -657,14 +649,9 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
     .terms li, .terms li + li { display: grid; grid-template-columns: 1fr; gap: 2px; padding: 18px 0; border-left: 0; border-bottom: 1px solid var(--line); }
     .terms b { font-size: 22px; }
     .terms span { font-size: 16px; margin-top: 0; }
-    .monthly { grid-template-columns: 1fr; gap: 10px; }
-    .monthly .core { display: grid; grid-template-columns: auto minmax(0, 1fr); column-gap: 16px; align-items: center; padding: 16px 18px; }
-    .monthly .n { display: none; }
-    .monthly small { margin-top: 0; grid-column: 2; }
-    .monthly b { grid-row: 1 / span 2; grid-column: 1; margin: 0; min-width: 4.6em; }
-    .monthly em { font-size: 44px; }
-    .monthly p { grid-column: 2; margin-top: 2px; padding-top: 0; border-top: 0; font-size: 14px; }
-    .roles { grid-template-columns: 1fr; }
+    .cycle { grid-template-columns: 1fr; gap: 10px; }
+    .cycle .core { padding: 18px 20px 20px; }
+    .cycle h3 { margin-top: 10px; }
     .stack .core { gap: 0 14px; padding: 18px 16px 14px; }
     .stack-t { font-size: 17px; }
     .bars { height: 96px; gap: 3px; }
