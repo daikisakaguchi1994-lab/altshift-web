@@ -183,13 +183,13 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
           <p>1つ目は、前年と同じ20〜69歳で比べた数字です。3つ目は「AIを使う」と答えた3つの選択肢の合計です（当社で計算）。</p>
         </div>
 
-        <div class="you shell rv"><div class="core">
-          <div class="you-t">
+        <div class="ask shell rv"><div class="core">
+          <div class="ask-t">
             <h3><span class="nb">御社のお客様にも<span class="p">、</span></span><span class="nb">問い合わせの前に</span><span class="nb">AIへ聞く方が<span class="p">、</span></span><span class="nb">いるかもしれません<span class="p">。</span></span></h3>
             <p>そのとき、AIは御社のことをどう答えているでしょうか。</p>
             <p>対策は、記事を積み上げていく形です。すぐには変わりません。だからこそ、早めに一度、いまの出方を確かめておくことをおすすめします。</p>
           </div>
-          <div class="you-cta">
+          <div class="ask-cta">
             <a class="btn btn-1" href="/contact">AI検索の無料診断（30分）<span class="ic" set:html={arrow}></span></a>
             <p class="micro">オンライン・無料。相談だけで終わって大丈夫です。</p>
           </div>
@@ -513,11 +513,11 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
   .now-d { margin-top: 8px; font-size: 15px; color: var(--ink-2); line-height: 1.7; }
   .src { margin-top: 20px; display: grid; gap: 2px; font-size: 13px; color: var(--ink-3); line-height: 1.7; }
   .src a { color: inherit; border-bottom: 1px solid var(--line); }
-  .you { margin-top: clamp(32px, 5vh, 48px); }
-  .you .core { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 48px; align-items: center; padding: clamp(24px, 3.2vw, 40px); }
-  .you h3 { font-size: clamp(20px, 2.1vw, 26px); font-weight: 700; line-height: 1.5; }
-  .you-t p { margin-top: 10px; font-size: 16px; color: var(--ink-2); max-width: 34em; }
-  .you-cta .micro { max-width: 20em; }
+  .ask { margin-top: clamp(32px, 5vh, 48px); }
+  .ask .core { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 24px 48px; align-items: center; padding: clamp(24px, 3.2vw, 40px); }
+  .ask h3 { font-size: clamp(20px, 2.1vw, 26px); font-weight: 700; line-height: 1.5; }
+  .ask-t p { margin-top: 10px; font-size: 16px; color: var(--ink-2); max-width: 34em; }
+  .ask-cta .micro { max-width: 20em; }
   .what { margin-top: clamp(48px, 7vh, 72px); }
   .what h3 { margin-top: 10px; font-size: clamp(22px, 2.4vw, 30px); font-weight: 700; line-height: 1.5; }
   .what h3 + p { margin-top: 6px; color: var(--ink-2); }
@@ -652,7 +652,7 @@ const tick = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke
     .now { grid-template-columns: 1fr; }
     .now li, .now li + li { padding: 20px 0; border-left: 0; border-bottom: 1px solid var(--line); }
     .now-k { min-height: 0; }
-    .you .core { grid-template-columns: 1fr; }
+    .ask .core { grid-template-columns: 1fr; }
     .terms { grid-template-columns: 1fr; }
     .terms li, .terms li + li { display: grid; grid-template-columns: 1fr; gap: 2px; padding: 18px 0; border-left: 0; border-bottom: 1px solid var(--line); }
     .terms b { font-size: 22px; }
