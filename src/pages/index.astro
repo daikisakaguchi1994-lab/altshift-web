@@ -306,16 +306,12 @@ const faqSchema = {
   .core { background: #fff; border-radius: 16px; box-shadow: 0 30px 60px -48px rgba(10,10,10,.35); }
 
   /* ===== 1画面目（8） ===== */
-  /* 1画面目だけ濃い地（黒 → 濃紺。自社の青の色相）。下の節は白のまま */
-  .hero { position: relative; margin-top: 76px; display: flex; flex-direction: column; overflow: hidden; color: #fff;
-    background: radial-gradient(70% 55% at 50% 112%, rgba(27,94,190,.42), transparent 72%), linear-gradient(180deg, #05070c 0%, #070d1a 44%, #0b1a36 100%); }
-  /* 細かいざらつき */
-  .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: .14;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E"); }
+  /* 1画面目は薄い灰の地（白いカードのふちと、次の白い節との境目が見える）。下の節は白のまま */
+  .hero { position: relative; padding-top: 76px; display: flex; flex-direction: column; overflow: hidden; color: var(--ink); background: #f3f5f8; }
   .hero .main { display: flex; flex-direction: column; align-items: center; text-align: center; padding: clamp(40px, 9vh, 96px) 0 0; position: relative; z-index: 2; }
   /* 5枚の扇：--u は幅の単位（広い画面では止める） */
   .hero .stage { --u: min(1vw, 20px); position: relative; z-index: 1; display: flex; justify-content: center; align-items: flex-end; height: calc(var(--u) * 19.5); margin-top: clamp(28px, 5vh, 56px); }
-  .fan-c { flex: none; position: relative; display: block; aspect-ratio: 4 / 3; padding: 6px; border-radius: 22px; background: #fff; box-shadow: 0 34px 60px -28px rgba(0,0,0,.7); transform-origin: 50% 100%; }
+  .fan-c { flex: none; position: relative; display: block; aspect-ratio: 4 / 3; padding: 6px; border-radius: 22px; background: #fff; box-shadow: 0 0 0 1px rgba(10,10,10,.06), 0 30px 54px -30px rgba(12,24,56,.4); transform-origin: 50% 100%; }
   .fan-c + .fan-c { margin-left: calc(var(--u) * -3.4); }
   .fan-c i { display: block; width: 100%; height: 100%; border-radius: 16px; }
   .fan-t { position: absolute; left: 0; right: 0; top: 34%; padding: 0 12%; text-align: center; color: #fff; font-weight: 700; font-size: clamp(14px, calc(var(--u) * 1.3), 21px); line-height: 1.5; font-feature-settings: "palt"; }
@@ -332,7 +328,7 @@ const faqSchema = {
   @keyframes fan-in { from { transform: translateY(calc(var(--ty) + 85%)) rotate(var(--rot)); } }
   .fan-more { display: inline-flex; align-items: center; gap: 4px; margin-top: 8px; font-size: 13px; font-weight: 500; opacity: 0; transition: opacity .25s var(--ease); border-bottom: 1px solid rgba(255,255,255,.7); }
   @media (hover: hover) and (pointer: fine) {
-    .fan-c:hover, .fan-c:focus-visible { --rot: 0deg; z-index: 6; box-shadow: 0 40px 70px -24px rgba(0,0,0,.85); }
+    .fan-c:hover, .fan-c:focus-visible { --rot: 0deg; z-index: 6; box-shadow: 0 0 0 1px rgba(10,10,10,.06), 0 40px 70px -28px rgba(12,24,56,.5); }
     .fan-c:hover .fan-more, .fan-c:focus-visible .fan-more { opacity: 1; }
     .stage:has(.fan-c:hover) .fan-c:not(:hover) i, .stage:has(.fan-c:focus-visible) .fan-c:not(:focus-visible) i { filter: grayscale(1) brightness(.92); }
   }
@@ -354,11 +350,9 @@ const faqSchema = {
   .fan-note { position: absolute; right: 14px; bottom: 10px; z-index: 7; margin: 0; padding: 2px 8px; border-radius: 999px; font-size: 11px; line-height: 1.6; color: rgba(255,255,255,.82); background: rgba(5,8,14,.5); pointer-events: none; }
   .f4 i { background: linear-gradient(180deg, rgba(6,12,28,.72) 0%, rgba(6,12,28,.56) 32%, rgba(6,12,28,0) 64%), #2a3384 url("/images/top/hero-advisor.webp") center / cover no-repeat; }
   .f5 i { background: linear-gradient(180deg, rgba(6,12,28,.72) 0%, rgba(6,12,28,.56) 32%, rgba(6,12,28,0) 64%), #303947 url("/images/top/hero-mission.webp") center / cover no-repeat; }
-  .hero .eyebrow { color: rgba(255,255,255,.78); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.06); }
-  .hero h1 .hl { display: inline-block; margin-top: .14em; padding: .02em .26em .06em; border-radius: .2em; color: #a9c9ff; background: rgba(27,94,190,.26); box-shadow: inset 0 0 0 1px rgba(140,180,255,.34); }
-  .hero .sub { color: rgba(255,255,255,.86); }
-  .hero .btn-1 { background: #fff; color: var(--ink); }
-  .hero .btn-2 { padding: 0 14px; gap: 6px; border: 0; background: transparent; color: #fff; justify-content: center; transition: opacity .3s var(--ease); }
+  .hero .eyebrow { background: #fff; }
+  .hero h1 .hl { display: inline-block; margin-top: .14em; padding: .02em .26em .06em; border-radius: .2em; color: var(--accent); background: rgba(27,94,190,.09); box-shadow: inset 0 0 0 1px rgba(27,94,190,.2); }
+  .hero .btn-2 { padding: 0 14px; gap: 6px; border: 0; background: transparent; color: var(--ink); justify-content: center; transition: opacity .3s var(--ease); }
   .hero .btn-2:hover { opacity: .7; }
   /* はじめに（1画面目から移した要素） */
   .intro { background: var(--bg); }
@@ -529,7 +523,7 @@ const faqSchema = {
     .nav { height: 64px; }
     .links { display: none; }
     .menu { display: flex; }
-    .hero { margin-top: 64px; }
+    .hero { padding-top: 64px; }
     .hero .main { padding: 36px 0 0; }
     .hero .btn-2 { min-height: 48px; }
     .hero .stage { --u: 1vw; height: 52vw; margin-top: 30px; }
