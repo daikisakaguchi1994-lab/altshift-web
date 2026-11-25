@@ -44,7 +44,7 @@ const faqSchema = {
   description="福岡の中小企業のために、会社の中に入るエンジニア（FDE）が、社長の隣で、抱えすぎた仕事をAIの仕組みにします。AI検索対策・AI業務自動化・AI顧問。オンラインで全国対応、30分の無料相談。"
   schemaData={faqSchema}
 >
-  <Nav />
+  <Nav overDark=".hero" />
 <div class="tp">
   <main>
   <!-- 1 1画面目 -->
@@ -307,7 +307,7 @@ const faqSchema = {
 
   /* ===== 1画面目（8） ===== */
   /* 1画面目だけ濃い地（黒 → 濃紺。自社の青の色相）。下の節は白のまま */
-  .hero { position: relative; margin-top: 76px; display: flex; flex-direction: column; overflow: hidden; color: #fff;
+  .hero { position: relative; padding-top: 76px; display: flex; flex-direction: column; overflow: hidden; color: #fff;
     background: radial-gradient(70% 55% at 50% 112%, rgba(27,94,190,.42), transparent 72%), linear-gradient(180deg, #05070c 0%, #070d1a 44%, #0b1a36 100%); }
   /* 細かいざらつき */
   .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: .14;
@@ -529,7 +529,7 @@ const faqSchema = {
     .nav { height: 64px; }
     .links { display: none; }
     .menu { display: flex; }
-    .hero { margin-top: 64px; }
+    .hero { padding-top: 64px; }
     .hero .main { padding: 36px 0 0; }
     .hero .btn-2 { min-height: 48px; }
     .hero .stage { --u: 1vw; height: 52vw; margin-top: 30px; }
