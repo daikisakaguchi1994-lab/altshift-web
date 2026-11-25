@@ -308,20 +308,20 @@ const faqSchema = {
   /* ===== 1画面目（8） ===== */
   /* 1画面目は薄い灰の地（白いカードのふちと、次の白い節との境目が見える）。下の節は白のまま */
   .hero { position: relative; padding-top: 76px; display: flex; flex-direction: column; overflow: hidden; color: var(--ink); background: #f3f5f8; }
-  .hero .main { display: flex; flex-direction: column; align-items: center; text-align: center; padding: clamp(40px, 9vh, 96px) 0 0; position: relative; z-index: 2; }
+  .hero .main { display: flex; flex-direction: column; align-items: center; text-align: center; padding: clamp(32px, 7vh, 72px) 0 0; position: relative; z-index: 2; }
   /* 5枚の扇：--u は幅の単位（広い画面では止める） */
-  .hero .stage { --u: min(1vw, 20px); position: relative; z-index: 1; display: flex; justify-content: center; align-items: flex-end; height: calc(var(--u) * 19.5); margin-top: clamp(28px, 5vh, 56px); }
+  .hero .stage { --u: min(1vw, 20px); position: relative; z-index: 1; display: flex; justify-content: center; align-items: flex-end; height: calc(var(--u) * 21.6); margin-top: clamp(28px, 5vh, 56px); }
   .fan-c { flex: none; position: relative; display: block; aspect-ratio: 4 / 3; padding: 6px; border-radius: 22px; background: #fff; box-shadow: 0 0 0 1px rgba(10,10,10,.06), 0 30px 54px -30px rgba(12,24,56,.4); transform-origin: 50% 100%; }
   .fan-c + .fan-c { margin-left: calc(var(--u) * -3.4); }
   .fan-c i { display: block; width: 100%; height: 100%; border-radius: 16px; }
   .fan-t { position: absolute; left: 0; right: 0; top: 34%; padding: 0 12%; text-align: center; color: var(--ink); font-weight: 700; font-size: clamp(14px, calc(var(--u) * 1.3), 21px); line-height: 1.5; font-feature-settings: "palt"; }
   .fan-t em { font-style: normal; }
   .fan-t small { display: block; margin-bottom: 4px; font-size: 12px; font-weight: 500; letter-spacing: .06em; opacity: .82; }
-  .f1 { width: calc(var(--u) * 25); z-index: 1; --ty: 33%; --rot: -5deg; --d: .34s; }
-  .f2 { width: calc(var(--u) * 23); z-index: 2; --ty: 26%; --rot: 2.5deg; --d: .18s; }
-  .f3 { width: calc(var(--u) * 30); z-index: 3; --ty: 15%; --rot: -.6deg; --d: .08s; }
-  .f4 { width: calc(var(--u) * 23); z-index: 2; --ty: 28%; --rot: -2.5deg; --d: .24s; }
-  .f5 { width: calc(var(--u) * 25); z-index: 1; --ty: 35%; --rot: 4deg; --d: .4s; }
+  .f1 { width: calc(var(--u) * 25); z-index: 1; --ty: 24%; --rot: -5deg; --d: .34s; }
+  .f2 { width: calc(var(--u) * 23); z-index: 2; --ty: 17%; --rot: 2.5deg; --d: .18s; }
+  .f3 { width: calc(var(--u) * 30); z-index: 3; --ty: 6%; --rot: -.6deg; --d: .08s; }
+  .f4 { width: calc(var(--u) * 23); z-index: 2; --ty: 19%; --rot: -2.5deg; --d: .24s; }
+  .f5 { width: calc(var(--u) * 25); z-index: 1; --ty: 26%; --rot: 4deg; --d: .4s; }
   /* 動き：登場は下からせり上がる（色は変えない）。載せた1枚はまっすぐになって手前へ、ほかは色が抜ける */
   .fan-c { transform: translateY(var(--ty)) rotate(var(--rot)); transition: transform .7s var(--ease), box-shadow .3s var(--ease); animation: fan-in 1.05s var(--ease) var(--d) backwards; }
   .fan-c i { transition: filter .3s var(--ease); }
@@ -360,9 +360,11 @@ const faqSchema = {
   .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-size: 14px; color: var(--ink-2); padding: 6px 16px; border: 1px solid var(--line); border-radius: 999px; background: rgba(255,255,255,.7); }
   .eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
   /* 見出し：太さを1段落とし、字間をゆるめ、大きく置く（落ち着いた言い切り） */
-  .hero h1 { font-weight: 700; letter-spacing: -.012em; line-height: 1.22; font-size: clamp(46px, 5.8vw, 84px); margin-top: clamp(14px, 2.4vh, 26px); }
+  .hero h1 { font-weight: 700; letter-spacing: -.012em; line-height: 1.22; font-size: clamp(44px, 5vw, 72px); margin-top: clamp(14px, 2.4vh, 26px); }
   .sub { font-size: clamp(19px, 1.75vw, 25px); font-weight: 700; line-height: 1.6; letter-spacing: .02em; margin-top: clamp(18px, 3vh, 30px); font-feature-settings: "palt"; }
   .sub .p { margin-right: -.4em; }
+  .hero .sub { font-weight: 500; color: var(--ink-2); }
+  @media (min-width: 768px) { .hero .sub { font-size: clamp(18px, 1.5vw, 21px); } }
   .intro .lead { font-size: 17px; color: var(--ink-2); max-width: 46em; margin: 0 auto; }
   .lead strong { color: var(--ink); font-weight: 700; }
   .hero .cta { justify-content: center; margin-top: clamp(20px, 3.4vh, 34px); }
