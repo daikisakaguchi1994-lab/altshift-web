@@ -10,9 +10,11 @@ const items: [string, string][] = [
 ]
 // 今いるページは page、その配下のページ（例 /service/ai-search）は true
 const isCur = (h: string) => (path === h || path === h + '/' ? 'page' : path.startsWith(h + '/') ? 'true' : undefined)
+// overDark：濃い地の節（例 ".hero"）の上にいる間だけ、ナビを濃い色にする。渡さないページは今までどおり白
+const { overDark } = Astro.props as { overDark?: string }
 ---
 
-<header id="site-nav" class="gn">
+<header id="site-nav" class:list={['gn', overDark && 'gn-dark']} data-over-dark={overDark}>
   <div class="gn-in">
     <a class="gn-logo" href="/" aria-label="AltShift トップ"><i></i>altshift</a>
     <nav class="gn-links" aria-label="メイン">
@@ -54,6 +56,12 @@ const isCur = (h: string) => (path === h || path === h + '/' ? 'page' : path.sta
   .gn-menu[aria-expanded="true"] i:first-child { transform: translateY(3.25px) rotate(45deg); }
   .gn-menu[aria-expanded="true"] i:last-child { transform: translateY(-3.25px) rotate(-45deg); }
   .gn-sp { display: none; }
+  /* 濃い地の上にいる間（トップの1画面目）。スマホのメニューを開いたときは白に戻す */
+  .gn[data-over-dark] { transition: background-color .4s var(--ease), border-color .4s var(--ease); }
+  .gn[data-over-dark] .gn-logo { transition: color .4s var(--ease); }
+  .gn.gn-dark:not(.open) { --ink: #fff; --ink-2: rgba(255,255,255,.74); --line: rgba(255,255,255,.3); --hair: rgba(255,255,255,.09); background: rgba(5,7,12,.62); }
+  .gn.gn-dark:not(.open) .gn-links .gn-cta, .gn.gn-dark:not(.open) .gn-links .gn-cta:hover { color: #0a0a0a; }
+  .gn.gn-dark:not(.open) .gn-menu { background: transparent; }
   @media (max-width: 767px) {
     .gn-in { height: 64px; }
     .gn-links { display: none; }
@@ -76,4 +84,14 @@ const isCur = (h: string) => (path === h || path === h + '/' ? 'page' : path.sta
     btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く')
     header?.classList.toggle('open', open)
   })
+  // 濃い地の節の上にいる間だけ濃い色にする（指定のあるページだけ）
+  const zone = header?.dataset.overDark ? document.querySelector(header.dataset.overDark) : null
+  const bar = header?.querySelector('.gn-in')
+  if (header && zone && bar) {
+    let wait = false
+    const upd = () => { wait = false; header.classList.toggle('gn-dark', zone.getBoundingClientRect().bottom > bar.getBoundingClientRect().height) }
+    addEventListener('scroll', () => { if (!wait) { wait = true; requestAnimationFrame(upd) } }, { passive: true })
+    addEventListener('resize', upd)
+    upd()
+  }
 </script>
