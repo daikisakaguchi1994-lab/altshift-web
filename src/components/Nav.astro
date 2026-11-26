@@ -10,9 +10,11 @@ const items: [string, string][] = [
 ]
 // 今いるページは page、その配下のページ（例 /service/ai-search）は true
 const isCur = (h: string) => (path === h || path === h + '/' ? 'page' : path.startsWith(h + '/') ? 'true' : undefined)
+// overHero：薄い地の1画面目（例 ".hero"）の上にいる間だけ、帯をなくして地になじませる。渡さないページは今までどおり
+const { overHero } = Astro.props as { overHero?: string }
 ---
 
-<header id="site-nav" class="gn">
+<header id="site-nav" class:list={['gn', overHero && 'gn-over']} data-over-hero={overHero}>
   <div class="gn-in">
     <a class="gn-logo" href="/" aria-label="AltShift トップ"><i></i>altshift</a>
     <nav class="gn-links" aria-label="メイン">
@@ -54,6 +56,12 @@ const isCur = (h: string) => (path === h || path === h + '/' ? 'page' : path.sta
   .gn-menu[aria-expanded="true"] i:first-child { transform: translateY(3.25px) rotate(45deg); }
   .gn-menu[aria-expanded="true"] i:last-child { transform: translateY(-3.25px) rotate(-45deg); }
   .gn-sp { display: none; }
+  /* 1画面目の上にいる間（指定のあるページだけ）：白い帯と下の線をなくして地になじませ、相談ボタンは線だけにする（主役のボタンを1画面目の1つにする）。スマホのメニューを開いたときは白に戻す */
+  .gn[data-over-hero] { transition: background-color .4s var(--ease), border-color .4s var(--ease); }
+  .gn[data-over-hero] .gn-links .gn-cta { transition: background-color .4s var(--ease), color .4s var(--ease), box-shadow .4s var(--ease); }
+  .gn.gn-over:not(.open) { background: rgba(243,245,248,.8); border-bottom-color: transparent; }
+  .gn.gn-over:not(.open) .gn-links .gn-cta { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px rgba(10,10,10,.26); }
+  .gn.gn-over:not(.open) .gn-links .gn-cta:hover { background: var(--ink); color: #fff; box-shadow: none; }
   @media (max-width: 767px) {
     .gn-in { height: 64px; }
     .gn-links { display: none; }
@@ -76,4 +84,14 @@ const isCur = (h: string) => (path === h || path === h + '/' ? 'page' : path.sta
     btn.setAttribute('aria-label', open ? 'メニューを閉じる' : 'メニューを開く')
     header?.classList.toggle('open', open)
   })
+  // 1画面目の上にいる間だけ、地になじませる（指定のあるページだけ）
+  const zone = header?.dataset.overHero ? document.querySelector(header.dataset.overHero) : null
+  const bar = header?.querySelector('.gn-in')
+  if (header && zone && bar) {
+    let wait = false
+    const upd = () => { wait = false; header.classList.toggle('gn-over', zone.getBoundingClientRect().bottom > bar.getBoundingClientRect().height) }
+    addEventListener('scroll', () => { if (!wait) { wait = true; requestAnimationFrame(upd) } }, { passive: true })
+    addEventListener('resize', upd)
+    upd()
+  }
 </script>
