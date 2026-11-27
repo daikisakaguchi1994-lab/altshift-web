@@ -307,7 +307,7 @@ const faqSchema = {
 
   /* ===== 1画面目（8） ===== */
   /* 1画面目は濃い地（黒 → 濃い青緑）＋細かいざらつき。下の節は白のまま（2026-11-28 Daiki氏の指示で、色を参考のページに合わせた） */
-  .hero { position: relative; padding-top: 76px; display: flex; flex-direction: column; overflow: hidden; color: #fff; background: linear-gradient(180deg, #000000 0%, #061116 46%, #0c2032 100%); }
+  .hero { position: relative; padding-top: 64px; display: flex; flex-direction: column; overflow: hidden; color: #fff; background: linear-gradient(180deg, #000000 0%, #061116 46%, #0c2032 100%); }
   .hero::before { content: ""; position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: .19; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E"); }
   .hero .main { display: flex; flex-direction: column; align-items: center; text-align: center; padding: clamp(32px, 7vh, 72px) 0 0; position: relative; z-index: 2; }
   /* 5枚の扇：--u は幅の単位（広い画面では止める） */
