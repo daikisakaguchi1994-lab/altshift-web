@@ -357,7 +357,12 @@ const faqSchema = {
   .hero .eyebrow { color: rgba(255,255,255,.78); border-color: rgba(255,255,255,.18); background: rgba(255,255,255,.06); }
   .hero h1 .hl { display: inline-block; margin-top: .14em; padding: .02em .26em .06em; border-radius: .2em; color: #a7ddf2; background: #172d3a; box-shadow: inset 0 0 0 1px #35454e; }
   .hero .btn-2 { padding: 0 14px; gap: 6px; border: 0; background: transparent; color: #fff; justify-content: center; transition: opacity .3s var(--ease); }
-  .hero .btn-1 { background: #fff; color: #000; }
+  /* 1画面目のボタン：主は白い丸ボタンに小さな矢印だけ（丸い飾りなし）、副は太い字のリンク。PC は高さ40px、スマホは押しやすさのため56pxのまま */
+  .hero .btn-1 { background: #fff; color: #000; padding: 0 20px 0 22px; gap: 8px; }
+  .hero .btn-1 .ic { width: auto; height: auto; background: transparent; }
+  .hero .btn-1 .ic svg { stroke: currentColor; }
+  .hero .btn-2 { font-weight: 700; }
+  @media (min-width: 768px) { .hero .btn { min-height: 40px; font-size: 15px; } }
   .hero .btn-2:hover { opacity: .7; }
   /* はじめに（1画面目から移した要素） */
   .intro { background: var(--bg); }
