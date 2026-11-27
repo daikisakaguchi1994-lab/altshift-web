@@ -60,6 +60,8 @@ const { overHero } = Astro.props as { overHero?: string }
   .gn[data-over-hero] { transition: background-color .4s var(--ease), border-color .4s var(--ease); }
   .gn[data-over-hero] .gn-links .gn-cta { transition: background-color .4s var(--ease), color .4s var(--ease), box-shadow .4s var(--ease); }
   .gn[data-over-hero] .gn-logo { transition: color .4s var(--ease); }
+  /* 指定のあるページ（トップ）は、ヘッダーを少し低く・相談ボタンを小さく（スマホはもともと 64px） */
+  @media (min-width: 768px) { .gn[data-over-hero] .gn-in { height: 64px; } .gn[data-over-hero] .gn-links .gn-cta { min-height: 36px; padding: 0 16px; } }
   .gn.gn-over:not(.open) { --ink: #fff; --ink-2: rgba(255,255,255,.76); --line: rgba(255,255,255,.3); background: #000; border-bottom-color: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
   .gn.gn-over:not(.open) .gn-links .gn-cta { background: #fff; color: #000; }
   .gn.gn-over:not(.open) .gn-links .gn-cta:hover { background: rgba(255,255,255,.86); color: #000; }
