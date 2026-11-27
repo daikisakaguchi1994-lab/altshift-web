@@ -312,7 +312,7 @@ const faqSchema = {
   .hero .main { display: flex; flex-direction: column; align-items: center; text-align: center; padding: clamp(32px, 7vh, 72px) 0 0; position: relative; z-index: 2; }
   /* 5枚の扇：--u は幅の単位（広い画面では止める） */
   .hero .stage { --u: min(1vw, 20px); position: relative; z-index: 1; display: flex; justify-content: center; align-items: flex-end; height: calc(var(--u) * 21.6); margin-top: clamp(28px, 5vh, 56px); }
-  .fan-c { flex: none; position: relative; display: block; aspect-ratio: 4 / 3; padding: 6px; border-radius: 22px; background: #fff; box-shadow: 0 34px 60px -28px rgba(0,0,0,.7); transform-origin: 50% 100%; }
+  .fan-c { flex: none; position: relative; display: block; aspect-ratio: 4 / 3; padding: 8px; border-radius: 24px; background: #fff; box-shadow: 0 34px 60px -28px rgba(0,0,0,.7); transform-origin: 50% 100%; }
   .fan-c + .fan-c { margin-left: calc(var(--u) * -3.4); }
   .fan-c i { --veil: linear-gradient(180deg, rgba(8,13,16,.74) 0%, rgba(8,13,16,.56) 30%, rgba(8,13,16,0) 62%); display: block; width: 100%; height: 100%; border-radius: 16px; }
   @media (min-width: 768px) and (max-width: 1159px) { .fan-c i { --veil: linear-gradient(180deg, rgba(8,13,16,.78) 0%, rgba(8,13,16,.68) 46%, rgba(8,13,16,0) 76%); } }
@@ -546,8 +546,8 @@ const faqSchema = {
     .f2 { --ty: 20%; --rot: -4deg; }
     .f4 { --ty: 22%; --rot: 4deg; }
     .fan-c + .fan-c { margin-left: -6vw; }
-    .fan-c { padding: 5px; border-radius: 18px; }
-    .fan-c i { border-radius: 13px; }
+    .fan-c { padding: 6px; border-radius: 20px; }
+    .fan-c i { border-radius: 14px; }
     .fan-t { font-size: 16px; }
     .f2 .fan-t, .f4 .fan-t { opacity: 0; }
     .fan-c.f3 .fan-t { padding: 0 6%; white-space: nowrap; }
