@@ -56,12 +56,14 @@ const { overHero } = Astro.props as { overHero?: string }
   .gn-menu[aria-expanded="true"] i:first-child { transform: translateY(3.25px) rotate(45deg); }
   .gn-menu[aria-expanded="true"] i:last-child { transform: translateY(-3.25px) rotate(-45deg); }
   .gn-sp { display: none; }
-  /* 1画面目の上にいる間（指定のあるページだけ）：白い帯と下の線をなくして地になじませ、相談ボタンは線だけにする（主役のボタンを1画面目の1つにする）。スマホのメニューを開いたときは白に戻す */
+  /* 濃い地の1画面目の上にいる間（指定のあるページだけ）：ヘッダーを黒に、字を白に、相談ボタンを白い丸に。スマホのメニューを開いたときは白に戻す */
   .gn[data-over-hero] { transition: background-color .4s var(--ease), border-color .4s var(--ease); }
   .gn[data-over-hero] .gn-links .gn-cta { transition: background-color .4s var(--ease), color .4s var(--ease), box-shadow .4s var(--ease); }
-  .gn.gn-over:not(.open) { background: rgba(243,245,248,.8); border-bottom-color: transparent; }
-  .gn.gn-over:not(.open) .gn-links .gn-cta { background: transparent; color: var(--ink); box-shadow: inset 0 0 0 1px rgba(10,10,10,.26); }
-  .gn.gn-over:not(.open) .gn-links .gn-cta:hover { background: var(--ink); color: #fff; box-shadow: none; }
+  .gn[data-over-hero] .gn-logo { transition: color .4s var(--ease); }
+  .gn.gn-over:not(.open) { --ink: #fff; --ink-2: rgba(255,255,255,.76); --line: rgba(255,255,255,.3); background: #000; border-bottom-color: transparent; backdrop-filter: none; -webkit-backdrop-filter: none; }
+  .gn.gn-over:not(.open) .gn-links .gn-cta { background: #fff; color: #000; }
+  .gn.gn-over:not(.open) .gn-links .gn-cta:hover { background: rgba(255,255,255,.86); color: #000; }
+  .gn.gn-over:not(.open) .gn-menu { background: transparent; }
   @media (max-width: 767px) {
     .gn-in { height: 64px; }
     .gn-links { display: none; }
