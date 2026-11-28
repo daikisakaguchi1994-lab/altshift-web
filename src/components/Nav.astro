@@ -66,6 +66,9 @@ const { overHero } = Astro.props as { overHero?: string }
   .gn.gn-over:not(.open) .gn-links .gn-cta { background: #fff; color: #000; }
   .gn.gn-over:not(.open) .gn-links .gn-cta:hover { background: rgba(255,255,255,.86); color: #000; }
   .gn.gn-over:not(.open) .gn-menu { background: transparent; }
+  .gn.gn-over:not(.open) a:focus-visible, .gn.gn-over:not(.open) button:focus-visible { outline: 2px solid #fff; outline-offset: 2px; }
+  @media (min-width: 768px) and (pointer: coarse) { .gn[data-over-hero] .gn-links .gn-cta { min-height: 44px; } }
+  @media (prefers-reduced-motion: reduce) { .gn[data-over-hero], .gn[data-over-hero] .gn-logo, .gn[data-over-hero] .gn-links .gn-cta { transition: none; } }
   @media (max-width: 767px) {
     .gn-in { height: 64px; }
     .gn-links { display: none; }
